@@ -1,0 +1,16 @@
+{
+  "name": "logies-data-conversion-service",
+  "version": "0.0.0",
+  "description": "Microservice to transform the Logies data of Toerisme Vlaanderen to the semantic Logies model as described by the Logies Basis application profile",
+  "dependencies": {},
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/redpencilio/logies-data-conversion-service.git"
+  },
+  "author": "redpencil.io",
+  "license": "MIT"
+}
