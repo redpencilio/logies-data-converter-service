@@ -1,0 +1,41 @@
+# started registratie-status at 2018-12-28T18:16:48+01:00
+<http://linked.toerismevlaanderen.be/id/conceptschemes/48c5b233-44bc-49d1-93a7-b5005586baa2> a <http://www.w3.org/2004/02/skos/core#ConceptScheme>;
+   <http://mu.semte.ch/vocabularies/core/uuid> "48c5b233-44bc-49d1-93a7-b5005586baa2";
+   <http://purl.org/dc/terms/modified> "2018-12-28"^^<http://www.w3.org/2001/XMLSchema#date>;
+   <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://linked.toerismevlaanderen.be/conceptschemes/48c5b233-44bc-49d1-93a7-b5005586baa2>;
+   <http://www.w3.org/2004/02/skos/core#note> "Status van een geregistreerd logies."@nl,
+     "The status of the registered accommodation."@en;
+   <http://www.w3.org/2004/02/skos/core#prefLabel> "Registratie Statussen"@nl,
+     "Registration Status"@en;
+   <http://xmlns.com/foaf/0.1/page> <http://linked.toerismevlaanderen.be/doc/conceptschemes/48c5b233-44bc-49d1-93a7-b5005586baa2> .
+
+<http://linked.toerismevlaanderen.be/id/concepts/ed624155-305e-4da3-83a0-e4c586ca7b81> a <http://www.w3.org/2004/02/skos/core#Concept>;
+   <http://mu.semte.ch/vocabularies/core/uuid> "ed624155-305e-4da3-83a0-e4c586ca7b81";
+   <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://linked.toerismevlaanderen.be/concepts/ed624155-305e-4da3-83a0-e4c586ca7b81>;
+   <http://www.w3.org/2004/02/skos/core#inScheme> <http://linked.toerismevlaanderen.be/id/conceptschemes/48c5b233-44bc-49d1-93a7-b5005586baa2>;
+   <http://www.w3.org/2004/02/skos/core#notation> "NOTIFIED";
+   <http://www.w3.org/2004/02/skos/core#prefLabel> "Notified"@en,
+     "Aangemeld"@nl;
+   <http://www.w3.org/2004/02/skos/core#topConceptOf> <http://linked.toerismevlaanderen.be/id/conceptschemes/48c5b233-44bc-49d1-93a7-b5005586baa2>;
+   <http://xmlns.com/foaf/0.1/page> <http://linked.toerismevlaanderen.be/doc/concepts/ed624155-305e-4da3-83a0-e4c586ca7b81> .
+
+<http://linked.toerismevlaanderen.be/id/concepts/bb9d1b1b-05ea-4a98-bb54-87084c38da4e> a <http://www.w3.org/2004/02/skos/core#Concept>;
+   <http://mu.semte.ch/vocabularies/core/uuid> "bb9d1b1b-05ea-4a98-bb54-87084c38da4e";
+   <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://linked.toerismevlaanderen.be/concepts/bb9d1b1b-05ea-4a98-bb54-87084c38da4e>;
+   <http://www.w3.org/2004/02/skos/core#inScheme> <http://linked.toerismevlaanderen.be/id/conceptschemes/48c5b233-44bc-49d1-93a7-b5005586baa2>;
+   <http://www.w3.org/2004/02/skos/core#notation> "ACKNOWLEDGED";
+   <http://www.w3.org/2004/02/skos/core#prefLabel> "Erkend"@nl,
+     "Acknowledged"@en;
+   <http://www.w3.org/2004/02/skos/core#topConceptOf> <http://linked.toerismevlaanderen.be/id/conceptschemes/48c5b233-44bc-49d1-93a7-b5005586baa2>;
+   <http://xmlns.com/foaf/0.1/page> <http://linked.toerismevlaanderen.be/doc/concepts/bb9d1b1b-05ea-4a98-bb54-87084c38da4e> .
+
+<http://linked.toerismevlaanderen.be/id/concepts/96dbd436-b59b-4e6e-b080-26a83456dc4e> a <http://www.w3.org/2004/02/skos/core#Concept>;
+   <http://mu.semte.ch/vocabularies/core/uuid> "96dbd436-b59b-4e6e-b080-26a83456dc4e";
+   <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://linked.toerismevlaanderen.be/concepts/96dbd436-b59b-4e6e-b080-26a83456dc4e>;
+   <http://www.w3.org/2004/02/skos/core#inScheme> <http://linked.toerismevlaanderen.be/id/conceptschemes/48c5b233-44bc-49d1-93a7-b5005586baa2>;
+   <http://www.w3.org/2004/02/skos/core#notation> "LICENSED";
+   <http://www.w3.org/2004/02/skos/core#prefLabel> "Vergund"@nl,
+     "Licensed"@en;
+   <http://www.w3.org/2004/02/skos/core#topConceptOf> <http://linked.toerismevlaanderen.be/id/conceptschemes/48c5b233-44bc-49d1-93a7-b5005586baa2>;
+   <http://xmlns.com/foaf/0.1/page> <http://linked.toerismevlaanderen.be/doc/concepts/96dbd436-b59b-4e6e-b080-26a83456dc4e> .
+# finished registratie-status at 2018-12-28T18:16:48+01:00
