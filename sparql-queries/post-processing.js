@@ -1,6 +1,8 @@
 export default `
 PREFIX ext: <http://mu.semte.ch/vocabularies/ext/>
 PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+PREFIX adms: <http://www.w3.org/ns/adms#>
+PREFIX logies: <https://data.vlaanderen.be/ns/logies#>
 
 INSERT {
   GRAPH <${process.env.MU_APPLICATION_GRAPH}> {
@@ -41,4 +43,29 @@ INSERT {
     ?s skos:inScheme <http://linked.toerismevlaanderen.be/id/conceptschemes/48c5b233-44bc-49d1-93a7-b5005586baa2> .
   }
 }
+
+;
+
+INSERT {
+  GRAPH <${process.env.MU_APPLICATION_GRAPH}> {
+    ?s ext:lodgingIdentifier ?identifier .
+  }
+} WHERE {
+  GRAPH <${process.env.MU_APPLICATION_GRAPH}> {
+    ?s a logies:Logies ; adms:identifier ?identifier .
+  }
+}
+
+;
+
+INSERT {
+  GRAPH <${process.env.MU_APPLICATION_GRAPH}> {
+    ?s ext:registrationIdentifier ?identifier .
+  }
+} WHERE {
+  GRAPH <${process.env.MU_APPLICATION_GRAPH}> {
+    ?s a logies:Registratie ; adms:identifier ?identifier .
+  }
+}
+
 `
