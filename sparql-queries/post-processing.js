@@ -3,6 +3,7 @@ PREFIX ext: <http://mu.semte.ch/vocabularies/ext/>
 PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
 PREFIX adms: <http://www.w3.org/ns/adms#>
 PREFIX logies: <https://data.vlaanderen.be/ns/logies#>
+PREFIX schema: <http://schema.org/>
 
 INSERT {
   GRAPH <${process.env.MU_APPLICATION_GRAPH}> {
@@ -65,6 +66,30 @@ INSERT {
 } WHERE {
   GRAPH <${process.env.MU_APPLICATION_GRAPH}> {
     ?s a logies:Registratie ; adms:identifier ?identifier .
+  }
+}
+
+;
+
+INSERT {
+  GRAPH <${process.env.MU_APPLICATION_GRAPH}> {
+    ?s ext:ratingAuthor ?author .
+  }
+} WHERE {
+  GRAPH <${process.env.MU_APPLICATION_GRAPH}> {
+    ?s a schema:Rating ; schema:author ?author .
+  }
+}
+
+;
+
+INSERT {
+  GRAPH <${process.env.MU_APPLICATION_GRAPH}> {
+    ?s ext:qualityLabelAuthor ?author .
+  }
+} WHERE {
+  GRAPH <${process.env.MU_APPLICATION_GRAPH}> {
+    ?s a logies:Kwaliteitslabel ; schema:author ?author .
   }
 }
 
