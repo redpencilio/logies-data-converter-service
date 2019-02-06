@@ -1,0 +1,1229 @@
+# started faciliteiten at 2019-01-30T21:51:34+01:00
+<http://linked.toerismevlaanderen.be/id/concepts/1790fa40-17be-43a2-aab5-e8019ab768dd> a <http://www.w3.org/2004/02/skos/core#Concept>,
+     <https://data.vlaanderen.be/ns/logies#Faciliteit>;
+   <http://mu.semte.ch/vocabularies/core/uuid> "1790fa40-17be-43a2-aab5-e8019ab768dd";
+   <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://linked.toerismevlaanderen.be/concepts/1790fa40-17be-43a2-aab5-e8019ab768dd>;
+   <http://www.w3.org/2004/02/skos/core#inScheme> <http://linked.toerismevlaanderen.be/id/conceptschemes/93ea6af1-97d6-4ceb-9b0d-819aa5c26a3e>;
+   <http://www.w3.org/2004/02/skos/core#prefLabel> "Betalingsmogelijkheden"@nl;
+   <http://www.w3.org/2004/02/skos/core#topConceptOf> <http://linked.toerismevlaanderen.be/id/conceptschemes/93ea6af1-97d6-4ceb-9b0d-819aa5c26a3e>;
+   <http://xmlns.com/foaf/0.1/page> <http://linked.toerismevlaanderen.be/doc/concepts/1790fa40-17be-43a2-aab5-e8019ab768dd> .
+
+<http://linked.toerismevlaanderen.be/id/concepts/329c3f55-e322-4249-9b99-1b6fe015c29c> a <http://www.w3.org/2004/02/skos/core#Concept>,
+     <https://data.vlaanderen.be/ns/logies#Faciliteit>;
+   <http://mu.semte.ch/vocabularies/core/uuid> "329c3f55-e322-4249-9b99-1b6fe015c29c";
+   <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://linked.toerismevlaanderen.be/concepts/329c3f55-e322-4249-9b99-1b6fe015c29c>;
+   <http://www.w3.org/2004/02/skos/core#broader> <http://linked.toerismevlaanderen.be/id/concepts/1790fa40-17be-43a2-aab5-e8019ab768dd>;
+   <http://www.w3.org/2004/02/skos/core#inScheme> <http://linked.toerismevlaanderen.be/id/conceptschemes/93ea6af1-97d6-4ceb-9b0d-819aa5c26a3e>;
+   <http://www.w3.org/2004/02/skos/core#note> "Cash payment with physical form sof currency, such as banknotes and coins, is allowed."@en,
+     """Betaling met een tastbare vorm van geld (munten en biljetten) is mogelijk.
+"""@nl;
+   <http://www.w3.org/2004/02/skos/core#prefLabel> "Cash"@nl,
+     "Cash"@en;
+   <http://xmlns.com/foaf/0.1/page> <http://linked.toerismevlaanderen.be/doc/concepts/329c3f55-e322-4249-9b99-1b6fe015c29c> .
+
+<http://linked.toerismevlaanderen.be/id/concepts/4399b183-785d-43eb-adb5-58181962cc43> a <http://www.w3.org/2004/02/skos/core#Concept>,
+     <https://data.vlaanderen.be/ns/logies#Faciliteit>;
+   <http://mu.semte.ch/vocabularies/core/uuid> "4399b183-785d-43eb-adb5-58181962cc43";
+   <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://linked.toerismevlaanderen.be/concepts/4399b183-785d-43eb-adb5-58181962cc43>;
+   <http://www.w3.org/2004/02/skos/core#broader> <http://linked.toerismevlaanderen.be/id/concepts/1790fa40-17be-43a2-aab5-e8019ab768dd>;
+   <http://www.w3.org/2004/02/skos/core#inScheme> <http://linked.toerismevlaanderen.be/id/conceptschemes/93ea6af1-97d6-4ceb-9b0d-819aa5c26a3e>;
+   <http://www.w3.org/2004/02/skos/core#note> "Betalingen kunnen worden verricht bij een betaalautomaat met een kredietkaart.  Voorbeelden zijn Visa, Mastercard en American Express."@nl,
+     "A credit card is a plastic payment card that can be used instead of cash when making purchases. The card issuer (usually a bank) creates a revolving account and grants a line of credit to the cardholder, from which the cardholder can borrow money for payment to a merchant."@en;
+   <http://www.w3.org/2004/02/skos/core#prefLabel> "Credit card"@en,
+     "Kredietkaart"@nl;
+   <http://xmlns.com/foaf/0.1/page> <http://linked.toerismevlaanderen.be/doc/concepts/4399b183-785d-43eb-adb5-58181962cc43> .
+
+<http://linked.toerismevlaanderen.be/id/concepts/010181e0-2301-43e6-acae-95f45374b407> a <http://www.w3.org/2004/02/skos/core#Concept>,
+     <https://data.vlaanderen.be/ns/logies#Faciliteit>;
+   <http://mu.semte.ch/vocabularies/core/uuid> "010181e0-2301-43e6-acae-95f45374b407";
+   <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://linked.toerismevlaanderen.be/concepts/010181e0-2301-43e6-acae-95f45374b407>;
+   <http://www.w3.org/2004/02/skos/core#broader> <http://linked.toerismevlaanderen.be/id/concepts/1790fa40-17be-43a2-aab5-e8019ab768dd>;
+   <http://www.w3.org/2004/02/skos/core#inScheme> <http://linked.toerismevlaanderen.be/id/conceptschemes/93ea6af1-97d6-4ceb-9b0d-819aa5c26a3e>;
+   <http://www.w3.org/2004/02/skos/core#note> "Betalingen kunnen worden verricht bij een betaalautomaat met een debetkaart. Bedragen worden afgeschreven van de betaalrekening bij het uitvoeren van de betaling of een geldopname."@nl,
+     """Payment is possible with a debit card (also known as a bank card, plastic card or check card) is a plastic payment card that can be used instead of cash when making purchases. The money comes directly from the user's bank account when performing a transaction.
+"""@en;
+   <http://www.w3.org/2004/02/skos/core#prefLabel> "Debit card"@en,
+     "Debetkaart"@nl;
+   <http://xmlns.com/foaf/0.1/page> <http://linked.toerismevlaanderen.be/doc/concepts/010181e0-2301-43e6-acae-95f45374b407> .
+
+<http://linked.toerismevlaanderen.be/id/concepts/15b78fcd-2fcf-4485-a236-279f65812c24> a <http://www.w3.org/2004/02/skos/core#Concept>,
+     <https://data.vlaanderen.be/ns/logies#Faciliteit>;
+   <http://mu.semte.ch/vocabularies/core/uuid> "15b78fcd-2fcf-4485-a236-279f65812c24";
+   <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://linked.toerismevlaanderen.be/concepts/15b78fcd-2fcf-4485-a236-279f65812c24>;
+   <http://www.w3.org/2004/02/skos/core#broader> <http://linked.toerismevlaanderen.be/id/concepts/1790fa40-17be-43a2-aab5-e8019ab768dd>;
+   <http://www.w3.org/2004/02/skos/core#inScheme> <http://linked.toerismevlaanderen.be/id/conceptschemes/93ea6af1-97d6-4ceb-9b0d-819aa5c26a3e>;
+   <http://www.w3.org/2004/02/skos/core#note> "Payment via wire transfer, bank transfer or credit transfer is possible. This a method of electronic funds transfer from one person or entity to another. "@en,
+     "Betaling via een overschrijving of bankoverschrijving is mogelijk. Hierbij wordt het tegoed van de ene bankrekening naar de andere overgezet in directe opdracht van de verzender."@nl;
+   <http://www.w3.org/2004/02/skos/core#prefLabel> "Overschrijving"@nl,
+     "Wire transfer"@en;
+   <http://xmlns.com/foaf/0.1/page> <http://linked.toerismevlaanderen.be/doc/concepts/15b78fcd-2fcf-4485-a236-279f65812c24> .
+
+<http://linked.toerismevlaanderen.be/id/concepts/397b62d7-14fe-4356-9ae2-2041fad7aedd> a <http://www.w3.org/2004/02/skos/core#Concept>,
+     <https://data.vlaanderen.be/ns/logies#Faciliteit>;
+   <http://mu.semte.ch/vocabularies/core/uuid> "397b62d7-14fe-4356-9ae2-2041fad7aedd";
+   <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://linked.toerismevlaanderen.be/concepts/397b62d7-14fe-4356-9ae2-2041fad7aedd>;
+   <http://www.w3.org/2004/02/skos/core#inScheme> <http://linked.toerismevlaanderen.be/id/conceptschemes/93ea6af1-97d6-4ceb-9b0d-819aa5c26a3e>;
+   <http://www.w3.org/2004/02/skos/core#prefLabel> "Voeding"@nl;
+   <http://www.w3.org/2004/02/skos/core#topConceptOf> <http://linked.toerismevlaanderen.be/id/conceptschemes/93ea6af1-97d6-4ceb-9b0d-819aa5c26a3e>;
+   <http://xmlns.com/foaf/0.1/page> <http://linked.toerismevlaanderen.be/doc/concepts/397b62d7-14fe-4356-9ae2-2041fad7aedd> .
+
+<http://linked.toerismevlaanderen.be/id/concepts/07b0ed42-c5e6-4fac-bf0a-629985b7de35> a <http://www.w3.org/2004/02/skos/core#Concept>,
+     <https://data.vlaanderen.be/ns/logies#Faciliteit>;
+   <http://mu.semte.ch/vocabularies/core/uuid> "07b0ed42-c5e6-4fac-bf0a-629985b7de35";
+   <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://linked.toerismevlaanderen.be/concepts/07b0ed42-c5e6-4fac-bf0a-629985b7de35>;
+   <http://www.w3.org/2004/02/skos/core#broader> <http://linked.toerismevlaanderen.be/id/concepts/397b62d7-14fe-4356-9ae2-2041fad7aedd>;
+   <http://www.w3.org/2004/02/skos/core#inScheme> <http://linked.toerismevlaanderen.be/id/conceptschemes/93ea6af1-97d6-4ceb-9b0d-819aa5c26a3e>;
+   <http://www.w3.org/2004/02/skos/core#note> """Een bar / café is een plaats waar je tegen betaling allerlei dranken kunt nuttigen.
+Een cafetaria is een plaats waar je tegen betaling allerlei dranken en/of snacks kunt nuttigen."""@nl;
+   <http://www.w3.org/2004/02/skos/core#prefLabel> "Bar/café/cafetaria"@nl;
+   <http://xmlns.com/foaf/0.1/page> <http://linked.toerismevlaanderen.be/doc/concepts/07b0ed42-c5e6-4fac-bf0a-629985b7de35> .
+
+<http://linked.toerismevlaanderen.be/id/concepts/34f54cfe-268f-47b3-8787-931bdc6715ee> a <http://www.w3.org/2004/02/skos/core#Concept>,
+     <https://data.vlaanderen.be/ns/logies#Faciliteit>;
+   <http://mu.semte.ch/vocabularies/core/uuid> "34f54cfe-268f-47b3-8787-931bdc6715ee";
+   <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://linked.toerismevlaanderen.be/concepts/34f54cfe-268f-47b3-8787-931bdc6715ee>;
+   <http://www.w3.org/2004/02/skos/core#broader> <http://linked.toerismevlaanderen.be/id/concepts/397b62d7-14fe-4356-9ae2-2041fad7aedd>;
+   <http://www.w3.org/2004/02/skos/core#inScheme> <http://linked.toerismevlaanderen.be/id/conceptschemes/93ea6af1-97d6-4ceb-9b0d-819aa5c26a3e>;
+   <http://www.w3.org/2004/02/skos/core#note> "Maaltijden aanbieden is het aanreiken, presenteren van een hoeveelheid toebereid voedsel."@nl;
+   <http://www.w3.org/2004/02/skos/core#prefLabel> "Maaltijden aangeboden"@nl;
+   <http://xmlns.com/foaf/0.1/page> <http://linked.toerismevlaanderen.be/doc/concepts/34f54cfe-268f-47b3-8787-931bdc6715ee> .
+
+<http://linked.toerismevlaanderen.be/id/concepts/69de60ff-f83e-4149-9da3-aedea07e746e> a <http://www.w3.org/2004/02/skos/core#Concept>,
+     <https://data.vlaanderen.be/ns/logies#Faciliteit>;
+   <http://mu.semte.ch/vocabularies/core/uuid> "69de60ff-f83e-4149-9da3-aedea07e746e";
+   <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://linked.toerismevlaanderen.be/concepts/69de60ff-f83e-4149-9da3-aedea07e746e>;
+   <http://www.w3.org/2004/02/skos/core#broader> <http://linked.toerismevlaanderen.be/id/concepts/34f54cfe-268f-47b3-8787-931bdc6715ee>;
+   <http://www.w3.org/2004/02/skos/core#inScheme> <http://linked.toerismevlaanderen.be/id/conceptschemes/93ea6af1-97d6-4ceb-9b0d-819aa5c26a3e>;
+   <http://www.w3.org/2004/02/skos/core#note> "Een restaurant is een uitgaansgelegenheid waar je(tegen betaling) kunnen eten."@nl;
+   <http://www.w3.org/2004/02/skos/core#prefLabel> "Restaurant"@nl;
+   <http://xmlns.com/foaf/0.1/page> <http://linked.toerismevlaanderen.be/doc/concepts/69de60ff-f83e-4149-9da3-aedea07e746e> .
+
+<http://linked.toerismevlaanderen.be/id/concepts/88cc8971-f530-4810-807a-88127e3ca154> a <http://www.w3.org/2004/02/skos/core#Concept>,
+     <https://data.vlaanderen.be/ns/logies#Faciliteit>;
+   <http://mu.semte.ch/vocabularies/core/uuid> "88cc8971-f530-4810-807a-88127e3ca154";
+   <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://linked.toerismevlaanderen.be/concepts/88cc8971-f530-4810-807a-88127e3ca154>;
+   <http://www.w3.org/2004/02/skos/core#broader> <http://linked.toerismevlaanderen.be/id/concepts/34f54cfe-268f-47b3-8787-931bdc6715ee>;
+   <http://www.w3.org/2004/02/skos/core#inScheme> <http://linked.toerismevlaanderen.be/id/conceptschemes/93ea6af1-97d6-4ceb-9b0d-819aa5c26a3e>;
+   <http://www.w3.org/2004/02/skos/core#note> "Lunch is het eten van een hoeveelheid toebereid voedsel die je 's middags gebruikt."@nl;
+   <http://www.w3.org/2004/02/skos/core#prefLabel> "Lunch"@nl;
+   <http://xmlns.com/foaf/0.1/page> <http://linked.toerismevlaanderen.be/doc/concepts/88cc8971-f530-4810-807a-88127e3ca154> .
+
+<http://linked.toerismevlaanderen.be/id/concepts/d0c9b5c0-3988-470c-a428-a6f7c40033ac> a <http://www.w3.org/2004/02/skos/core#Concept>,
+     <https://data.vlaanderen.be/ns/logies#Faciliteit>;
+   <http://mu.semte.ch/vocabularies/core/uuid> "d0c9b5c0-3988-470c-a428-a6f7c40033ac";
+   <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://linked.toerismevlaanderen.be/concepts/d0c9b5c0-3988-470c-a428-a6f7c40033ac>;
+   <http://www.w3.org/2004/02/skos/core#broader> <http://linked.toerismevlaanderen.be/id/concepts/34f54cfe-268f-47b3-8787-931bdc6715ee>;
+   <http://www.w3.org/2004/02/skos/core#inScheme> <http://linked.toerismevlaanderen.be/id/conceptschemes/93ea6af1-97d6-4ceb-9b0d-819aa5c26a3e>;
+   <http://www.w3.org/2004/02/skos/core#note> "Ontbijt is het eten van een hoeveelheid toebereid voedsel die je 's morgens gebruikt"@nl;
+   <http://www.w3.org/2004/02/skos/core#prefLabel> "Ontbijt"@nl;
+   <http://xmlns.com/foaf/0.1/page> <http://linked.toerismevlaanderen.be/doc/concepts/d0c9b5c0-3988-470c-a428-a6f7c40033ac> .
+
+<http://linked.toerismevlaanderen.be/id/concepts/ec489e47-78db-4a0b-82ac-334319084033> a <http://www.w3.org/2004/02/skos/core#Concept>,
+     <https://data.vlaanderen.be/ns/logies#Faciliteit>;
+   <http://mu.semte.ch/vocabularies/core/uuid> "ec489e47-78db-4a0b-82ac-334319084033";
+   <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://linked.toerismevlaanderen.be/concepts/ec489e47-78db-4a0b-82ac-334319084033>;
+   <http://www.w3.org/2004/02/skos/core#broader> <http://linked.toerismevlaanderen.be/id/concepts/34f54cfe-268f-47b3-8787-931bdc6715ee>;
+   <http://www.w3.org/2004/02/skos/core#inScheme> <http://linked.toerismevlaanderen.be/id/conceptschemes/93ea6af1-97d6-4ceb-9b0d-819aa5c26a3e>;
+   <http://www.w3.org/2004/02/skos/core#note> "Diner is het eten van een hoeveelheid toebereid voedsel die je 's avonds gebruikt."@nl;
+   <http://www.w3.org/2004/02/skos/core#prefLabel> "Diner"@nl;
+   <http://xmlns.com/foaf/0.1/page> <http://linked.toerismevlaanderen.be/doc/concepts/ec489e47-78db-4a0b-82ac-334319084033> .
+
+<http://linked.toerismevlaanderen.be/id/concepts/b87a7546-861d-41ff-960c-d94325bdcc99> a <http://www.w3.org/2004/02/skos/core#Concept>,
+     <https://data.vlaanderen.be/ns/logies#Faciliteit>;
+   <http://mu.semte.ch/vocabularies/core/uuid> "b87a7546-861d-41ff-960c-d94325bdcc99";
+   <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://linked.toerismevlaanderen.be/concepts/b87a7546-861d-41ff-960c-d94325bdcc99>;
+   <http://www.w3.org/2004/02/skos/core#broader> <http://linked.toerismevlaanderen.be/id/concepts/34f54cfe-268f-47b3-8787-931bdc6715ee>;
+   <http://www.w3.org/2004/02/skos/core#inScheme> <http://linked.toerismevlaanderen.be/id/conceptschemes/93ea6af1-97d6-4ceb-9b0d-819aa5c26a3e>;
+   <http://www.w3.org/2004/02/skos/core#note> "Maaltijden voor groepen is het eten van een hoeveelheid voedsel met twee of meer personen die met elkaar omgaan omdat zij zich met elkaar indentificeren of omdat zij een gezamelijk doel hebben."@nl;
+   <http://www.w3.org/2004/02/skos/core#prefLabel> "Maaltijden voor groepen"@nl;
+   <http://xmlns.com/foaf/0.1/page> <http://linked.toerismevlaanderen.be/doc/concepts/b87a7546-861d-41ff-960c-d94325bdcc99> .
+
+<http://linked.toerismevlaanderen.be/id/concepts/8c64abb2-03f8-49e4-965a-1b315a004bd1> a <http://www.w3.org/2004/02/skos/core#Concept>,
+     <https://data.vlaanderen.be/ns/logies#Faciliteit>;
+   <http://mu.semte.ch/vocabularies/core/uuid> "8c64abb2-03f8-49e4-965a-1b315a004bd1";
+   <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://linked.toerismevlaanderen.be/concepts/8c64abb2-03f8-49e4-965a-1b315a004bd1>;
+   <http://www.w3.org/2004/02/skos/core#broader> <http://linked.toerismevlaanderen.be/id/concepts/34f54cfe-268f-47b3-8787-931bdc6715ee>;
+   <http://www.w3.org/2004/02/skos/core#inScheme> <http://linked.toerismevlaanderen.be/id/conceptschemes/93ea6af1-97d6-4ceb-9b0d-819aa5c26a3e>;
+   <http://www.w3.org/2004/02/skos/core#note> "Roomservice is een dienstverlening voor het verzorgen van eten en drinken op de kamer van een logies."@nl;
+   <http://www.w3.org/2004/02/skos/core#prefLabel> "Roomservice"@nl;
+   <http://xmlns.com/foaf/0.1/page> <http://linked.toerismevlaanderen.be/doc/concepts/8c64abb2-03f8-49e4-965a-1b315a004bd1> .
+
+<http://linked.toerismevlaanderen.be/id/concepts/814c4a78-1f1f-4ab1-b347-045a5f155ba4> a <http://www.w3.org/2004/02/skos/core#Concept>,
+     <https://data.vlaanderen.be/ns/logies#Faciliteit>;
+   <http://mu.semte.ch/vocabularies/core/uuid> "814c4a78-1f1f-4ab1-b347-045a5f155ba4";
+   <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://linked.toerismevlaanderen.be/concepts/814c4a78-1f1f-4ab1-b347-045a5f155ba4>;
+   <http://www.w3.org/2004/02/skos/core#broader> <http://linked.toerismevlaanderen.be/id/concepts/34f54cfe-268f-47b3-8787-931bdc6715ee>;
+   <http://www.w3.org/2004/02/skos/core#inScheme> <http://linked.toerismevlaanderen.be/id/conceptschemes/93ea6af1-97d6-4ceb-9b0d-819aa5c26a3e>;
+   <http://www.w3.org/2004/02/skos/core#note> "Picknickservice is een dienstverlening voor het verzorgen van eten en drinken in de buitenlucht, ergens anders dan op een horecaterras of bij een woning."@nl;
+   <http://www.w3.org/2004/02/skos/core#prefLabel> "Picknickservice"@nl;
+   <http://xmlns.com/foaf/0.1/page> <http://linked.toerismevlaanderen.be/doc/concepts/814c4a78-1f1f-4ab1-b347-045a5f155ba4> .
+
+<http://linked.toerismevlaanderen.be/id/concepts/a3ef4235-14cb-4364-b2fb-0a75253f7699> a <http://www.w3.org/2004/02/skos/core#Concept>,
+     <https://data.vlaanderen.be/ns/logies#Faciliteit>;
+   <http://mu.semte.ch/vocabularies/core/uuid> "a3ef4235-14cb-4364-b2fb-0a75253f7699";
+   <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://linked.toerismevlaanderen.be/concepts/a3ef4235-14cb-4364-b2fb-0a75253f7699>;
+   <http://www.w3.org/2004/02/skos/core#broader> <http://linked.toerismevlaanderen.be/id/concepts/34f54cfe-268f-47b3-8787-931bdc6715ee>;
+   <http://www.w3.org/2004/02/skos/core#inScheme> <http://linked.toerismevlaanderen.be/id/conceptschemes/93ea6af1-97d6-4ceb-9b0d-819aa5c26a3e>;
+   <http://www.w3.org/2004/02/skos/core#note> "Een snack of tussendoortje is een kleine hoeveelheid voedsel, die meestal buiten de normale maaltijden genuttigd wordt."@nl;
+   <http://www.w3.org/2004/02/skos/core#prefLabel> "Snacks"@nl;
+   <http://xmlns.com/foaf/0.1/page> <http://linked.toerismevlaanderen.be/doc/concepts/a3ef4235-14cb-4364-b2fb-0a75253f7699> .
+
+<http://linked.toerismevlaanderen.be/id/concepts/3ef85d82-63bc-4162-b3f3-2ca216fdb297> a <http://www.w3.org/2004/02/skos/core#Concept>,
+     <https://data.vlaanderen.be/ns/logies#Faciliteit>;
+   <http://mu.semte.ch/vocabularies/core/uuid> "3ef85d82-63bc-4162-b3f3-2ca216fdb297";
+   <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://linked.toerismevlaanderen.be/concepts/3ef85d82-63bc-4162-b3f3-2ca216fdb297>;
+   <http://www.w3.org/2004/02/skos/core#broader> <http://linked.toerismevlaanderen.be/id/concepts/34f54cfe-268f-47b3-8787-931bdc6715ee>;
+   <http://www.w3.org/2004/02/skos/core#inScheme> <http://linked.toerismevlaanderen.be/id/conceptschemes/93ea6af1-97d6-4ceb-9b0d-819aa5c26a3e>;
+   <http://www.w3.org/2004/02/skos/core#note> "Aangepast maaltijden zijn een hoeveelheid voedsel waarvan de samenstelling aangepast is aan een of meerdere specifieke doelgroepen, eventueel aan persoonlijke gezondheidstoestand van de gebruikers."@nl;
+   <http://www.w3.org/2004/02/skos/core#prefLabel> "Aangepaste maaltijden"@nl;
+   <http://xmlns.com/foaf/0.1/page> <http://linked.toerismevlaanderen.be/doc/concepts/3ef85d82-63bc-4162-b3f3-2ca216fdb297> .
+
+<http://linked.toerismevlaanderen.be/id/concepts/19ad54de-cedb-4090-b9a3-4085d034e0d4> a <http://www.w3.org/2004/02/skos/core#Concept>,
+     <https://data.vlaanderen.be/ns/logies#Faciliteit>;
+   <http://mu.semte.ch/vocabularies/core/uuid> "19ad54de-cedb-4090-b9a3-4085d034e0d4";
+   <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://linked.toerismevlaanderen.be/concepts/19ad54de-cedb-4090-b9a3-4085d034e0d4>;
+   <http://www.w3.org/2004/02/skos/core#broader> <http://linked.toerismevlaanderen.be/id/concepts/397b62d7-14fe-4356-9ae2-2041fad7aedd>;
+   <http://www.w3.org/2004/02/skos/core#inScheme> <http://linked.toerismevlaanderen.be/id/conceptschemes/93ea6af1-97d6-4ceb-9b0d-819aa5c26a3e>;
+   <http://www.w3.org/2004/02/skos/core#note> "Een refter is een eetzaal in collectieve voorzieningen zoals internaten, kazernes, kloosters of verblijven."@nl;
+   <http://www.w3.org/2004/02/skos/core#prefLabel> "Refter"@nl;
+   <http://xmlns.com/foaf/0.1/page> <http://linked.toerismevlaanderen.be/doc/concepts/19ad54de-cedb-4090-b9a3-4085d034e0d4> .
+
+<http://linked.toerismevlaanderen.be/id/concepts/8efed9c4-cfac-497f-ac9d-6263a356f13d> a <http://www.w3.org/2004/02/skos/core#Concept>,
+     <https://data.vlaanderen.be/ns/logies#Faciliteit>;
+   <http://mu.semte.ch/vocabularies/core/uuid> "8efed9c4-cfac-497f-ac9d-6263a356f13d";
+   <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://linked.toerismevlaanderen.be/concepts/8efed9c4-cfac-497f-ac9d-6263a356f13d>;
+   <http://www.w3.org/2004/02/skos/core#broader> <http://linked.toerismevlaanderen.be/id/concepts/397b62d7-14fe-4356-9ae2-2041fad7aedd>;
+   <http://www.w3.org/2004/02/skos/core#inScheme> <http://linked.toerismevlaanderen.be/id/conceptschemes/93ea6af1-97d6-4ceb-9b0d-819aa5c26a3e>;
+   <http://www.w3.org/2004/02/skos/core#note> "Mogelijkheden om zelf maaltijden te bereiden in de uitbating."@nl;
+   <http://www.w3.org/2004/02/skos/core#prefLabel> "Zelfkook mogelijkheden"@nl;
+   <http://xmlns.com/foaf/0.1/page> <http://linked.toerismevlaanderen.be/doc/concepts/8efed9c4-cfac-497f-ac9d-6263a356f13d> .
+
+<http://linked.toerismevlaanderen.be/id/concepts/88ae5d07-262f-4451-a6e0-7323e40b9742> a <http://www.w3.org/2004/02/skos/core#Concept>,
+     <https://data.vlaanderen.be/ns/logies#Faciliteit>;
+   <http://mu.semte.ch/vocabularies/core/uuid> "88ae5d07-262f-4451-a6e0-7323e40b9742";
+   <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://linked.toerismevlaanderen.be/concepts/88ae5d07-262f-4451-a6e0-7323e40b9742>;
+   <http://www.w3.org/2004/02/skos/core#broader> <http://linked.toerismevlaanderen.be/id/concepts/8efed9c4-cfac-497f-ac9d-6263a356f13d>;
+   <http://www.w3.org/2004/02/skos/core#inScheme> <http://linked.toerismevlaanderen.be/id/conceptschemes/93ea6af1-97d6-4ceb-9b0d-819aa5c26a3e>;
+   <http://www.w3.org/2004/02/skos/core#note> "De uitbating beschikt over voorzieningen om voedsel te roosteren (barbecueën)"@nl;
+   <http://www.w3.org/2004/02/skos/core#prefLabel> "barbecuevoorzieningen"@nl;
+   <http://xmlns.com/foaf/0.1/page> <http://linked.toerismevlaanderen.be/doc/concepts/88ae5d07-262f-4451-a6e0-7323e40b9742> .
+
+<http://linked.toerismevlaanderen.be/id/concepts/5e0b8e1e-860e-4616-aa7e-e5cb4473a5d8> a <http://www.w3.org/2004/02/skos/core#Concept>,
+     <https://data.vlaanderen.be/ns/logies#Faciliteit>;
+   <http://mu.semte.ch/vocabularies/core/uuid> "5e0b8e1e-860e-4616-aa7e-e5cb4473a5d8";
+   <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://linked.toerismevlaanderen.be/concepts/5e0b8e1e-860e-4616-aa7e-e5cb4473a5d8>;
+   <http://www.w3.org/2004/02/skos/core#broader> <http://linked.toerismevlaanderen.be/id/concepts/8efed9c4-cfac-497f-ac9d-6263a356f13d>;
+   <http://www.w3.org/2004/02/skos/core#inScheme> <http://linked.toerismevlaanderen.be/id/conceptschemes/93ea6af1-97d6-4ceb-9b0d-819aa5c26a3e>;
+   <http://www.w3.org/2004/02/skos/core#note> "De uitbating beschikt over voorzieningen om voedsel in te vriezen"@nl;
+   <http://www.w3.org/2004/02/skos/core#prefLabel> "diepvriezer"@nl;
+   <http://xmlns.com/foaf/0.1/page> <http://linked.toerismevlaanderen.be/doc/concepts/5e0b8e1e-860e-4616-aa7e-e5cb4473a5d8> .
+
+<http://linked.toerismevlaanderen.be/id/concepts/bde1104f-b17e-45d5-a961-1e8e1c7d96a0> a <http://www.w3.org/2004/02/skos/core#Concept>,
+     <https://data.vlaanderen.be/ns/logies#Faciliteit>;
+   <http://mu.semte.ch/vocabularies/core/uuid> "bde1104f-b17e-45d5-a961-1e8e1c7d96a0";
+   <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://linked.toerismevlaanderen.be/concepts/bde1104f-b17e-45d5-a961-1e8e1c7d96a0>;
+   <http://www.w3.org/2004/02/skos/core#broader> <http://linked.toerismevlaanderen.be/id/concepts/8efed9c4-cfac-497f-ac9d-6263a356f13d>;
+   <http://www.w3.org/2004/02/skos/core#inScheme> <http://linked.toerismevlaanderen.be/id/conceptschemes/93ea6af1-97d6-4ceb-9b0d-819aa5c26a3e>;
+   <http://www.w3.org/2004/02/skos/core#note> "De uitbating beschikt over voorzieningen om voedsel koel te houden"@nl;
+   <http://www.w3.org/2004/02/skos/core#prefLabel> "ijskast"@nl;
+   <http://xmlns.com/foaf/0.1/page> <http://linked.toerismevlaanderen.be/doc/concepts/bde1104f-b17e-45d5-a961-1e8e1c7d96a0> .
+
+<http://linked.toerismevlaanderen.be/id/concepts/587bcad4-a3e7-4f5c-ba24-c6a60e85b9ed> a <http://www.w3.org/2004/02/skos/core#Concept>,
+     <https://data.vlaanderen.be/ns/logies#Faciliteit>;
+   <http://mu.semte.ch/vocabularies/core/uuid> "587bcad4-a3e7-4f5c-ba24-c6a60e85b9ed";
+   <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://linked.toerismevlaanderen.be/concepts/587bcad4-a3e7-4f5c-ba24-c6a60e85b9ed>;
+   <http://www.w3.org/2004/02/skos/core#broader> <http://linked.toerismevlaanderen.be/id/concepts/8efed9c4-cfac-497f-ac9d-6263a356f13d>;
+   <http://www.w3.org/2004/02/skos/core#inScheme> <http://linked.toerismevlaanderen.be/id/conceptschemes/93ea6af1-97d6-4ceb-9b0d-819aa5c26a3e>;
+   <http://www.w3.org/2004/02/skos/core#note> "De uitbating beschikt over een ingerichte keuken, incl. servies, bestek en kookmateriaal"@nl;
+   <http://www.w3.org/2004/02/skos/core#prefLabel> "keuken"@nl;
+   <http://xmlns.com/foaf/0.1/page> <http://linked.toerismevlaanderen.be/doc/concepts/587bcad4-a3e7-4f5c-ba24-c6a60e85b9ed> .
+
+<http://linked.toerismevlaanderen.be/id/concepts/59ed69a0-5439-48e2-a9b6-04771ffa12ea> a <http://www.w3.org/2004/02/skos/core#Concept>,
+     <https://data.vlaanderen.be/ns/logies#Faciliteit>;
+   <http://mu.semte.ch/vocabularies/core/uuid> "59ed69a0-5439-48e2-a9b6-04771ffa12ea";
+   <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://linked.toerismevlaanderen.be/concepts/59ed69a0-5439-48e2-a9b6-04771ffa12ea>;
+   <http://www.w3.org/2004/02/skos/core#broader> <http://linked.toerismevlaanderen.be/id/concepts/8efed9c4-cfac-497f-ac9d-6263a356f13d>;
+   <http://www.w3.org/2004/02/skos/core#inScheme> <http://linked.toerismevlaanderen.be/id/conceptschemes/93ea6af1-97d6-4ceb-9b0d-819aa5c26a3e>;
+   <http://www.w3.org/2004/02/skos/core#note> "De uitbating beschikt over kookplaten voor het bereiden van voedsel"@nl;
+   <http://www.w3.org/2004/02/skos/core#prefLabel> "kookplaten"@nl;
+   <http://xmlns.com/foaf/0.1/page> <http://linked.toerismevlaanderen.be/doc/concepts/59ed69a0-5439-48e2-a9b6-04771ffa12ea> .
+
+<http://linked.toerismevlaanderen.be/id/concepts/d32c70a3-b97d-4359-aad5-d7c550e7ea02> a <http://www.w3.org/2004/02/skos/core#Concept>,
+     <https://data.vlaanderen.be/ns/logies#Faciliteit>;
+   <http://mu.semte.ch/vocabularies/core/uuid> "d32c70a3-b97d-4359-aad5-d7c550e7ea02";
+   <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://linked.toerismevlaanderen.be/concepts/d32c70a3-b97d-4359-aad5-d7c550e7ea02>;
+   <http://www.w3.org/2004/02/skos/core#broader> <http://linked.toerismevlaanderen.be/id/concepts/8efed9c4-cfac-497f-ac9d-6263a356f13d>;
+   <http://www.w3.org/2004/02/skos/core#inScheme> <http://linked.toerismevlaanderen.be/id/conceptschemes/93ea6af1-97d6-4ceb-9b0d-819aa5c26a3e>;
+   <http://www.w3.org/2004/02/skos/core#note> "De uitbating beschikt over een microgofloven"@nl;
+   <http://www.w3.org/2004/02/skos/core#prefLabel> "microgolf"@nl;
+   <http://xmlns.com/foaf/0.1/page> <http://linked.toerismevlaanderen.be/doc/concepts/d32c70a3-b97d-4359-aad5-d7c550e7ea02> .
+
+<http://linked.toerismevlaanderen.be/id/concepts/980e9e2f-c3cb-4c6f-a2a7-8574473f5f3f> a <http://www.w3.org/2004/02/skos/core#Concept>,
+     <https://data.vlaanderen.be/ns/logies#Faciliteit>;
+   <http://mu.semte.ch/vocabularies/core/uuid> "980e9e2f-c3cb-4c6f-a2a7-8574473f5f3f";
+   <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://linked.toerismevlaanderen.be/concepts/980e9e2f-c3cb-4c6f-a2a7-8574473f5f3f>;
+   <http://www.w3.org/2004/02/skos/core#broader> <http://linked.toerismevlaanderen.be/id/concepts/8efed9c4-cfac-497f-ac9d-6263a356f13d>;
+   <http://www.w3.org/2004/02/skos/core#inScheme> <http://linked.toerismevlaanderen.be/id/conceptschemes/93ea6af1-97d6-4ceb-9b0d-819aa5c26a3e>;
+   <http://www.w3.org/2004/02/skos/core#note> "De uitbating beschikt over een oven"@nl;
+   <http://www.w3.org/2004/02/skos/core#prefLabel> "oven"@nl;
+   <http://xmlns.com/foaf/0.1/page> <http://linked.toerismevlaanderen.be/doc/concepts/980e9e2f-c3cb-4c6f-a2a7-8574473f5f3f> .
+
+<http://linked.toerismevlaanderen.be/id/concepts/2d6d43eb-77e7-4d77-a8ce-6c174d5adcad> a <http://www.w3.org/2004/02/skos/core#Concept>,
+     <https://data.vlaanderen.be/ns/logies#Faciliteit>;
+   <http://mu.semte.ch/vocabularies/core/uuid> "2d6d43eb-77e7-4d77-a8ce-6c174d5adcad";
+   <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://linked.toerismevlaanderen.be/concepts/2d6d43eb-77e7-4d77-a8ce-6c174d5adcad>;
+   <http://www.w3.org/2004/02/skos/core#broader> <http://linked.toerismevlaanderen.be/id/concepts/8efed9c4-cfac-497f-ac9d-6263a356f13d>;
+   <http://www.w3.org/2004/02/skos/core#inScheme> <http://linked.toerismevlaanderen.be/id/conceptschemes/93ea6af1-97d6-4ceb-9b0d-819aa5c26a3e>;
+   <http://www.w3.org/2004/02/skos/core#note> "De uitbating beschikt over servies, bv. borden en glazen"@nl;
+   <http://www.w3.org/2004/02/skos/core#prefLabel> "servies"@nl;
+   <http://xmlns.com/foaf/0.1/page> <http://linked.toerismevlaanderen.be/doc/concepts/2d6d43eb-77e7-4d77-a8ce-6c174d5adcad> .
+
+<http://linked.toerismevlaanderen.be/id/concepts/ffa76529-2da6-4be1-aa52-b444eee0ad8a> a <http://www.w3.org/2004/02/skos/core#Concept>,
+     <https://data.vlaanderen.be/ns/logies#Faciliteit>;
+   <http://mu.semte.ch/vocabularies/core/uuid> "ffa76529-2da6-4be1-aa52-b444eee0ad8a";
+   <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://linked.toerismevlaanderen.be/concepts/ffa76529-2da6-4be1-aa52-b444eee0ad8a>;
+   <http://www.w3.org/2004/02/skos/core#broader> <http://linked.toerismevlaanderen.be/id/concepts/8efed9c4-cfac-497f-ac9d-6263a356f13d>;
+   <http://www.w3.org/2004/02/skos/core#inScheme> <http://linked.toerismevlaanderen.be/id/conceptschemes/93ea6af1-97d6-4ceb-9b0d-819aa5c26a3e>;
+   <http://www.w3.org/2004/02/skos/core#note> "De uitbating beschikt over een vaatwasmachine"@nl;
+   <http://www.w3.org/2004/02/skos/core#prefLabel> "Vaatwasmachine"@nl;
+   <http://xmlns.com/foaf/0.1/page> <http://linked.toerismevlaanderen.be/doc/concepts/ffa76529-2da6-4be1-aa52-b444eee0ad8a> .
+
+<http://linked.toerismevlaanderen.be/id/concepts/83daf500-7081-4595-9cce-6cb5238536ba> a <http://www.w3.org/2004/02/skos/core#Concept>,
+     <https://data.vlaanderen.be/ns/logies#Faciliteit>;
+   <http://mu.semte.ch/vocabularies/core/uuid> "83daf500-7081-4595-9cce-6cb5238536ba";
+   <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://linked.toerismevlaanderen.be/concepts/83daf500-7081-4595-9cce-6cb5238536ba>;
+   <http://www.w3.org/2004/02/skos/core#inScheme> <http://linked.toerismevlaanderen.be/id/conceptschemes/93ea6af1-97d6-4ceb-9b0d-819aa5c26a3e>;
+   <http://www.w3.org/2004/02/skos/core#prefLabel> "Algemene faciliteiten"@nl;
+   <http://www.w3.org/2004/02/skos/core#topConceptOf> <http://linked.toerismevlaanderen.be/id/conceptschemes/93ea6af1-97d6-4ceb-9b0d-819aa5c26a3e>;
+   <http://xmlns.com/foaf/0.1/page> <http://linked.toerismevlaanderen.be/doc/concepts/83daf500-7081-4595-9cce-6cb5238536ba> .
+
+<http://linked.toerismevlaanderen.be/id/concepts/be4d0b63-e8e1-4591-b13c-4557b141b162> a <http://www.w3.org/2004/02/skos/core#Concept>,
+     <https://data.vlaanderen.be/ns/logies#Faciliteit>;
+   <http://mu.semte.ch/vocabularies/core/uuid> "be4d0b63-e8e1-4591-b13c-4557b141b162";
+   <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://linked.toerismevlaanderen.be/concepts/be4d0b63-e8e1-4591-b13c-4557b141b162>;
+   <http://www.w3.org/2004/02/skos/core#broader> <http://linked.toerismevlaanderen.be/id/concepts/83daf500-7081-4595-9cce-6cb5238536ba>;
+   <http://www.w3.org/2004/02/skos/core#inScheme> <http://linked.toerismevlaanderen.be/id/conceptschemes/93ea6af1-97d6-4ceb-9b0d-819aa5c26a3e>;
+   <http://www.w3.org/2004/02/skos/core#prefLabel> "Airconditioning"@nl;
+   <http://xmlns.com/foaf/0.1/page> <http://linked.toerismevlaanderen.be/doc/concepts/be4d0b63-e8e1-4591-b13c-4557b141b162> .
+
+<http://linked.toerismevlaanderen.be/id/concepts/d87fa1ed-8e90-4bd4-815a-4f1e77bfffe7> a <http://www.w3.org/2004/02/skos/core#Concept>,
+     <https://data.vlaanderen.be/ns/logies#Faciliteit>;
+   <http://mu.semte.ch/vocabularies/core/uuid> "d87fa1ed-8e90-4bd4-815a-4f1e77bfffe7";
+   <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://linked.toerismevlaanderen.be/concepts/d87fa1ed-8e90-4bd4-815a-4f1e77bfffe7>;
+   <http://www.w3.org/2004/02/skos/core#broader> <http://linked.toerismevlaanderen.be/id/concepts/83daf500-7081-4595-9cce-6cb5238536ba>;
+   <http://www.w3.org/2004/02/skos/core#inScheme> <http://linked.toerismevlaanderen.be/id/conceptschemes/93ea6af1-97d6-4ceb-9b0d-819aa5c26a3e>;
+   <http://www.w3.org/2004/02/skos/core#prefLabel> "Beddegoed"@nl;
+   <http://xmlns.com/foaf/0.1/page> <http://linked.toerismevlaanderen.be/doc/concepts/d87fa1ed-8e90-4bd4-815a-4f1e77bfffe7> .
+
+<http://linked.toerismevlaanderen.be/id/concepts/417cc997-3ca9-45a4-9a95-70b776df692a> a <http://www.w3.org/2004/02/skos/core#Concept>,
+     <https://data.vlaanderen.be/ns/logies#Faciliteit>;
+   <http://mu.semte.ch/vocabularies/core/uuid> "417cc997-3ca9-45a4-9a95-70b776df692a";
+   <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://linked.toerismevlaanderen.be/concepts/417cc997-3ca9-45a4-9a95-70b776df692a>;
+   <http://www.w3.org/2004/02/skos/core#broader> <http://linked.toerismevlaanderen.be/id/concepts/83daf500-7081-4595-9cce-6cb5238536ba>;
+   <http://www.w3.org/2004/02/skos/core#inScheme> <http://linked.toerismevlaanderen.be/id/conceptschemes/93ea6af1-97d6-4ceb-9b0d-819aa5c26a3e>;
+   <http://www.w3.org/2004/02/skos/core#prefLabel> "Bedden"@nl;
+   <http://xmlns.com/foaf/0.1/page> <http://linked.toerismevlaanderen.be/doc/concepts/417cc997-3ca9-45a4-9a95-70b776df692a> .
+
+<http://linked.toerismevlaanderen.be/id/concepts/14222f31-b2c7-4fe0-9d2a-6a09fd41e70f> a <http://www.w3.org/2004/02/skos/core#Concept>,
+     <https://data.vlaanderen.be/ns/logies#Faciliteit>;
+   <http://mu.semte.ch/vocabularies/core/uuid> "14222f31-b2c7-4fe0-9d2a-6a09fd41e70f";
+   <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://linked.toerismevlaanderen.be/concepts/14222f31-b2c7-4fe0-9d2a-6a09fd41e70f>;
+   <http://www.w3.org/2004/02/skos/core#broader> <http://linked.toerismevlaanderen.be/id/concepts/83daf500-7081-4595-9cce-6cb5238536ba>;
+   <http://www.w3.org/2004/02/skos/core#inScheme> <http://linked.toerismevlaanderen.be/id/conceptschemes/93ea6af1-97d6-4ceb-9b0d-819aa5c26a3e>;
+   <http://www.w3.org/2004/02/skos/core#prefLabel> "Bergruimte"@nl;
+   <http://xmlns.com/foaf/0.1/page> <http://linked.toerismevlaanderen.be/doc/concepts/14222f31-b2c7-4fe0-9d2a-6a09fd41e70f> .
+
+<http://linked.toerismevlaanderen.be/id/concepts/c68929b8-22bc-4043-994e-4f4ddc0a5b0c> a <http://www.w3.org/2004/02/skos/core#Concept>,
+     <https://data.vlaanderen.be/ns/logies#Faciliteit>;
+   <http://mu.semte.ch/vocabularies/core/uuid> "c68929b8-22bc-4043-994e-4f4ddc0a5b0c";
+   <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://linked.toerismevlaanderen.be/concepts/c68929b8-22bc-4043-994e-4f4ddc0a5b0c>;
+   <http://www.w3.org/2004/02/skos/core#broader> <http://linked.toerismevlaanderen.be/id/concepts/83daf500-7081-4595-9cce-6cb5238536ba>;
+   <http://www.w3.org/2004/02/skos/core#inScheme> <http://linked.toerismevlaanderen.be/id/conceptschemes/93ea6af1-97d6-4ceb-9b0d-819aa5c26a3e>;
+   <http://www.w3.org/2004/02/skos/core#prefLabel> "Beveiligde bagageruimte"@nl;
+   <http://xmlns.com/foaf/0.1/page> <http://linked.toerismevlaanderen.be/doc/concepts/c68929b8-22bc-4043-994e-4f4ddc0a5b0c> .
+
+<http://linked.toerismevlaanderen.be/id/concepts/95026727-b65a-4817-98a1-61597ad01e31> a <http://www.w3.org/2004/02/skos/core#Concept>,
+     <https://data.vlaanderen.be/ns/logies#Faciliteit>;
+   <http://mu.semte.ch/vocabularies/core/uuid> "95026727-b65a-4817-98a1-61597ad01e31";
+   <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://linked.toerismevlaanderen.be/concepts/95026727-b65a-4817-98a1-61597ad01e31>;
+   <http://www.w3.org/2004/02/skos/core#broader> <http://linked.toerismevlaanderen.be/id/concepts/83daf500-7081-4595-9cce-6cb5238536ba>;
+   <http://www.w3.org/2004/02/skos/core#inScheme> <http://linked.toerismevlaanderen.be/id/conceptschemes/93ea6af1-97d6-4ceb-9b0d-819aa5c26a3e>;
+   <http://www.w3.org/2004/02/skos/core#prefLabel> "Chemisch toilet Stortplaats"@nl;
+   <http://xmlns.com/foaf/0.1/page> <http://linked.toerismevlaanderen.be/doc/concepts/95026727-b65a-4817-98a1-61597ad01e31> .
+
+<http://linked.toerismevlaanderen.be/id/concepts/c44ae208-e5d8-44c8-af69-a45602e11dab> a <http://www.w3.org/2004/02/skos/core#Concept>,
+     <https://data.vlaanderen.be/ns/logies#Faciliteit>;
+   <http://mu.semte.ch/vocabularies/core/uuid> "c44ae208-e5d8-44c8-af69-a45602e11dab";
+   <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://linked.toerismevlaanderen.be/concepts/c44ae208-e5d8-44c8-af69-a45602e11dab>;
+   <http://www.w3.org/2004/02/skos/core#broader> <http://linked.toerismevlaanderen.be/id/concepts/83daf500-7081-4595-9cce-6cb5238536ba>;
+   <http://www.w3.org/2004/02/skos/core#inScheme> <http://linked.toerismevlaanderen.be/id/conceptschemes/93ea6af1-97d6-4ceb-9b0d-819aa5c26a3e>;
+   <http://www.w3.org/2004/02/skos/core#prefLabel> "Douche"@nl;
+   <http://xmlns.com/foaf/0.1/page> <http://linked.toerismevlaanderen.be/doc/concepts/c44ae208-e5d8-44c8-af69-a45602e11dab> .
+
+<http://linked.toerismevlaanderen.be/id/concepts/fa484ae7-907e-4ddc-8cb2-22f47144d1dc> a <http://www.w3.org/2004/02/skos/core#Concept>,
+     <https://data.vlaanderen.be/ns/logies#Faciliteit>;
+   <http://mu.semte.ch/vocabularies/core/uuid> "fa484ae7-907e-4ddc-8cb2-22f47144d1dc";
+   <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://linked.toerismevlaanderen.be/concepts/fa484ae7-907e-4ddc-8cb2-22f47144d1dc>;
+   <http://www.w3.org/2004/02/skos/core#broader> <http://linked.toerismevlaanderen.be/id/concepts/83daf500-7081-4595-9cce-6cb5238536ba>;
+   <http://www.w3.org/2004/02/skos/core#inScheme> <http://linked.toerismevlaanderen.be/id/conceptschemes/93ea6af1-97d6-4ceb-9b0d-819aa5c26a3e>;
+   <http://www.w3.org/2004/02/skos/core#prefLabel> "Draadloos internet"@nl;
+   <http://xmlns.com/foaf/0.1/page> <http://linked.toerismevlaanderen.be/doc/concepts/fa484ae7-907e-4ddc-8cb2-22f47144d1dc> .
+
+<http://linked.toerismevlaanderen.be/id/concepts/8a6ffff5-a180-4a08-b302-4db3b142b6c2> a <http://www.w3.org/2004/02/skos/core#Concept>,
+     <https://data.vlaanderen.be/ns/logies#Faciliteit>;
+   <http://mu.semte.ch/vocabularies/core/uuid> "8a6ffff5-a180-4a08-b302-4db3b142b6c2";
+   <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://linked.toerismevlaanderen.be/concepts/8a6ffff5-a180-4a08-b302-4db3b142b6c2>;
+   <http://www.w3.org/2004/02/skos/core#broader> <http://linked.toerismevlaanderen.be/id/concepts/83daf500-7081-4595-9cce-6cb5238536ba>;
+   <http://www.w3.org/2004/02/skos/core#inScheme> <http://linked.toerismevlaanderen.be/id/conceptschemes/93ea6af1-97d6-4ceb-9b0d-819aa5c26a3e>;
+   <http://www.w3.org/2004/02/skos/core#prefLabel> "Droogkast"@nl;
+   <http://xmlns.com/foaf/0.1/page> <http://linked.toerismevlaanderen.be/doc/concepts/8a6ffff5-a180-4a08-b302-4db3b142b6c2> .
+
+<http://linked.toerismevlaanderen.be/id/concepts/45147542-5253-464c-9994-a5497e79d7fa> a <http://www.w3.org/2004/02/skos/core#Concept>,
+     <https://data.vlaanderen.be/ns/logies#Faciliteit>;
+   <http://mu.semte.ch/vocabularies/core/uuid> "45147542-5253-464c-9994-a5497e79d7fa";
+   <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://linked.toerismevlaanderen.be/concepts/45147542-5253-464c-9994-a5497e79d7fa>;
+   <http://www.w3.org/2004/02/skos/core#broader> <http://linked.toerismevlaanderen.be/id/concepts/83daf500-7081-4595-9cce-6cb5238536ba>;
+   <http://www.w3.org/2004/02/skos/core#inScheme> <http://linked.toerismevlaanderen.be/id/conceptschemes/93ea6af1-97d6-4ceb-9b0d-819aa5c26a3e>;
+   <http://www.w3.org/2004/02/skos/core#prefLabel> "Droogrek"@nl;
+   <http://xmlns.com/foaf/0.1/page> <http://linked.toerismevlaanderen.be/doc/concepts/45147542-5253-464c-9994-a5497e79d7fa> .
+
+<http://linked.toerismevlaanderen.be/id/concepts/16e3192f-ccca-4021-b5ff-10baf5cbf5f0> a <http://www.w3.org/2004/02/skos/core#Concept>,
+     <https://data.vlaanderen.be/ns/logies#Faciliteit>;
+   <http://mu.semte.ch/vocabularies/core/uuid> "16e3192f-ccca-4021-b5ff-10baf5cbf5f0";
+   <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://linked.toerismevlaanderen.be/concepts/16e3192f-ccca-4021-b5ff-10baf5cbf5f0>;
+   <http://www.w3.org/2004/02/skos/core#broader> <http://linked.toerismevlaanderen.be/id/concepts/83daf500-7081-4595-9cce-6cb5238536ba>;
+   <http://www.w3.org/2004/02/skos/core#inScheme> <http://linked.toerismevlaanderen.be/id/conceptschemes/93ea6af1-97d6-4ceb-9b0d-819aa5c26a3e>;
+   <http://www.w3.org/2004/02/skos/core#prefLabel> "EHBO-koffer"@nl;
+   <http://xmlns.com/foaf/0.1/page> <http://linked.toerismevlaanderen.be/doc/concepts/16e3192f-ccca-4021-b5ff-10baf5cbf5f0> .
+
+<http://linked.toerismevlaanderen.be/id/concepts/dc89eca3-b2b1-4f43-90f9-19a84d909e27> a <http://www.w3.org/2004/02/skos/core#Concept>,
+     <https://data.vlaanderen.be/ns/logies#Faciliteit>;
+   <http://mu.semte.ch/vocabularies/core/uuid> "dc89eca3-b2b1-4f43-90f9-19a84d909e27";
+   <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://linked.toerismevlaanderen.be/concepts/dc89eca3-b2b1-4f43-90f9-19a84d909e27>;
+   <http://www.w3.org/2004/02/skos/core#broader> <http://linked.toerismevlaanderen.be/id/concepts/83daf500-7081-4595-9cce-6cb5238536ba>;
+   <http://www.w3.org/2004/02/skos/core#inScheme> <http://linked.toerismevlaanderen.be/id/conceptschemes/93ea6af1-97d6-4ceb-9b0d-819aa5c26a3e>;
+   <http://www.w3.org/2004/02/skos/core#prefLabel> "Haard"@nl;
+   <http://xmlns.com/foaf/0.1/page> <http://linked.toerismevlaanderen.be/doc/concepts/dc89eca3-b2b1-4f43-90f9-19a84d909e27> .
+
+<http://linked.toerismevlaanderen.be/id/concepts/a0d259e1-3372-49b1-b5a5-694a35192a7f> a <http://www.w3.org/2004/02/skos/core#Concept>,
+     <https://data.vlaanderen.be/ns/logies#Faciliteit>;
+   <http://mu.semte.ch/vocabularies/core/uuid> "a0d259e1-3372-49b1-b5a5-694a35192a7f";
+   <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://linked.toerismevlaanderen.be/concepts/a0d259e1-3372-49b1-b5a5-694a35192a7f>;
+   <http://www.w3.org/2004/02/skos/core#broader> <http://linked.toerismevlaanderen.be/id/concepts/83daf500-7081-4595-9cce-6cb5238536ba>;
+   <http://www.w3.org/2004/02/skos/core#inScheme> <http://linked.toerismevlaanderen.be/id/conceptschemes/93ea6af1-97d6-4ceb-9b0d-819aa5c26a3e>;
+   <http://www.w3.org/2004/02/skos/core#prefLabel> "Pets present"@en,
+     "Huisdieren aanwezig"@nl;
+   <http://xmlns.com/foaf/0.1/page> <http://linked.toerismevlaanderen.be/doc/concepts/a0d259e1-3372-49b1-b5a5-694a35192a7f> .
+
+<http://linked.toerismevlaanderen.be/id/concepts/41c562be-dedd-48df-a669-1655e7d8b8c0> a <http://www.w3.org/2004/02/skos/core#Concept>,
+     <https://data.vlaanderen.be/ns/logies#Faciliteit>;
+   <http://mu.semte.ch/vocabularies/core/uuid> "41c562be-dedd-48df-a669-1655e7d8b8c0";
+   <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://linked.toerismevlaanderen.be/concepts/41c562be-dedd-48df-a669-1655e7d8b8c0>;
+   <http://www.w3.org/2004/02/skos/core#broader> <http://linked.toerismevlaanderen.be/id/concepts/83daf500-7081-4595-9cce-6cb5238536ba>;
+   <http://www.w3.org/2004/02/skos/core#inScheme> <http://linked.toerismevlaanderen.be/id/conceptschemes/93ea6af1-97d6-4ceb-9b0d-819aa5c26a3e>;
+   <http://www.w3.org/2004/02/skos/core#prefLabel> "Huisdieren toegelaten"@nl,
+     "Pets allowed"@en;
+   <http://xmlns.com/foaf/0.1/page> <http://linked.toerismevlaanderen.be/doc/concepts/41c562be-dedd-48df-a669-1655e7d8b8c0> .
+
+<http://linked.toerismevlaanderen.be/id/concepts/0e253be1-9e3f-40ae-95f8-32bffc851e33> a <http://www.w3.org/2004/02/skos/core#Concept>,
+     <https://data.vlaanderen.be/ns/logies#Faciliteit>;
+   <http://mu.semte.ch/vocabularies/core/uuid> "0e253be1-9e3f-40ae-95f8-32bffc851e33";
+   <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://linked.toerismevlaanderen.be/concepts/0e253be1-9e3f-40ae-95f8-32bffc851e33>;
+   <http://www.w3.org/2004/02/skos/core#broader> <http://linked.toerismevlaanderen.be/id/concepts/83daf500-7081-4595-9cce-6cb5238536ba>;
+   <http://www.w3.org/2004/02/skos/core#inScheme> <http://linked.toerismevlaanderen.be/id/conceptschemes/93ea6af1-97d6-4ceb-9b0d-819aa5c26a3e>;
+   <http://www.w3.org/2004/02/skos/core#prefLabel> "Ethernet connection"@en,
+     "Internetaansluiting"@nl;
+   <http://xmlns.com/foaf/0.1/page> <http://linked.toerismevlaanderen.be/doc/concepts/0e253be1-9e3f-40ae-95f8-32bffc851e33> .
+
+<http://linked.toerismevlaanderen.be/id/concepts/85543661-70a4-47d3-b156-9a68eed97a24> a <http://www.w3.org/2004/02/skos/core#Concept>,
+     <https://data.vlaanderen.be/ns/logies#Faciliteit>;
+   <http://mu.semte.ch/vocabularies/core/uuid> "85543661-70a4-47d3-b156-9a68eed97a24";
+   <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://linked.toerismevlaanderen.be/concepts/85543661-70a4-47d3-b156-9a68eed97a24>;
+   <http://www.w3.org/2004/02/skos/core#broader> <http://linked.toerismevlaanderen.be/id/concepts/83daf500-7081-4595-9cce-6cb5238536ba>;
+   <http://www.w3.org/2004/02/skos/core#inScheme> <http://linked.toerismevlaanderen.be/id/conceptschemes/93ea6af1-97d6-4ceb-9b0d-819aa5c26a3e>;
+   <http://www.w3.org/2004/02/skos/core#prefLabel> "Vault"@en,
+     "Kluis"@nl;
+   <http://xmlns.com/foaf/0.1/page> <http://linked.toerismevlaanderen.be/doc/concepts/85543661-70a4-47d3-b156-9a68eed97a24> .
+
+<http://linked.toerismevlaanderen.be/id/concepts/a636b9d6-5f41-4137-b5a4-c03462837fc1> a <http://www.w3.org/2004/02/skos/core#Concept>,
+     <https://data.vlaanderen.be/ns/logies#Faciliteit>;
+   <http://mu.semte.ch/vocabularies/core/uuid> "a636b9d6-5f41-4137-b5a4-c03462837fc1";
+   <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://linked.toerismevlaanderen.be/concepts/a636b9d6-5f41-4137-b5a4-c03462837fc1>;
+   <http://www.w3.org/2004/02/skos/core#broader> <http://linked.toerismevlaanderen.be/id/concepts/83daf500-7081-4595-9cce-6cb5238536ba>;
+   <http://www.w3.org/2004/02/skos/core#inScheme> <http://linked.toerismevlaanderen.be/id/conceptschemes/93ea6af1-97d6-4ceb-9b0d-819aa5c26a3e>;
+   <http://www.w3.org/2004/02/skos/core#prefLabel> "Lift"@nl,
+     "Elevator"@en;
+   <http://xmlns.com/foaf/0.1/page> <http://linked.toerismevlaanderen.be/doc/concepts/a636b9d6-5f41-4137-b5a4-c03462837fc1> .
+
+<http://linked.toerismevlaanderen.be/id/concepts/d5e8dbba-2ac1-4afc-b7b0-140f6e1b8886> a <http://www.w3.org/2004/02/skos/core#Concept>,
+     <https://data.vlaanderen.be/ns/logies#Faciliteit>;
+   <http://mu.semte.ch/vocabularies/core/uuid> "d5e8dbba-2ac1-4afc-b7b0-140f6e1b8886";
+   <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://linked.toerismevlaanderen.be/concepts/d5e8dbba-2ac1-4afc-b7b0-140f6e1b8886>;
+   <http://www.w3.org/2004/02/skos/core#broader> <http://linked.toerismevlaanderen.be/id/concepts/83daf500-7081-4595-9cce-6cb5238536ba>;
+   <http://www.w3.org/2004/02/skos/core#inScheme> <http://linked.toerismevlaanderen.be/id/conceptschemes/93ea6af1-97d6-4ceb-9b0d-819aa5c26a3e>;
+   <http://www.w3.org/2004/02/skos/core#prefLabel> "Lozingspunt"@nl;
+   <http://xmlns.com/foaf/0.1/page> <http://linked.toerismevlaanderen.be/doc/concepts/d5e8dbba-2ac1-4afc-b7b0-140f6e1b8886> .
+
+<http://linked.toerismevlaanderen.be/id/concepts/f91b4f4c-d114-49f0-8b80-5218ea03c6ea> a <http://www.w3.org/2004/02/skos/core#Concept>,
+     <https://data.vlaanderen.be/ns/logies#Faciliteit>;
+   <http://mu.semte.ch/vocabularies/core/uuid> "f91b4f4c-d114-49f0-8b80-5218ea03c6ea";
+   <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://linked.toerismevlaanderen.be/concepts/f91b4f4c-d114-49f0-8b80-5218ea03c6ea>;
+   <http://www.w3.org/2004/02/skos/core#broader> <http://linked.toerismevlaanderen.be/id/concepts/83daf500-7081-4595-9cce-6cb5238536ba>;
+   <http://www.w3.org/2004/02/skos/core#inScheme> <http://linked.toerismevlaanderen.be/id/conceptschemes/93ea6af1-97d6-4ceb-9b0d-819aa5c26a3e>;
+   <http://www.w3.org/2004/02/skos/core#prefLabel> "Rokersruimte"@nl,
+     "Smoking area"@en;
+   <http://xmlns.com/foaf/0.1/page> <http://linked.toerismevlaanderen.be/doc/concepts/f91b4f4c-d114-49f0-8b80-5218ea03c6ea> .
+
+<http://linked.toerismevlaanderen.be/id/concepts/c878f352-4408-43cd-ac02-9f044f8be7ae> a <http://www.w3.org/2004/02/skos/core#Concept>,
+     <https://data.vlaanderen.be/ns/logies#Faciliteit>;
+   <http://mu.semte.ch/vocabularies/core/uuid> "c878f352-4408-43cd-ac02-9f044f8be7ae";
+   <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://linked.toerismevlaanderen.be/concepts/c878f352-4408-43cd-ac02-9f044f8be7ae>;
+   <http://www.w3.org/2004/02/skos/core#broader> <http://linked.toerismevlaanderen.be/id/concepts/83daf500-7081-4595-9cce-6cb5238536ba>;
+   <http://www.w3.org/2004/02/skos/core#inScheme> <http://linked.toerismevlaanderen.be/id/conceptschemes/93ea6af1-97d6-4ceb-9b0d-819aa5c26a3e>;
+   <http://www.w3.org/2004/02/skos/core#note> """Een terras of balkon is een ruimte die bedoeld is om buiten te verpozen zonder de verdieping te verlaten. Het is  toegankelijk uit de daaraan grenzende binnenruimte door middel van een deur.
+"""@nl,
+     """A balcony is a platform projecting from the outside wall of a building, accessible from the adjoined room so you can enjoy the outside without leaving your floor.
+"""@en;
+   <http://www.w3.org/2004/02/skos/core#prefLabel> "Balcony"@en,
+     "Terras / balkon"@nl;
+   <http://xmlns.com/foaf/0.1/page> <http://linked.toerismevlaanderen.be/doc/concepts/c878f352-4408-43cd-ac02-9f044f8be7ae> .
+
+<http://linked.toerismevlaanderen.be/id/concepts/2194cd43-def8-44f0-b358-48720c031238> a <http://www.w3.org/2004/02/skos/core#Concept>,
+     <https://data.vlaanderen.be/ns/logies#Faciliteit>;
+   <http://mu.semte.ch/vocabularies/core/uuid> "2194cd43-def8-44f0-b358-48720c031238";
+   <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://linked.toerismevlaanderen.be/concepts/2194cd43-def8-44f0-b358-48720c031238>;
+   <http://www.w3.org/2004/02/skos/core#broader> <http://linked.toerismevlaanderen.be/id/concepts/83daf500-7081-4595-9cce-6cb5238536ba>;
+   <http://www.w3.org/2004/02/skos/core#inScheme> <http://linked.toerismevlaanderen.be/id/conceptschemes/93ea6af1-97d6-4ceb-9b0d-819aa5c26a3e>;
+   <http://www.w3.org/2004/02/skos/core#prefLabel> "Toilet"@en,
+     "Toilet"@nl;
+   <http://xmlns.com/foaf/0.1/page> <http://linked.toerismevlaanderen.be/doc/concepts/2194cd43-def8-44f0-b358-48720c031238> .
+
+<http://linked.toerismevlaanderen.be/id/concepts/d760b3c0-115f-46e5-9b2e-c13842a1d5c0> a <http://www.w3.org/2004/02/skos/core#Concept>,
+     <https://data.vlaanderen.be/ns/logies#Faciliteit>;
+   <http://mu.semte.ch/vocabularies/core/uuid> "d760b3c0-115f-46e5-9b2e-c13842a1d5c0";
+   <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://linked.toerismevlaanderen.be/concepts/d760b3c0-115f-46e5-9b2e-c13842a1d5c0>;
+   <http://www.w3.org/2004/02/skos/core#broader> <http://linked.toerismevlaanderen.be/id/concepts/83daf500-7081-4595-9cce-6cb5238536ba>;
+   <http://www.w3.org/2004/02/skos/core#inScheme> <http://linked.toerismevlaanderen.be/id/conceptschemes/93ea6af1-97d6-4ceb-9b0d-819aa5c26a3e>;
+   <http://www.w3.org/2004/02/skos/core#note> "Televisie"@nl,
+     "Television, Telly or Tele"@en;
+   <http://www.w3.org/2004/02/skos/core#prefLabel> "TV"@nl,
+     "TV"@en;
+   <http://xmlns.com/foaf/0.1/page> <http://linked.toerismevlaanderen.be/doc/concepts/d760b3c0-115f-46e5-9b2e-c13842a1d5c0> .
+
+<http://linked.toerismevlaanderen.be/id/concepts/ecdb5097-ae8b-4ea9-987b-75b1d4aaef28> a <http://www.w3.org/2004/02/skos/core#Concept>,
+     <https://data.vlaanderen.be/ns/logies#Faciliteit>;
+   <http://mu.semte.ch/vocabularies/core/uuid> "ecdb5097-ae8b-4ea9-987b-75b1d4aaef28";
+   <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://linked.toerismevlaanderen.be/concepts/ecdb5097-ae8b-4ea9-987b-75b1d4aaef28>;
+   <http://www.w3.org/2004/02/skos/core#broader> <http://linked.toerismevlaanderen.be/id/concepts/83daf500-7081-4595-9cce-6cb5238536ba>;
+   <http://www.w3.org/2004/02/skos/core#inScheme> <http://linked.toerismevlaanderen.be/id/conceptschemes/93ea6af1-97d6-4ceb-9b0d-819aa5c26a3e>;
+   <http://www.w3.org/2004/02/skos/core#note> "Een terras of balkon met verwarming."@nl,
+     "A terras or balcony with heating."@en;
+   <http://www.w3.org/2004/02/skos/core#prefLabel> "Verwarmd terras"@nl,
+     "Heated Terras"@en;
+   <http://xmlns.com/foaf/0.1/page> <http://linked.toerismevlaanderen.be/doc/concepts/ecdb5097-ae8b-4ea9-987b-75b1d4aaef28> .
+
+<http://linked.toerismevlaanderen.be/id/concepts/1932fd63-56f1-4353-a1ec-41f6720c37fe> a <http://www.w3.org/2004/02/skos/core#Concept>,
+     <https://data.vlaanderen.be/ns/logies#Faciliteit>;
+   <http://mu.semte.ch/vocabularies/core/uuid> "1932fd63-56f1-4353-a1ec-41f6720c37fe";
+   <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://linked.toerismevlaanderen.be/concepts/1932fd63-56f1-4353-a1ec-41f6720c37fe>;
+   <http://www.w3.org/2004/02/skos/core#broader> <http://linked.toerismevlaanderen.be/id/concepts/83daf500-7081-4595-9cce-6cb5238536ba>;
+   <http://www.w3.org/2004/02/skos/core#inScheme> <http://linked.toerismevlaanderen.be/id/conceptschemes/93ea6af1-97d6-4ceb-9b0d-819aa5c26a3e>;
+   <http://www.w3.org/2004/02/skos/core#note> "Een verwarmingssysteem om de temperatuur van een gebouw of ruimte te verhogen."@nl,
+     "A system or installation to provide warmth to the interior of a building or a specific room."@en;
+   <http://www.w3.org/2004/02/skos/core#prefLabel> "Heating"@en,
+     "Verwarming"@nl;
+   <http://xmlns.com/foaf/0.1/page> <http://linked.toerismevlaanderen.be/doc/concepts/1932fd63-56f1-4353-a1ec-41f6720c37fe> .
+
+<http://linked.toerismevlaanderen.be/id/concepts/a644961d-d71f-4155-929b-184f08d88068> a <http://www.w3.org/2004/02/skos/core#Concept>,
+     <https://data.vlaanderen.be/ns/logies#Faciliteit>;
+   <http://mu.semte.ch/vocabularies/core/uuid> "a644961d-d71f-4155-929b-184f08d88068";
+   <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://linked.toerismevlaanderen.be/concepts/a644961d-d71f-4155-929b-184f08d88068>;
+   <http://www.w3.org/2004/02/skos/core#broader> <http://linked.toerismevlaanderen.be/id/concepts/83daf500-7081-4595-9cce-6cb5238536ba>;
+   <http://www.w3.org/2004/02/skos/core#inScheme> <http://linked.toerismevlaanderen.be/id/conceptschemes/93ea6af1-97d6-4ceb-9b0d-819aa5c26a3e>;
+   <http://www.w3.org/2004/02/skos/core#note> "Een wasmachine is een machine voor het reinigen van textiel door middel van sop, als modern alternatief van de handwas."@nl,
+     "A washing machine (laundry machine, clothes washer, or washer) is a device used to wash laundry."@en;
+   <http://www.w3.org/2004/02/skos/core#prefLabel> "Wasmachine"@nl,
+     "Washing machine"@en;
+   <http://xmlns.com/foaf/0.1/page> <http://linked.toerismevlaanderen.be/doc/concepts/a644961d-d71f-4155-929b-184f08d88068> .
+
+<http://linked.toerismevlaanderen.be/id/concepts/6d958e15-719e-4aa5-b27f-788eb61923c2> a <http://www.w3.org/2004/02/skos/core#Concept>,
+     <https://data.vlaanderen.be/ns/logies#Faciliteit>;
+   <http://mu.semte.ch/vocabularies/core/uuid> "6d958e15-719e-4aa5-b27f-788eb61923c2";
+   <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://linked.toerismevlaanderen.be/concepts/6d958e15-719e-4aa5-b27f-788eb61923c2>;
+   <http://www.w3.org/2004/02/skos/core#broader> <http://linked.toerismevlaanderen.be/id/concepts/83daf500-7081-4595-9cce-6cb5238536ba>;
+   <http://www.w3.org/2004/02/skos/core#inScheme> <http://linked.toerismevlaanderen.be/id/conceptschemes/93ea6af1-97d6-4ceb-9b0d-819aa5c26a3e>;
+   <http://www.w3.org/2004/02/skos/core#note> "A self-service laundry, coin laundry, laundromat or coin wash is a facility where clothes are washed and dried without much personalized professional help. "@en,
+     "Een wasserette is een plaats met wasmachines waar men tegen betaling zelf textiel of kleding kan wassen."@nl;
+   <http://www.w3.org/2004/02/skos/core#prefLabel> "Wasserette"@nl,
+     "Laundromat"@en;
+   <http://xmlns.com/foaf/0.1/page> <http://linked.toerismevlaanderen.be/doc/concepts/6d958e15-719e-4aa5-b27f-788eb61923c2> .
+
+<http://linked.toerismevlaanderen.be/id/concepts/1cc59447-bd22-4b85-acd9-1c0bbbc74ae3> a <http://www.w3.org/2004/02/skos/core#Concept>,
+     <https://data.vlaanderen.be/ns/logies#Faciliteit>;
+   <http://mu.semte.ch/vocabularies/core/uuid> "1cc59447-bd22-4b85-acd9-1c0bbbc74ae3";
+   <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://linked.toerismevlaanderen.be/concepts/1cc59447-bd22-4b85-acd9-1c0bbbc74ae3>;
+   <http://www.w3.org/2004/02/skos/core#broader> <http://linked.toerismevlaanderen.be/id/concepts/83daf500-7081-4595-9cce-6cb5238536ba>;
+   <http://www.w3.org/2004/02/skos/core#inScheme> <http://linked.toerismevlaanderen.be/id/conceptschemes/93ea6af1-97d6-4ceb-9b0d-819aa5c26a3e>;
+   <http://www.w3.org/2004/02/skos/core#prefLabel> "Winkel aanwezig"@nl,
+     "Shop"@en;
+   <http://xmlns.com/foaf/0.1/page> <http://linked.toerismevlaanderen.be/doc/concepts/1cc59447-bd22-4b85-acd9-1c0bbbc74ae3> .
+
+<http://linked.toerismevlaanderen.be/id/concepts/8c86f1d0-dedb-4344-b101-c0ac9bd15df4> a <http://www.w3.org/2004/02/skos/core#Concept>,
+     <https://data.vlaanderen.be/ns/logies#Faciliteit>;
+   <http://mu.semte.ch/vocabularies/core/uuid> "8c86f1d0-dedb-4344-b101-c0ac9bd15df4";
+   <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://linked.toerismevlaanderen.be/concepts/8c86f1d0-dedb-4344-b101-c0ac9bd15df4>;
+   <http://www.w3.org/2004/02/skos/core#inScheme> <http://linked.toerismevlaanderen.be/id/conceptschemes/93ea6af1-97d6-4ceb-9b0d-819aa5c26a3e>;
+   <http://www.w3.org/2004/02/skos/core#prefLabel> "Gezinsfaciliteiten"@nl;
+   <http://www.w3.org/2004/02/skos/core#topConceptOf> <http://linked.toerismevlaanderen.be/id/conceptschemes/93ea6af1-97d6-4ceb-9b0d-819aa5c26a3e>;
+   <http://xmlns.com/foaf/0.1/page> <http://linked.toerismevlaanderen.be/doc/concepts/8c86f1d0-dedb-4344-b101-c0ac9bd15df4> .
+
+<http://linked.toerismevlaanderen.be/id/concepts/a9f8e821-d7a9-409f-b179-972b514a040f> a <http://www.w3.org/2004/02/skos/core#Concept>,
+     <https://data.vlaanderen.be/ns/logies#Faciliteit>;
+   <http://mu.semte.ch/vocabularies/core/uuid> "a9f8e821-d7a9-409f-b179-972b514a040f";
+   <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://linked.toerismevlaanderen.be/concepts/a9f8e821-d7a9-409f-b179-972b514a040f>;
+   <http://www.w3.org/2004/02/skos/core#broader> <http://linked.toerismevlaanderen.be/id/concepts/8c86f1d0-dedb-4344-b101-c0ac9bd15df4>;
+   <http://www.w3.org/2004/02/skos/core#inScheme> <http://linked.toerismevlaanderen.be/id/conceptschemes/93ea6af1-97d6-4ceb-9b0d-819aa5c26a3e>;
+   <http://www.w3.org/2004/02/skos/core#note> "een klein badje om jonge kinderen in te wassen"@nl,
+     "A small bath to wash young children"@en;
+   <http://www.w3.org/2004/02/skos/core#prefLabel> "Baby bath"@en,
+     "Babybad"@nl;
+   <http://xmlns.com/foaf/0.1/page> <http://linked.toerismevlaanderen.be/doc/concepts/a9f8e821-d7a9-409f-b179-972b514a040f> .
+
+<http://linked.toerismevlaanderen.be/id/concepts/fd147f77-8675-4297-a0b0-e481a209f91d> a <http://www.w3.org/2004/02/skos/core#Concept>,
+     <https://data.vlaanderen.be/ns/logies#Faciliteit>;
+   <http://mu.semte.ch/vocabularies/core/uuid> "fd147f77-8675-4297-a0b0-e481a209f91d";
+   <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://linked.toerismevlaanderen.be/concepts/fd147f77-8675-4297-a0b0-e481a209f91d>;
+   <http://www.w3.org/2004/02/skos/core#broader> <http://linked.toerismevlaanderen.be/id/concepts/8c86f1d0-dedb-4344-b101-c0ac9bd15df4>;
+   <http://www.w3.org/2004/02/skos/core#inScheme> <http://linked.toerismevlaanderen.be/id/conceptschemes/93ea6af1-97d6-4ceb-9b0d-819aa5c26a3e>;
+   <http://www.w3.org/2004/02/skos/core#note> "omrande slaapplaats voor een kind"@nl,
+     "Fenced sleeping place for a child"@en;
+   <http://www.w3.org/2004/02/skos/core#prefLabel> "Baby bed"@en,
+     "Babybed"@nl;
+   <http://xmlns.com/foaf/0.1/page> <http://linked.toerismevlaanderen.be/doc/concepts/fd147f77-8675-4297-a0b0-e481a209f91d> .
+
+<http://linked.toerismevlaanderen.be/id/concepts/b550a770-dbe4-4838-b8ba-9d13fcc991e5> a <http://www.w3.org/2004/02/skos/core#Concept>,
+     <https://data.vlaanderen.be/ns/logies#Faciliteit>;
+   <http://mu.semte.ch/vocabularies/core/uuid> "b550a770-dbe4-4838-b8ba-9d13fcc991e5";
+   <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://linked.toerismevlaanderen.be/concepts/b550a770-dbe4-4838-b8ba-9d13fcc991e5>;
+   <http://www.w3.org/2004/02/skos/core#broader> <http://linked.toerismevlaanderen.be/id/concepts/8c86f1d0-dedb-4344-b101-c0ac9bd15df4>;
+   <http://www.w3.org/2004/02/skos/core#inScheme> <http://linked.toerismevlaanderen.be/id/conceptschemes/93ea6af1-97d6-4ceb-9b0d-819aa5c26a3e>;
+   <http://www.w3.org/2004/02/skos/core#note> "een kamer met minstens drie slaapplaatsen, waarvan er twee voor volwassenen geschikt zijn"@nl,
+     """
+A room with at least three sleeping places, two of which are suitable for adults"""@en;
+   <http://www.w3.org/2004/02/skos/core#prefLabel> "Family rooms"@en,
+     "Familiekamers"@nl;
+   <http://xmlns.com/foaf/0.1/page> <http://linked.toerismevlaanderen.be/doc/concepts/b550a770-dbe4-4838-b8ba-9d13fcc991e5> .
+
+<http://linked.toerismevlaanderen.be/id/concepts/c8d93764-34bc-4b93-9f86-bdf5ed9324fd> a <http://www.w3.org/2004/02/skos/core#Concept>,
+     <https://data.vlaanderen.be/ns/logies#Faciliteit>;
+   <http://mu.semte.ch/vocabularies/core/uuid> "c8d93764-34bc-4b93-9f86-bdf5ed9324fd";
+   <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://linked.toerismevlaanderen.be/concepts/c8d93764-34bc-4b93-9f86-bdf5ed9324fd>;
+   <http://www.w3.org/2004/02/skos/core#broader> <http://linked.toerismevlaanderen.be/id/concepts/8c86f1d0-dedb-4344-b101-c0ac9bd15df4>;
+   <http://www.w3.org/2004/02/skos/core#inScheme> <http://linked.toerismevlaanderen.be/id/conceptschemes/93ea6af1-97d6-4ceb-9b0d-819aa5c26a3e>;
+   <http://www.w3.org/2004/02/skos/core#note> """
+Organized relaxing activities for children"""@en,
+     "georganiseerde ontspannende activiteiten voor kinderen"@nl;
+   <http://www.w3.org/2004/02/skos/core#prefLabel> "Children's animation"@en,
+     "Kinderanimatie"@nl;
+   <http://xmlns.com/foaf/0.1/page> <http://linked.toerismevlaanderen.be/doc/concepts/c8d93764-34bc-4b93-9f86-bdf5ed9324fd> .
+
+<http://linked.toerismevlaanderen.be/id/concepts/d9d766cc-4079-41a5-94e3-2650eca1decd> a <http://www.w3.org/2004/02/skos/core#Concept>,
+     <https://data.vlaanderen.be/ns/logies#Faciliteit>;
+   <http://mu.semte.ch/vocabularies/core/uuid> "d9d766cc-4079-41a5-94e3-2650eca1decd";
+   <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://linked.toerismevlaanderen.be/concepts/d9d766cc-4079-41a5-94e3-2650eca1decd>;
+   <http://www.w3.org/2004/02/skos/core#broader> <http://linked.toerismevlaanderen.be/id/concepts/8c86f1d0-dedb-4344-b101-c0ac9bd15df4>;
+   <http://www.w3.org/2004/02/skos/core#inScheme> <http://linked.toerismevlaanderen.be/id/conceptschemes/93ea6af1-97d6-4ceb-9b0d-819aa5c26a3e>;
+   <http://www.w3.org/2004/02/skos/core#note> "Temporary care for children"@en,
+     "tijdelijke verzorging van kinderen"@nl;
+   <http://www.w3.org/2004/02/skos/core#prefLabel> "Kinderopvang"@nl,
+     "Day-care"@en;
+   <http://xmlns.com/foaf/0.1/page> <http://linked.toerismevlaanderen.be/doc/concepts/d9d766cc-4079-41a5-94e3-2650eca1decd> .
+
+<http://linked.toerismevlaanderen.be/id/concepts/b92f8b21-1798-4c89-aa0c-9ef8300993a9> a <http://www.w3.org/2004/02/skos/core#Concept>,
+     <https://data.vlaanderen.be/ns/logies#Faciliteit>;
+   <http://mu.semte.ch/vocabularies/core/uuid> "b92f8b21-1798-4c89-aa0c-9ef8300993a9";
+   <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://linked.toerismevlaanderen.be/concepts/b92f8b21-1798-4c89-aa0c-9ef8300993a9>;
+   <http://www.w3.org/2004/02/skos/core#broader> <http://linked.toerismevlaanderen.be/id/concepts/8c86f1d0-dedb-4344-b101-c0ac9bd15df4>;
+   <http://www.w3.org/2004/02/skos/core#inScheme> <http://linked.toerismevlaanderen.be/id/conceptschemes/93ea6af1-97d6-4ceb-9b0d-819aa5c26a3e>;
+   <http://www.w3.org/2004/02/skos/core#note> "A small chair on large legs, allowing small chilcren to sit at the same table to eat as adults"@en,
+     "een kleine stoel die hoog op de poten staat, waardoor kleine kinderen aan dezelfde tafel kunnen zitten als volwassenen om te eten"@nl;
+   <http://www.w3.org/2004/02/skos/core#prefLabel> "Kinderstoel"@nl,
+     "Highchair"@en;
+   <http://xmlns.com/foaf/0.1/page> <http://linked.toerismevlaanderen.be/doc/concepts/b92f8b21-1798-4c89-aa0c-9ef8300993a9> .
+
+<http://linked.toerismevlaanderen.be/id/concepts/0d779208-cb7c-4465-8b7c-c2f6170595f5> a <http://www.w3.org/2004/02/skos/core#Concept>,
+     <https://data.vlaanderen.be/ns/logies#Faciliteit>;
+   <http://mu.semte.ch/vocabularies/core/uuid> "0d779208-cb7c-4465-8b7c-c2f6170595f5";
+   <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://linked.toerismevlaanderen.be/concepts/0d779208-cb7c-4465-8b7c-c2f6170595f5>;
+   <http://www.w3.org/2004/02/skos/core#broader> <http://linked.toerismevlaanderen.be/id/concepts/8c86f1d0-dedb-4344-b101-c0ac9bd15df4>;
+   <http://www.w3.org/2004/02/skos/core#inScheme> <http://linked.toerismevlaanderen.be/id/conceptschemes/93ea6af1-97d6-4ceb-9b0d-819aa5c26a3e>;
+   <http://www.w3.org/2004/02/skos/core#note> "een plek om je baby te verschonen of af te drogen"@nl,
+     "A place to change or dry your baby"@en;
+   <http://www.w3.org/2004/02/skos/core#prefLabel> "Changing table"@en,
+     "Luiertafel"@nl;
+   <http://xmlns.com/foaf/0.1/page> <http://linked.toerismevlaanderen.be/doc/concepts/0d779208-cb7c-4465-8b7c-c2f6170595f5> .
+
+<http://linked.toerismevlaanderen.be/id/concepts/6c50d2f2-1dc0-4682-8038-06df4f3dd616> a <http://www.w3.org/2004/02/skos/core#Concept>,
+     <https://data.vlaanderen.be/ns/logies#Faciliteit>;
+   <http://mu.semte.ch/vocabularies/core/uuid> "6c50d2f2-1dc0-4682-8038-06df4f3dd616";
+   <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://linked.toerismevlaanderen.be/concepts/6c50d2f2-1dc0-4682-8038-06df4f3dd616>;
+   <http://www.w3.org/2004/02/skos/core#broader> <http://linked.toerismevlaanderen.be/id/concepts/8c86f1d0-dedb-4344-b101-c0ac9bd15df4>;
+   <http://www.w3.org/2004/02/skos/core#inScheme> <http://linked.toerismevlaanderen.be/id/conceptschemes/93ea6af1-97d6-4ceb-9b0d-819aa5c26a3e>;
+   <http://www.w3.org/2004/02/skos/core#note> "Objects for children to play with"@en,
+     "voorwerpen voor kinderen om mee te spelen"@nl;
+   <http://www.w3.org/2004/02/skos/core#prefLabel> "Toys"@en,
+     "Speelgoed"@nl;
+   <http://xmlns.com/foaf/0.1/page> <http://linked.toerismevlaanderen.be/doc/concepts/6c50d2f2-1dc0-4682-8038-06df4f3dd616> .
+
+<http://linked.toerismevlaanderen.be/id/concepts/d5cefdbb-8285-4c90-a4bb-380266a52a2c> a <http://www.w3.org/2004/02/skos/core#Concept>,
+     <https://data.vlaanderen.be/ns/logies#Faciliteit>;
+   <http://mu.semte.ch/vocabularies/core/uuid> "d5cefdbb-8285-4c90-a4bb-380266a52a2c";
+   <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://linked.toerismevlaanderen.be/concepts/d5cefdbb-8285-4c90-a4bb-380266a52a2c>;
+   <http://www.w3.org/2004/02/skos/core#broader> <http://linked.toerismevlaanderen.be/id/concepts/8c86f1d0-dedb-4344-b101-c0ac9bd15df4>;
+   <http://www.w3.org/2004/02/skos/core#inScheme> <http://linked.toerismevlaanderen.be/id/conceptschemes/93ea6af1-97d6-4ceb-9b0d-819aa5c26a3e>;
+   <http://www.w3.org/2004/02/skos/core#note> "Onderdeel van een ruimte waarin gespeeld kan worden"@nl,
+     "Part of a room where you can play"@en;
+   <http://www.w3.org/2004/02/skos/core#prefLabel> "Speelhoek"@nl,
+     "Play corner"@en;
+   <http://xmlns.com/foaf/0.1/page> <http://linked.toerismevlaanderen.be/doc/concepts/d5cefdbb-8285-4c90-a4bb-380266a52a2c> .
+
+<http://linked.toerismevlaanderen.be/id/concepts/c637ad5f-363e-4530-aac8-aa60398eb06a> a <http://www.w3.org/2004/02/skos/core#Concept>,
+     <https://data.vlaanderen.be/ns/logies#Faciliteit>;
+   <http://mu.semte.ch/vocabularies/core/uuid> "c637ad5f-363e-4530-aac8-aa60398eb06a";
+   <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://linked.toerismevlaanderen.be/concepts/c637ad5f-363e-4530-aac8-aa60398eb06a>;
+   <http://www.w3.org/2004/02/skos/core#broader> <http://linked.toerismevlaanderen.be/id/concepts/8c86f1d0-dedb-4344-b101-c0ac9bd15df4>;
+   <http://www.w3.org/2004/02/skos/core#inScheme> <http://linked.toerismevlaanderen.be/id/conceptschemes/93ea6af1-97d6-4ceb-9b0d-819aa5c26a3e>;
+   <http://www.w3.org/2004/02/skos/core#note> "Place in which you can play"@en,
+     "plaats waarin gespeeld kan worden"@nl;
+   <http://www.w3.org/2004/02/skos/core#prefLabel> "Speelplaats"@nl,
+     "Playground"@en;
+   <http://xmlns.com/foaf/0.1/page> <http://linked.toerismevlaanderen.be/doc/concepts/c637ad5f-363e-4530-aac8-aa60398eb06a> .
+
+<http://linked.toerismevlaanderen.be/id/concepts/f7094354-bc3a-4a6e-8232-b0c54098c5e5> a <http://www.w3.org/2004/02/skos/core#Concept>,
+     <https://data.vlaanderen.be/ns/logies#Faciliteit>;
+   <http://mu.semte.ch/vocabularies/core/uuid> "f7094354-bc3a-4a6e-8232-b0c54098c5e5";
+   <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://linked.toerismevlaanderen.be/concepts/f7094354-bc3a-4a6e-8232-b0c54098c5e5>;
+   <http://www.w3.org/2004/02/skos/core#broader> <http://linked.toerismevlaanderen.be/id/concepts/8c86f1d0-dedb-4344-b101-c0ac9bd15df4>;
+   <http://www.w3.org/2004/02/skos/core#inScheme> <http://linked.toerismevlaanderen.be/id/conceptschemes/93ea6af1-97d6-4ceb-9b0d-819aa5c26a3e>;
+   <http://www.w3.org/2004/02/skos/core#note> "algemene benaming voor een element bedoeld voor kinderen om mee te spelen, zoals een schommel, glijbaan, wipwap of een zandbak"@nl,
+     "General name for an element intended for children to play with such as a swing, slide, seesaw or a sandbox"@en;
+   <http://www.w3.org/2004/02/skos/core#prefLabel> "Speeltoestellen"@nl,
+     "Playground equipment"@en;
+   <http://xmlns.com/foaf/0.1/page> <http://linked.toerismevlaanderen.be/doc/concepts/f7094354-bc3a-4a6e-8232-b0c54098c5e5> .
+
+<http://linked.toerismevlaanderen.be/id/concepts/e10c2153-30dc-43d1-9183-7764e4d096ab> a <http://www.w3.org/2004/02/skos/core#Concept>,
+     <https://data.vlaanderen.be/ns/logies#Faciliteit>;
+   <http://mu.semte.ch/vocabularies/core/uuid> "e10c2153-30dc-43d1-9183-7764e4d096ab";
+   <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://linked.toerismevlaanderen.be/concepts/e10c2153-30dc-43d1-9183-7764e4d096ab>;
+   <http://www.w3.org/2004/02/skos/core#broader> <http://linked.toerismevlaanderen.be/id/concepts/8c86f1d0-dedb-4344-b101-c0ac9bd15df4>;
+   <http://www.w3.org/2004/02/skos/core#inScheme> <http://linked.toerismevlaanderen.be/id/conceptschemes/93ea6af1-97d6-4ceb-9b0d-819aa5c26a3e>;
+   <http://www.w3.org/2004/02/skos/core#note> "Fenced playground with seesaws, swings etc."@en,
+     "omheinde speelplaats met wippen, schommels enz."@nl;
+   <http://www.w3.org/2004/02/skos/core#prefLabel> "Playground"@en,
+     "Speeltuin"@nl;
+   <http://xmlns.com/foaf/0.1/page> <http://linked.toerismevlaanderen.be/doc/concepts/e10c2153-30dc-43d1-9183-7764e4d096ab> .
+
+<http://linked.toerismevlaanderen.be/id/concepts/2714a67c-28fd-4efa-bf97-e08e0e2c8e71> a <http://www.w3.org/2004/02/skos/core#Concept>,
+     <https://data.vlaanderen.be/ns/logies#Faciliteit>;
+   <http://mu.semte.ch/vocabularies/core/uuid> "2714a67c-28fd-4efa-bf97-e08e0e2c8e71";
+   <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://linked.toerismevlaanderen.be/concepts/2714a67c-28fd-4efa-bf97-e08e0e2c8e71>;
+   <http://www.w3.org/2004/02/skos/core#inScheme> <http://linked.toerismevlaanderen.be/id/conceptschemes/93ea6af1-97d6-4ceb-9b0d-819aa5c26a3e>;
+   <http://www.w3.org/2004/02/skos/core#prefLabel> "Vervoer"@nl;
+   <http://www.w3.org/2004/02/skos/core#topConceptOf> <http://linked.toerismevlaanderen.be/id/conceptschemes/93ea6af1-97d6-4ceb-9b0d-819aa5c26a3e>;
+   <http://xmlns.com/foaf/0.1/page> <http://linked.toerismevlaanderen.be/doc/concepts/2714a67c-28fd-4efa-bf97-e08e0e2c8e71> .
+
+<http://linked.toerismevlaanderen.be/id/concepts/a8235749-daf1-4c33-ab90-a546c78e741d> a <http://www.w3.org/2004/02/skos/core#Concept>,
+     <https://data.vlaanderen.be/ns/logies#Faciliteit>;
+   <http://mu.semte.ch/vocabularies/core/uuid> "a8235749-daf1-4c33-ab90-a546c78e741d";
+   <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://linked.toerismevlaanderen.be/concepts/a8235749-daf1-4c33-ab90-a546c78e741d>;
+   <http://www.w3.org/2004/02/skos/core#broader> <http://linked.toerismevlaanderen.be/id/concepts/2714a67c-28fd-4efa-bf97-e08e0e2c8e71>;
+   <http://www.w3.org/2004/02/skos/core#inScheme> <http://linked.toerismevlaanderen.be/id/conceptschemes/93ea6af1-97d6-4ceb-9b0d-819aa5c26a3e>;
+   <http://www.w3.org/2004/02/skos/core#prefLabel> "Afgesloten fietsenstalling"@nl;
+   <http://xmlns.com/foaf/0.1/page> <http://linked.toerismevlaanderen.be/doc/concepts/a8235749-daf1-4c33-ab90-a546c78e741d> .
+
+<http://linked.toerismevlaanderen.be/id/concepts/0b395ddc-a896-486a-bd42-415dca01817f> a <http://www.w3.org/2004/02/skos/core#Concept>,
+     <https://data.vlaanderen.be/ns/logies#Faciliteit>;
+   <http://mu.semte.ch/vocabularies/core/uuid> "0b395ddc-a896-486a-bd42-415dca01817f";
+   <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://linked.toerismevlaanderen.be/concepts/0b395ddc-a896-486a-bd42-415dca01817f>;
+   <http://www.w3.org/2004/02/skos/core#broader> <http://linked.toerismevlaanderen.be/id/concepts/2714a67c-28fd-4efa-bf97-e08e0e2c8e71>;
+   <http://www.w3.org/2004/02/skos/core#inScheme> <http://linked.toerismevlaanderen.be/id/conceptschemes/93ea6af1-97d6-4ceb-9b0d-819aa5c26a3e>;
+   <http://www.w3.org/2004/02/skos/core#prefLabel> "Afgesloten parkeergelegenheid"@nl;
+   <http://xmlns.com/foaf/0.1/page> <http://linked.toerismevlaanderen.be/doc/concepts/0b395ddc-a896-486a-bd42-415dca01817f> .
+
+<http://linked.toerismevlaanderen.be/id/concepts/aef26cdc-9e78-4f93-b066-e933a1e1f86a> a <http://www.w3.org/2004/02/skos/core#Concept>,
+     <https://data.vlaanderen.be/ns/logies#Faciliteit>;
+   <http://mu.semte.ch/vocabularies/core/uuid> "aef26cdc-9e78-4f93-b066-e933a1e1f86a";
+   <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://linked.toerismevlaanderen.be/concepts/aef26cdc-9e78-4f93-b066-e933a1e1f86a>;
+   <http://www.w3.org/2004/02/skos/core#broader> <http://linked.toerismevlaanderen.be/id/concepts/2714a67c-28fd-4efa-bf97-e08e0e2c8e71>;
+   <http://www.w3.org/2004/02/skos/core#inScheme> <http://linked.toerismevlaanderen.be/id/conceptschemes/93ea6af1-97d6-4ceb-9b0d-819aa5c26a3e>;
+   <http://www.w3.org/2004/02/skos/core#prefLabel> "Fietsenstalling"@nl;
+   <http://xmlns.com/foaf/0.1/page> <http://linked.toerismevlaanderen.be/doc/concepts/aef26cdc-9e78-4f93-b066-e933a1e1f86a> .
+
+<http://linked.toerismevlaanderen.be/id/concepts/1a9222d8-d417-4c59-afff-8a452fa7a4fe> a <http://www.w3.org/2004/02/skos/core#Concept>,
+     <https://data.vlaanderen.be/ns/logies#Faciliteit>;
+   <http://mu.semte.ch/vocabularies/core/uuid> "1a9222d8-d417-4c59-afff-8a452fa7a4fe";
+   <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://linked.toerismevlaanderen.be/concepts/1a9222d8-d417-4c59-afff-8a452fa7a4fe>;
+   <http://www.w3.org/2004/02/skos/core#broader> <http://linked.toerismevlaanderen.be/id/concepts/2714a67c-28fd-4efa-bf97-e08e0e2c8e71>;
+   <http://www.w3.org/2004/02/skos/core#inScheme> <http://linked.toerismevlaanderen.be/id/conceptschemes/93ea6af1-97d6-4ceb-9b0d-819aa5c26a3e>;
+   <http://www.w3.org/2004/02/skos/core#prefLabel> "Mogelijkheid om bagage na te brengen"@nl;
+   <http://xmlns.com/foaf/0.1/page> <http://linked.toerismevlaanderen.be/doc/concepts/1a9222d8-d417-4c59-afff-8a452fa7a4fe> .
+
+<http://linked.toerismevlaanderen.be/id/concepts/4b213848-90cd-4fec-af78-ba3caed6059c> a <http://www.w3.org/2004/02/skos/core#Concept>,
+     <https://data.vlaanderen.be/ns/logies#Faciliteit>;
+   <http://mu.semte.ch/vocabularies/core/uuid> "4b213848-90cd-4fec-af78-ba3caed6059c";
+   <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://linked.toerismevlaanderen.be/concepts/4b213848-90cd-4fec-af78-ba3caed6059c>;
+   <http://www.w3.org/2004/02/skos/core#broader> <http://linked.toerismevlaanderen.be/id/concepts/2714a67c-28fd-4efa-bf97-e08e0e2c8e71>;
+   <http://www.w3.org/2004/02/skos/core#inScheme> <http://linked.toerismevlaanderen.be/id/conceptschemes/93ea6af1-97d6-4ceb-9b0d-819aa5c26a3e>;
+   <http://www.w3.org/2004/02/skos/core#prefLabel> "Oplaadpunt voor elektrische fietsen"@nl;
+   <http://xmlns.com/foaf/0.1/page> <http://linked.toerismevlaanderen.be/doc/concepts/4b213848-90cd-4fec-af78-ba3caed6059c> .
+
+<http://linked.toerismevlaanderen.be/id/concepts/9946f569-0993-4103-b211-83a9f90ad879> a <http://www.w3.org/2004/02/skos/core#Concept>,
+     <https://data.vlaanderen.be/ns/logies#Faciliteit>;
+   <http://mu.semte.ch/vocabularies/core/uuid> "9946f569-0993-4103-b211-83a9f90ad879";
+   <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://linked.toerismevlaanderen.be/concepts/9946f569-0993-4103-b211-83a9f90ad879>;
+   <http://www.w3.org/2004/02/skos/core#broader> <http://linked.toerismevlaanderen.be/id/concepts/2714a67c-28fd-4efa-bf97-e08e0e2c8e71>;
+   <http://www.w3.org/2004/02/skos/core#inScheme> <http://linked.toerismevlaanderen.be/id/conceptschemes/93ea6af1-97d6-4ceb-9b0d-819aa5c26a3e>;
+   <http://www.w3.org/2004/02/skos/core#prefLabel> "Oplaadpunt voor elektrische wagens"@nl;
+   <http://xmlns.com/foaf/0.1/page> <http://linked.toerismevlaanderen.be/doc/concepts/9946f569-0993-4103-b211-83a9f90ad879> .
+
+<http://linked.toerismevlaanderen.be/id/concepts/de9e9762-f4de-4c34-8dc7-4619fc5ccf2e> a <http://www.w3.org/2004/02/skos/core#Concept>,
+     <https://data.vlaanderen.be/ns/logies#Faciliteit>;
+   <http://mu.semte.ch/vocabularies/core/uuid> "de9e9762-f4de-4c34-8dc7-4619fc5ccf2e";
+   <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://linked.toerismevlaanderen.be/concepts/de9e9762-f4de-4c34-8dc7-4619fc5ccf2e>;
+   <http://www.w3.org/2004/02/skos/core#broader> <http://linked.toerismevlaanderen.be/id/concepts/2714a67c-28fd-4efa-bf97-e08e0e2c8e71>;
+   <http://www.w3.org/2004/02/skos/core#inScheme> <http://linked.toerismevlaanderen.be/id/conceptschemes/93ea6af1-97d6-4ceb-9b0d-819aa5c26a3e>;
+   <http://www.w3.org/2004/02/skos/core#prefLabel> "Parkeergelegenheid"@nl;
+   <http://xmlns.com/foaf/0.1/page> <http://linked.toerismevlaanderen.be/doc/concepts/de9e9762-f4de-4c34-8dc7-4619fc5ccf2e> .
+
+<http://linked.toerismevlaanderen.be/id/concepts/d34d2fbd-1a07-4f69-9e64-64ad5b571335> a <http://www.w3.org/2004/02/skos/core#Concept>,
+     <https://data.vlaanderen.be/ns/logies#Faciliteit>;
+   <http://mu.semte.ch/vocabularies/core/uuid> "d34d2fbd-1a07-4f69-9e64-64ad5b571335";
+   <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://linked.toerismevlaanderen.be/concepts/d34d2fbd-1a07-4f69-9e64-64ad5b571335>;
+   <http://www.w3.org/2004/02/skos/core#broader> <http://linked.toerismevlaanderen.be/id/concepts/2714a67c-28fd-4efa-bf97-e08e0e2c8e71>;
+   <http://www.w3.org/2004/02/skos/core#inScheme> <http://linked.toerismevlaanderen.be/id/conceptschemes/93ea6af1-97d6-4ceb-9b0d-819aa5c26a3e>;
+   <http://www.w3.org/2004/02/skos/core#prefLabel> "Pendeldienst"@nl;
+   <http://xmlns.com/foaf/0.1/page> <http://linked.toerismevlaanderen.be/doc/concepts/d34d2fbd-1a07-4f69-9e64-64ad5b571335> .
+
+<http://linked.toerismevlaanderen.be/id/concepts/95841f14-4839-42dd-be80-963aab110d8c> a <http://www.w3.org/2004/02/skos/core#Concept>,
+     <https://data.vlaanderen.be/ns/logies#Faciliteit>;
+   <http://mu.semte.ch/vocabularies/core/uuid> "95841f14-4839-42dd-be80-963aab110d8c";
+   <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://linked.toerismevlaanderen.be/concepts/95841f14-4839-42dd-be80-963aab110d8c>;
+   <http://www.w3.org/2004/02/skos/core#inScheme> <http://linked.toerismevlaanderen.be/id/conceptschemes/93ea6af1-97d6-4ceb-9b0d-819aa5c26a3e>;
+   <http://www.w3.org/2004/02/skos/core#prefLabel> "Sport & activiteiten"@nl;
+   <http://www.w3.org/2004/02/skos/core#topConceptOf> <http://linked.toerismevlaanderen.be/id/conceptschemes/93ea6af1-97d6-4ceb-9b0d-819aa5c26a3e>;
+   <http://xmlns.com/foaf/0.1/page> <http://linked.toerismevlaanderen.be/doc/concepts/95841f14-4839-42dd-be80-963aab110d8c> .
+
+<http://linked.toerismevlaanderen.be/id/concepts/5a103259-a47d-45b6-8947-3001e5be8102> a <http://www.w3.org/2004/02/skos/core#Concept>,
+     <https://data.vlaanderen.be/ns/logies#Faciliteit>;
+   <http://mu.semte.ch/vocabularies/core/uuid> "5a103259-a47d-45b6-8947-3001e5be8102";
+   <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://linked.toerismevlaanderen.be/concepts/5a103259-a47d-45b6-8947-3001e5be8102>;
+   <http://www.w3.org/2004/02/skos/core#broader> <http://linked.toerismevlaanderen.be/id/concepts/95841f14-4839-42dd-be80-963aab110d8c>;
+   <http://www.w3.org/2004/02/skos/core#inScheme> <http://linked.toerismevlaanderen.be/id/conceptschemes/93ea6af1-97d6-4ceb-9b0d-819aa5c26a3e>;
+   <http://www.w3.org/2004/02/skos/core#note> "Biljarttafel (pool, drieband, tapbiljart, snooker ...) met bijhorende ballen en keus"@nl;
+   <http://www.w3.org/2004/02/skos/core#prefLabel> "Biljart"@nl;
+   <http://xmlns.com/foaf/0.1/page> <http://linked.toerismevlaanderen.be/doc/concepts/5a103259-a47d-45b6-8947-3001e5be8102> .
+
+<http://linked.toerismevlaanderen.be/id/concepts/d0475812-fc2a-468a-92cd-2deaf243a97d> a <http://www.w3.org/2004/02/skos/core#Concept>,
+     <https://data.vlaanderen.be/ns/logies#Faciliteit>;
+   <http://mu.semte.ch/vocabularies/core/uuid> "d0475812-fc2a-468a-92cd-2deaf243a97d";
+   <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://linked.toerismevlaanderen.be/concepts/d0475812-fc2a-468a-92cd-2deaf243a97d>;
+   <http://www.w3.org/2004/02/skos/core#broader> <http://linked.toerismevlaanderen.be/id/concepts/95841f14-4839-42dd-be80-963aab110d8c>;
+   <http://www.w3.org/2004/02/skos/core#inScheme> <http://linked.toerismevlaanderen.be/id/conceptschemes/93ea6af1-97d6-4ceb-9b0d-819aa5c26a3e>;
+   <http://www.w3.org/2004/02/skos/core#note> "Meerdere boerderijdieren (geit, schaap, kip, varken, paard, koe ...) aanwezig"@nl;
+   <http://www.w3.org/2004/02/skos/core#prefLabel> "Boerderijdieren aanwezig"@nl;
+   <http://xmlns.com/foaf/0.1/page> <http://linked.toerismevlaanderen.be/doc/concepts/d0475812-fc2a-468a-92cd-2deaf243a97d> .
+
+<http://linked.toerismevlaanderen.be/id/concepts/bfca249c-cf27-4dd5-8ad3-a638fb8cc8d9> a <http://www.w3.org/2004/02/skos/core#Concept>,
+     <https://data.vlaanderen.be/ns/logies#Faciliteit>;
+   <http://mu.semte.ch/vocabularies/core/uuid> "bfca249c-cf27-4dd5-8ad3-a638fb8cc8d9";
+   <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://linked.toerismevlaanderen.be/concepts/bfca249c-cf27-4dd5-8ad3-a638fb8cc8d9>;
+   <http://www.w3.org/2004/02/skos/core#broader> <http://linked.toerismevlaanderen.be/id/concepts/95841f14-4839-42dd-be80-963aab110d8c>;
+   <http://www.w3.org/2004/02/skos/core#inScheme> <http://linked.toerismevlaanderen.be/id/conceptschemes/93ea6af1-97d6-4ceb-9b0d-819aa5c26a3e>;
+   <http://www.w3.org/2004/02/skos/core#note> "Bos aanwezig op het domein, toegankelijk voor de gasten"@nl;
+   <http://www.w3.org/2004/02/skos/core#prefLabel> "Bos"@nl;
+   <http://xmlns.com/foaf/0.1/page> <http://linked.toerismevlaanderen.be/doc/concepts/bfca249c-cf27-4dd5-8ad3-a638fb8cc8d9> .
+
+<http://linked.toerismevlaanderen.be/id/concepts/b9c959b6-3d70-4788-b072-40fb4c339cf2> a <http://www.w3.org/2004/02/skos/core#Concept>,
+     <https://data.vlaanderen.be/ns/logies#Faciliteit>;
+   <http://mu.semte.ch/vocabularies/core/uuid> "b9c959b6-3d70-4788-b072-40fb4c339cf2";
+   <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://linked.toerismevlaanderen.be/concepts/b9c959b6-3d70-4788-b072-40fb4c339cf2>;
+   <http://www.w3.org/2004/02/skos/core#broader> <http://linked.toerismevlaanderen.be/id/concepts/95841f14-4839-42dd-be80-963aab110d8c>;
+   <http://www.w3.org/2004/02/skos/core#inScheme> <http://linked.toerismevlaanderen.be/id/conceptschemes/93ea6af1-97d6-4ceb-9b0d-819aa5c26a3e>;
+   <http://www.w3.org/2004/02/skos/core#note> "Bowlingbaan"@nl;
+   <http://www.w3.org/2004/02/skos/core#prefLabel> "Bowlen"@nl;
+   <http://xmlns.com/foaf/0.1/page> <http://linked.toerismevlaanderen.be/doc/concepts/b9c959b6-3d70-4788-b072-40fb4c339cf2> .
+
+<http://linked.toerismevlaanderen.be/id/concepts/a90b686d-d9f1-4c70-9aab-8dd33f6c169c> a <http://www.w3.org/2004/02/skos/core#Concept>,
+     <https://data.vlaanderen.be/ns/logies#Faciliteit>;
+   <http://mu.semte.ch/vocabularies/core/uuid> "a90b686d-d9f1-4c70-9aab-8dd33f6c169c";
+   <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://linked.toerismevlaanderen.be/concepts/a90b686d-d9f1-4c70-9aab-8dd33f6c169c>;
+   <http://www.w3.org/2004/02/skos/core#broader> <http://linked.toerismevlaanderen.be/id/concepts/95841f14-4839-42dd-be80-963aab110d8c>;
+   <http://www.w3.org/2004/02/skos/core#inScheme> <http://linked.toerismevlaanderen.be/id/conceptschemes/93ea6af1-97d6-4ceb-9b0d-819aa5c26a3e>;
+   <http://www.w3.org/2004/02/skos/core#note> "Ook vogelpik genoemd. Dartbord en darts ter beschikking"@nl;
+   <http://www.w3.org/2004/02/skos/core#prefLabel> "Darten"@nl;
+   <http://xmlns.com/foaf/0.1/page> <http://linked.toerismevlaanderen.be/doc/concepts/a90b686d-d9f1-4c70-9aab-8dd33f6c169c> .
+
+<http://linked.toerismevlaanderen.be/id/concepts/8c461b6d-811e-4639-a8ec-2e212a50102d> a <http://www.w3.org/2004/02/skos/core#Concept>,
+     <https://data.vlaanderen.be/ns/logies#Faciliteit>;
+   <http://mu.semte.ch/vocabularies/core/uuid> "8c461b6d-811e-4639-a8ec-2e212a50102d";
+   <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://linked.toerismevlaanderen.be/concepts/8c461b6d-811e-4639-a8ec-2e212a50102d>;
+   <http://www.w3.org/2004/02/skos/core#broader> <http://linked.toerismevlaanderen.be/id/concepts/95841f14-4839-42dd-be80-963aab110d8c>;
+   <http://www.w3.org/2004/02/skos/core#inScheme> <http://linked.toerismevlaanderen.be/id/conceptschemes/93ea6af1-97d6-4ceb-9b0d-819aa5c26a3e>;
+   <http://www.w3.org/2004/02/skos/core#note> "Fietsen ter beschikking"@nl;
+   <http://www.w3.org/2004/02/skos/core#prefLabel> "Fietsen"@nl;
+   <http://xmlns.com/foaf/0.1/page> <http://linked.toerismevlaanderen.be/doc/concepts/8c461b6d-811e-4639-a8ec-2e212a50102d> .
+
+<http://linked.toerismevlaanderen.be/id/concepts/9e96460c-a317-4d4b-b960-ce44b5b458fb> a <http://www.w3.org/2004/02/skos/core#Concept>,
+     <https://data.vlaanderen.be/ns/logies#Faciliteit>;
+   <http://mu.semte.ch/vocabularies/core/uuid> "9e96460c-a317-4d4b-b960-ce44b5b458fb";
+   <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://linked.toerismevlaanderen.be/concepts/9e96460c-a317-4d4b-b960-ce44b5b458fb>;
+   <http://www.w3.org/2004/02/skos/core#broader> <http://linked.toerismevlaanderen.be/id/concepts/95841f14-4839-42dd-be80-963aab110d8c>;
+   <http://www.w3.org/2004/02/skos/core#inScheme> <http://linked.toerismevlaanderen.be/id/conceptschemes/93ea6af1-97d6-4ceb-9b0d-819aa5c26a3e>;
+   <http://www.w3.org/2004/02/skos/core#note> "Fitnessruimte met meerdere fitnesstoestellen toegankelijk voor de gasten"@nl;
+   <http://www.w3.org/2004/02/skos/core#prefLabel> "Fitness"@nl;
+   <http://xmlns.com/foaf/0.1/page> <http://linked.toerismevlaanderen.be/doc/concepts/9e96460c-a317-4d4b-b960-ce44b5b458fb> .
+
+<http://linked.toerismevlaanderen.be/id/concepts/dfa7eaa3-0638-41cb-a971-824eb2465894> a <http://www.w3.org/2004/02/skos/core#Concept>,
+     <https://data.vlaanderen.be/ns/logies#Faciliteit>;
+   <http://mu.semte.ch/vocabularies/core/uuid> "dfa7eaa3-0638-41cb-a971-824eb2465894";
+   <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://linked.toerismevlaanderen.be/concepts/dfa7eaa3-0638-41cb-a971-824eb2465894>;
+   <http://www.w3.org/2004/02/skos/core#broader> <http://linked.toerismevlaanderen.be/id/concepts/95841f14-4839-42dd-be80-963aab110d8c>;
+   <http://www.w3.org/2004/02/skos/core#inScheme> <http://linked.toerismevlaanderen.be/id/conceptschemes/93ea6af1-97d6-4ceb-9b0d-819aa5c26a3e>;
+   <http://www.w3.org/2004/02/skos/core#note> "Golfbaan aanwezig op het domein, toegankelijk voor de gasten"@nl;
+   <http://www.w3.org/2004/02/skos/core#prefLabel> "Golf"@nl;
+   <http://xmlns.com/foaf/0.1/page> <http://linked.toerismevlaanderen.be/doc/concepts/dfa7eaa3-0638-41cb-a971-824eb2465894> .
+
+<http://linked.toerismevlaanderen.be/id/concepts/ce72204a-ea34-4136-9573-31c42ec5e511> a <http://www.w3.org/2004/02/skos/core#Concept>,
+     <https://data.vlaanderen.be/ns/logies#Faciliteit>;
+   <http://mu.semte.ch/vocabularies/core/uuid> "ce72204a-ea34-4136-9573-31c42ec5e511";
+   <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://linked.toerismevlaanderen.be/concepts/ce72204a-ea34-4136-9573-31c42ec5e511>;
+   <http://www.w3.org/2004/02/skos/core#broader> <http://linked.toerismevlaanderen.be/id/concepts/95841f14-4839-42dd-be80-963aab110d8c>;
+   <http://www.w3.org/2004/02/skos/core#inScheme> <http://linked.toerismevlaanderen.be/id/conceptschemes/93ea6af1-97d6-4ceb-9b0d-819aa5c26a3e>;
+   <http://www.w3.org/2004/02/skos/core#note> "Grasveld aanwezig op het domein, toegankelijk voor de gasten"@nl;
+   <http://www.w3.org/2004/02/skos/core#prefLabel> "Grasplein"@nl;
+   <http://xmlns.com/foaf/0.1/page> <http://linked.toerismevlaanderen.be/doc/concepts/ce72204a-ea34-4136-9573-31c42ec5e511> .
+
+<http://linked.toerismevlaanderen.be/id/concepts/cb35ffc4-dcfd-43f9-8971-b1d875eda2b5> a <http://www.w3.org/2004/02/skos/core#Concept>,
+     <https://data.vlaanderen.be/ns/logies#Faciliteit>;
+   <http://mu.semte.ch/vocabularies/core/uuid> "cb35ffc4-dcfd-43f9-8971-b1d875eda2b5";
+   <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://linked.toerismevlaanderen.be/concepts/cb35ffc4-dcfd-43f9-8971-b1d875eda2b5>;
+   <http://www.w3.org/2004/02/skos/core#broader> <http://linked.toerismevlaanderen.be/id/concepts/95841f14-4839-42dd-be80-963aab110d8c>;
+   <http://www.w3.org/2004/02/skos/core#inScheme> <http://linked.toerismevlaanderen.be/id/conceptschemes/93ea6af1-97d6-4ceb-9b0d-819aa5c26a3e>;
+   <http://www.w3.org/2004/02/skos/core#note> "Beschikbare plek om kampvuur te houden, indien de weersomstandigheden het toelaten"@nl;
+   <http://www.w3.org/2004/02/skos/core#prefLabel> "Kampvuurmogelijkheid"@nl;
+   <http://xmlns.com/foaf/0.1/page> <http://linked.toerismevlaanderen.be/doc/concepts/cb35ffc4-dcfd-43f9-8971-b1d875eda2b5> .
+
+<http://linked.toerismevlaanderen.be/id/concepts/e4beb662-d518-4d4f-8fb9-3f10f814fc05> a <http://www.w3.org/2004/02/skos/core#Concept>,
+     <https://data.vlaanderen.be/ns/logies#Faciliteit>;
+   <http://mu.semte.ch/vocabularies/core/uuid> "e4beb662-d518-4d4f-8fb9-3f10f814fc05";
+   <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://linked.toerismevlaanderen.be/concepts/e4beb662-d518-4d4f-8fb9-3f10f814fc05>;
+   <http://www.w3.org/2004/02/skos/core#broader> <http://linked.toerismevlaanderen.be/id/concepts/95841f14-4839-42dd-be80-963aab110d8c>;
+   <http://www.w3.org/2004/02/skos/core#inScheme> <http://linked.toerismevlaanderen.be/id/conceptschemes/93ea6af1-97d6-4ceb-9b0d-819aa5c26a3e>;
+   <http://www.w3.org/2004/02/skos/core#note> "Meer of vijver aanwezig op het domein"@nl;
+   <http://www.w3.org/2004/02/skos/core#prefLabel> "Meer/vijver"@nl;
+   <http://xmlns.com/foaf/0.1/page> <http://linked.toerismevlaanderen.be/doc/concepts/e4beb662-d518-4d4f-8fb9-3f10f814fc05> .
+
+<http://linked.toerismevlaanderen.be/id/concepts/5c6877db-f218-4cec-8598-78c4f7b9b091> a <http://www.w3.org/2004/02/skos/core#Concept>,
+     <https://data.vlaanderen.be/ns/logies#Faciliteit>;
+   <http://mu.semte.ch/vocabularies/core/uuid> "5c6877db-f218-4cec-8598-78c4f7b9b091";
+   <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://linked.toerismevlaanderen.be/concepts/5c6877db-f218-4cec-8598-78c4f7b9b091>;
+   <http://www.w3.org/2004/02/skos/core#broader> <http://linked.toerismevlaanderen.be/id/concepts/95841f14-4839-42dd-be80-963aab110d8c>;
+   <http://www.w3.org/2004/02/skos/core#inScheme> <http://linked.toerismevlaanderen.be/id/conceptschemes/93ea6af1-97d6-4ceb-9b0d-819aa5c26a3e>;
+   <http://www.w3.org/2004/02/skos/core#note> "Minigolf beschikbaar"@nl;
+   <http://www.w3.org/2004/02/skos/core#prefLabel> "Minigolf"@nl;
+   <http://xmlns.com/foaf/0.1/page> <http://linked.toerismevlaanderen.be/doc/concepts/5c6877db-f218-4cec-8598-78c4f7b9b091> .
+
+<http://linked.toerismevlaanderen.be/id/concepts/9a5319d9-acf0-4b37-b9e3-6143ec13d999> a <http://www.w3.org/2004/02/skos/core#Concept>,
+     <https://data.vlaanderen.be/ns/logies#Faciliteit>;
+   <http://mu.semte.ch/vocabularies/core/uuid> "9a5319d9-acf0-4b37-b9e3-6143ec13d999";
+   <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://linked.toerismevlaanderen.be/concepts/9a5319d9-acf0-4b37-b9e3-6143ec13d999>;
+   <http://www.w3.org/2004/02/skos/core#broader> <http://linked.toerismevlaanderen.be/id/concepts/95841f14-4839-42dd-be80-963aab110d8c>;
+   <http://www.w3.org/2004/02/skos/core#inScheme> <http://linked.toerismevlaanderen.be/id/conceptschemes/93ea6af1-97d6-4ceb-9b0d-819aa5c26a3e>;
+   <http://www.w3.org/2004/02/skos/core#note> "Tuin is volledig omheind"@nl;
+   <http://www.w3.org/2004/02/skos/core#prefLabel> "Omheinde tuin"@nl;
+   <http://xmlns.com/foaf/0.1/page> <http://linked.toerismevlaanderen.be/doc/concepts/9a5319d9-acf0-4b37-b9e3-6143ec13d999> .
+
+<http://linked.toerismevlaanderen.be/id/concepts/e301a990-ca18-49b8-9d88-247c248389d5> a <http://www.w3.org/2004/02/skos/core#Concept>,
+     <https://data.vlaanderen.be/ns/logies#Faciliteit>;
+   <http://mu.semte.ch/vocabularies/core/uuid> "e301a990-ca18-49b8-9d88-247c248389d5";
+   <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://linked.toerismevlaanderen.be/concepts/e301a990-ca18-49b8-9d88-247c248389d5>;
+   <http://www.w3.org/2004/02/skos/core#broader> <http://linked.toerismevlaanderen.be/id/concepts/95841f14-4839-42dd-be80-963aab110d8c>;
+   <http://www.w3.org/2004/02/skos/core#inScheme> <http://linked.toerismevlaanderen.be/id/conceptschemes/93ea6af1-97d6-4ceb-9b0d-819aa5c26a3e>;
+   <http://www.w3.org/2004/02/skos/core#note> "Verblijf op of aanpalend aan een actieve 17boerderij"@nl;
+   <http://www.w3.org/2004/02/skos/core#prefLabel> "Op de boerderij"@nl;
+   <http://xmlns.com/foaf/0.1/page> <http://linked.toerismevlaanderen.be/doc/concepts/e301a990-ca18-49b8-9d88-247c248389d5> .
+
+<http://linked.toerismevlaanderen.be/id/concepts/a21e1a84-49bf-4004-9cfa-fbf0db1b78dc> a <http://www.w3.org/2004/02/skos/core#Concept>,
+     <https://data.vlaanderen.be/ns/logies#Faciliteit>;
+   <http://mu.semte.ch/vocabularies/core/uuid> "a21e1a84-49bf-4004-9cfa-fbf0db1b78dc";
+   <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://linked.toerismevlaanderen.be/concepts/a21e1a84-49bf-4004-9cfa-fbf0db1b78dc>;
+   <http://www.w3.org/2004/02/skos/core#broader> <http://linked.toerismevlaanderen.be/id/concepts/95841f14-4839-42dd-be80-963aab110d8c>;
+   <http://www.w3.org/2004/02/skos/core#inScheme> <http://linked.toerismevlaanderen.be/id/conceptschemes/93ea6af1-97d6-4ceb-9b0d-819aa5c26a3e>;
+   <http://www.w3.org/2004/02/skos/core#note> "Petanquebaan ter beschikking"@nl;
+   <http://www.w3.org/2004/02/skos/core#prefLabel> "Petanquebaan"@nl;
+   <http://xmlns.com/foaf/0.1/page> <http://linked.toerismevlaanderen.be/doc/concepts/a21e1a84-49bf-4004-9cfa-fbf0db1b78dc> .
+
+<http://linked.toerismevlaanderen.be/id/concepts/13cd9ae0-35f5-4501-a664-2f784cd7e5fa> a <http://www.w3.org/2004/02/skos/core#Concept>,
+     <https://data.vlaanderen.be/ns/logies#Faciliteit>;
+   <http://mu.semte.ch/vocabularies/core/uuid> "13cd9ae0-35f5-4501-a664-2f784cd7e5fa";
+   <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://linked.toerismevlaanderen.be/concepts/13cd9ae0-35f5-4501-a664-2f784cd7e5fa>;
+   <http://www.w3.org/2004/02/skos/core#broader> <http://linked.toerismevlaanderen.be/id/concepts/95841f14-4839-42dd-be80-963aab110d8c>;
+   <http://www.w3.org/2004/02/skos/core#inScheme> <http://linked.toerismevlaanderen.be/id/conceptschemes/93ea6af1-97d6-4ceb-9b0d-819aa5c26a3e>;
+   <http://www.w3.org/2004/02/skos/core#note> "A terrain equipped for sports."@en,
+     "Een terrein dat ingericht is om te sporten."@nl;
+   <http://www.w3.org/2004/02/skos/core#prefLabel> "Sportveld"@nl,
+     "Sports field"@en;
+   <http://xmlns.com/foaf/0.1/page> <http://linked.toerismevlaanderen.be/doc/concepts/13cd9ae0-35f5-4501-a664-2f784cd7e5fa> .
+
+<http://linked.toerismevlaanderen.be/id/concepts/0e10f4a8-ebfe-40ea-8219-66c62e575fa1> a <http://www.w3.org/2004/02/skos/core#Concept>,
+     <https://data.vlaanderen.be/ns/logies#Faciliteit>;
+   <http://mu.semte.ch/vocabularies/core/uuid> "0e10f4a8-ebfe-40ea-8219-66c62e575fa1";
+   <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://linked.toerismevlaanderen.be/concepts/0e10f4a8-ebfe-40ea-8219-66c62e575fa1>;
+   <http://www.w3.org/2004/02/skos/core#broader> <http://linked.toerismevlaanderen.be/id/concepts/95841f14-4839-42dd-be80-963aab110d8c>;
+   <http://www.w3.org/2004/02/skos/core#inScheme> <http://linked.toerismevlaanderen.be/id/conceptschemes/93ea6af1-97d6-4ceb-9b0d-819aa5c26a3e>;
+   <http://www.w3.org/2004/02/skos/core#note> "Also called 'PingPong'. A sport in which two or four players swing a light and hollow ball with a pallet over a table with a net in the middle."@en,
+     "Ook 'PingPong' genoemd. Een sport waarbij twee of vier spelers een licht en hol balletje met een pallet heen en weer slaan over een tafel met een net in het midden."@nl;
+   <http://www.w3.org/2004/02/skos/core#prefLabel> "Tafeltennis"@nl,
+     "Table tennis"@en;
+   <http://xmlns.com/foaf/0.1/page> <http://linked.toerismevlaanderen.be/doc/concepts/0e10f4a8-ebfe-40ea-8219-66c62e575fa1> .
+
+<http://linked.toerismevlaanderen.be/id/concepts/b4690b1e-2daa-4688-b21b-a73923ee24f8> a <http://www.w3.org/2004/02/skos/core#Concept>,
+     <https://data.vlaanderen.be/ns/logies#Faciliteit>;
+   <http://mu.semte.ch/vocabularies/core/uuid> "b4690b1e-2daa-4688-b21b-a73923ee24f8";
+   <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://linked.toerismevlaanderen.be/concepts/b4690b1e-2daa-4688-b21b-a73923ee24f8>;
+   <http://www.w3.org/2004/02/skos/core#broader> <http://linked.toerismevlaanderen.be/id/concepts/95841f14-4839-42dd-be80-963aab110d8c>;
+   <http://www.w3.org/2004/02/skos/core#inScheme> <http://linked.toerismevlaanderen.be/id/conceptschemes/93ea6af1-97d6-4ceb-9b0d-819aa5c26a3e>;
+   <http://www.w3.org/2004/02/skos/core#note> "Een speelveld voor het spelen van tennis."@nl,
+     "A playing field for playing tennis."@en;
+   <http://www.w3.org/2004/02/skos/core#prefLabel> "Tennisbaan"@nl,
+     "Tennis court"@en;
+   <http://xmlns.com/foaf/0.1/page> <http://linked.toerismevlaanderen.be/doc/concepts/b4690b1e-2daa-4688-b21b-a73923ee24f8> .
+
+<http://linked.toerismevlaanderen.be/id/concepts/36f6acdd-7b4d-4158-be8c-b80469f5b387> a <http://www.w3.org/2004/02/skos/core#Concept>,
+     <https://data.vlaanderen.be/ns/logies#Faciliteit>;
+   <http://mu.semte.ch/vocabularies/core/uuid> "36f6acdd-7b4d-4158-be8c-b80469f5b387";
+   <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://linked.toerismevlaanderen.be/concepts/36f6acdd-7b4d-4158-be8c-b80469f5b387>;
+   <http://www.w3.org/2004/02/skos/core#broader> <http://linked.toerismevlaanderen.be/id/concepts/95841f14-4839-42dd-be80-963aab110d8c>;
+   <http://www.w3.org/2004/02/skos/core#inScheme> <http://linked.toerismevlaanderen.be/id/conceptschemes/93ea6af1-97d6-4ceb-9b0d-819aa5c26a3e>;
+   <http://www.w3.org/2004/02/skos/core#note> "A piece of land that is laid out with greenery and in which you can stay."@en,
+     "Een stuk grond die bepland is met groen en waarin vertoefd kan worden."@nl;
+   <http://www.w3.org/2004/02/skos/core#prefLabel> "Garden"@en,
+     "Tuin"@nl;
+   <http://xmlns.com/foaf/0.1/page> <http://linked.toerismevlaanderen.be/doc/concepts/36f6acdd-7b4d-4158-be8c-b80469f5b387> .
+
+<http://linked.toerismevlaanderen.be/id/concepts/fe6da9b1-782c-4ef8-810b-8de112a9b21f> a <http://www.w3.org/2004/02/skos/core#Concept>,
+     <https://data.vlaanderen.be/ns/logies#Faciliteit>;
+   <http://mu.semte.ch/vocabularies/core/uuid> "fe6da9b1-782c-4ef8-810b-8de112a9b21f";
+   <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://linked.toerismevlaanderen.be/concepts/fe6da9b1-782c-4ef8-810b-8de112a9b21f>;
+   <http://www.w3.org/2004/02/skos/core#broader> <http://linked.toerismevlaanderen.be/id/concepts/95841f14-4839-42dd-be80-963aab110d8c>;
+   <http://www.w3.org/2004/02/skos/core#inScheme> <http://linked.toerismevlaanderen.be/id/conceptschemes/93ea6af1-97d6-4ceb-9b0d-819aa5c26a3e>;
+   <http://www.w3.org/2004/02/skos/core#note> "Een stuk grond dat verhard werd."@nl,
+     "A piece of land that was hardened."@en;
+   <http://www.w3.org/2004/02/skos/core#prefLabel> "Verhard terrein"@nl,
+     "Paved terrain"@en;
+   <http://xmlns.com/foaf/0.1/page> <http://linked.toerismevlaanderen.be/doc/concepts/fe6da9b1-782c-4ef8-810b-8de112a9b21f> .
+
+<http://linked.toerismevlaanderen.be/id/concepts/b8d7ad6d-7f3a-424c-9631-e23fcac2bbdc> a <http://www.w3.org/2004/02/skos/core#Concept>,
+     <https://data.vlaanderen.be/ns/logies#Faciliteit>;
+   <http://mu.semte.ch/vocabularies/core/uuid> "b8d7ad6d-7f3a-424c-9631-e23fcac2bbdc";
+   <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://linked.toerismevlaanderen.be/concepts/b8d7ad6d-7f3a-424c-9631-e23fcac2bbdc>;
+   <http://www.w3.org/2004/02/skos/core#broader> <http://linked.toerismevlaanderen.be/id/concepts/95841f14-4839-42dd-be80-963aab110d8c>;
+   <http://www.w3.org/2004/02/skos/core#inScheme> <http://linked.toerismevlaanderen.be/id/conceptschemes/93ea6af1-97d6-4ceb-9b0d-819aa5c26a3e>;
+   <http://www.w3.org/2004/02/skos/core#note> "(Openlucht en/of indoor) recreatie op en om het water, waaronder zeilen, surfen, waterskiën, zwemmen, roeien, kanoën, duiken."@nl,
+     "(Outdoor and/or indoor) recreation on and around the water, including sailing, surfing, water skiing, swimming, rowing, canoeing, diving."@en;
+   <http://www.w3.org/2004/02/skos/core#prefLabel> "Waterrecreatie"@nl,
+     "Water recreation"@en;
+   <http://xmlns.com/foaf/0.1/page> <http://linked.toerismevlaanderen.be/doc/concepts/b8d7ad6d-7f3a-424c-9631-e23fcac2bbdc> .
+
+<http://linked.toerismevlaanderen.be/id/concepts/3a987915-9fae-437c-9585-ba217f007325> a <http://www.w3.org/2004/02/skos/core#Concept>,
+     <https://data.vlaanderen.be/ns/logies#Faciliteit>;
+   <http://mu.semte.ch/vocabularies/core/uuid> "3a987915-9fae-437c-9585-ba217f007325";
+   <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://linked.toerismevlaanderen.be/concepts/3a987915-9fae-437c-9585-ba217f007325>;
+   <http://www.w3.org/2004/02/skos/core#broader> <http://linked.toerismevlaanderen.be/id/concepts/b8d7ad6d-7f3a-424c-9631-e23fcac2bbdc>;
+   <http://www.w3.org/2004/02/skos/core#inScheme> <http://linked.toerismevlaanderen.be/id/conceptschemes/93ea6af1-97d6-4ceb-9b0d-819aa5c26a3e>;
+   <http://www.w3.org/2004/02/skos/core#note> "A place where people can go swimming outdoors, for fun, for sport or as therapy."@en,
+     "Een plaats waar mensen in openlucht, voor hun plezier, voor de sport of als therapie kunnen gaan zwemmen."@nl;
+   <http://www.w3.org/2004/02/skos/core#prefLabel> "Outdoor swimming pool"@en,
+     "Openlucht zwembad"@nl;
+   <http://xmlns.com/foaf/0.1/page> <http://linked.toerismevlaanderen.be/doc/concepts/3a987915-9fae-437c-9585-ba217f007325> .
+
+<http://linked.toerismevlaanderen.be/id/concepts/ec21ccab-231f-41bf-b54b-0e16560e0d9c> a <http://www.w3.org/2004/02/skos/core#Concept>,
+     <https://data.vlaanderen.be/ns/logies#Faciliteit>;
+   <http://mu.semte.ch/vocabularies/core/uuid> "ec21ccab-231f-41bf-b54b-0e16560e0d9c";
+   <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://linked.toerismevlaanderen.be/concepts/ec21ccab-231f-41bf-b54b-0e16560e0d9c>;
+   <http://www.w3.org/2004/02/skos/core#broader> <http://linked.toerismevlaanderen.be/id/concepts/b8d7ad6d-7f3a-424c-9631-e23fcac2bbdc>;
+   <http://www.w3.org/2004/02/skos/core#inScheme> <http://linked.toerismevlaanderen.be/id/conceptschemes/93ea6af1-97d6-4ceb-9b0d-819aa5c26a3e>;
+   <http://www.w3.org/2004/02/skos/core#note> "A place where people can swim indoors, for fun, for sports or as a therapy."@en,
+     "Een plaats waar mensen overdekt, voor hun plezier, voor de sport of als therapie kunnen gaan zwemmen."@nl;
+   <http://www.w3.org/2004/02/skos/core#prefLabel> "Overdekt zwembad"@nl,
+     "Indoor swimming pool"@en;
+   <http://xmlns.com/foaf/0.1/page> <http://linked.toerismevlaanderen.be/doc/concepts/ec21ccab-231f-41bf-b54b-0e16560e0d9c> .
+
+<http://linked.toerismevlaanderen.be/id/concepts/95fb9d6d-c285-4e3c-8fac-5938050c44ba> a <http://www.w3.org/2004/02/skos/core#Concept>,
+     <https://data.vlaanderen.be/ns/logies#Faciliteit>;
+   <http://mu.semte.ch/vocabularies/core/uuid> "95fb9d6d-c285-4e3c-8fac-5938050c44ba";
+   <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://linked.toerismevlaanderen.be/concepts/95fb9d6d-c285-4e3c-8fac-5938050c44ba>;
+   <http://www.w3.org/2004/02/skos/core#broader> <http://linked.toerismevlaanderen.be/id/concepts/b8d7ad6d-7f3a-424c-9631-e23fcac2bbdc>;
+   <http://www.w3.org/2004/02/skos/core#inScheme> <http://linked.toerismevlaanderen.be/id/conceptschemes/93ea6af1-97d6-4ceb-9b0d-819aa5c26a3e>;
+   <http://www.w3.org/2004/02/skos/core#note> "Een sport om een roeiboot voort te laten bewegen."@nl,
+     "A sport to move a rowing boat."@en;
+   <http://www.w3.org/2004/02/skos/core#prefLabel> "Rowing"@en,
+     "Roeien"@nl;
+   <http://xmlns.com/foaf/0.1/page> <http://linked.toerismevlaanderen.be/doc/concepts/95fb9d6d-c285-4e3c-8fac-5938050c44ba> .
+
+<http://linked.toerismevlaanderen.be/id/concepts/e7451302-b9ea-448a-becd-47e83e758bc0> a <http://www.w3.org/2004/02/skos/core#Concept>,
+     <https://data.vlaanderen.be/ns/logies#Faciliteit>;
+   <http://mu.semte.ch/vocabularies/core/uuid> "e7451302-b9ea-448a-becd-47e83e758bc0";
+   <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://linked.toerismevlaanderen.be/concepts/e7451302-b9ea-448a-becd-47e83e758bc0>;
+   <http://www.w3.org/2004/02/skos/core#broader> <http://linked.toerismevlaanderen.be/id/concepts/b8d7ad6d-7f3a-424c-9631-e23fcac2bbdc>;
+   <http://www.w3.org/2004/02/skos/core#inScheme> <http://linked.toerismevlaanderen.be/id/conceptschemes/93ea6af1-97d6-4ceb-9b0d-819aa5c26a3e>;
+   <http://www.w3.org/2004/02/skos/core#note> "Een uitgebreid recreatief zwembad met doorgaans warmer water en een warmere luchttemperatuur dan normale zwembaden."@nl,
+     "An extensive recreational pool with generally warmer water and a warmer air temperature than normal swimming pools."@en;
+   <http://www.w3.org/2004/02/skos/core#prefLabel> "Subtropical swimming pool"@en,
+     "Subtropisch zwembad"@nl;
+   <http://xmlns.com/foaf/0.1/page> <http://linked.toerismevlaanderen.be/doc/concepts/e7451302-b9ea-448a-becd-47e83e758bc0> .
+
+<http://linked.toerismevlaanderen.be/id/concepts/f6cdc44c-c1c6-4f5f-8bdc-9646aa62a366> a <http://www.w3.org/2004/02/skos/core#Concept>,
+     <https://data.vlaanderen.be/ns/logies#Faciliteit>;
+   <http://mu.semte.ch/vocabularies/core/uuid> "f6cdc44c-c1c6-4f5f-8bdc-9646aa62a366";
+   <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://linked.toerismevlaanderen.be/concepts/f6cdc44c-c1c6-4f5f-8bdc-9646aa62a366>;
+   <http://www.w3.org/2004/02/skos/core#broader> <http://linked.toerismevlaanderen.be/id/concepts/b8d7ad6d-7f3a-424c-9631-e23fcac2bbdc>;
+   <http://www.w3.org/2004/02/skos/core#inScheme> <http://linked.toerismevlaanderen.be/id/conceptschemes/93ea6af1-97d6-4ceb-9b0d-819aa5c26a3e>;
+   <http://www.w3.org/2004/02/skos/core#note> "A water sports with a surfboard where you can float to the beach through the power of the waves rolling from the surf."@en,
+     "Een watersport met een surfboard waarbij men zich door de kracht van de aanrollende golven van de branding naar het strand laat drijven."@nl;
+   <http://www.w3.org/2004/02/skos/core#prefLabel> "Surfing"@en,
+     "Surfen"@nl;
+   <http://xmlns.com/foaf/0.1/page> <http://linked.toerismevlaanderen.be/doc/concepts/f6cdc44c-c1c6-4f5f-8bdc-9646aa62a366> .
+
+<http://linked.toerismevlaanderen.be/id/concepts/6f7ebc46-b55c-42c7-b190-6d459604830c> a <http://www.w3.org/2004/02/skos/core#Concept>,
+     <https://data.vlaanderen.be/ns/logies#Faciliteit>;
+   <http://mu.semte.ch/vocabularies/core/uuid> "6f7ebc46-b55c-42c7-b190-6d459604830c";
+   <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://linked.toerismevlaanderen.be/concepts/6f7ebc46-b55c-42c7-b190-6d459604830c>;
+   <http://www.w3.org/2004/02/skos/core#broader> <http://linked.toerismevlaanderen.be/id/concepts/b8d7ad6d-7f3a-424c-9631-e23fcac2bbdc>;
+   <http://www.w3.org/2004/02/skos/core#inScheme> <http://linked.toerismevlaanderen.be/id/conceptschemes/93ea6af1-97d6-4ceb-9b0d-819aa5c26a3e>;
+   <http://www.w3.org/2004/02/skos/core#note> "A breeding and / or storage place for live fish where you can go fishing."@en,
+     "Een kweek- en/of bewaarplek voor levende vissen waar je kan gaan vissen."@nl;
+   <http://www.w3.org/2004/02/skos/core#prefLabel> "Fish pond"@en,
+     "Visvijver"@nl;
+   <http://xmlns.com/foaf/0.1/page> <http://linked.toerismevlaanderen.be/doc/concepts/6f7ebc46-b55c-42c7-b190-6d459604830c> .
+
+<http://linked.toerismevlaanderen.be/id/concepts/39f6cf05-ebd4-4909-8a0e-2cd13da20156> a <http://www.w3.org/2004/02/skos/core#Concept>,
+     <https://data.vlaanderen.be/ns/logies#Faciliteit>;
+   <http://mu.semte.ch/vocabularies/core/uuid> "39f6cf05-ebd4-4909-8a0e-2cd13da20156";
+   <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://linked.toerismevlaanderen.be/concepts/39f6cf05-ebd4-4909-8a0e-2cd13da20156>;
+   <http://www.w3.org/2004/02/skos/core#broader> <http://linked.toerismevlaanderen.be/id/concepts/b8d7ad6d-7f3a-424c-9631-e23fcac2bbdc>;
+   <http://www.w3.org/2004/02/skos/core#inScheme> <http://linked.toerismevlaanderen.be/id/conceptschemes/93ea6af1-97d6-4ceb-9b0d-819aa5c26a3e>;
+   <http://www.w3.org/2004/02/skos/core#note> "Een techniek van voortbeweging door windkracht op een zeilschip, zeilboot of surfplank over het water."@nl,
+     "A technique of locomotion by wind force on a sailing ship, sailboat or surfboard over the water."@en;
+   <http://www.w3.org/2004/02/skos/core#prefLabel> "Zeilen"@nl,
+     "Sailing"@en;
+   <http://xmlns.com/foaf/0.1/page> <http://linked.toerismevlaanderen.be/doc/concepts/39f6cf05-ebd4-4909-8a0e-2cd13da20156> .
+
+<http://linked.toerismevlaanderen.be/id/concepts/19e0fb11-4103-487f-a53c-e3f3772c8f12> a <http://www.w3.org/2004/02/skos/core#Concept>,
+     <https://data.vlaanderen.be/ns/logies#Faciliteit>;
+   <http://mu.semte.ch/vocabularies/core/uuid> "19e0fb11-4103-487f-a53c-e3f3772c8f12";
+   <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://linked.toerismevlaanderen.be/concepts/19e0fb11-4103-487f-a53c-e3f3772c8f12>;
+   <http://www.w3.org/2004/02/skos/core#broader> <http://linked.toerismevlaanderen.be/id/concepts/b8d7ad6d-7f3a-424c-9631-e23fcac2bbdc>;
+   <http://www.w3.org/2004/02/skos/core#inScheme> <http://linked.toerismevlaanderen.be/id/conceptschemes/93ea6af1-97d6-4ceb-9b0d-819aa5c26a3e>;
+   <http://www.w3.org/2004/02/skos/core#note> "Een door de mens aangelegde waterplas met beperkte oppervlakte, waarin kan gezwommen worden."@nl,
+     "A man-made pond with limited surface area, in which can be swum."@en;
+   <http://www.w3.org/2004/02/skos/core#prefLabel> "Swimming pond"@en,
+     "Zwemvijver"@nl;
+   <http://xmlns.com/foaf/0.1/page> <http://linked.toerismevlaanderen.be/doc/concepts/19e0fb11-4103-487f-a53c-e3f3772c8f12> .
+
+<http://linked.toerismevlaanderen.be/id/concepts/b9af78b1-4425-4fed-a545-bfd4d914bab7> a <http://www.w3.org/2004/02/skos/core#Concept>,
+     <https://data.vlaanderen.be/ns/logies#Faciliteit>;
+   <http://mu.semte.ch/vocabularies/core/uuid> "b9af78b1-4425-4fed-a545-bfd4d914bab7";
+   <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://linked.toerismevlaanderen.be/concepts/b9af78b1-4425-4fed-a545-bfd4d914bab7>;
+   <http://www.w3.org/2004/02/skos/core#broader> <http://linked.toerismevlaanderen.be/id/concepts/95841f14-4839-42dd-be80-963aab110d8c>;
+   <http://www.w3.org/2004/02/skos/core#inScheme> <http://linked.toerismevlaanderen.be/id/conceptschemes/93ea6af1-97d6-4ceb-9b0d-819aa5c26a3e>;
+   <http://www.w3.org/2004/02/skos/core#note> "Facilities aimed at relaxation, anti-stress, care and wellbeing"@en,
+     "Faciliteiten gericht op relaxen, anti-stress, verzorging en wellbeing"@nl;
+   <http://www.w3.org/2004/02/skos/core#prefLabel> "Wellness"@en,
+     "Welness"@nl;
+   <http://xmlns.com/foaf/0.1/page> <http://linked.toerismevlaanderen.be/doc/concepts/b9af78b1-4425-4fed-a545-bfd4d914bab7> .
+
+<http://linked.toerismevlaanderen.be/id/concepts/9be266b0-d76d-4924-b422-4751e600153f> a <http://www.w3.org/2004/02/skos/core#Concept>,
+     <https://data.vlaanderen.be/ns/logies#Faciliteit>;
+   <http://mu.semte.ch/vocabularies/core/uuid> "9be266b0-d76d-4924-b422-4751e600153f";
+   <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://linked.toerismevlaanderen.be/concepts/9be266b0-d76d-4924-b422-4751e600153f>;
+   <http://www.w3.org/2004/02/skos/core#broader> <http://linked.toerismevlaanderen.be/id/concepts/b9af78b1-4425-4fed-a545-bfd4d914bab7>;
+   <http://www.w3.org/2004/02/skos/core#inScheme> <http://linked.toerismevlaanderen.be/id/conceptschemes/93ea6af1-97d6-4ceb-9b0d-819aa5c26a3e>;
+   <http://www.w3.org/2004/02/skos/core#note> "A wellness area where moist heat is distributed via steam that can reach up to 50°C."@en,
+     "Een wellnessruimte waarbij vochtige warmte wordt verspreid via stoom die tot 50°C kan oplopen."@nl;
+   <http://www.w3.org/2004/02/skos/core#prefLabel> "Hamam"@nl,
+     "Hammam"@en;
+   <http://xmlns.com/foaf/0.1/page> <http://linked.toerismevlaanderen.be/doc/concepts/9be266b0-d76d-4924-b422-4751e600153f> .
+
+<http://linked.toerismevlaanderen.be/id/concepts/6e0dfe02-d0c8-4ef7-8147-4e70d6163d40> a <http://www.w3.org/2004/02/skos/core#Concept>,
+     <https://data.vlaanderen.be/ns/logies#Faciliteit>;
+   <http://mu.semte.ch/vocabularies/core/uuid> "6e0dfe02-d0c8-4ef7-8147-4e70d6163d40";
+   <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://linked.toerismevlaanderen.be/concepts/6e0dfe02-d0c8-4ef7-8147-4e70d6163d40>;
+   <http://www.w3.org/2004/02/skos/core#broader> <http://linked.toerismevlaanderen.be/id/concepts/b9af78b1-4425-4fed-a545-bfd4d914bab7>;
+   <http://www.w3.org/2004/02/skos/core#inScheme> <http://linked.toerismevlaanderen.be/id/conceptschemes/93ea6af1-97d6-4ceb-9b0d-819aa5c26a3e>;
+   <http://www.w3.org/2004/02/skos/core#note> "Een wellnessruimte die verwarmd wordt met behulp van infraroodenergie."@nl,
+     "A wellness area that is heated using infrared energy."@en;
+   <http://www.w3.org/2004/02/skos/core#prefLabel> "Infrarood cabine"@nl,
+     "Infrared cabin"@en;
+   <http://xmlns.com/foaf/0.1/page> <http://linked.toerismevlaanderen.be/doc/concepts/6e0dfe02-d0c8-4ef7-8147-4e70d6163d40> .
+
+<http://linked.toerismevlaanderen.be/id/concepts/c037af99-64b3-4191-b277-aa87da5625a6> a <http://www.w3.org/2004/02/skos/core#Concept>,
+     <https://data.vlaanderen.be/ns/logies#Faciliteit>;
+   <http://mu.semte.ch/vocabularies/core/uuid> "c037af99-64b3-4191-b277-aa87da5625a6";
+   <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://linked.toerismevlaanderen.be/concepts/c037af99-64b3-4191-b277-aa87da5625a6>;
+   <http://www.w3.org/2004/02/skos/core#broader> <http://linked.toerismevlaanderen.be/id/concepts/b9af78b1-4425-4fed-a545-bfd4d914bab7>;
+   <http://www.w3.org/2004/02/skos/core#inScheme> <http://linked.toerismevlaanderen.be/id/conceptschemes/93ea6af1-97d6-4ceb-9b0d-819aa5c26a3e>;
+   <http://www.w3.org/2004/02/skos/core#note> "Ook 'bubbelbad' genoemd. Een verwarmd bad (meestal zo rond de 37-38°C) waar bellen in worden gevormd, door middel van lucht. Er wordt gebruikgemaakt van waterstralen en luchtbellen om een ontspannend effect te creëren."@nl,
+     "Also called 'bubble bath'. A heated bath (usually around 37-38 ° C) where bubbles are formed, by means of air. Water jets and air bubbles are used to create a relaxing effect."@en;
+   <http://www.w3.org/2004/02/skos/core#prefLabel> "Jacuzzi"@nl,
+     "Jacuzzi"@en;
+   <http://xmlns.com/foaf/0.1/page> <http://linked.toerismevlaanderen.be/doc/concepts/c037af99-64b3-4191-b277-aa87da5625a6> .
+
+<http://linked.toerismevlaanderen.be/id/concepts/7f0434a4-9378-48c6-a485-9a4f4c2d8b09> a <http://www.w3.org/2004/02/skos/core#Concept>,
+     <https://data.vlaanderen.be/ns/logies#Faciliteit>;
+   <http://mu.semte.ch/vocabularies/core/uuid> "7f0434a4-9378-48c6-a485-9a4f4c2d8b09";
+   <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://linked.toerismevlaanderen.be/concepts/7f0434a4-9378-48c6-a485-9a4f4c2d8b09>;
+   <http://www.w3.org/2004/02/skos/core#broader> <http://linked.toerismevlaanderen.be/id/concepts/b9af78b1-4425-4fed-a545-bfd4d914bab7>;
+   <http://www.w3.org/2004/02/skos/core#inScheme> <http://linked.toerismevlaanderen.be/id/conceptschemes/93ea6af1-97d6-4ceb-9b0d-819aa5c26a3e>;
+   <http://www.w3.org/2004/02/skos/core#note> "The application of structured or unstructured pressure, tension, movement, or vibration on the body, to increase the well-being of the person being massaged."@en,
+     "Het toepassen van gestructureerde of ongestructureerde druk, spanning, beweging, of trilling op het lichaam, ter verhoging van het welzijn van diegene die wordt gemasseerd."@nl;
+   <http://www.w3.org/2004/02/skos/core#prefLabel> "Massage"@en,
+     "Massage"@nl;
+   <http://xmlns.com/foaf/0.1/page> <http://linked.toerismevlaanderen.be/doc/concepts/7f0434a4-9378-48c6-a485-9a4f4c2d8b09> .
+
+<http://linked.toerismevlaanderen.be/id/concepts/ff0d8a39-acb4-43b1-946a-b5c321b30345> a <http://www.w3.org/2004/02/skos/core#Concept>,
+     <https://data.vlaanderen.be/ns/logies#Faciliteit>;
+   <http://mu.semte.ch/vocabularies/core/uuid> "ff0d8a39-acb4-43b1-946a-b5c321b30345";
+   <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://linked.toerismevlaanderen.be/concepts/ff0d8a39-acb4-43b1-946a-b5c321b30345>;
+   <http://www.w3.org/2004/02/skos/core#broader> <http://linked.toerismevlaanderen.be/id/concepts/b9af78b1-4425-4fed-a545-bfd4d914bab7>;
+   <http://www.w3.org/2004/02/skos/core#inScheme> <http://linked.toerismevlaanderen.be/id/conceptschemes/93ea6af1-97d6-4ceb-9b0d-819aa5c26a3e>;
+   <http://www.w3.org/2004/02/skos/core#note> "A wellness area in which a dry hot air bath can be taken. The temperature is so high, 80-120 ° C, that the sauna is going to sweat quickly. The sweating is experienced as cleansing."@en,
+     "Een wellnessruimte waarin een droog heteluchtbad genomen kan worden. De temperatuur is zo hoog, 80-120 °C, dat de saunaganger snel gaat zweten. Het zweten wordt als reinigend ervaren."@nl;
+   <http://www.w3.org/2004/02/skos/core#prefLabel> "Sauna"@en,
+     "Sauna"@nl;
+   <http://xmlns.com/foaf/0.1/page> <http://linked.toerismevlaanderen.be/doc/concepts/ff0d8a39-acb4-43b1-946a-b5c321b30345> .
+
+<http://linked.toerismevlaanderen.be/id/concepts/ba3f145e-e47c-44c1-ab5b-d69936b9ce5f> a <http://www.w3.org/2004/02/skos/core#Concept>,
+     <https://data.vlaanderen.be/ns/logies#Faciliteit>;
+   <http://mu.semte.ch/vocabularies/core/uuid> "ba3f145e-e47c-44c1-ab5b-d69936b9ce5f";
+   <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://linked.toerismevlaanderen.be/concepts/ba3f145e-e47c-44c1-ab5b-d69936b9ce5f>;
+   <http://www.w3.org/2004/02/skos/core#broader> <http://linked.toerismevlaanderen.be/id/concepts/b9af78b1-4425-4fed-a545-bfd4d914bab7>;
+   <http://www.w3.org/2004/02/skos/core#inScheme> <http://linked.toerismevlaanderen.be/id/conceptschemes/93ea6af1-97d6-4ceb-9b0d-819aa5c26a3e>;
+   <http://www.w3.org/2004/02/skos/core#note> "Ook 'zonnebank' genoemd. Een elektrisch apparaat, dat kan bestaan uit 1 of 2 delen. De eendelige zonnebank wordt ook wel zonnehemel genoemd."@nl,
+     "Also called 'sunbed'. An electrical device that can consist of 1 or 2 parts. The one-piece sunbed is also called solar sky."@en;
+   <http://www.w3.org/2004/02/skos/core#prefLabel> "Solarium"@en,
+     "Solarium"@nl;
+   <http://xmlns.com/foaf/0.1/page> <http://linked.toerismevlaanderen.be/doc/concepts/ba3f145e-e47c-44c1-ab5b-d69936b9ce5f> .
+
+<http://linked.toerismevlaanderen.be/id/concepts/23be34cf-5344-4a86-9483-26439a0e4911> a <http://www.w3.org/2004/02/skos/core#Concept>,
+     <https://data.vlaanderen.be/ns/logies#Faciliteit>;
+   <http://mu.semte.ch/vocabularies/core/uuid> "23be34cf-5344-4a86-9483-26439a0e4911";
+   <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://linked.toerismevlaanderen.be/concepts/23be34cf-5344-4a86-9483-26439a0e4911>;
+   <http://www.w3.org/2004/02/skos/core#broader> <http://linked.toerismevlaanderen.be/id/concepts/95841f14-4839-42dd-be80-963aab110d8c>;
+   <http://www.w3.org/2004/02/skos/core#inScheme> <http://linked.toerismevlaanderen.be/id/conceptschemes/93ea6af1-97d6-4ceb-9b0d-819aa5c26a3e>;
+   <http://www.w3.org/2004/02/skos/core#note> "A course that often works in groups on certain assignments. These assignments translate theory into practice."@en,
+     "Een cursus waarin vaak in groepen aan bepaalde opdrachten wordt gewerkt. Deze opdrachten vertalen theorie naar de praktijk."@nl;
+   <http://www.w3.org/2004/02/skos/core#prefLabel> "Workshops"@en,
+     "Workshops"@nl;
+   <http://xmlns.com/foaf/0.1/page> <http://linked.toerismevlaanderen.be/doc/concepts/23be34cf-5344-4a86-9483-26439a0e4911> .
+# finished faciliteiten at 2019-01-30T21:51:34+01:00

@@ -95,10 +95,7 @@
    <http://www.w3.org/2004/02/skos/core#prefLabel> "Terreingebonden logies"@nl,
      "Terrain-bound accommodation"@en;
    <http://www.w3.org/2004/02/skos/core#topConceptOf> <http://linked.toerismevlaanderen.be/id/conceptschemes/d59411cd-6d71-44d9-a0b3-cf958d89858d>;
-    <http://xmlns.com/foaf/0.1/page> <http://linked.toerismevlaanderen.be/doc/concepts/9882a4ac-7bd2-46d1-9eee-8311125ad6be> .
-
-
-
+   <http://xmlns.com/foaf/0.1/page> <http://linked.toerismevlaanderen.be/doc/concepts/9882a4ac-7bd2-46d1-9eee-8311125ad6be> .
 
 <http://linked.toerismevlaanderen.be/id/conceptschemes/9d6a2610-5e27-4a26-93c8-d4a21e1e90e5> a <http://www.w3.org/2004/02/skos/core#ConceptScheme>;
    <http://mu.semte.ch/vocabularies/core/uuid> "9d6a2610-5e27-4a26-93c8-d4a21e1e90e5";
