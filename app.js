@@ -64,8 +64,7 @@ const csvOptions = {
   rtrim: true
 };
 
-app.post('/conversion-tasks', async function(req, res, next) {
-  try {
+const convert = async function() {
     await loadSources(tasks);
 
     console.log('Start mapping');
@@ -89,8 +88,13 @@ app.post('/conversion-tasks', async function(req, res, next) {
 
     request.post('http://cache/clear');
     Promise.all(taskOutputs.map(file => fs.remove(file)));
+};
 
-    return res.status(200).send(taskStatuses);
+app.post('/conversion-tasks', async function(req, res, next) {
+  try {
+    convert();
+
+    return res.status(202).send();
   } catch(e) {
     console.error(e.message);
     return next(new Error(e.message));
