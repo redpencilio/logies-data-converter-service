@@ -93,7 +93,7 @@
    <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://linked.toerismevlaanderen.be/concepts/9882a4ac-7bd2-46d1-9eee-8311125ad6be>;
    <http://www.w3.org/2004/02/skos/core#inScheme> <http://linked.toerismevlaanderen.be/id/conceptschemes/d59411cd-6d71-44d9-a0b3-cf958d89858d>;
    <http://www.w3.org/2004/02/skos/core#prefLabel> "Terreingebonden logies"@nl,
-     "Terrain-bound accommodation"@en;
+     "Generic terrain"@en;
    <http://www.w3.org/2004/02/skos/core#topConceptOf> <http://linked.toerismevlaanderen.be/id/conceptschemes/d59411cd-6d71-44d9-a0b3-cf958d89858d>;
    <http://xmlns.com/foaf/0.1/page> <http://linked.toerismevlaanderen.be/doc/concepts/9882a4ac-7bd2-46d1-9eee-8311125ad6be> .
 
@@ -123,7 +123,7 @@
    <http://www.w3.org/2004/02/skos/core#inScheme> <http://linked.toerismevlaanderen.be/id/conceptschemes/9d6a2610-5e27-4a26-93c8-d4a21e1e90e5>;
    <http://www.w3.org/2004/02/skos/core#notation> "BED_AND_BREAKFAST";
    <http://www.w3.org/2004/02/skos/core#prefLabel> "B&B"@nl,
-     "Bed and Breakfast"@en;
+     "B&B"@en;
    <http://www.w3.org/2004/02/skos/core#topConceptOf> <http://linked.toerismevlaanderen.be/id/conceptschemes/9d6a2610-5e27-4a26-93c8-d4a21e1e90e5>;
    <http://xmlns.com/foaf/0.1/page> <http://linked.toerismevlaanderen.be/doc/concepts/488818e6-e991-49b8-a615-d849f5ad5f6e> .
 
@@ -133,7 +133,7 @@
    <http://www.w3.org/2004/02/skos/core#broadMatch> <http://linked.toerismevlaanderen.be/id/concepts/f79f1c45-9b70-4a78-b0ef-df67bd440692>;
    <http://www.w3.org/2004/02/skos/core#inScheme> <http://linked.toerismevlaanderen.be/id/conceptschemes/9d6a2610-5e27-4a26-93c8-d4a21e1e90e5>;
    <http://www.w3.org/2004/02/skos/core#notation> "CAMPER_TERRAIN";
-   <http://www.w3.org/2004/02/skos/core#prefLabel> "Kampeerautoterrein"@nl;
+   <http://www.w3.org/2004/02/skos/core#prefLabel> "Camperterrein"@nl, "Camper terrain"@en;
    <http://www.w3.org/2004/02/skos/core#topConceptOf> <http://linked.toerismevlaanderen.be/id/conceptschemes/9d6a2610-5e27-4a26-93c8-d4a21e1e90e5>;
    <http://xmlns.com/foaf/0.1/page> <http://linked.toerismevlaanderen.be/doc/concepts/7c33a867-1ce5-4111-9f64-6edb6a7d7be8> .
 
@@ -143,8 +143,7 @@
    <http://www.w3.org/2004/02/skos/core#broadMatch> <http://linked.toerismevlaanderen.be/id/concepts/f79f1c45-9b70-4a78-b0ef-df67bd440692>;
    <http://www.w3.org/2004/02/skos/core#inScheme> <http://linked.toerismevlaanderen.be/id/conceptschemes/9d6a2610-5e27-4a26-93c8-d4a21e1e90e5>;
    <http://www.w3.org/2004/02/skos/core#notation> "CAMPER_AREA";
-   <http://www.w3.org/2004/02/skos/core#prefLabel> "Camper area"@en,
-     "Campergebied"@nl;
+   <http://www.w3.org/2004/02/skos/core#prefLabel> "Kampeerautoterrein"@nl, "Camper area"@en;
    <http://www.w3.org/2004/02/skos/core#topConceptOf> <http://linked.toerismevlaanderen.be/id/conceptschemes/9d6a2610-5e27-4a26-93c8-d4a21e1e90e5>;
    <http://xmlns.com/foaf/0.1/page> <http://linked.toerismevlaanderen.be/doc/concepts/8c642d06-b80b-450b-9f82-72943336e811> .
 
@@ -198,7 +197,7 @@
    <http://www.w3.org/2004/02/skos/core#broadMatch> <http://linked.toerismevlaanderen.be/id/concepts/1e01d995-7d1f-40e2-8a90-32c7795e09ee>;
    <http://www.w3.org/2004/02/skos/core#inScheme> <http://linked.toerismevlaanderen.be/id/conceptschemes/9d6a2610-5e27-4a26-93c8-d4a21e1e90e5>;
    <http://www.w3.org/2004/02/skos/core#notation> "HOLIDAY_PARK";
-   <http://www.w3.org/2004/02/skos/core#prefLabel> "Holiday resort"@en,
+   <http://www.w3.org/2004/02/skos/core#prefLabel> "Holiday park"@en,
      "Vakantiepark"@nl;
    <http://www.w3.org/2004/02/skos/core#topConceptOf> <http://linked.toerismevlaanderen.be/id/conceptschemes/9d6a2610-5e27-4a26-93c8-d4a21e1e90e5>;
    <http://xmlns.com/foaf/0.1/page> <http://linked.toerismevlaanderen.be/doc/concepts/fc5b3bc8-47d3-4525-9c8a-eb587ecbe622> .
@@ -254,7 +253,7 @@
    <http://www.w3.org/2004/02/skos/core#inScheme> <http://linked.toerismevlaanderen.be/id/conceptschemes/9d6a2610-5e27-4a26-93c8-d4a21e1e90e5>;
    <http://www.w3.org/2004/02/skos/core#notation> "HOLIDAY_CENTRE";
    <http://www.w3.org/2004/02/skos/core#prefLabel> "Vakantiecentra"@nl,
-     "Holiday centre"@en;
+     "Holiday center"@en;
    <http://www.w3.org/2004/02/skos/core#topConceptOf> <http://linked.toerismevlaanderen.be/id/conceptschemes/9d6a2610-5e27-4a26-93c8-d4a21e1e90e5>;
    <http://xmlns.com/foaf/0.1/page> <http://linked.toerismevlaanderen.be/doc/concepts/b02b59e8-580f-4d97-a88b-8d2ce59ad3c9> .
 
@@ -264,7 +263,7 @@
    <http://www.w3.org/2004/02/skos/core#broadMatch> <http://linked.toerismevlaanderen.be/id/concepts/9882a4ac-7bd2-46d1-9eee-8311125ad6be>;
    <http://www.w3.org/2004/02/skos/core#inScheme> <http://linked.toerismevlaanderen.be/id/conceptschemes/9d6a2610-5e27-4a26-93c8-d4a21e1e90e5>;
    <http://www.w3.org/2004/02/skos/core#notation> "GENERIC_TERRAIN";
-   <http://www.w3.org/2004/02/skos/core#prefLabel> "Terrain-bound accomodation"@en,
+   <http://www.w3.org/2004/02/skos/core#prefLabel> "Generic terrain"@en,
      "Terreingebonden logies"@nl;
    <http://www.w3.org/2004/02/skos/core#topConceptOf> <http://linked.toerismevlaanderen.be/id/conceptschemes/9d6a2610-5e27-4a26-93c8-d4a21e1e90e5>;
    <http://xmlns.com/foaf/0.1/page> <http://linked.toerismevlaanderen.be/doc/concepts/108e02aa-5b61-4305-aef8-8547bd80f9c4> .
