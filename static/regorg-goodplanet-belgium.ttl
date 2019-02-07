@@ -1,0 +1,7 @@
+@prefix regorg: <http://www.w3.org/ns/regorg#> .
+@prefix mu: <http://mu.semte.ch/vocabularies/core/> .
+@prefix dct: <http://purl.org/dc/terms/> .
+
+<http://linked.toerismevlaanderen.be/id/registered-organizations/49f88928-bf0e-402e-a2a7-bbc06fbb0eed> a regorg:RegisteredOrganization, dct:Agent ;
+    mu:uuid "49f88928-bf0e-402e-a2a7-bbc06fbb0eed" ;
+    regorg:legalName "GoodPlanet Belgium"@nl .
