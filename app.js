@@ -49,6 +49,16 @@ const outputDirectory = process.env.OUTPUT_DIRECTORY || '/output';
   }));
 });
 
+app.post('/conversion-tasks', function(req, res, next) {
+  convert(); // don't await the conversion
+  return res.status(202).send();
+});
+
+app.use(errorHandler);
+
+
+// Helpers
+
 const csvOptions = {
   //  columns: true, // first line contains colum_name to create object per line,
   columns: function(row) {
@@ -65,6 +75,7 @@ const csvOptions = {
 };
 
 const convert = async function() {
+  try {
     await loadSources(tasks);
 
     console.log('Start mapping');
@@ -88,17 +99,8 @@ const convert = async function() {
 
     request.post('http://cache/clear');
     Promise.all(taskOutputs.map(file => fs.remove(file)));
-};
-
-app.post('/conversion-tasks', async function(req, res, next) {
-  try {
-    convert();
-
-    return res.status(202).send();
   } catch(e) {
-    console.error(e.message);
-    return next(new Error(e.message));
+    console.error('Something went wrong during the conversion');
+    console.error(e.message || e);
   }
-});
-
-app.use(errorHandler);
+};
