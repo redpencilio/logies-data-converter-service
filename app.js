@@ -7,26 +7,8 @@ import path from 'path';
 import concat from 'concat';
 import request from 'request';
 import loadSources from './lib/data-sources';
-import { mapBaseRegistry, mapTvaRegistry } from './lib/logies-mapper';
 import publish from './lib/publication';
-
-const tasks = [
-  {
-    title: 'Base registry',
-    inputFile: '/input/base_registry.csv',
-    url: 'http://opendata.visitflanders.org/sector/accommodation/base_registry.csv?limit=-1',
-    outputFile: '/tmp/base_registry.ttl',
-    mapper: mapBaseRegistry
-  },
-  {
-    title: 'TVA registry',
-    inputFile: '/input/tva-registry.csv',
-    url: 'http://opendata.visitflanders.org/sector/accommodation/tva-registry.csv?limit=-1',
-    outputFile: '/tmp/tva_registry.ttl',
-    mapper: mapTvaRegistry
-  }
-];
-
+import tasks from './config/tasks';
 
 /** Schedule cron job */
 const cronFrequency = process.env.CRON_PATTERN || '0 0 2 * * *';
