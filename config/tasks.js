@@ -9,6 +9,13 @@ export default [
   //   mapper: mapBaseRegistry
   // },
   {
+    title: 'TVA registry',
+    inputFile: '/input/tva-registry.csv',
+    url: 'http://opendata.visitflanders.org/sector/accommodation/tva-registry.csv?limit=-1',
+    outputFile: '/tmp/tva_registry.ttl',
+    mapper: mapTvaRegistry
+  },
+  {
     title: 'Hotels v2',
     inputFile: '/input/hotels_v2.csv',
     url: 'http://opendata.visitflanders.org/tourist/accommodation/hotels_v2.csv?limit=-1',
@@ -70,12 +77,12 @@ export default [
     url: 'http://opendata.visitflanders.org/tourist/accommodation/generic-terrain_v2.csv?limit=-1',
     outputFile: '/tmp/generic-terrain_v2.ttl',
     mapper: mapBaseRegistry
-  },  
-  {
-    title: 'TVA registry',
-    inputFile: '/input/tva-registry.csv',
-    url: 'http://opendata.visitflanders.org/sector/accommodation/tva-registry.csv?limit=-1',
-    outputFile: '/tmp/tva_registry.ttl',
-    mapper: mapTvaRegistry
   }
+  // {
+  //   title: 'Jeugdverblijven v2',
+  //   inputFile: '/input/youth-accomodations_v2.csv',
+  //   url: 'http://opendata.visitflanders.org/tourist/accommodation/youth-accomodations_v2.csv?limit=-1',
+  //   outputFile: '/tmp/tva_registry.ttl',
+  //   mapper: mapTvaRegistry
+  // }
 ];
