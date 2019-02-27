@@ -38,4 +38,25 @@
      "Licensed"@en;
    <http://www.w3.org/2004/02/skos/core#topConceptOf> <http://linked.toerismevlaanderen.be/id/conceptschemes/48c5b233-44bc-49d1-93a7-b5005586baa2>;
    <http://xmlns.com/foaf/0.1/page> <http://linked.toerismevlaanderen.be/doc/concepts/96dbd436-b59b-4e6e-b080-26a83456dc4e> .
+
+<http://linked.toerismevlaanderen.be/id/concepts/37fd4d81-846b-448d-92d1-4dc1232540fd> a <http://www.w3.org/2004/02/skos/core#Concept>;
+    <http://mu.semte.ch/vocabularies/core/uuid> "37fd4d81-846b-448d-92d1-4dc1232540fd" ;
+   <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://linked.toerismevlaanderen.be/concepts/37fd4d81-846b-448d-92d1-4dc1232540fd>;
+   <http://www.w3.org/2004/02/skos/core#inScheme> <http://linked.toerismevlaanderen.be/id/conceptschemes/48c5b233-44bc-49d1-93a7-b5005586baa2>;
+   <http://www.w3.org/2004/02/skos/core#prefLabel> "TVA Vergund"@nl,
+     "TVA Licensed"@en;
+   <http://www.w3.org/2004/02/skos/core#topConceptOf> <http://linked.toerismevlaanderen.be/id/conceptschemes/48c5b233-44bc-49d1-93a7-b5005586baa2>;
+    <http://xmlns.com/foaf/0.1/page> <http://linked.toerismevlaanderen.be/doc/concepts/37fd4d81-846b-448d-92d1-4dc1232540fd> .
+
+<http://linked.toerismevlaanderen.be/id/collections/c8b7e30e-6449-4f80-8014-c6749714740a> a <http://www.w3.org/2004/02/skos/core#Collection>;
+    <http://mu.semte.ch/vocabularies/core/uuid> "c8b7e30e-6449-4f80-8014-c6749714740a" ;
+    <http://www.w3.org/2004/02/skos/core#prefLabel> "Logiesdecreet"@nl, "Lodging decree"@en ;
+    <http://www.w3.org/2004/02/skos/core#member> <http://linked.toerismevlaanderen.be/id/concepts/ed624155-305e-4da3-83a0-e4c586ca7b81>,
+    <http://linked.toerismevlaanderen.be/id/concepts/bb9d1b1b-05ea-4a98-bb54-87084c38da4e>, <http://linked.toerismevlaanderen.be/id/concepts/96dbd436-b59b-4e6e-b080-26a83456dc4e> .
+
+<http://linked.toerismevlaanderen.be/id/collections/4b7655d7-0c74-4ba3-b180-44606061c996> a <http://www.w3.org/2004/02/skos/core#Collection>;
+    <http://mu.semte.ch/vocabularies/core/uuid> "4b7655d7-0c74-4ba3-b180-44606061c996" ;
+    <http://www.w3.org/2004/02/skos/core#prefLabel> "TVA decreet"@nl, "TVA decree"@en ;
+    <http://www.w3.org/2004/02/skos/core#member> <http://linked.toerismevlaanderen.be/id/concepts/37fd4d81-846b-448d-92d1-4dc1232540fd> .
+
 # finished registratie-status at 2018-12-28T18:16:48+01:00
