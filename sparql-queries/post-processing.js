@@ -4,6 +4,7 @@ PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
 PREFIX adms: <http://www.w3.org/ns/adms#>
 PREFIX logies: <https://data.vlaanderen.be/ns/logies#>
 PREFIX schema: <http://schema.org/>
+PREFIX dct: <http://purl.org/dc/terms/>
 
 INSERT {
   GRAPH <${process.env.MU_APPLICATION_GRAPH}> {
@@ -42,6 +43,19 @@ INSERT {
 } WHERE {
   GRAPH <${process.env.MU_APPLICATION_GRAPH}> {
     ?s skos:inScheme <http://linked.toerismevlaanderen.be/id/conceptschemes/48c5b233-44bc-49d1-93a7-b5005586baa2> .
+  }
+}
+
+;
+
+INSERT {
+  GRAPH <${process.env.MU_APPLICATION_GRAPH}> {
+    ?s dct:type ?type .
+  }
+} WHERE {
+  GRAPH <${process.env.MU_APPLICATION_GRAPH}> {
+    ?s ext:tvlCategory ?category .
+    ?category skos:broadMatch ?type .
   }
 }
 

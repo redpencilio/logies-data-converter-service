@@ -41,21 +41,6 @@ app.use(errorHandler);
 
 // Helpers
 
-const csvOptions = {
-  //  columns: true, // first line contains colum_name to create object per line,
-  columns: function(row) {
-    row[0] = 'business_product_id';
-    return row;
-  },
-  delimiter: ';',
-  quote: '"',
-  escape: '\\',
-  skip_empty_lines: true,
-  skip_lines_with_error: true,
-  ltrim: true,
-  rtrim: true
-};
-
 const convert = async function() {
   try {
     await loadSources(tasks);
@@ -63,11 +48,13 @@ const convert = async function() {
     console.log('Start mapping');
     const taskPromises = tasks.map(async function(task) {
       const input = await fs.readFile(task.inputFile, 'utf8');
-      const records = parse(input, csvOptions);
+      const records = JSON.parse(input);
       const ttl = task.mapper(records);
       await fs.outputFile(task.outputFile, ttl);
 
-      return { title: task.title, inputFile: task.inputFile, count: records.length };
+      const status = { title: task.title, inputFile: task.inputFile, count: records.length };
+      console.log(JSON.stringify(status));
+      return status;
     });
 
     const taskStatuses = await Promise.all(taskPromises);

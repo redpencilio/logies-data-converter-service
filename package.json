@@ -3,11 +3,12 @@
   "version": "0.1.0",
   "description": "Microservice to transform the Logies data of Toerisme Vlaanderen to the semantic Logies model as described by the Logies Basis application profile",
   "dependencies": {
-    "cron": "^1.6.0",
     "concat": "^1.0.3",
+    "cron": "^1.6.0",
     "csv": "^5.1.0",
     "fs-extra": "^7.0.1",
     "js-sha256": "0.9.0",
+    "mssql": "^4.3.2",
     "request": "^2.88.0",
     "request-promise": "^4.2.2"
   },
