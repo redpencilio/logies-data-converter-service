@@ -43,8 +43,8 @@
     <http://mu.semte.ch/vocabularies/core/uuid> "37fd4d81-846b-448d-92d1-4dc1232540fd" ;
    <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://linked.toerismevlaanderen.be/concepts/37fd4d81-846b-448d-92d1-4dc1232540fd>;
    <http://www.w3.org/2004/02/skos/core#inScheme> <http://linked.toerismevlaanderen.be/id/conceptschemes/48c5b233-44bc-49d1-93a7-b5005586baa2>;
-   <http://www.w3.org/2004/02/skos/core#prefLabel> "TVA Vergund"@nl,
-     "TVA Licensed"@en;
+   <http://www.w3.org/2004/02/skos/core#prefLabel> "TVA Erkend"@nl,
+     "TVA Acknowledged"@en;
    <http://www.w3.org/2004/02/skos/core#topConceptOf> <http://linked.toerismevlaanderen.be/id/conceptschemes/48c5b233-44bc-49d1-93a7-b5005586baa2>;
     <http://xmlns.com/foaf/0.1/page> <http://linked.toerismevlaanderen.be/doc/concepts/37fd4d81-846b-448d-92d1-4dc1232540fd> .
 
