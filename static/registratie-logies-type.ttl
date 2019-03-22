@@ -278,4 +278,36 @@
      "Verblijfpark"@nl;
    <http://www.w3.org/2004/02/skos/core#topConceptOf> <http://linked.toerismevlaanderen.be/id/conceptschemes/9d6a2610-5e27-4a26-93c8-d4a21e1e90e5>;
    <http://xmlns.com/foaf/0.1/page> <http://linked.toerismevlaanderen.be/doc/concepts/3bdca45e-acdf-45c2-856d-640e62c40bb3> .
+
+<http://linked.toerismevlaanderen.be/id/concepts/d3194d20-f292-46a0-9762-f4dd206172a5> a <http://www.w3.org/2004/02/skos/core#Concept>;
+    <http://mu.semte.ch/vocabularies/core/uuid> "d3194d20-f292-46a0-9762-f4dd206172a5" ;
+   <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://linked.toerismevlaanderen.be/concepts/d3194d20-f292-46a0-9762-f4dd206172a5> ;
+
+   <http://www.w3.org/2004/02/skos/core#inScheme> <http://linked.toerismevlaanderen.be/id/conceptschemes/9d6a2610-5e27-4a26-93c8-d4a21e1e90e5>;
+   <http://www.w3.org/2004/02/skos/core#notation> "A", "B", "C";
+   <http://www.w3.org/2004/02/skos/core#prefLabel> "TVA Youth accommodation"@en,
+     "TVA Jeugdverblijf"@nl;
+   <http://www.w3.org/2004/02/skos/core#topConceptOf> <http://linked.toerismevlaanderen.be/id/conceptschemes/9d6a2610-5e27-4a26-93c8-d4a21e1e90e5>;
+   <http://xmlns.com/foaf/0.1/page> <http://linked.toerismevlaanderen.be/doc/concepts/3bdca45e-acdf-45c2-856d-640e62c40bb3> .
+
+<http://linked.toerismevlaanderen.be/id/concepts/a56ea80b-1aac-470c-8a99-a64551c5cf7a> a <http://www.w3.org/2004/02/skos/core#Concept>;
+    <http://mu.semte.ch/vocabularies/core/uuid> "a56ea80b-1aac-470c-8a99-a64551c5cf7a" ;
+   <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://linked.toerismevlaanderen.be/concepts/a56ea80b-1aac-470c-8a99-a64551c5cf7a> ;
+   <http://www.w3.org/2004/02/skos/core#inScheme> <http://linked.toerismevlaanderen.be/id/conceptschemes/9d6a2610-5e27-4a26-93c8-d4a21e1e90e5>;
+   <http://www.w3.org/2004/02/skos/core#notation> "TVA";
+   <http://www.w3.org/2004/02/skos/core#prefLabel> "TVA Adults"@en,
+     "TVA Volwassenencentra"@nl;
+   <http://www.w3.org/2004/02/skos/core#topConceptOf> <http://linked.toerismevlaanderen.be/id/conceptschemes/9d6a2610-5e27-4a26-93c8-d4a21e1e90e5>;
+   <http://xmlns.com/foaf/0.1/page> <http://linked.toerismevlaanderen.be/doc/concepts/3bdca45e-acdf-45c2-856d-640e62c40bb3> .
+
+<http://linked.toerismevlaanderen.be/id/concepts/e38a3bc6-609d-4fa0-a824-46fa2cb4dda1> a <http://www.w3.org/2004/02/skos/core#Concept>;
+    <http://mu.semte.ch/vocabularies/core/uuid> "e38a3bc6-609d-4fa0-a824-46fa2cb4dda1" ;
+   <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://linked.toerismevlaanderen.be/concepts/e38a3bc6-609d-4fa0-a824-46fa2cb4dda1> ;
+   <http://www.w3.org/2004/02/skos/core#inScheme> <http://linked.toerismevlaanderen.be/id/conceptschemes/9d6a2610-5e27-4a26-93c8-d4a21e1e90e5>;
+   <http://www.w3.org/2004/02/skos/core#notation> "HOSTEL";
+   <http://www.w3.org/2004/02/skos/core#prefLabel> "TVA Hostel"@en,
+     "TVA Hostel"@nl;
+   <http://www.w3.org/2004/02/skos/core#topConceptOf> <http://linked.toerismevlaanderen.be/id/conceptschemes/9d6a2610-5e27-4a26-93c8-d4a21e1e90e5>;
+   <http://xmlns.com/foaf/0.1/page> <http://linked.toerismevlaanderen.be/doc/concepts/3bdca45e-acdf-45c2-856d-640e62c40bb3> .
+
 # finished registratie-logies-type at 2018-12-28T18:16:48+01:00
