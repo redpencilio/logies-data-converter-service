@@ -50,19 +50,6 @@ INSERT {
 
 INSERT {
   GRAPH <${process.env.MU_APPLICATION_GRAPH}> {
-    ?s dct:type ?type .
-  }
-} WHERE {
-  GRAPH <${process.env.MU_APPLICATION_GRAPH}> {
-    ?s ext:tvlCategory ?category .
-    ?category skos:broadMatch ?type .
-  }
-}
-
-;
-
-INSERT {
-  GRAPH <${process.env.MU_APPLICATION_GRAPH}> {
     ?s ext:lodgingIdentifier ?identifier .
   }
 } WHERE {
