@@ -17,6 +17,39 @@ AND p.product_description IS NOT NULL
 ORDER BY p.product_id`;
 };
 
+const activityAccessibilityQuery = function(lang) {
+  return `
+SELECT product_id as business_product_id, product_description, closing_period, next_year_closing_period, accessibility_description, experience, garden, restaurant, food_allergy_desc, allergies_desc, deaf_desc, auditive_desc, mental_desc, motor_desc, blind_desc, visual_desc, autism_desc, entrance, route_and_levels, common_toilet, extra_facilities, resting_points_desc, shop_desc, playground_desc, space_table_desc
+FROM od_activity_accessibility_translations('${lang}', '${lang}') as p
+ORDER BY p.product_id
+  `;
+};
+
+const accommodationAccessibilityQuery = function(lang) {
+  return `
+SELECT product_id as business_product_id, closing_period, next_year_closing_period, accessibility_description, experience, garden, restaurant, food_allergy_desc, allergies_desc, deaf_desc, auditive_desc, mental_desc, motor_desc, blind_desc, visual_desc, autism_desc, entrance, route_and_levels, common_toilet, extra_facilities, resting_points_desc, shop_desc, playground_desc, space_table_desc
+FROM od_activity_accessibility_translations('${lang}', '${lang}') as p
+ORDER BY p.product_id
+`;
+};
+
+const poiAccessibilityQuery = function(lang) {
+  return `
+SELECT product_id as business_product_id, product_description, closing_period, next_year_closing_period, accessibility_description, food_allergy_desc, allergies_desc, deaf_desc, auditive_desc, mental_desc, motor_desc, blind_desc, visual_desc, autism_desc, entrance, route_and_levels, common_toilet, extra_facilities, exhibition_space_desc, experience_desc, garden_desc
+FROM od_activity_accessibility_translations('${lang}', '${lang}') as p
+ORDER BY p.product_id
+`;
+};
+
+const serviceAccessibilityQuery = function(lang) {
+  return `
+SELECT product_id as business_product_id, product_description, closing_period, next_year_closing_period, accessibility_description, food_allergy_desc, allergies_desc, deaf_desc, auditive_desc, mental_desc, motor_desc, blind_desc, visual_desc, autism_desc, entrance, route_and_levels, common_toilet, extra_facilities, restaurant_or_breakfast_area, exhibition_space, experience, offer, accessibility_prive_parking_desc, reservation
+FROM od_activity_accessibility_translations('${lang}', '${lang}') as p
+ORDER BY p.product_id
+`;
+};
+
+
 export default [
   {
     title: 'Accommodation base registry',
@@ -41,14 +74,10 @@ ORDER BY business_product_id
     mapper: noopMapper
   },
   {
-    title: 'Activity translation',
-    inputFile: '/input/activity_translation.json',
-    outputFile: '/tmp/activity_translation.ttl',
-    query: `
-SELECT product_id, product_description, closing_period, next_year_closing_period, accessibility_description, experience, garden, restaurant, food_allergy_desc, allergies_desc, deaf_desc, auditive_desc, mental_desc, motor_desc, blind_desc, visual_desc, autism_desc, entrance, route_and_levels, common_toilet, extra_facilities, resting_points_desc, shop_desc, playground_desc, space_table_desc
-FROM od_activity_accessibility_translations
-ORDER BY product_id
-`,
+    title: 'Activity translation NL',
+    inputFile: '/input/activity_translation_nl.json',
+    outputFile: '/tmp/activity_translation_nl.ttl',
+    query: activityAccessibilityQuery('nl'),
     mapper: noopMapper
   },
   {
@@ -63,14 +92,10 @@ ORDER BY business_product_id
     mapper: noopMapper
   },
   {
-    title: 'Accommodation translation',
-    inputFile: '/input/accommodation_translation.json',
-    outputFile: '/tmp/accommodation_translation.ttl',
-    query: `
-SELECT product_id, product_description, closing_period, next_year_closing_period, accessibility_description, experience, garden, restaurant, food_allergy_desc, allergies_desc, deaf_desc, auditive_desc, mental_desc, motor_desc, blind_desc, visual_desc, autism_desc, entrance, route_and_levels, common_toilet, extra_facilities, resting_points_desc, shop_desc, playground_desc, space_table_desc
-FROM od_activity_accessibility_translations
-ORDER BY product_id
-`,
+    title: 'Accommodation translation NL',
+    inputFile: '/input/accommodation_translation_nl.json',
+    outputFile: '/tmp/accommodation_translation_nl.ttl',
+    query: accommodationAccessibilityQuery('nl'),
     mapper: noopMapper
   },
   {
@@ -85,14 +110,10 @@ ORDER BY business_product_id
     mapper: noopMapper
   },
   {
-    title: 'POI translation',
-    inputFile: '/input/poi_translation.json',
-    outputFile: '/tmp/poi_translation.ttl',
-    query: `
-SELECT product_id, product_description, closing_period, next_year_closing_period, accessibility_description, food_allergy_desc, allergies_desc, deaf_desc, auditive_desc, mental_desc, motor_desc, blind_desc, visual_desc, autism_desc, entrance, route_and_levels, common_toilet, extra_facilities, exhibition_space_desc, experience_desc, garden_desc
-FROM od_poi_accessibility_translations
-ORDER BY product_id
-`,
+    title: 'POI translation NL',
+    inputFile: '/input/poi_translation_nl.json',
+    outputFile: '/tmp/poi_translation_nl.ttl',
+    query: poiAccessibilityQuery('nl'),
     mapper: noopMapper
   },
   {
@@ -100,21 +121,17 @@ ORDER BY product_id
     inputFile: '/input/service_accessibility.json',
     outputFile: '/tmp/service_accessibility.ttl',
     query: `
-SELECT business_product_id, source_id, discriminator, information_group, changed_time, deleted, street, house_number, box_number, city_name, postal_code, main_city_name, promotional_region, statistical_region, x, y, lat, long, phone1, flickr, facebook, email, instagram, fax, twitter, phone2, phone3, website, location_type, sub_type, green_key_labeled, accessibility_label, camper_label, link_to_accessibility_website, food_allergy, allergies, deaf, auditive, mental, motor, blind, visual, autism, imagesurl, imagesurlmain, product_owner_company_identificatio
+SELECT business_product_id, source_id, discriminator, information_group, changed_time, deleted, street, house_number, box_number, city_name, postal_code, main_city_name, promotional_region, statistical_region, x, y, lat, long, phone1, flickr, facebook, email, instagram, fax, twitter, phone2, phone3, website, location_type, sub_type, green_key_labeled, accessibility_label, camper_label, link_to_accessibility_website, food_allergy, allergies, deaf, auditive, mental, motor, blind, visual, autism, imagesurl, imagesurlmain, product_owner_company_identification
 FROM od_service_accessibility
 ORDER BY business_product_id
 `,
     mapper: noopMapper
   },
   {
-    title: 'Service translation',
-    inputFile: '/input/service_translation.json',
-    outputFile: '/tmp/service_translation.ttl',
-    query: `
-SELECT product_id, product_description, closing_period, next_year_closing_period, accessibility_description, food_allergy_desc, allergies_desc, deaf_desc, auditive_desc, mental_desc, motor_desc, blind_desc, visual_desc, autism_desc, entrance, route_and_levels, common_toilet, extra_facilities, restaurant_or_breakfast_area, exhibition_space, experience, offer, accessibility_prive_parking_desc, reservation
-FROM od_service_accessibility_translations
-ORDER BY product_id
-`,
+    title: 'Service translation NL',
+    inputFile: '/input/service_translation_nl.json',
+    outputFile: '/tmp/service_translation_nl.ttl',
+    query: poiAccessibilityQuery('nl'),
     mapper: noopMapper
   },
   {
