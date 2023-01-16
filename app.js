@@ -49,8 +49,8 @@ const convert = async function() {
     const taskPromises = tasks.map(async function(task) {
       const input = await fs.readFile(task.inputFile, 'utf8');
       const records = JSON.parse(input);
-//      const ttl = task.mapper(records);
-//      await fs.outputFile(task.outputFile, ttl);
+      const ttl = task.mapper(records);
+      await fs.outputFile(task.outputFile, ttl);
 
       const status = { title: task.title, inputFile: task.inputFile, count: records.length };
       console.log(JSON.stringify(status));
