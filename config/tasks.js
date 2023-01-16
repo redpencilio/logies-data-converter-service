@@ -28,7 +28,7 @@ ORDER BY p.product_id
 const accommodationAccessibilityQuery = function(lang) {
   return `
 SELECT product_id as business_product_id, closing_period, next_year_closing_period, accessibility_description, experience, garden, restaurant, food_allergy_desc, allergies_desc, deaf_desc, auditive_desc, mental_desc, motor_desc, blind_desc, visual_desc, autism_desc, entrance, route_and_levels, common_toilet, extra_facilities, resting_points_desc, shop_desc, playground_desc, space_table_desc
-FROM od_activity_accessibility_translations('${lang}', '${lang}') as p
+FROM od_accommodation_accessibility_translations('${lang}', '${lang}') as p
 ORDER BY p.product_id
 `;
 };
@@ -36,7 +36,7 @@ ORDER BY p.product_id
 const poiAccessibilityQuery = function(lang) {
   return `
 SELECT product_id as business_product_id, product_description, closing_period, next_year_closing_period, accessibility_description, food_allergy_desc, allergies_desc, deaf_desc, auditive_desc, mental_desc, motor_desc, blind_desc, visual_desc, autism_desc, entrance, route_and_levels, common_toilet, extra_facilities, exhibition_space_desc, experience_desc, garden_desc
-FROM od_activity_accessibility_translations('${lang}', '${lang}') as p
+FROM od_poi_accessibility_translations('${lang}', '${lang}') as p
 ORDER BY p.product_id
 `;
 };
@@ -44,7 +44,7 @@ ORDER BY p.product_id
 const serviceAccessibilityQuery = function(lang) {
   return `
 SELECT product_id as business_product_id, product_description, closing_period, next_year_closing_period, accessibility_description, food_allergy_desc, allergies_desc, deaf_desc, auditive_desc, mental_desc, motor_desc, blind_desc, visual_desc, autism_desc, entrance, route_and_levels, common_toilet, extra_facilities, restaurant_or_breakfast_area, exhibition_space, experience, offer, accessibility_prive_parking_desc, reservation
-FROM od_activity_accessibility_translations('${lang}', '${lang}') as p
+FROM od_service_accessibility_translations('${lang}', '${lang}') as p
 ORDER BY p.product_id
 `;
 };
