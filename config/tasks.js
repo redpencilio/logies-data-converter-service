@@ -1,6 +1,26 @@
 import { mapBaseRegistry, mapPromotionalInfo } from '../lib/logies-mapper';
 
-const baseRegistryQuery = `
+const descriptionQuery = function(lang) {
+  return `
+SELECT product_id as business_product_id, product_description as product_description_${lang}
+FROM od_accommodation_touristic_translations('${lang}', '${lang}') as p
+WHERE p.product_id IN (
+  SELECT business_product_id
+  FROM od_accommodation_base_registry
+  WHERE (status in ('LICENSED', 'ACKNOWLEDGED', 'NOTIFIED') OR TVA_acknowledgement in ('A','B','C'))
+  AND (street IS NOT NULL AND postal_code IS NOT NULL)
+  AND deleted = 0
+)
+AND p.product_description IS NOT NULL
+ORDER BY p.product_id`;
+};
+
+export default [
+  {
+    title: 'Base registry',
+    inputFile: '/input/base_registry.json',
+    outputFile: '/tmp/base_registry.ttl',
+    query: `
 SELECT business_product_id,
 parent_product_ids,
 name, name_or_number,
@@ -42,64 +62,7 @@ WHERE (status in ('LICENSED', 'ACKNOWLEDGED', 'NOTIFIED') OR TVA_acknowledgement
 AND (street IS NOT NULL AND postal_code IS NOT NULL)
 AND deleted = 0
 ORDER BY name
-`;
-
-const promoInfoQuery = `
-SELECT
-business_product_id, desc_nl.product_description as product_description_nl, desc_en.product_description as product_description_en, imagesurl
-FROM od_accommodation_touristic as A
-LEFT JOIN
-(
-  SELECT product_description
-  FROM od_accommodation_touristic_translations('nl', 'nl')
-) desc_nl on desc_nl.product_id=A.business_product_id
-LEFT JOIN
-(
-  SELECT product_description
-  FROM od_accommodation_touristic_translations('en', 'en')
-) desc_en on desc_en.product_id=A.business_product_id
-WHERE A.information_group = 'Accommodation'
-AND ( A.status in ('ACKNOWLEDGED', 'LICENSED','NOTIFIED') OR A.TVA_acknowledgement in ('A','B','C') )
-AND A.deleted=0
-AND ( desc_nl.product_description IS NOT NULL OR desc_en.product_description IS NOT NULL)
-ORDER BY A.name
-`;
-
-const descriptionQuery = function(lang) {
-  return `
-SELECT product_id as business_product_id, product_description as product_description_${lang}
-FROM od_accommodation_touristic_translations('${lang}', '${lang}') as p
-WHERE p.product_id IN (
-  SELECT business_product_id
-  FROM od_accommodation_base_registry
-  WHERE (status in ('LICENSED', 'ACKNOWLEDGED', 'NOTIFIED') OR TVA_acknowledgement in ('A','B','C'))
-  AND (street IS NOT NULL AND postal_code IS NOT NULL)
-  AND deleted = 0
-)
-AND p.product_description IS NOT NULL
-ORDER BY p.product_id`;
-};
-
-const imagesQuery = `
-SELECT business_product_id, imagesurl
-FROM od_accommodation_touristic as p
-WHERE p.business_product_id IN (
-  SELECT business_product_id
-  FROM od_accommodation_base_registry
-  WHERE (status in ('LICENSED', 'ACKNOWLEDGED', 'NOTIFIED') OR TVA_acknowledgement in ('A','B','C'))
-  AND (street IS NOT NULL AND postal_code IS NOT NULL)
-  AND deleted = 0
-)
-AND p.imagesurl IS NOT NULL
-ORDER BY p.business_product_id`
-;
-
-export default [
-  {
-    title: 'Base registry',
-    inputFile: '/input/base_registry.json',
-    outputFile: '/tmp/base_registry.ttl',
-    query: baseRegistryQuery,
+`,
     mapper: mapBaseRegistry
   },
   {
@@ -120,7 +83,18 @@ export default [
     title: 'Promotional images',
     inputFile: '/input/promotional_images.json',
     outputFile: '/tmp/promotional_images.ttl',
-    query: imagesQuery,
+    query: `
+SELECT business_product_id, imagesurl
+FROM od_accommodation_touristic as p
+WHERE p.business_product_id IN (
+  SELECT business_product_id
+  FROM od_accommodation_base_registry
+  WHERE (status in ('LICENSED', 'ACKNOWLEDGED', 'NOTIFIED') OR TVA_acknowledgement in ('A','B','C'))
+  AND (street IS NOT NULL AND postal_code IS NOT NULL)
+  AND deleted = 0
+)
+AND p.imagesurl IS NOT NULL
+ORDER BY p.business_product_id`,
     mapper: mapPromotionalInfo
   }
 ];
