@@ -49,8 +49,8 @@ const convert = async function() {
     const taskPromises = tasks.map(async function(task) {
       const input = await fs.readFile(task.inputFile, 'utf8');
       const records = JSON.parse(input);
-      const ttl = task.mapper(records);
-      await fs.outputFile(task.outputFile, ttl);
+//      const ttl = task.mapper(records);
+//      await fs.outputFile(task.outputFile, ttl);
 
       const status = { title: task.title, inputFile: task.inputFile, count: records.length };
       console.log(JSON.stringify(status));
@@ -59,15 +59,15 @@ const convert = async function() {
 
     const taskStatuses = await Promise.all(taskPromises);
 
-    const taskOutputs = tasks.map(t => t.outputFile);
-    const outputFileId = uuid();
-    const outputFile = `${outputDirectory}/${outputFileId}.ttl`;
-    await concat(taskOutputs, outputFile);
+    // const taskOutputs = tasks.map(t => t.outputFile);
+    // const outputFileId = uuid();
+    // const outputFile = `${outputDirectory}/${outputFileId}.ttl`;
+    // await concat(taskOutputs, outputFile);
 
-    await publish(outputFileId);
+    // await publish(outputFileId);
 
-    request.post('http://cache/clear');
-    Promise.all(taskOutputs.map(file => fs.remove(file)));
+    // request.post('http://cache/clear');
+    // Promise.all(taskOutputs.map(file => fs.remove(file)));
   } catch(e) {
     console.error('Something went wrong during the conversion');
     console.error(e.message || e);
