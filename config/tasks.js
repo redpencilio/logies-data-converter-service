@@ -1,5 +1,5 @@
 import { mapBaseRegistry, mapPromotionalInfo } from '../lib/logies-mapper';
-import { mapPOIs } from '../lib/mappers/poi';
+import mapTouristAttractions from '../lib/mappers/tourist-attraction';
 
 const descriptionQuery = function(lang) {
   return `
@@ -28,6 +28,7 @@ ORDER BY business_product_id
 `
   },
   {
+    enabled: true,
     title: 'activity_accessibility',
     query: `
 SELECT business_product_id, source_id, discriminator, information_group, changed_time, deleted, name, street, house_number, box_number, city_name, main_city_name, postal_code, promotional_region, statistical_region, x, y, lat, long, phone1, flickr, facebook, email, instagram, fax, twitter, phone2, phone3, website, sub_type, green_key_labeled, accessibility_label, link_to_accessibility_website, food_allergy, allergies, deaf, auditive, mental, motor, blind, visual, autism, imagesurl, imagesurlmain, product_owner_company_identification
@@ -44,6 +45,7 @@ ORDER BY p.product_id
       },
       languages: ['nl']
     },
+    mapper: mapTouristAttractions
   },
   {
     title: 'accommodation_accessibility',
@@ -81,9 +83,10 @@ ORDER BY p.product_id
 },
       languages: ['nl']
     },
-    mapper: mapPOIs
+    mapper: mapTouristAttractions
   },
   {
+    enabled: true,
     title: 'service_accessibility',
     query: `
 SELECT business_product_id, source_id, discriminator, information_group, changed_time, deleted, street, house_number, box_number, city_name, postal_code, main_city_name, promotional_region, statistical_region, x, y, lat, long, phone1, flickr, facebook, email, instagram, fax, twitter, phone2, phone3, website, location_type, sub_type, green_key_labeled, accessibility_label, camper_label, link_to_accessibility_website, food_allergy, allergies, deaf, auditive, mental, motor, blind, visual, autism, imagesurl, imagesurlmain, product_owner_company_identification
@@ -100,6 +103,7 @@ ORDER BY p.product_id
       },
       languages: ['nl']
     },
+    mapper: mapTouristAttractions
   },
   {
     title: 'Base registry',
