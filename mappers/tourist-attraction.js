@@ -2,8 +2,8 @@ import { sym, lit, graph, Namespace } from 'rdflib';
 import uriGenerator from '../helpers/uri-helpers';
 import { litDateTime } from '../helpers';
 import { informationGroupsMap } from './codelists';
-import { ADMS, DCT, LOCN, LOGIES, MU, RDF, SCHEMA } from './prefixes';
-import { mapAddress, mapLocation, mapTouristicRegion } from './address';
+import { ADMS, DCT, LOCN, LOGIES, MU, RDF, SCHEMA, TVL } from './prefixes';
+import { mapAddress, mapLocation, mapTouristicRegion, mapStatisticalRegion } from './address';
 import { mapTvlIdentifier } from './identifier';
 import { mapContactPoints } from './contact-info';
 import { mapMediaObjects, mapMainMediaObjects } from './media-object';
@@ -15,13 +15,12 @@ import { mapAccessibilityInformation } from './accessibility';
 // - source_id
 // - discriminator
 // - sub_type
-// - statistical_region
 // - location_type
 // - camper_label
 // - product_owner_company_identification
 //
 
-function mapTranslation(lang, store, recordId, record, attractionUri) {
+export function mapTranslation(lang, store, recordId, record, attractionUri) {
   const descriptions = mapProductDescriptions(recordId, record, lang);
   descriptions.forEach((description) => {
     store.add(sym(attractionUri), LOGIES('heeftBeschrijving'), sym(description.uri));
@@ -96,9 +95,14 @@ export default function mapTouristAttractions(records, translations) {
       store.addAll(location.statements);
     }
 
-    const region = mapTouristicRegion(recordId, record);
-    if (region) {
-      store.add(sym(attractionUri), LOGIES('behoortTotToeristischeRegio'), sym(region.uri));
+    const touristicRegion = mapTouristicRegion(recordId, record);
+    if (touristicRegion) {
+      store.add(sym(attractionUri), LOGIES('behoortTotToeristischeRegio'), sym(touristicRegion.uri));
+    }
+
+    const statsRegion = mapStatisticalRegion(recordId, record);
+    if (statsRegion) {
+      store.add(sym(attractionUri), TVL('belongsToStatisticalRegion'), sym(statsRegion.uri));
     }
 
     const contactPoints = mapContactPoints(recordId, record);

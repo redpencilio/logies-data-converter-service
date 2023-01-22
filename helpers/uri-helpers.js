@@ -13,6 +13,14 @@ const config = {
     baseUri: 'http://linked.toerismevlaanderen.be/id/identifiers/',
     uuid(id, decree) { return sha256(`b1be9263-767e-486a-875e-102dd2e24355-${id}-${decree}`); },
   },
+  generation: {
+    baseUri: 'http://linked.toerismevlaanderen.be/id/generations/',
+    uuid(id, decree) { return sha256(`b6981a14-18df-40c3-a85a-3b471072d3a8-${id}-${decree}`); },
+  },
+  invalidation: {
+    baseUri: 'http://linked.toerismevlaanderen.be/id/invalidations/',
+    uuid(id, decree) { return sha256(`f01118a5-40d7-45f9-ada7-70e09e8ce239}-${id}-${decree}`); },
+  },
   lodgingIdentifier: {
     baseUri: 'http://linked.toerismevlaanderen.be/id/identifiers/',
     uuid(id) { return `8f733017-281a-4b67-b9bb-f6a63529de9b-${id}`; }
@@ -20,6 +28,14 @@ const config = {
   tvlIdentifier: {
     baseUri: 'http://linked.toerismevlaanderen.be/id/identifiers/',
     uuid(id) { return `778d140d-e0c4-4dc5-a9e5-972e417d1c01-${id}`; }
+  },
+  organisationIdentifier: {
+    baseUri: 'http://linked.toerismevlaanderen.be/id/identifiers/',
+    uuid(id) { return `68ce3d98-3ed0-49e5-bfe3-578ad027167e-${id}`; }
+  },
+  organisation: {
+    baseUri: 'http://linked.toerismevlaanderen.be/id/organisations/',
+    uuid(id, type) { return sha256(`809ea6e8-c2cb-4f3d-a1d4-954aeeab4aa9-${id}`); }
   },
   touristAttraction: {
     baseUri: 'http://linked.toerismevlaanderen.be/id/tourist-attractions/',

@@ -4,8 +4,8 @@ import { hasAnyProp, hasEveryProp } from '../helpers';
 import { ADRES, GEOSPARQL, LOCN, MU, RDF, SCHEMA, WGS } from './prefixes';
 import { touristicRegionMap } from './codelists';
 
-function mapAddress(recordId, record) {
-  if (hasAnyProp(record, ['street', 'house_number', 'box_number', 'postal_code', 'main_city_name'])) {
+function mapAddress(recordId, record, field_prefix = '') {
+  if (hasAnyProp(record, ['street', 'house_number', 'box_number', 'postal_code', 'city_name', 'main_city_name'].map((k) => `${field_prefix}${k}`))) {
     const { addressUuid, addressUri } = uriGenerator.address(recordId);
 
     const statements = [
@@ -15,24 +15,28 @@ function mapAddress(recordId, record) {
       new Statement(sym(addressUri), ADRES('land'), lit('Belgium', 'en')),
     ];
 
-    if (record['street']) {
-      statements.push(new Statement(sym(addressUri), LOCN('thoroughfare'), lit(record['street'])));
+    if (record[`${field_prefix}street`]) {
+      statements.push(new Statement(sym(addressUri), LOCN('thoroughfare'), lit(record[`${field_prefix}street`])));
     }
 
-    if (record['house_number']) {
-      statements.push(new Statement(sym(addressUri), ADRES('Adresvoorstelling.huisnummer'), lit(record['house_number'])));
+    if (record[`${field_prefix}house_number`]) {
+      statements.push(new Statement(sym(addressUri), ADRES('Adresvoorstelling.huisnummer'), lit(record[`${field_prefix}house_number`])));
     }
 
-    if (record['box_number']) {
-      statements.push(new Statement(sym(addressUri), ADRES('Adresvoorstelling.busnummer'), lit(record['box_number'])));
+    if (record[`${field_prefix}box_number`]) {
+      statements.push(new Statement(sym(addressUri), ADRES('Adresvoorstelling.busnummer'), lit(record[`${field_prefix}box_number`])));
     }
 
-    if (record['postal_code']) {
-      statements.push(new Statement(sym(addressUri), LOCN('postCode'), lit(record['postal_code'])));
+    if (record[`${field_prefix}postal_code`]) {
+      statements.push(new Statement(sym(addressUri), LOCN('postCode'), lit(record[`${field_prefix}postal_code`])));
     }
 
-    if (record['main_city_name']) {
-      statements.push(new Statement(sym(addressUri), ADRES('gemeentenaam'), lit(record['main_city_name'], 'nl')));
+    if (record[`${field_prefix}city_name`] && record[`${field_prefix}city_name`] != record[`${field_prefix}main_city_name`]) {
+      statements.push(new Statement(sym(addressUri), ADRES('gemeentenaam'), lit(record[`${field_prefix}city_name`], 'nl')));
+    }
+
+    if (record[`${field_prefix}main_city_name`]) {
+      statements.push(new Statement(sym(addressUri), ADRES('gemeentenaam'), lit(record[`${field_prefix}main_city_name`], 'nl')));
     }
 
     return { uri: addressUri, statements };
@@ -78,20 +82,25 @@ function mapLocation(recordId, record) {
   }
 }
 
-function mapTouristicRegion(recordId, record) {
-  if (record['promotional_region']) {
-    const touristicRegionUri = touristicRegionMap[record['promotional_region']];
-    if (touristicRegionUri) {
-      return { uri: touristicRegionUri };
+function mapTouristicRegion(recordId, record, field = 'promotional_region') {
+  if (record[field]) {
+    const regionUri = touristicRegionMap[record[field]];
+    if (regionUri) {
+      return { uri: regionUri };
     } else {
-      console.error(`Cannot map promotional region value '${record['promotional_region']}' for record ${recordId}`);
+      console.error(`Cannot map ${field} value '${record[field]}' for record ${recordId}`);
     }
   }
   return null;
 }
 
+function mapStatisticalRegion(recordId, record) {
+  return mapTouristicRegion(recordId, record, 'statistical_region');
+}
+
 export {
   mapAddress,
   mapLocation,
-  mapTouristicRegion
+  mapTouristicRegion,
+  mapStatisticalRegion,
 }

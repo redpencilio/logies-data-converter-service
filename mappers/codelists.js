@@ -6,12 +6,30 @@ const registrationStatusMap = {
   ACKNOWLEDGED: 'http://linked.toerismevlaanderen.be/id/concepts/bb9d1b1b-05ea-4a98-bb54-87084c38da4e',
   LICENSED: 'http://linked.toerismevlaanderen.be/id/concepts/96dbd436-b59b-4e6e-b080-26a83456dc4e',
   NOTIFIED: 'http://linked.toerismevlaanderen.be/id/concepts/ed624155-305e-4da3-83a0-e4c586ca7b81',
+  STOPPED: 'http://linked.toerismevlaanderen.be/id/concepts/1ab08286-bc53-4a09-958d-e29b4acd76bf',
+  LICENSE_REVOKED: 'http://linked.toerismevlaanderen.be/id/concepts/0f79a629-494f-4332-b071-5ef8061eb50e',
+  // Other values:
+  // - ACKNOWLEDGED_BY_PRINCIPLE
+  // - AMBTSHALVE_LICENSED
+  // - LICENCE_APPLICATION_REJECTED
+  // - LICENSED_BY_COCOF
+  // - LICENSE_APPLICATION_COMPLETE
+  // - LICENSE_APPLICATION_IN_PROGRESS
+  // - NEVER_NOTIFIED_NOR_APPLIED_FOR_LICENSE
+  // - NOTIFICATION_APPLICATION_IN_PROGRESS
+  // - NOT_ACKNOWLEDGED
+
   // TVA decreet
   A: 'http://linked.toerismevlaanderen.be/id/concepts/37fd4d81-846b-448d-92d1-4dc1232540fd',
   B: 'http://linked.toerismevlaanderen.be/id/concepts/37fd4d81-846b-448d-92d1-4dc1232540fd',
   C: 'http://linked.toerismevlaanderen.be/id/concepts/37fd4d81-846b-448d-92d1-4dc1232540fd',
   TVA: 'http://linked.toerismevlaanderen.be/id/concepts/37fd4d81-846b-448d-92d1-4dc1232540fd',
-  HOSTEL: 'http://linked.toerismevlaanderen.be/id/concepts/37fd4d81-846b-448d-92d1-4dc1232540fd'
+  HOSTEL: 'http://linked.toerismevlaanderen.be/id/concepts/37fd4d81-846b-448d-92d1-4dc1232540fd',
+  REVOKED: 'http://linked.toerismevlaanderen.be/id/concepts/5a164cce-0c3c-469d-8910-707a456e0933',
+  SUSPENDED: 'http://linked.toerismevlaanderen.be/id/concepts/4f269330-bc00-41e9-8928-1a454f38e760'
+  // Other values:
+  // - ACKNOWLEDGED_BY_PRINCIPLE
+  // - NOT_ACKNOWLEDGED
 };
 
 const registrationCategoryMap = {
@@ -36,7 +54,9 @@ const registrationCategoryMap = {
   B: 'http://linked.toerismevlaanderen.be/id/concepts/d3194d20-f292-46a0-9762-f4dd206172a5',
   C: 'http://linked.toerismevlaanderen.be/id/concepts/d3194d20-f292-46a0-9762-f4dd206172a5',
   TVA: 'http://linked.toerismevlaanderen.be/id/concepts/a56ea80b-1aac-470c-8a99-a64551c5cf7a',
-  HOSTEL: 'http://linked.toerismevlaanderen.be/id/concepts/e38a3bc6-609d-4fa0-a824-46fa2cb4dda1'
+  HOSTEL: 'http://linked.toerismevlaanderen.be/id/concepts/e38a3bc6-609d-4fa0-a824-46fa2cb4dda1',
+  YOUTH: 'http://linked.toerismevlaanderen.be/id/concepts/d3194d20-f292-46a0-9762-f4dd206172a5',
+  ADULT: 'http://linked.toerismevlaanderen.be/id/concepts/a56ea80b-1aac-470c-8a99-a64551c5cf7a'
 };
 
 const registrationTypeMap = {
@@ -63,6 +83,7 @@ const touristicRegionMap = {
   groeneGordel: 'http://linked.toerismevlaanderen.be/id/touristic-regions/434521ce-28ef-4fc6-9c5f-db8f75f27213',
   hageland: 'http://linked.toerismevlaanderen.be/id/touristic-regions/dc441833-7d38-4f03-9e6a-846854dd1eb8',
   haspengouw: 'http://linked.toerismevlaanderen.be/id/touristic-regions/93211a0f-9e45-44f1-97cb-7d81b6c6861d',
+  hasselt: 'http://linked.toerismevlaanderen.be/id/touristic-regions/00ee4d42-5188-4ec2-bf9d-45e92e68efdc',
   kunststadAntwerpen: 'http://linked.toerismevlaanderen.be/id/touristic-regions/d2d03bf9-3ea8-4750-a7b6-b91680bcc90c',
   kunststadBrugge: 'http://linked.toerismevlaanderen.be/id/touristic-regions/35605b6f-0b57-45ae-a6bc-1a4626375563',
   kunststadBrussel: 'http://linked.toerismevlaanderen.be/id/touristic-regions/df8fcb3f-0979-4bc0-b24b-03c85de4dd61',
@@ -74,6 +95,7 @@ const touristicRegionMap = {
   limburgseKempen: 'http://linked.toerismevlaanderen.be/id/touristic-regions/a8aa05ec-4f72-442b-a12f-a6d1554f2270',
   maasland: 'http://linked.toerismevlaanderen.be/id/touristic-regions/4bfdc566-c9ea-4721-9445-ecad54c39813',
   meetjesland: 'http://linked.toerismevlaanderen.be/id/touristic-regions/622517b3-a421-46c5-b5a9-8884a89e2775',
+  randAntwerpenMechelen: 'http://linked.toerismevlaanderen.be/id/touristic-regions/8eb895b2-4ca3-4099-b257-466b8bbd84c8',
   scheldeland: 'http://linked.toerismevlaanderen.be/id/touristic-regions/611fcac6-410b-468d-9d09-b03bdd4059c8',
   vlaamseArdennen: 'http://linked.toerismevlaanderen.be/id/touristic-regions/f3389ab4-5f24-4d83-8bd0-4eb8e7867718',
   voerstreek: 'http://linked.toerismevlaanderen.be/id/touristic-regions/423cef99-a60d-4a3f-b1b8-78f12472624b',
@@ -196,6 +218,14 @@ const accessibilityLabels = {
   INFORMATION_AVAILABLE: null
 };
 
+const honorificPrefixes = {
+  MR: 'Meneer',
+  MRS: 'Mevrouw',
+  MRS_AND_MRS: 'Dames',
+  MR_AND_MR: 'Heren',
+  MR_AND_MRS: 'Mevrouw en meneer',
+};
+
 export {
   tvlOrganizationUri,
   goodplanetOrganizationUri,
@@ -206,5 +236,6 @@ export {
   informationGroupsMap,
   nonStandardizedUnitMap,
   comfortClasses,
-  accessibilityLabels
+  accessibilityLabels,
+  honorificPrefixes
 }

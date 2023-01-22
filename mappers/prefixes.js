@@ -10,6 +10,7 @@ const GEOSPARQL = Namespace('http://www.opengis.net/ont/geosparql#');
 const LOCN = Namespace('http://www.w3.org/ns/locn#');
 const LOGIES = Namespace('https://data.vlaanderen.be/ns/logies#');
 const MU = Namespace('http://mu.semte.ch/vocabularies/core/');
+const ORG = Namespace('http://www.w3.org/ns/org#');
 const ORGANISATIE = Namespace('https://data.vlaanderen.be/ns/organisatie#');
 const PROV = Namespace('http://www.w3.org/ns/prov#');
 const RDF = Namespace('http://www.w3.org/1999/02/22-rdf-syntax-ns#');
@@ -32,6 +33,7 @@ export {
   LOCN,
   LOGIES,
   MU,
+  ORG,
   ORGANISATIE,
   PROV,
   RDF,
