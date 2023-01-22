@@ -1,6 +1,6 @@
 import fs from 'fs-extra';
-import tasks from '../config/tasks';
-import { INPUT_DIRECTORY, OUTPUT_DIRECTORY } from '../config/env';
+import tasks from './config/tasks';
+import { INPUT_DIRECTORY, OUTPUT_DIRECTORY } from './config/env';
 
 class Translation {
   constructor(lang, title, query) {

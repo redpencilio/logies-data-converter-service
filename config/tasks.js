@@ -1,5 +1,5 @@
-import { mapBaseRegistry, mapPromotionalInfo } from '../lib/logies-mapper';
-import mapTouristAttractions from '../lib/mappers/tourist-attraction';
+import { mapBaseRegistry, mapPromotionalInfo } from '../logies-mapper';
+import mapTouristAttractions from '../mappers/tourist-attraction';
 
 const descriptionQuery = function(lang) {
   return `

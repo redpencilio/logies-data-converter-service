@@ -2,9 +2,9 @@ import { CronJob } from 'cron';
 import { app, errorHandler } from 'mu';
 import fs from 'fs-extra';
 import request from 'request';
-import loadSources from './lib/data-sources';
-import publish from './lib/publication';
-import { loadTasksFromConfig } from './lib/task';
+import loadSources from './data-sources';
+import publish from './publication';
+import { loadTasksFromConfig } from './task';
 
 const tasks = loadTasksFromConfig();
 
@@ -40,7 +40,7 @@ const convert = async function() {
 
     console.log('\nMapping summary:');
     results.forEach((result) => {
-        console.log(`- ${result.title}: ${result.count} records (source: ${result.source})`);
+      console.log(`- ${result.title}: ${result.count} records (source: ${result.source})`);
     });
 
     console.log('\nPublishing generated data');

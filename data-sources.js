@@ -1,36 +1,38 @@
 import fs from 'fs-extra';
 import sql from 'mssql';
 
-const user = process.env.DB_USER;
-const password = process.env.DB_PASSWORD;
-const server = process.env.DB_SERVER || 'sqldb';
-const database = process.env.DB_NAME;
-const port = process.env.DB_PORT || 1433;
-const batchSize = parseInt(process.env.BATCH_SIZE) || 10000;
+import {
+  SQL_USER,
+  SQL_PASSWORD,
+  SQL_SERVER,
+  SQL_DATABASE,
+  SQL_PORT,
+  SQL_BATCH_SIZE
+} from './config/env';
 
 const config = {
-  user,
-  password,
-  server,
-  database,
-  port
+  user: SQL_USER,
+  password: SQL_PASSWORD,
+  server: SQL_SERVER,
+  database: SQL_DATABASE,
+  port: SQL_PORT
 };
 
 const executeBatchedSqlQuery = async function(query, sqlpool) {
   try {
     let records = [];
-    let resultLength = batchSize;
+    let resultLength = SQL_BATCH_SIZE;
     let offset = 0;
     let loop = 1;
 
-    while(resultLength == batchSize) {
-      const sql = `${query} OFFSET ${offset} ROWS FETCH NEXT ${batchSize} ROWS ONLY OPTION (RECOMPILE);`;
+    while(resultLength == SQL_BATCH_SIZE) {
+      const sql = `${query} OFFSET ${offset} ROWS FETCH NEXT ${SQL_BATCH_SIZE} ROWS ONLY OPTION (RECOMPILE);`;
       let result = await sqlpool.request().query(sql);
       console.log(`Batch number ${loop} including ${result.rowsAffected} rows`);
 
       records = records.concat(result.recordset);
 
-      offset += batchSize;
+      offset += SQL_BATCH_SIZE;
       loop += 1;
       resultLength = result.rowsAffected;
     }

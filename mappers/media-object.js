@@ -1,5 +1,6 @@
 import { sym, lit, Statement } from 'rdflib';
-import { isValidURL, uriGenerator } from '../helpers';
+import uriGenerator from '../helpers/uri-helpers';
+import { isValidURL } from '../helpers';
 import { MU, RDF, SCHEMA } from './prefixes';
 
 function mapMediaObjects(recordId, record, field = 'imagesurl') {

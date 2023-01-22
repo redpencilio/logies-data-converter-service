@@ -1,7 +1,8 @@
 import { sym, lit, Statement } from 'rdflib';
-import { hasAnyProp, hasEveryProp, uriGenerator } from '../helpers';
+import uriGenerator from '../helpers/uri-helpers';
+import { hasAnyProp, hasEveryProp } from '../helpers';
 import { ADRES, GEOSPARQL, LOCN, MU, RDF, SCHEMA, WGS } from './prefixes';
-import { touristicRegionMap } from '../codelists';
+import { touristicRegionMap } from './codelists';
 
 function mapAddress(recordId, record) {
   if (hasAnyProp(record, ['street', 'house_number', 'box_number', 'postal_code', 'main_city_name'])) {

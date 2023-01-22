@@ -14,8 +14,8 @@ import {
   nonStandardizedUnitMap,
   comfortClasses,
   accessibilityLabels
-} from './codelists';
-import { uriGenerator, toTtl } from './helpers';
+} from './mappers/codelists';
+import uriGenerator from './helpers/uri-helpers';
 
 const mapBaseRegistry = function(records) {
   const statements = records.map(function(record) {
@@ -73,7 +73,7 @@ const mapBaseRegistry = function(records) {
     return insert;
   });
 
-  return toTtl(statements);
+  return '';
 };
 
 const mapPromotionalInfo = function(records) {
@@ -90,7 +90,7 @@ const mapPromotionalInfo = function(records) {
 
       return insert;
     });
-  return toTtl(statements);
+  return '';
 };
 
 const mapRegistration = function(recordId, record, lodgingUri) {

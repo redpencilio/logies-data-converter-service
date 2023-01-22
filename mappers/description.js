@@ -1,6 +1,6 @@
 import { sym, lit, Statement } from 'rdflib';
-import { uriGenerator } from '../helpers';
-import { tvlOrganizationUri } from '../codelists';
+import uriGenerator from '../helpers/uri-helpers';
+import { tvlOrganizationUri } from './codelists';
 import { LOGIES, MU, RDF, SCHEMA } from './prefixes';
 
 function mapProductDescriptions(recordId, record, lang) {

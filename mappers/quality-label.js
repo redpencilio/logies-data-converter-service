@@ -1,6 +1,6 @@
 import { sym, lit, Statement } from 'rdflib';
-import { uriGenerator } from '../helpers';
-import { accessibilityLabels, tvlOrganizationUri, goodplanetOrganizationUri } from '../codelists';
+import uriGenerator from '../helpers/uri-helpers';
+import { accessibilityLabels, tvlOrganizationUri, goodplanetOrganizationUri } from './codelists';
 import { LOGIES, MU, RDF, SCHEMA, SKOS } from './prefixes';
 
 function mapAccessibilityLabel(recordId, record) {

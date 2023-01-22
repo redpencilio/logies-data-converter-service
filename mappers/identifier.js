@@ -1,6 +1,6 @@
 import { sym, lit, Statement } from 'rdflib';
-import { uriGenerator } from '../helpers';
-import { tvlOrganizationUri } from '../codelists';
+import uriGenerator from '../helpers/uri-helpers';
+import { tvlOrganizationUri } from './codelists';
 import { ADMS, DCT, MU, RDF, SKOS } from './prefixes';
 
 function mapTvlIdentifier(recordId, record) {

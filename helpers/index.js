@@ -1,14 +1,5 @@
 import { lit } from 'rdflib';
-import { ttlPrefixes } from './prefixes';
-import { generator as uriGenerator } from './uri-helpers';
-import { XSD } from './mappers/prefixes';
-
-function toTtl(statements) {
-  console.log(`Mapped ${statements.length} rows`);
-  const data = statements.join('');
-  const ttl = `${ttlPrefixes}\n${data}`;
-  return ttl;
-};
+import { XSD } from '../mappers/prefixes';
 
 function hasAnyProp(record, properties) {
   return properties.find((prop) => record[prop] != null) != null;
@@ -32,8 +23,6 @@ function isValidURL(value) {
 }
 
 export {
-  toTtl,
-  uriGenerator,
   hasAnyProp,
   hasEveryProp,
   litDateTime,

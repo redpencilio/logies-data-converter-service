@@ -1,6 +1,7 @@
 import { sym, lit, Statement } from 'rdflib';
-import { hasAnyProp, isValidURL, uriGenerator } from '../helpers';
-import { tvlOrganizationUri } from '../codelists';
+import uriGenerator from '../helpers/uri-helpers';
+import { hasAnyProp, isValidURL } from '../helpers';
+import { tvlOrganizationUri } from './codelists';
 import { FOAF, MU, RDF, SCHEMA } from './prefixes';
 
 function isSocialMediaUrl(url, socialMediaChannel) {

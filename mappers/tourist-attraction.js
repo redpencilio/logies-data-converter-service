@@ -1,6 +1,7 @@
 import { sym, lit, graph, Namespace } from 'rdflib';
-import { informationGroupsMap } from '../codelists';
-import { uriGenerator, litDateTime, toTtl } from '../helpers';
+import uriGenerator from '../helpers/uri-helpers';
+import { litDateTime } from '../helpers';
+import { informationGroupsMap } from './codelists';
 import { ADMS, DCT, LOCN, LOGIES, MU, RDF, SCHEMA } from './prefixes';
 import { mapAddress, mapLocation, mapTouristicRegion } from './address';
 import { mapTvlIdentifier } from './identifier';

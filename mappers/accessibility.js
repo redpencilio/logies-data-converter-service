@@ -1,5 +1,5 @@
 import { sym, lit, Statement } from 'rdflib';
-import { uriGenerator } from '../helpers';
+import uriGenerator from '../helpers/uri-helpers';
 import { MU, RDF, SCHEMA, TVL, XSD } from './prefixes';
 
 const properties = [

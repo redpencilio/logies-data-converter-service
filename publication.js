@@ -2,11 +2,11 @@ import { uuid, sparqlEscapeUri, sparqlEscapeDateTime } from 'mu';
 import { querySudo as query, updateSudo as update } from '@lblod/mu-auth-sudo';
 import concat from 'concat';
 import fs from 'fs-extra';
-import { DCAT_CATALOG, DCAT_DATASET_TYPE, PUBLIC_GRAPH, MAPPED_DATA_GRAPH, HOST_DOMAIN, OUTPUT_DIRECTORY } from '../config/env';
-import { uriGenerator } from './helpers';
-import { insertTriplesFromTtl } from './ttl-helpers';
-import { copyGraph, removeDiff } from './graph-helpers';
-import { updateTriplestore } from './triplestore';
+import { DCAT_CATALOG, DCAT_DATASET_TYPE, PUBLIC_GRAPH, MAPPED_DATA_GRAPH, HOST_DOMAIN, OUTPUT_DIRECTORY } from './config/env';
+import uriGenerator from './helpers/uri-helpers';
+import { insertTriplesFromTtl } from './helpers/ttl-helpers';
+import { copyGraph, removeDiff } from './helpers/graph-helpers';
+import { updateTriplestore } from './helpers/triplestore';
 
 async function publish(tasks) {
   // Concatenating output of all tasks in 1 file

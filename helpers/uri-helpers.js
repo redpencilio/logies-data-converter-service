@@ -86,4 +86,4 @@ for (const type in config) {
   };
 }
 
-export { generator };
+export default generator;
