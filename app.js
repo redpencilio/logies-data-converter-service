@@ -5,23 +5,24 @@ import request from 'request';
 import loadSources from './data-sources';
 import publish from './publication';
 import { loadTasksFromConfig } from './task';
+import { waitForDatabase } from './helpers/database-helpers';
 
 const tasks = loadTasksFromConfig();
+waitForDatabase().then(() => {
+  /** Schedule cron job */
+  const cronFrequency = process.env.CRON_PATTERN || '0 0 2 * * *';
+  new CronJob(cronFrequency, function() {
+    console.log(`Data conversion triggered by cron job at ${new Date().toISOString()}`);
+    request.post('http://localhost/conversion-tasks');
+  }, null, true);
 
-/** Schedule cron job */
-const cronFrequency = process.env.CRON_PATTERN || '0 0 2 * * *';
-new CronJob(cronFrequency, function() {
-  console.log(`Data conversion triggered by cron job at ${new Date().toISOString()}`);
-  request.post('http://localhost/conversion-tasks');
-}, null, true);
+  app.post('/conversion-tasks', function(req, res, next) {
+    convert(); // don't await the conversion
+    return res.status(202).send();
+  });
 
-app.post('/conversion-tasks', function(req, res, next) {
-  convert(); // don't await the conversion
-  return res.status(202).send();
+  app.use(errorHandler);
 });
-
-app.use(errorHandler);
-
 
 // Helpers
 
