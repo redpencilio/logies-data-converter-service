@@ -16,6 +16,23 @@ function mapTvlIdentifier(recordId, record) {
   return { uri, statements };
 }
 
+function mapFodIdentifier(recordId, record) {
+  if (record['statistical_id']) {
+    const { uuid, uri } = uriGenerator.fodIdentifier(recordId);
+    const statements = [
+      new Statement(sym(uri), RDF('type'), ADMS('Identifier')),
+      new Statement(sym(uri), MU('uuid'), lit(uuid)),
+      new Statement(sym(uri), SKOS('notation'), lit(recordId)),
+      new Statement(sym(uri), ADMS('schemaAgency'), lit('Federale Overheidsdienst')),
+    ];
+
+    return { uri, statements };
+  } else {
+    return null;
+  }
+}
+
 export {
-  mapTvlIdentifier
+  mapTvlIdentifier,
+  mapFodIdentifier
 }
