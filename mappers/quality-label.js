@@ -43,6 +43,24 @@ function mapGreenLabel(recordId, record) {
   }
 }
 
+function mapCamperLabel(recordId, record) {
+  if (record['camper_label']) {
+    const { uuid, uri } = uriGenerator.qualityLabel(recordId, 'camper-label');
+
+    const statements = [
+      new Statement(sym(uri), RDF('type'), LOGIES('Kwaliteitslabel')),
+      new Statement(sym(uri), MU('uuid'), lit(uuid)),
+      new Statement(sym(uri), SKOS('prefLabel'), lit('Kampeerlabel', 'nl')),
+      new Statement(sym(uri), SKOS('prefLabel'), lit('Camper label', 'en')),
+      new Statement(sym(uri), SCHEMA('author'), sym(tvlOrganizationUri)),
+    ];
+
+    return { uri, statements };
+  } else {
+    return null;
+  }
+}
+
 function mapFireSafetyCertificate(recordId, record) {
   if (record['fire_safety_certificate_expiration_date']) {
     const { uuid, uri } = uriGenerator.permit(recordId, 'fire-safety-certificate');
@@ -64,5 +82,6 @@ function mapFireSafetyCertificate(recordId, record) {
 export {
   mapAccessibilityLabel,
   mapGreenLabel,
+  mapCamperLabel,
   mapFireSafetyCertificate
 }

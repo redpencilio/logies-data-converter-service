@@ -7,15 +7,9 @@ import { mapAddress, mapLocation, mapTouristicRegion, mapStatisticalRegion } fro
 import { mapTvlIdentifier } from './identifier';
 import { mapContactPoints } from './contact-info';
 import { mapMediaObjects, mapMainMediaObjects } from './media-object';
-import { mapAccessibilityLabel, mapGreenLabel } from './quality-label';
+import { mapAccessibilityLabel, mapGreenLabel, mapCamperLabel } from './quality-label';
 import { mapProductDescriptions, mapAccessibilityDescription } from './description';
 import { mapAccessibilityInformation } from './accessibility';
-
-// Deprecated fields
-// - source_id
-
-// Need more info
-// - camper_label
 
 export function mapTranslation(lang, store, recordId, record, attractionUri) {
   const descriptions = mapProductDescriptions(recordId, record, lang);
@@ -157,6 +151,12 @@ export default function mapTouristAttractions(records, translations) {
     if (greenLabel) {
       store.add(sym(attractionUri), LOGIES('heeftKwaliteitslabel'), sym(greenLabel.uri));
       store.addAll(greenLabel.statements);
+    }
+
+    const camperLabel = mapCamperLabel(recordId, record);
+    if (camperLabel) {
+      store.add(sym(attractionUri), LOGIES('heeftKwaliteitslabel'), sym(camperLabel.uri));
+      store.addAll(camperLabel.statements);
     }
 
     const accessibilityInformation = mapAccessibilityInformation(recordId, record);

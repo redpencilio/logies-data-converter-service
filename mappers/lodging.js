@@ -10,7 +10,7 @@ import { mapContactPoints, mapProductOwner, mapOfferingAgent } from './contact-i
 import { mapTvaContact, mapTvaOrganisation } from './tva';
 import { mapRatings } from './rating';
 import { mapCapacities } from './capacity';
-import { mapAccessibilityLabel, mapGreenLabel, mapFireSafetyCertificate } from './quality-label';
+import { mapAccessibilityLabel, mapGreenLabel, mapCamperLabel, mapFireSafetyCertificate } from './quality-label';
 import { mapAccessibilityInformation } from './accessibility';
 import { mapMediaObjects, mapMainMediaObjects } from './media-object';
 import { mapTranslation } from './tourist-attraction';
@@ -23,9 +23,6 @@ import { mapTranslation } from './tourist-attraction';
 // - tva_acknowledgement_old
 // - pub_categoryTGL
 // - pub_groupTGL
-
-// Need more info
-// - camper_label
 
 // TODO Fields missing in mapping
 // - file_number: dossier nummer TVA
@@ -191,6 +188,12 @@ export default function mapLodgings(records, translations) {
     if (greenLabel) {
       store.add(sym(lodgingUri), LOGIES('heeftKwaliteitslabel'), sym(greenLabel.uri));
       store.addAll(greenLabel.statements);
+    }
+
+    const camperLabel = mapCamperLabel(recordId, record);
+    if (camperLabel) {
+      store.add(sym(lodgingUri), LOGIES('heeftKwaliteitslabel'), sym(camperLabel.uri));
+      store.addAll(camperLabel.statements);
     }
 
     const fireSafetyCertificate = mapFireSafetyCertificate(recordId, record);
