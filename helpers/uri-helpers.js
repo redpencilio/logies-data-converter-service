@@ -64,6 +64,10 @@ const config = {
     baseUri: 'http://linked.toerismevlaanderen.be/id/quantitative-values/',
     uuid(id, unit) { return sha256(`9e085686-01af-48c8-850b-e26cd663f699-${id}-${unit}`);}
   },
+  propertyValue: {
+    baseUri: 'http://linked.toerismevlaanderen.be/id/property-values/',
+    uuid(id, unit) { return sha256(`94a1e7f5-328b-4e9b-a844-8561609a03f7-${id}-${unit}`);}
+  },
   rating: {
     baseUri: 'http://linked.toerismevlaanderen.be/id/ratings/',
     uuid(id, type) { return sha256(`1f39ce9d-67e5-47ae-adeb-6617a6b58a7f-${id}-${type}`); }

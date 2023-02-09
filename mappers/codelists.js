@@ -213,7 +213,8 @@ const nonStandardizedUnitMap = {
   number_of_residence_units: 'aantal wooneenheden',
   number_of_long_term_camping_spots: 'aantal campingplaatsen voor lange termijn',
   number_of_residence_units_for_rental: 'aantal wooneenheden te huur',
-  number_of_hikers_huts: 'aantal wandelaarshutten'
+  number_of_hikers_huts: 'aantal wandelaarshutten',
+  tva_capacity_description: 'TVA capaciteit'
 };
 
 const comfortRatingBasicLuxe = {

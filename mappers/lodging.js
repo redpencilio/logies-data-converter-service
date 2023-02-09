@@ -9,7 +9,7 @@ import { mapAddress, mapLocation, mapTouristicRegion, mapStatisticalRegion } fro
 import { mapContactPoints, mapProductOwner, mapOfferingAgent } from './contact-info';
 import { mapTvaContact, mapTvaOrganisation } from './tva';
 import { mapRatings } from './rating';
-import { mapCapacities } from './capacity';
+import { mapCapacities, mapPropertyValues } from './capacity';
 import { mapAccessibilityLabel, mapGreenLabel, mapCamperLabel, mapFireSafetyCertificate } from './quality-label';
 import { mapAccessibilityInformation } from './accessibility';
 import { mapMediaObjects, mapMainMediaObjects } from './media-object';
@@ -235,6 +235,12 @@ export default function mapLodgings(records, translations) {
     capacities.forEach((capacity) => {
       store.add(sym(lodgingUri), LOGIES('capaciteit'), sym(capacity.uri));
       store.addAll(capacity.statements);
+    });
+
+    const propertyValues = mapPropertyValues(recordId, record);
+    propertyValues.forEach((propertyValue) => {
+      store.add(sym(lodgingUri), SCHEMA('additionalProperty'), sym(propertyValue.uri));
+      store.addAll(propertyValue.statements);
     });
 
 
