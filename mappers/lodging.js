@@ -25,12 +25,8 @@ import { mapTranslation } from './tourist-attraction';
 // - pub_groupTGL
 
 // TODO Fields missing in mapping
-// - file_number: dossier nummer TVA
+// - partnerlabel_fod
 // - fire_safety_advice
-
-// - tva_capacity_description
-// - tva_principal_acknowledgement_date
-// - tva_suspension_removal_date
 
 // - FOD_TYPE => provide mapping between codelist from TVL and from FOD ?
 
