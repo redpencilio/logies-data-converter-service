@@ -111,6 +111,95 @@ const informationGroupsMap = {
   ROUTE: 'http://w3id.org/ost/ns#Route',
 };
 
+const locationTypesMap = {
+  RURAL : 'http://linked.toerismevlaanderen.be/id/concepts/98f4dcef-a4de-4573-a306-b5f1e9f65530',
+  ACTIVE_FARM : 'http://linked.toerismevlaanderen.be/id/concepts/ff15b994-03a9-45cd-b066-dc2f42cdd5ac',
+  URBAN : 'http://linked.toerismevlaanderen.be/id/concepts/03e58bde-7d4c-4874-8d45-60e847780e88',
+  INDOOR : 'http://linked.toerismevlaanderen.be/id/concepts/f440b724-0c51-4fe7-9a5d-36f5083bbe22'
+};
+
+const productCategoriesMap = {
+  ACCESSIBILITY_EQUIPMENT_RENTING : 'http://linked.toerismevlaanderen.be/id/concepts/6149af7f-5e99-4c80-aad4-b91a8d4c1b4e',
+  ANIMAL_PARK : 'http://linked.toerismevlaanderen.be/id/concepts/624f9f42-5ecf-43f8-9510-f8b49bea582c',
+  ARCHEOLOGY : 'http://linked.toerismevlaanderen.be/id/concepts/8e9c62da-6ee8-45b9-a3f1-47e1c2418fb9',
+  ARCHITECTURE : 'http://linked.toerismevlaanderen.be/id/concepts/06942a47-488b-47aa-8021-8b44fe77d4ca',
+  ARTISTIC_CRAFTS_AND_PROFESSIONS : 'http://linked.toerismevlaanderen.be/id/concepts/c7b4078a-3550-4052-a001-54e1d6734c86',
+  ART_GALLERY : 'http://linked.toerismevlaanderen.be/id/concepts/94543ab3-eda6-48c2-b8ea-9146a164c2f8',
+  BOOKS_AND_PRINTING : 'http://linked.toerismevlaanderen.be/id/concepts/9e70c687-b1f2-4884-aabf-26a9534a3e6f',
+  BREWERY : 'http://linked.toerismevlaanderen.be/id/concepts/518ddd62-a0db-4bd0-889a-c43a26daf26f',
+  BREWERY_VISIT : 'http://linked.toerismevlaanderen.be/id/concepts/a5170305-613a-4ed9-9276-3ab2bec6ab1d',
+  CAFE : 'http://linked.toerismevlaanderen.be/id/concepts/2690d6d7-5294-4ce2-bed6-12169792eafd',
+  CASTLE : 'http://linked.toerismevlaanderen.be/id/concepts/f66008a3-50b7-49f3-a7ca-0a30853f37b8',
+  CHURCH : 'http://linked.toerismevlaanderen.be/id/concepts/96b6b692-be85-4f3d-92ed-af0160584f61',
+  CULINARY : 'http://linked.toerismevlaanderen.be/id/concepts/dae4c19a-72e4-4fb9-a1a6-863de38ce7b3',
+  CULTURAL_CENTRE : 'http://linked.toerismevlaanderen.be/id/concepts/1d8a8905-1087-49ed-a3da-2bdc489d21a8',
+  CYCLING_LOOP : 'http://linked.toerismevlaanderen.be/id/concepts/86bbb471-85fe-4fdf-af74-cd95a92d5410',
+  EDUCATION : 'http://linked.toerismevlaanderen.be/id/concepts/1134bc9b-2342-49bc-b103-957b376c3a5d',
+  EVENT_MUSEUM : 'http://linked.toerismevlaanderen.be/id/concepts/93a28eaa-aafc-40f5-9fae-bf8bce8bc7a1',
+  EVENT_TOURISTIC : 'http://linked.toerismevlaanderen.be/id/concepts/bd9e6785-f373-4f20-a1cd-ba49fd501bb0',
+  FAUNA_AND_FLORA : 'http://linked.toerismevlaanderen.be/id/concepts/0f2e5973-2da1-481f-acc0-938a9755fe0a',
+  FLANDERS_INFORMATION_OFFICE : 'http://linked.toerismevlaanderen.be/id/concepts/8d8023ea-9d3b-4105-b0e5-7110341ffa85',
+  HIKING_LOOP : 'http://linked.toerismevlaanderen.be/id/concepts/2bd44e2e-412d-455c-9cb5-47665358e0f9',
+  HIKING_THEMATIC_ROUTE : 'http://linked.toerismevlaanderen.be/id/concepts/9817e3a4-5cf4-498f-be9e-d85709855fd4',
+  HISTORICAL_BUILDING : 'http://linked.toerismevlaanderen.be/id/concepts/9ae00620-4058-422f-ba87-b37154b2ddd0',
+  HISTORY : 'http://linked.toerismevlaanderen.be/id/concepts/9164777c-c4cd-4951-954e-837f8389fa61',
+  INDOOR_PLAY_GROUND : 'http://linked.toerismevlaanderen.be/id/concepts/baef5c19-7e66-421f-8074-c75660ed555e',
+  LOCAL_INFORMATION_OFFICE : 'http://linked.toerismevlaanderen.be/id/concepts/96bdff00-f6fc-4ae9-b7f5-734807795fc9',
+  MEETING_LOCATION : 'http://linked.toerismevlaanderen.be/id/concepts/483b607c-dd7f-4d19-b09d-32ab1580a09e',
+  MOTOR_LOOP : 'http://linked.toerismevlaanderen.be/id/concepts/4a00d174-ad77-4c8f-b414-4c40a84765fc',
+  NATURAL_AREA : 'http://linked.toerismevlaanderen.be/id/concepts/17a0d89a-d81c-4908-8946-949238ef57a4',
+  OFFICE_NOT_RECOGNIZED_BY_TVL : 'http://linked.toerismevlaanderen.be/id/concepts/43b53b87-aa11-4fd1-a19e-299dcc814eff',
+  PAINTING_AND_DRAWING : 'http://linked.toerismevlaanderen.be/id/concepts/2bc28c19-4804-49bc-abec-96951426f035',
+  PARK : 'http://linked.toerismevlaanderen.be/id/concepts/63f52e5a-297a-41c1-b2eb-c9c875dc435d',
+  PLACE : 'http://linked.toerismevlaanderen.be/id/concepts/d4741fc6-872c-4792-8b9a-c6f81c75007a',
+  PUBLIC_TOILET : 'http://linked.toerismevlaanderen.be/id/concepts/9fecdd75-3127-4bf4-a629-40f12def041e',
+  RECREATION_DOMAIN : 'http://linked.toerismevlaanderen.be/id/concepts/fae63f3f-b718-4d3d-9366-eb0f76be9ca1',
+  REGIONAL_INFORMATION_OFFICE : 'http://linked.toerismevlaanderen.be/id/concepts/a5c3819d-55a4-4b01-9ee1-db9d4b0c98e7',
+  RELIGIOUS_ART_AND_PRACTICE : 'http://linked.toerismevlaanderen.be/id/concepts/692a5fd0-e474-47ce-a476-0c442e9dcb90',
+  RESTAURANT : 'http://linked.toerismevlaanderen.be/id/concepts/f68312f7-09d3-4b03-a2b7-1b2dd1cb91d3',
+  SCULPTURE : 'http://linked.toerismevlaanderen.be/id/concepts/8e7d6236-8d76-44eb-8574-c4fd8649a596',
+  SPORTS : 'http://linked.toerismevlaanderen.be/id/concepts/4612795b-7cc6-4fc0-9374-52a273a95e19',
+  SWIMMING_POOL : 'http://linked.toerismevlaanderen.be/id/concepts/d7a3721f-abd3-458e-9466-69a93a7ad52d',
+  SWIMMING_POOL_PARADISE : 'http://linked.toerismevlaanderen.be/id/concepts/96b6b8d5-1646-4267-8f78-4934c5c9c0c1',
+  TEA_ROOM : 'http://linked.toerismevlaanderen.be/id/concepts/54f0a669-e221-443a-9f56-afb67d4a9760',
+  TOUR : 'http://linked.toerismevlaanderen.be/id/concepts/0b842ddd-af7a-4cd7-98d0-d29afd2a091e',
+  TRANSPORT : 'http://linked.toerismevlaanderen.be/id/concepts/384cab08-42fa-4d3b-9ac1-deb5c3e493ed',
+  UTENSILS : 'http://linked.toerismevlaanderen.be/id/concepts/3159f994-8040-47af-959b-492bf1af94de',
+  VISITOR_CENTRE : 'http://linked.toerismevlaanderen.be/id/concepts/468f040a-58fe-4ce2-8ff4-23b18a470cfb',
+  WARFARE_AND_WEAPONRY : 'http://linked.toerismevlaanderen.be/id/concepts/fcdbd4df-4476-46e2-bd84-9b2d169b674f',
+  WELLNESS_CENTRE : 'http://linked.toerismevlaanderen.be/id/concepts/63f04d5f-15ea-44f9-a873-55f604652bb7',
+  WOOD : 'http://linked.toerismevlaanderen.be/id/concepts/e1efce9b-ab94-4f33-a51c-55799dd56b42'
+  
+};
+
+const productTypesMap = {
+  YOUTH_ACCOMMODATION : 'http://linked.toerismevlaanderen.be/id/concepts/01fc1581-6297-42b5-9f53-3c0934c8a412',
+  ATTRACTION_OR_ANIMAL_PARK : 'http://linked.toerismevlaanderen.be/id/concepts/cb0b8e92-6f10-4954-bbab-863ce609d0e4',
+  FOOD_DRINKS : 'http://linked.toerismevlaanderen.be/id/concepts/4f717240-71ac-4888-bd88-6acdf8b7614a',
+  RENTING_SERVICE : 'http://linked.toerismevlaanderen.be/id/concepts/e84cd3eb-cdcb-4e0d-89fe-0a9b5aa9ee16',
+  BUILDING : 'http://linked.toerismevlaanderen.be/id/concepts/b6ad1f2c-a98b-4a51-a276-926c229b1c81',
+  NIGHT_LIFE : 'http://linked.toerismevlaanderen.be/id/concepts/6a6488d8-7918-4dc4-b04f-9305695b3237',
+  LOOP : 'http://linked.toerismevlaanderen.be/id/concepts/0a5b71bb-fd76-4bde-9a70-a634dd6e5efd',
+  MUSEUM : 'http://linked.toerismevlaanderen.be/id/concepts/93a6a6b7-a3a7-423f-b368-b59f52e618ae',
+  PLAY : 'http://linked.toerismevlaanderen.be/id/concepts/681318e2-92d7-4ea4-87b1-0a8d2b38ee1b',
+  NATURE : 'http://linked.toerismevlaanderen.be/id/concepts/ef7b4899-9f2a-4bec-a5de-a42a9d710e25',
+  CEMETERY : 'http://linked.toerismevlaanderen.be/id/concepts/5373033e-2a63-4cae-8fc6-4418133c13b7',
+  EXCURSION_OR_DAY_TRIP : 'http://linked.toerismevlaanderen.be/id/concepts/1e6e5f39-02e1-4653-8f6f-f24a644710bc',
+  TOURIST_INFORMATION_CENTRE : 'http://linked.toerismevlaanderen.be/id/concepts/7be203f3-9af4-4116-a4a1-7e639d632b1e',
+  MONUMENT : 'http://linked.toerismevlaanderen.be/id/concepts/77c0e5fe-d56a-4120-b3d0-2d466bff4890',
+  CONGRESS_CENTRE : 'http://linked.toerismevlaanderen.be/id/concepts/008f3854-d289-4bea-855a-11e0e434a8f1',
+  LOCATION_OR_REGION : 'http://linked.toerismevlaanderen.be/id/concepts/e8920ff9-92f3-4ef6-9aa9-155de1d310de',
+  EVENT : 'http://linked.toerismevlaanderen.be/id/concepts/4d9c86b4-5415-42f5-a690-74691c8c5ab6',
+  THEMATIC_ROUTE : 'http://linked.toerismevlaanderen.be/id/concepts/06ef75ef-c023-4094-9f23-d7e7f92b1d64',
+  GUIDED_TOUR : 'http://linked.toerismevlaanderen.be/id/concepts/5fdc9c43-d20d-4b70-9e08-07cedbfdd932',
+  PUBLIC_FACILITY : 'http://linked.toerismevlaanderen.be/id/concepts/eb36c2f7-9ee9-482e-8e88-7b7e731d7e00',
+  BOAT : 'http://linked.toerismevlaanderen.be/id/concepts/0b21e67e-8928-49da-99b5-eefc16b6847e',
+  SPORT : 'http://linked.toerismevlaanderen.be/id/concepts/a43cea2b-8e82-4d27-831a-33f24cda249f',
+  SPA_OR_WELLNESS : 'http://linked.toerismevlaanderen.be/id/concepts/b0740a42-019c-474c-8079-6e6ad3e3a6c0',
+  NODE_NETWORK : 'http://linked.toerismevlaanderen.be/id/concepts/9dd33bc9-cbc7-4531-b89d-8d395e405db0'
+};
+
+
 // Unofficial codelists
 
 const nonStandardizedUnitMap = {
