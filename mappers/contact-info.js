@@ -52,7 +52,7 @@ function mapProductOwner(recordId, record) {
   const orgId = record['product_owner_contact_id'];
   const { uuid, uri } = uriGenerator.organisation(orgId);
 
-  const statements = [
+  let statements = [
     new Statement(sym(uri), RDF('type'), ORG('Organisation')),
     new Statement(sym(uri), MU('uuid'), lit(uuid)),
   ];
@@ -73,7 +73,7 @@ function mapProductOwner(recordId, record) {
     }
 
     const { contactPointUuid, contactPointUri } = uriGenerator.contactPoint(orgId, 'organisation');
-    const contactStatements = [];
+    let contactStatements = [];
     [
       { property: 'product_owner_phone1', predicate: SCHEMA('telephone') },
       { property: 'product_owner_phone2', predicate: SCHEMA('telephone') },
@@ -134,7 +134,7 @@ function mapOfferingAgent(recordId, record) {
   const orgId = record['agent_contact_id'];
   const { uuid, uri } = uriGenerator.organisation(orgId);
 
-  const statements = [
+  let statements = [
     new Statement(sym(uri), RDF('type'), ORG('Organisation')),
     new Statement(sym(uri), MU('uuid'), lit(uuid)),
   ];
@@ -155,7 +155,7 @@ function mapOfferingAgent(recordId, record) {
     }
 
     const { contactPointUuid, contactPointUri } = uriGenerator.contactPoint(orgId, 'organisation');
-    const contactStatements = [];
+    let contactStatements = [];
     [
       { property: 'agent_phone1', predicate: SCHEMA('telephone') },
       { property: 'agent_phone2', predicate: SCHEMA('telephone') },

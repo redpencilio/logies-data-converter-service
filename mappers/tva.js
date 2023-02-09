@@ -87,7 +87,7 @@ function mapTvaOrganisation(recordId, record) {
   }
 
   const { contactPointUuid, contactPointUri } = uriGenerator.contactPoint(orgId, 'organisation');
-  const contactStatements = [];
+  let contactStatements = [];
   [
     { property: 'tva_organization_phone1', predicate: SCHEMA('telephone') },
     { property: 'tva_organization_phone2', predicate: SCHEMA('telephone') },
