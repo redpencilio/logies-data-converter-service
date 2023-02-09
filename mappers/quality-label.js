@@ -1,5 +1,6 @@
 import { sym, lit, Statement } from 'rdflib';
 import uriGenerator from '../helpers/uri-helpers';
+import { litDateTime } from '../helpers';
 import { accessibilityLabels, tvlOrganizationUri, goodplanetOrganizationUri } from './codelists';
 import { LOGIES, MU, RDF, SCHEMA, SKOS } from './prefixes';
 
@@ -42,7 +43,26 @@ function mapGreenLabel(recordId, record) {
   }
 }
 
+function mapFireSafetyCertificate(recordId, record) {
+  if (record['fire_safety_certificate_expiration_date']) {
+    const { uuid, uri } = uriGenerator.permit(recordId, 'fire-safety-certificate');
+    const date = new Date(Date.parse(record['fire_safety_certificate_expiration_date']));
+    const statements = [
+      new Statement(sym(uri), RDF('type'), SCHEMA('GovernmentPermit')),
+      new Statement(sym(uri), MU('uuid'), lit(uuid)),
+      new Statement(sym(uri), SCHEMA('name'), lit('Brandveiligheidsattest', 'nl')),
+      new Statement(sym(uri), SCHEMA('name'), lit('Fire safety certificate', 'en')),
+      new Statement(sym(uri), SCHEMA('validUntil'), litDateTime(date)),
+    ];
+
+    return { uri, statements };
+  } else {
+    return null;
+  }
+}
+
 export {
   mapAccessibilityLabel,
-  mapGreenLabel
+  mapGreenLabel,
+  mapFireSafetyCertificate
 }

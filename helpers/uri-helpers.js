@@ -64,6 +64,10 @@ const config = {
     baseUri: 'http://linked.toerismevlaanderen.be/id/quality-labels/',
     uuid(id, label) { return sha256(`a1691130-2b9a-4677-9e1b-74c3c0320709-${id}-${label}`); }
   },
+  permit: {
+    baseUri: 'http://linked.toerismevlaanderen.be/id/permits/',
+    uuid(id, label) { return sha256(`4117607d-f107-4c07-b0d1-4eb58f2505fd-${id}-${label}`); }
+  },
   contactPoint: {
     baseUri: 'http://linked.toerismevlaanderen.be/id/contact-points/',
     uuid(id, channel) { return sha256(`6b0e65e0-42cd-43bb-840b-2262b0f292ba-${id}-${channel}`); }

@@ -22,7 +22,7 @@ function mapFodIdentifier(recordId, record) {
     const statements = [
       new Statement(sym(uri), RDF('type'), ADMS('Identifier')),
       new Statement(sym(uri), MU('uuid'), lit(uuid)),
-      new Statement(sym(uri), SKOS('notation'), lit(recordId)),
+      new Statement(sym(uri), SKOS('notation'), lit(record['statistical_id'])),
       new Statement(sym(uri), ADMS('schemaAgency'), lit('Federale Overheidsdienst')),
     ];
 

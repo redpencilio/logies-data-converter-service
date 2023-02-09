@@ -10,7 +10,7 @@ import { mapContactPoints, mapProductOwner, mapOfferingAgent } from './contact-i
 import { mapTvaContact, mapTvaOrganisation } from './tva';
 import { mapRatings } from './rating';
 import { mapCapacities } from './capacity';
-import { mapAccessibilityLabel, mapGreenLabel } from './quality-label';
+import { mapAccessibilityLabel, mapGreenLabel, mapFireSafetyCertificate } from './quality-label';
 import { mapAccessibilityInformation } from './accessibility';
 import { mapMediaObjects, mapMainMediaObjects } from './media-object';
 import { mapTranslation } from './tourist-attraction';
@@ -30,13 +30,11 @@ import { mapTranslation } from './tourist-attraction';
 // TODO Fields missing in mapping
 // - file_number: dossier nummer TVA
 // - fire_safety_advice
-// - fire_safety_certificate_expiration_date
 
 // - tva_capacity_description
 // - tva_principal_acknowledgement_date
 // - tva_suspension_removal_date
 
-// - statistical_id ?
 // - FOD_TYPE => provide mapping between codelist from TVL and from FOD ?
 
 export default function mapLodgings(records, translations) {
@@ -193,6 +191,12 @@ export default function mapLodgings(records, translations) {
     if (greenLabel) {
       store.add(sym(lodgingUri), LOGIES('heeftKwaliteitslabel'), sym(greenLabel.uri));
       store.addAll(greenLabel.statements);
+    }
+
+    const fireSafetyCertificate = mapFireSafetyCertificate(recordId, record);
+    if (fireSafetyCertificate) {
+      store.add(sym(fireSafetyCertificate.uri), DCT('subject'), sym(lodgingUri));
+      store.addAll(fireSafetyCertificate.statements);
     }
 
     const accessibilityInformation = mapAccessibilityInformation(recordId, record);
