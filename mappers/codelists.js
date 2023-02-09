@@ -169,7 +169,6 @@ const productCategoriesMap = {
   WARFARE_AND_WEAPONRY : 'http://linked.toerismevlaanderen.be/id/concepts/fcdbd4df-4476-46e2-bd84-9b2d169b674f',
   WELLNESS_CENTRE : 'http://linked.toerismevlaanderen.be/id/concepts/63f04d5f-15ea-44f9-a873-55f604652bb7',
   WOOD : 'http://linked.toerismevlaanderen.be/id/concepts/e1efce9b-ab94-4f33-a51c-55799dd56b42'
-  
 };
 
 const productTypesMap = {
@@ -298,7 +297,8 @@ const comfortClasses = {
   HOSTEL: null,
   TVA: null,
   REVOKED: null,
-  ACKNOWLEDGED_BY_PRINCIPLE: null
+  ACKNOWLEDGED_BY_PRINCIPLE: null,
+  SUSPENDED: null
 };
 
 const accessibilityLabels = {
@@ -309,6 +309,7 @@ const accessibilityLabels = {
 
 const honorificPrefixes = {
   MR: 'Meneer',
+  MS: 'Mejuffer',
   MRS: 'Mevrouw',
   MRS_AND_MRS: 'Dames',
   MR_AND_MR: 'Heren',
@@ -323,6 +324,9 @@ export {
   registrationCategoryMap,
   touristicRegionMap,
   informationGroupsMap,
+  productTypesMap,
+  productCategoriesMap,
+  locationTypesMap,
   nonStandardizedUnitMap,
   comfortClasses,
   accessibilityLabels,

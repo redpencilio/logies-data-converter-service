@@ -26,7 +26,7 @@ function mapContactPoints(recordId, record) {
     let value = record[channel] && record[channel].trim();
 
     if (value) {
-      const url = normalizeUrl(value);
+      const url = normalizeUrl(value, channel);
       if (isValidURL(url)) {
         const { uuid, uri } = uriGenerator.contactPoint(recordId, channel);
         const { predicate, name } = channels[channel];
@@ -52,7 +52,7 @@ function mapProductOwner(recordId, record) {
   const orgId = record['product_owner_contact_id'];
   const { uuid, uri } = uriGenerator.organisation(orgId);
 
-  const statements = [
+  let statements = [
     new Statement(sym(uri), RDF('type'), ORG('Organisation')),
     new Statement(sym(uri), MU('uuid'), lit(uuid)),
   ];
@@ -73,7 +73,7 @@ function mapProductOwner(recordId, record) {
     }
 
     const { contactPointUuid, contactPointUri } = uriGenerator.contactPoint(orgId, 'organisation');
-    const contactStatements = [];
+    let contactStatements = [];
     [
       { property: 'product_owner_phone1', predicate: SCHEMA('telephone') },
       { property: 'product_owner_phone2', predicate: SCHEMA('telephone') },
@@ -82,7 +82,7 @@ function mapProductOwner(recordId, record) {
       { property: 'product_owner_website', predicate: FOAF('page') },
     ].forEach((prop) => {
       if (record[prop.property]) {
-        const url = normalizeUrl(record[prop.property]);
+        const url = normalizeUrl(record[prop.property], prop.property);
         if (isValidURL(url)) {
           contactStatements.push(new Statement(sym(contactPointUri), prop.predicate, sym(url)));
         }
@@ -134,7 +134,7 @@ function mapOfferingAgent(recordId, record) {
   const orgId = record['agent_contact_id'];
   const { uuid, uri } = uriGenerator.organisation(orgId);
 
-  const statements = [
+  let statements = [
     new Statement(sym(uri), RDF('type'), ORG('Organisation')),
     new Statement(sym(uri), MU('uuid'), lit(uuid)),
   ];
@@ -155,7 +155,7 @@ function mapOfferingAgent(recordId, record) {
     }
 
     const { contactPointUuid, contactPointUri } = uriGenerator.contactPoint(orgId, 'organisation');
-    const contactStatements = [];
+    let contactStatements = [];
     [
       { property: 'agent_phone1', predicate: SCHEMA('telephone') },
       { property: 'agent_phone2', predicate: SCHEMA('telephone') },
@@ -164,7 +164,7 @@ function mapOfferingAgent(recordId, record) {
       { property: 'agent_website', predicate: FOAF('page') },
     ].forEach((prop) => {
       if (record[prop.property]) {
-        const url = normalizeUrl(record[prop.property]);
+        const url = normalizeUrl(record[prop.property], prop.property);
         if (isValidURL(url)) {
           contactStatements.push(new Statement(sym(contactPointUri), prop.predicate, sym(url)));
         }

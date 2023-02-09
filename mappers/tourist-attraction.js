@@ -1,7 +1,7 @@
 import { sym, lit, graph, Namespace } from 'rdflib';
 import uriGenerator from '../helpers/uri-helpers';
 import { litDateTime } from '../helpers';
-import { informationGroupsMap } from './codelists';
+import { informationGroupsMap, productTypesMap, productCategoriesMap, locationTypesMap } from './codelists';
 import { ADMS, DCT, LOCN, LOGIES, MU, RDF, SCHEMA, TVL } from './prefixes';
 import { mapAddress, mapLocation, mapTouristicRegion, mapStatisticalRegion } from './address';
 import { mapTvlIdentifier } from './identifier';
@@ -16,9 +16,6 @@ import { mapAccessibilityInformation } from './accessibility';
 
 // Need more info
 // - camper_label
-
-// TODO Fields missing in mapping
-// - product_owner_company_identification
 
 export function mapTranslation(lang, store, recordId, record, attractionUri) {
   const descriptions = mapProductDescriptions(recordId, record, lang);
@@ -73,6 +70,33 @@ export default function mapTouristAttractions(records, translations) {
         store.add(sym(attractionUri), RDF('type'), sym(type));
       } else {
         console.error(`Cannot map information group value '${record['information_group']}' for record ${recordId}`);
+      }
+    }
+
+    if (record['discriminator']) {
+      const type = productTypesMap[record['discriminator']];
+      if (type) {
+        store.add(sym(attractionUri), DCT('type'), sym(type));
+      } else {
+        console.error(`Cannot map discriminator value '${record['discriminator']}' for record ${recordId}`);
+      }
+    }
+
+    if (record['sub_type']) {
+      const type = productCategoriesMap[record['sub_type']];
+      if (type) {
+        store.add(sym(attractionUri), DCT('type'), sym(type));
+      } else {
+        console.error(`Cannot map subtype value '${record['sub_type']}' for record ${recordId}`);
+      }
+    }
+
+    if (record['location_type']) {
+      const type = locationTypesMap[record['location_type']];
+      if (type) {
+        store.add(sym(attractionUri), DCT('type'), sym(type));
+      } else {
+        console.error(`Cannot map location type value '${record['location_type']}' for record ${recordId}`);
       }
     }
 

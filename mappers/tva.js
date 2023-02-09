@@ -18,7 +18,7 @@ function mapTvaContact(recordId, record) {
     { property: 'tva_contact_website', predicate: FOAF('page') },
   ].forEach((prop) => {
     if (record[prop.property]) {
-      const url = normalizeUrl(record[prop.property]);
+      const url = normalizeUrl(record[prop.property], prop.property);
       if (isValidURL(url)) {
         statements.push(new Statement(sym(uri), prop.predicate, sym(url)));
       }
@@ -87,7 +87,7 @@ function mapTvaOrganisation(recordId, record) {
   }
 
   const { contactPointUuid, contactPointUri } = uriGenerator.contactPoint(orgId, 'organisation');
-  const contactStatements = [];
+  let contactStatements = [];
   [
     { property: 'tva_organization_phone1', predicate: SCHEMA('telephone') },
     { property: 'tva_organization_phone2', predicate: SCHEMA('telephone') },
@@ -96,7 +96,7 @@ function mapTvaOrganisation(recordId, record) {
     { property: 'tva_organization_website', predicate: FOAF('page') },
   ].forEach((prop) => {
     if (record[prop.property]) {
-      const url = normalizeUrl(record[prop.property]);
+      const url = normalizeUrl(record[prop.property], prop.property);
       if (isValidURL(url)) {
         contactStatements.push(new Statement(sym(contactPointUri), prop.predicate, sym(url)));
       }
