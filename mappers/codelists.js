@@ -221,7 +221,8 @@ const comfortClasses = {
   HOSTEL: null,
   TVA: null,
   REVOKED: null,
-  ACKNOWLEDGED_BY_PRINCIPLE: null
+  ACKNOWLEDGED_BY_PRINCIPLE: null,
+  SUSPENDED: null
 };
 
 const accessibilityLabels = {
@@ -232,6 +233,7 @@ const accessibilityLabels = {
 
 const honorificPrefixes = {
   MR: 'Meneer',
+  MS: 'Mejuffer',
   MRS: 'Mevrouw',
   MRS_AND_MRS: 'Dames',
   MR_AND_MR: 'Heren',
