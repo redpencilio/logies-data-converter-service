@@ -70,7 +70,7 @@ export default function mapLodgings(records, translations) {
     if (record['sub_type']) {
       const type = productCategoriesMap[record['sub_type']];
       if (type) {
-        store.add(sym(lodgingUri), DCT('type'), sym(type));
+        store.add(sym(lodgingUri), SCHEMA('keywords'), sym(type));
       } else {
         console.error(`Cannot map subtype value '${record['sub_type']}' for record ${recordId}`);
       }
@@ -79,7 +79,7 @@ export default function mapLodgings(records, translations) {
     if (record['location_type']) {
       const type = locationTypesMap[record['location_type']];
       if (type) {
-        store.add(sym(lodgingUri), DCT('type'), sym(type));
+        store.add(sym(lodgingUri), SCHEMA('keywords'), sym(type));
       } else if (type === undefined) {
         console.error(`Cannot map location type value '${record['location_type']}' for record ${recordId}`);
       }

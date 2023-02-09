@@ -81,7 +81,7 @@ export default function mapTouristAttractions(records, translations) {
     if (record['sub_type']) {
       const type = productCategoriesMap[record['sub_type']];
       if (type) {
-        store.add(sym(attractionUri), DCT('type'), sym(type));
+        store.add(sym(attractionUri), SCHEMA('keywords'), sym(type));
       } else {
         console.error(`Cannot map subtype value '${record['sub_type']}' for record ${recordId}`);
       }
@@ -90,7 +90,7 @@ export default function mapTouristAttractions(records, translations) {
     if (record['location_type']) {
       const type = locationTypesMap[record['location_type']];
       if (type) {
-        store.add(sym(attractionUri), DCT('type'), sym(type));
+        store.add(sym(attractionUri), SCHEMA('keywords'), sym(type));
       } else if (type === undefined) {
         console.error(`Cannot map location type value '${record['location_type']}' for record ${recordId}`);
       }
