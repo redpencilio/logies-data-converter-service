@@ -111,6 +111,18 @@ const informationGroupsMap = {
   ROUTE: 'http://w3id.org/ost/ns#Route',
 };
 
+const productTypesMap = {
+
+};
+
+const productCategoriesMap = {
+
+};
+
+const locationTypesMap = {
+
+};
+
 // Unofficial codelists
 
 const nonStandardizedUnitMap = {
@@ -234,6 +246,9 @@ export {
   registrationCategoryMap,
   touristicRegionMap,
   informationGroupsMap,
+  productTypesMap,
+  productCategoriesMap,
+  locationTypesMap,
   nonStandardizedUnitMap,
   comfortClasses,
   accessibilityLabels,

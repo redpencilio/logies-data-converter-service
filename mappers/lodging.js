@@ -2,7 +2,7 @@ import { sym, lit, graph, Namespace } from 'rdflib';
 import uriGenerator from '../helpers/uri-helpers';
 import { litDateTime } from '../helpers';
 import { ADMS, DCT, LOCN, LOGIES, MU, RDF, SCHEMA, TVL, XSD } from './prefixes';
-import { informationGroupsMap } from './codelists';
+import { informationGroupsMap, productCategoriesMap, locationTypesMap } from './codelists';
 import { mapTvlIdentifier } from './identifier';
 import { mapAlternateExploitations, mapRegistrations } from './registration';
 import { mapAddress, mapLocation, mapTouristicRegion, mapStatisticalRegion } from './address';
@@ -68,6 +68,24 @@ export default function mapLodgings(records, translations) {
         store.add(sym(lodgingUri), RDF('type'), sym(type));
       } else {
         console.error(`Cannot map information group value '${record['information_group']}' for record ${recordId}`);
+      }
+    }
+
+    if (record['sub_type']) {
+      const type = productCategoriesMap[record['sub_type']];
+      if (type) {
+        store.add(sym(lodgingUri), DCT('type'), sym(type));
+      } else {
+        console.error(`Cannot map subtype value '${record['sub_type']}' for record ${recordId}`);
+      }
+    }
+
+    if (record['location_type']) {
+      const type = locationTypesMap[record['location_type']];
+      if (type) {
+        store.add(sym(lodgingUri), DCT('type'), sym(type));
+      } else {
+        console.error(`Cannot map location type value '${record['location_type']}' for record ${recordId}`);
       }
     }
 
