@@ -29,6 +29,14 @@ const config = {
     baseUri: 'http://linked.toerismevlaanderen.be/id/identifiers/',
     uuid(id) { return `778d140d-e0c4-4dc5-a9e5-972e417d1c01-${id}`; }
   },
+  tvaIdentifier: {
+    baseUri: 'http://linked.toerismevlaanderen.be/id/identifiers/',
+    uuid(id) { return `4bd10a46-3a75-4a27-b6fb-49daa951687d-${id}`; }
+  },
+  fodIdentifier: {
+    baseUri: 'http://linked.toerismevlaanderen.be/id/identifiers/',
+    uuid(id) { return `4d96366f-5477-4b36-8258-8d40f4851bf9-${id}`; }
+  },
   organisationIdentifier: {
     baseUri: 'http://linked.toerismevlaanderen.be/id/identifiers/',
     uuid(id) { return `68ce3d98-3ed0-49e5-bfe3-578ad027167e-${id}`; }

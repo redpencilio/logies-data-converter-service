@@ -3,7 +3,7 @@ import uriGenerator from '../helpers/uri-helpers';
 import { litDateTime } from '../helpers';
 import { ADMS, DCT, LOCN, LOGIES, MU, RDF, SCHEMA, TVL, XSD } from './prefixes';
 import { informationGroupsMap, productCategoriesMap, locationTypesMap } from './codelists';
-import { mapTvlIdentifier, mapFodIdentifier } from './identifier';
+import { mapTvlIdentifier, mapFodIdentifier, mapTvaIdentifier } from './identifier';
 import { mapAlternateExploitations, mapRegistrations } from './registration';
 import { mapAddress, mapLocation, mapTouristicRegion, mapStatisticalRegion } from './address';
 import { mapContactPoints, mapProductOwner, mapOfferingAgent } from './contact-info';
@@ -88,6 +88,12 @@ export default function mapLodgings(records, translations) {
     if (fodIdentifier) {
       store.add(sym(lodgingUri), ADMS('identifier'), sym(fodIdentifier.uri));
       store.addAll(fodIdentifier.statements);
+    }
+
+    const tvaIdentifier = mapTvaIdentifier(recordId, record);
+    if (tvaIdentifier) {
+      store.add(sym(lodgingUri), ADMS('identifier'), sym(tvaIdentifier.uri));
+      store.addAll(tvaIdentifier.statements);
     }
 
     try {

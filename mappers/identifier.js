@@ -32,7 +32,25 @@ function mapFodIdentifier(recordId, record) {
   }
 }
 
+function mapTvaIdentifier(recordId, record) {
+  if (recordId['file_number']) {
+    const { uuid, uri } = uriGenerator.tvaIdentifier(recordId);
+    const statements = [
+      new Statement(sym(uri), RDF('type'), ADMS('Identifier')),
+      new Statement(sym(uri), MU('uuid'), lit(uuid)),
+      new Statement(sym(uri), SKOS('notation'), lit(recordId['file_number'])),
+      new Statement(sym(uri), ADMS('schemaAgency'), lit('Toerisme Vlaanderen')),
+      new Statement(sym(uri), DCT('creator'), sym(tvlOrganizationUri)),
+    ];
+
+    return { uri, statements };
+  } else {
+    return null;
+  }
+}
+
 export {
   mapTvlIdentifier,
-  mapFodIdentifier
+  mapFodIdentifier,
+  mapTvaIdentifier
 }
