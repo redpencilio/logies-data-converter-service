@@ -1,34 +1,9 @@
 import { sym, lit, Statement } from 'rdflib';
 import uriGenerator from '../helpers/uri-helpers';
-import { hasAnyProp, isValidURL } from '../helpers';
-import { tvlOrganizationUri, honorificPrefixes } from './codelists';
+import { isValidURL, normalizeUrl } from '../helpers';
+import { honorificPrefixes } from './codelists';
 import { ADMS, FOAF, LOCN, MU, ORG, RDF, SCHEMA, SKOS, VCARD } from './prefixes';
 import { mapAddress } from './address';
-
-function isSocialMediaUrl(url, socialMediaChannel) {
-  // Naive effort to check whether URL is a full social media URL or just an account name
-  return url.startsWith('http') && url.includes(socialMediaChannel);
-}
-
-function normalizeUrl(url, channel) {
-  if (channel.includes('phone') || channel == 'fax') {
-    return `tel:${url.replace(/\s/g, '')}`;
-  } else if (channel.includes('email')) {
-    return `mailto:${url}`;
-  } else if (channel == 'facebook' && !isSocialMediaUrl(url, 'facebook')) {
-    return `http://www.facebook.com/${url}`;
-  } else if (channel == 'flickr' && !isSocialMediaUrl(url, 'flickr')) {
-    return `http://www.flickr.com/${url}`;
-  } else if (channel == 'twitter' && !isSocialMediaUrl(url, 'twitter')) {
-    return `http://www.twitter.com/${url}`;
-  } else if (channel == 'instagram' && !isSocialMediaUrl(url, 'instagram')) {
-    return `http://www.instagram.com/${url}`;
-  } else if (url.startsWith('www')) {
-    return `http://${url}`;
-  } else {
-    return url;
-  }
-}
 
 function mapContactPoints(recordId, record) {
   const channels = {

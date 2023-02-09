@@ -47,7 +47,10 @@ const config = {
   },
   address: {
     baseUri: 'http://linked.toerismevlaanderen.be/id/addresses/',
-    uuid(id) { return `9ebd0cea-10b2-4a86-acd0-93fd479da055-${id}`; }
+    uuid(id, type) {
+      return type
+        ? sha256(`9ebd0cea-10b2-4a86-acd0-93fd479da055-${id}-${type})`)
+        : `9ebd0cea-10b2-4a86-acd0-93fd479da055-${id}`; }
   },
   quantitativeValue: {
     baseUri: 'http://linked.toerismevlaanderen.be/id/quantitative-values/',

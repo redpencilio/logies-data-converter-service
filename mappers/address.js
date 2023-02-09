@@ -6,7 +6,8 @@ import { touristicRegionMap } from './codelists';
 
 function mapAddress(recordId, record, field_prefix = '') {
   if (hasAnyProp(record, ['street', 'house_number', 'box_number', 'postal_code', 'city_name', 'main_city_name'].map((k) => `${field_prefix}${k}`))) {
-    const { addressUuid, addressUri } = uriGenerator.address(recordId);
+    const type = field_prefix == '' ? null : field_prefix;
+    const { addressUuid, addressUri } = uriGenerator.address(recordId, type);
 
     const statements = [
       new Statement(sym(addressUri), RDF('type'), LOCN('Address')),

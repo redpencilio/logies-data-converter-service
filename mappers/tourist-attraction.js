@@ -11,14 +11,14 @@ import { mapAccessibilityLabel, mapGreenLabel } from './quality-label';
 import { mapProductDescriptions, mapAccessibilityDescription } from './description';
 import { mapAccessibilityInformation } from './accessibility';
 
-// TODO Fields missing in mapping
+// Deprecated fields
 // - source_id
-// - discriminator
-// - sub_type
-// - location_type
+
+// Need more info
 // - camper_label
+
+// TODO Fields missing in mapping
 // - product_owner_company_identification
-//
 
 export function mapTranslation(lang, store, recordId, record, attractionUri) {
   const descriptions = mapProductDescriptions(recordId, record, lang);
@@ -62,6 +62,10 @@ export default function mapTouristAttractions(records, translations) {
     if (record['name']) {
       store.add(sym(attractionUri), SCHEMA('name'), lit(record['name'], 'nl'));
     }
+
+    // TODO map 'discriminator' to codelist via dct:type
+    // TODO map 'sub_type' to codelist via dct:type
+    // TODO map 'location_type' to codelist via schema:keywords
 
     if (record['information_group']) {
       const type = informationGroupsMap[record['information_group']];

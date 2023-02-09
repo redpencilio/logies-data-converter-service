@@ -7,6 +7,7 @@ import { mapTvlIdentifier } from './identifier';
 import { mapAlternateExploitations, mapRegistrations } from './registration';
 import { mapAddress, mapLocation, mapTouristicRegion, mapStatisticalRegion } from './address';
 import { mapContactPoints, mapProductOwner, mapOfferingAgent } from './contact-info';
+import { mapTvaContact, mapTvaOrganisation } from './tva';
 import { mapRatings } from './rating';
 import { mapCapacities } from './capacity';
 import { mapAccessibilityLabel, mapGreenLabel } from './quality-label';
@@ -14,29 +15,33 @@ import { mapAccessibilityInformation } from './accessibility';
 import { mapMediaObjects, mapMainMediaObjects } from './media-object';
 import { mapTranslation } from './tourist-attraction';
 
-// TODO Fields missing in mapping
+// Deprecated fields
 // - legacy_tdb_subcategory_id
 // - legacy_vlis_id
-// - fire_safety_certificate_expiration_date
-// - fire_safety_advice
-// - file_number
+// - source_id
 // - tva_capacity_old
-// - tva_capacity_description
 // - tva_acknowledgement_old
+
+// Need more info
+// - camper_label
+// - pub_categoryTGL
+// - pub_groupTGL
+
+// TODO Fields missing in mapping
+// - file_number: dossier nummer TVA
+// - fire_safety_advice
+// - fire_safety_certificate_expiration_date
+
+// - tva_capacity_description
 // - tva_principal_acknowledgement_date
 // - tva_suspension_removal_date
 
-// accommodation_accessibility
-// - source_id
-// - sub_type
-// - location_type
-// - camper_label
-// - file_number
-// - tva_principal_acknowledgement_date
-// - tva_suspension_removal_date
+// - statistical_id ?
+// - FOD_TYPE => provide mapping between codelist from TVL and from FOD ?
 
 export default function mapLodgings(records, translations) {
   const store = graph();
+
   records.filter((record) => !record.deleted).forEach((record) => {
     const recordId = `${record['business_product_id']}`;
 
@@ -52,6 +57,10 @@ export default function mapLodgings(records, translations) {
     if (record['name'] != record['name_or_number']) {
       store.add(sym(lodgingUri), SCHEMA('alternativeName'), lit(record['name_or_number'], 'nl'));
     }
+
+    // TODO map 'discriminator' to codelist via dct:type
+    // TODO map 'sub_type' to codelist via dct:type
+    // TODO map 'location_type' to codelist via schema:keywords
 
     if (record['information_group']) {
       const type = informationGroupsMap[record['information_group']];
@@ -112,17 +121,35 @@ export default function mapLodgings(records, translations) {
       store.addAll(contactPoint.statements);
     });
 
+    const tvaContactPoint = mapTvaContact(recordId, record);
+    if (tvaContactPoint) {
+      store.add(sym(lodgingUri), SCHEMA('contactPoint'), sym(tvaContactPoint.uri));
+      store.addAll(tvaContactPoint.statements);
+    }
+
+    const tvaOrganisation = mapTvaOrganisation(recordId, record);
+    if (tvaOrganisation) {
+      store.add(sym(lodgingUri), SCHEMA('contactPoint'), sym(tvaOrganisation.uri));
+      store.addAll(tvaOrganisation.statements);
+    }
+
     const productOwner = mapProductOwner(recordId, record);
     if (productOwner) {
       store.add(sym(productOwner.uri), SCHEMA('owns'), sym(lodgingUri));
       store.addAll(productOwner.statements);
     }
 
+    // TODO add product owner via product_owner_*_fod fields to private graph
+    // Post process by removing from private graph if available in public graph
+
     const offeringAgent = mapOfferingAgent(recordId, record);
     if (offeringAgent) {
       store.add(sym(lodgingUri), SCHEMA('offeredBy'), sym(offeringAgent.uri));
       store.addAll(offeringAgent.statements);
     }
+
+    // TODO add agent via agent_*_fod fields to private graph
+    // Post process by removing from private graph if available in public graph
 
     const mediaObjects = mapMediaObjects(recordId, record);
     mediaObjects.forEach((mediaObject) => {

@@ -140,9 +140,9 @@ function mapTVADecreeRegistration(recordId, record) {
     ];
   }
 
-  if (record['tva_revoke_date'] || record['tva_suspendion_date']) {
+  if (record['tva_revoke_date'] || record['tva_suspension_date']) {
     const { invalidationUri, invalidationUuid } = uriGenerator.invalidation(recordId, decree);
-    let date = record['tva_revoke_date'] || record['tva_suspendion_date']; // Revocation date has preference over suspendion date wrt invalidation date
+    let date = record['tva_revoke_date'] || record['tva_suspension_date']; // Revocation date has preference over suspendion date wrt invalidation date
     date = Array.isArray(date) ? new Date(date[0]) : new Date(date);
     statements = [
       new Statement(sym(uri), PROV('qualifiedInvalidation'), sym(invalidationUri)),
