@@ -26,7 +26,7 @@ function mapContactPoints(recordId, record) {
     let value = record[channel] && record[channel].trim();
 
     if (value) {
-      const url = normalizeUrl(value);
+      const url = normalizeUrl(value, channel);
       if (isValidURL(url)) {
         const { uuid, uri } = uriGenerator.contactPoint(recordId, channel);
         const { predicate, name } = channels[channel];
@@ -82,7 +82,7 @@ function mapProductOwner(recordId, record) {
       { property: 'product_owner_website', predicate: FOAF('page') },
     ].forEach((prop) => {
       if (record[prop.property]) {
-        const url = normalizeUrl(record[prop.property]);
+        const url = normalizeUrl(record[prop.property], prop.property);
         if (isValidURL(url)) {
           contactStatements.push(new Statement(sym(contactPointUri), prop.predicate, sym(url)));
         }
@@ -164,7 +164,7 @@ function mapOfferingAgent(recordId, record) {
       { property: 'agent_website', predicate: FOAF('page') },
     ].forEach((prop) => {
       if (record[prop.property]) {
-        const url = normalizeUrl(record[prop.property]);
+        const url = normalizeUrl(record[prop.property], prop.property);
         if (isValidURL(url)) {
           contactStatements.push(new Statement(sym(contactPointUri), prop.predicate, sym(url)));
         }

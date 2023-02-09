@@ -28,9 +28,9 @@ function isSocialMediaUrl(url, socialMediaChannel) {
 }
 
 function normalizeUrl(url, channel) {
-  if (channel.includes('phone') || channel == 'fax') {
+  if (channel?.includes('phone') || channel == 'fax') {
     return `tel:${url.replace(/\s/g, '')}`;
-  } else if (channel.includes('email')) {
+  } else if (channel?.includes('email')) {
     return `mailto:${url}`;
   } else if (channel == 'facebook' && !isSocialMediaUrl(url, 'facebook')) {
     return `http://www.facebook.com/${url}`;
