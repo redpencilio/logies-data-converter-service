@@ -21,11 +21,11 @@ import { mapTranslation } from './tourist-attraction';
 // - source_id
 // - tva_capacity_old
 // - tva_acknowledgement_old
+// - pub_categoryTGL
+// - pub_groupTGL
 
 // Need more info
 // - camper_label
-// - pub_categoryTGL
-// - pub_groupTGL
 
 // TODO Fields missing in mapping
 // - file_number: dossier nummer TVA
@@ -57,10 +57,6 @@ export default function mapLodgings(records, translations) {
     if (record['name'] != record['name_or_number']) {
       store.add(sym(lodgingUri), SCHEMA('alternativeName'), lit(record['name_or_number'], 'nl'));
     }
-
-    // TODO map 'discriminator' to codelist via dct:type
-    // TODO map 'sub_type' to codelist via dct:type
-    // TODO map 'location_type' to codelist via schema:keywords
 
     if (record['information_group']) {
       const type = informationGroupsMap[record['information_group']];

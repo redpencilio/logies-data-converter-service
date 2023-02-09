@@ -60,10 +60,6 @@ export default function mapTouristAttractions(records, translations) {
       store.add(sym(attractionUri), SCHEMA('name'), lit(record['name'], 'nl'));
     }
 
-    // TODO map 'discriminator' to codelist via dct:type
-    // TODO map 'sub_type' to codelist via dct:type
-    // TODO map 'location_type' to codelist via schema:keywords
-
     if (record['information_group']) {
       const type = informationGroupsMap[record['information_group']];
       if (type) {
