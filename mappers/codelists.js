@@ -115,7 +115,8 @@ const locationTypesMap = {
   RURAL : 'http://linked.toerismevlaanderen.be/id/concepts/98f4dcef-a4de-4573-a306-b5f1e9f65530',
   ACTIVE_FARM : 'http://linked.toerismevlaanderen.be/id/concepts/ff15b994-03a9-45cd-b066-dc2f42cdd5ac',
   URBAN : 'http://linked.toerismevlaanderen.be/id/concepts/03e58bde-7d4c-4874-8d45-60e847780e88',
-  INDOOR : 'http://linked.toerismevlaanderen.be/id/concepts/f440b724-0c51-4fe7-9a5d-36f5083bbe22'
+  INDOOR : 'http://linked.toerismevlaanderen.be/id/concepts/f440b724-0c51-4fe7-9a5d-36f5083bbe22',
+  UNKNOWN: null
 };
 
 const productCategoriesMap = {

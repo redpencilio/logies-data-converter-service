@@ -80,7 +80,7 @@ export default function mapLodgings(records, translations) {
       const type = locationTypesMap[record['location_type']];
       if (type) {
         store.add(sym(lodgingUri), DCT('type'), sym(type));
-      } else {
+      } else if (type === undefined) {
         console.error(`Cannot map location type value '${record['location_type']}' for record ${recordId}`);
       }
     }

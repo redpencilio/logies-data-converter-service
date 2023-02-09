@@ -91,7 +91,7 @@ export default function mapTouristAttractions(records, translations) {
       const type = locationTypesMap[record['location_type']];
       if (type) {
         store.add(sym(attractionUri), DCT('type'), sym(type));
-      } else {
+      } else if (type === undefined) {
         console.error(`Cannot map location type value '${record['location_type']}' for record ${recordId}`);
       }
     }
