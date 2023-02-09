@@ -27,7 +27,7 @@ app.use(errorHandler);
 
 const convert = async function() {
   try {
-    await loadSources(tasks);
+    // await loadSources(tasks);
 
     console.log('Start mapping');
     const results = await Promise.all(
