@@ -172,7 +172,19 @@ const productCategoriesMap = {
   VISITOR_CENTRE : 'http://linked.toerismevlaanderen.be/id/concepts/468f040a-58fe-4ce2-8ff4-23b18a470cfb',
   WARFARE_AND_WEAPONRY : 'http://linked.toerismevlaanderen.be/id/concepts/fcdbd4df-4476-46e2-bd84-9b2d169b674f',
   WELLNESS_CENTRE : 'http://linked.toerismevlaanderen.be/id/concepts/63f04d5f-15ea-44f9-a873-55f604652bb7',
-  WOOD : 'http://linked.toerismevlaanderen.be/id/concepts/e1efce9b-ab94-4f33-a51c-55799dd56b42'
+  WOOD : 'http://linked.toerismevlaanderen.be/id/concepts/e1efce9b-ab94-4f33-a51c-55799dd56b42',
+  CHILD_FARM : 'http://linked.toerismevlaanderen.be/id/concepts/6bb68182-84f7-4717-81c5-7bacdcdccd0f',
+  FOSSILS_AND_MINERALS_AND_STONES : 'http://linked.toerismevlaanderen.be/id/concepts/5d0b9295-3865-4469-8873-69598d8132ea',
+  LIBRARY : 'http://linked.toerismevlaanderen.be/id/concepts/95d3b12b-9295-4c56-86eb-b7c517006b69',
+  LITERATURE : 'http://linked.toerismevlaanderen.be/id/concepts/f46ac35d-b986-496c-90ad-d38742ca248c',
+  MEDICINE : 'http://linked.toerismevlaanderen.be/id/concepts/8092a515-e268-4bc3-b33b-95aef84f70dc',
+  OTHER_SERVICES : 'http://linked.toerismevlaanderen.be/id/concepts/feec41f9-a1d4-4975-b949-bfc3dd879991',
+  PHOTOGRAPHY_AND_FILM : 'http://linked.toerismevlaanderen.be/id/concepts/2088a6b0-225e-410e-8049-e3e72fcdb6e3',
+  POTTERY_AND_CERAMICS_AND_PORCELAIN : 'http://linked.toerismevlaanderen.be/id/concepts/43e2faaa-d6d7-4f54-837f-18dbeada331d',
+  SCIENCE : 'http://linked.toerismevlaanderen.be/id/concepts/185304ba-f42f-4f61-bf76-1b4d1b4a374e',
+  SHIPPING : 'http://linked.toerismevlaanderen.be/id/concepts/4d1e866b-4b27-4623-86b0-6af27600578e',
+  TEXTILES_AND_LACE : 'http://linked.toerismevlaanderen.be/id/concepts/38d700a0-2d2b-4177-9ce9-b741ddb510b2',
+  THEMATIC : 'http://linked.toerismevlaanderen.be/id/concepts/fd1c3cdd-69e4-46b0-9cb1-a83d2b9303d4'	
 };
 
 const productTypesMap = {
