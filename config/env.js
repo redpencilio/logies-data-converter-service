@@ -1,4 +1,5 @@
-const MAPPED_DATA_GRAPH = 'http://mu.semte.ch/graphs/mapped';
+const MAPPED_PUBLIC_GRAPH = 'http://mu.semte.ch/graphs/mapped/public';
+const MAPPED_PRIVATE_GRAPH = 'http://mu.semte.ch/graphs/mapped/private';
 const PUBLIC_GRAPH = 'http://mu.semte.ch/graphs/public';
 const HOST_DOMAIN = 'https://linked.toerismevlaanderen.be';
 
@@ -6,7 +7,8 @@ const DCAT_CATALOG = 'http://linked.toerismevlaanderen.be/id/catalogs/c62b30ce-7
 const DCAT_DATASET_TYPE = 'http://linked.toerismevlaanderen.be/id/dataset-types/ca82a1e3-8a7c-438e-ba37-cf36063ba060';
 
 const INPUT_DIRECTORY = process.env.INPUT_DIRECTORY || '/input';
-const OUTPUT_DIRECTORY = process.env.OUTPUT_DIRECTORY || '/share';
+const OUTPUT_DIRECTORY = process.env.OUTPUT_DIRECTORY || '/output';
+const PUBLICATION_DIRECTORY = process.env.PUBLICATION_DIRECTORY || '/share';
 
 // SPARQL
 const DIRECT_SPARQL_ENDPOINT = process.env.DIRECT_SPARQL_ENDPOINT || 'http://triplestore:8890/sparql';
@@ -30,13 +32,15 @@ function isTruthy(value) {
 }
 
 export {
-  MAPPED_DATA_GRAPH,
+  MAPPED_PUBLIC_GRAPH,
+  MAPPED_PRIVATE_GRAPH,
   PUBLIC_GRAPH,
   HOST_DOMAIN,
   DCAT_CATALOG,
   DCAT_DATASET_TYPE,
   INPUT_DIRECTORY,
   OUTPUT_DIRECTORY,
+  PUBLICATION_DIRECTORY,
   DIRECT_SPARQL_ENDPOINT,
   BATCH_SIZE,
   NB_OF_QUERY_RETRIES,

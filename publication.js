@@ -2,38 +2,61 @@ import { uuid, sparqlEscapeUri, sparqlEscapeDateTime } from 'mu';
 import { querySudo as query, updateSudo as update } from '@lblod/mu-auth-sudo';
 import concat from 'concat';
 import fs from 'fs-extra';
-import { DCAT_CATALOG, DCAT_DATASET_TYPE, PUBLIC_GRAPH, MAPPED_DATA_GRAPH, HOST_DOMAIN, OUTPUT_DIRECTORY } from './config/env';
+import { DCAT_CATALOG, DCAT_DATASET_TYPE, PUBLIC_GRAPH, MAPPED_PUBLIC_GRAPH, MAPPED_PRIVATE_GRAPH, HOST_DOMAIN, OUTPUT_DIRECTORY, PUBLICATION_DIRECTORY } from './config/env';
 import uriGenerator from './helpers/uri-helpers';
 import { insertTriplesFromTtl } from './helpers/ttl-helpers';
-import { copyGraph, removeDiff } from './helpers/graph-helpers';
+import { copyGraph, removeDiff, removeDuplicates } from './helpers/graph-helpers';
 import { updateTriplestore } from './helpers/triplestore';
 
 async function publish(tasks) {
-  // Concatenating output of all tasks in 1 file
-  const taskOutputs = tasks.map((task) => task.outputFile);
-  const outputFileId = uuid();
-  const outputFile = `${OUTPUT_DIRECTORY}/${outputFileId}.ttl`;
-  await concat(taskOutputs, outputFile);
+  const publicationFileId = uuid();
+  const tmpGraphId = uuid();
+  const graphs = {
+    public: {
+      target: MAPPED_PUBLIC_GRAPH
+    },
+    private: {
+      target: MAPPED_PUBLIC_GRAPH
+    }
+  };
 
-  // Insert mapped data in tmp graph
-  const tmpGraph = `http://mu.semte.ch/graphs/tmp/${uuid()}`;
-  await insertTriplesFromTtl(outputFile, tmpGraph);
+  for (const scope of Object.keys(graphs)) {
+    graphs[scope].file = `${OUTPUT_DIRECTORY}/${publicationFileId}-${scope}.ttl`;
 
-  // Cleanup already published data
-  // Remove all triples from target graph that aren't part of the mapping output anymore
-  await removeDiff(tmpGraph, MAPPED_DATA_GRAPH);
+    // Concatenating output of all tasks in 1 file
+    const taskOutputs = tasks.map((task) => task[`${scope}OutputFile`]);
+    await concat(taskOutputs, graphs[scope].file);
 
-  // Publish new data
-  await copyGraph(tmpGraph, MAPPED_DATA_GRAPH);
+    // Insert mapped data in tmp graph
+    graphs[scope]['source'] = `http://mu.semte.ch/graphs/tmp/${tmpGraphId}-${scope}`;
+    await insertTriplesFromTtl(graphs[scope].file, graphs[scope].source);
 
-  // Publish dataset
-  await publishDataset(outputFileId);
+    // Remove tmp task output files
+    Promise.all(taskOutputs.map(file => fs.remove(file)));
+  }
 
-  // Remove tmp graph
-  await updateTriplestore(`DROP SILENT GRAPH <${tmpGraph}>`);
+  // Remove all triples from private that are also public
+  await removeDuplicates(graphs.public.source, graphs.private.source);
 
-  // Remove tmp task output files
-  Promise.all(taskOutputs.map(file => fs.remove(file)));
+  for (const scope of Object.keys(graphs)) {
+    // Cleanup already published data
+    // Remove all triples from target graph that aren't part of the mapping output anymore
+    await removeDiff(graphs[scope].source, graphs[scope].target);
+
+    // Publish new data
+    await copyGraph(graphs[scope].source, graphs[scope].target);
+
+    // Remove tmp graph
+    await updateTriplestore(`DROP SILENT GRAPH <${graphs[scope].source}>`);
+  }
+
+  // Publish public data as dataset
+  const publicationFile = `${OUTPUT_DIRECTORY}/${publicationFileId}.ttl`;
+  await fs.move(graphs.public.file, publicationFile);
+  await publishDataset(publicationFileId);
+
+  // Remove concatenated private file
+  await fs.remove(graphs.private.file);
 }
 
 async function publishDataset(physicalFileUuid) {

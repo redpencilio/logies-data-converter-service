@@ -48,8 +48,12 @@ class Task {
     return `${INPUT_DIRECTORY}/${this.title}.json`;
   }
 
-  get outputFile() {
-    return `${OUTPUT_DIRECTORY}/${this.title}.ttl`;
+  get publicOutputFile() {
+    return `${OUTPUT_DIRECTORY}/${this.title}-public.ttl`;
+  }
+
+  get privateOutputFile() {
+    return `${OUTPUT_DIRECTORY}/${this.title}-private.ttl`;
   }
 
   async load(queryEngine) {
@@ -73,8 +77,10 @@ class Task {
         return { lang: translation.lang, records: translationRecords };
       })
     );
-    const ttl = this.mapper(records, translations);
-    await fs.outputFile(this.outputFile, ttl);
+    const [publicGraph, privateGraph] = this.mapper(records, translations);
+
+    await fs.outputFile(this.publicOutputFile, publicGraph.toNT());
+    await fs.outputFile(this.privateOutputFile, privateGraph.toNT());
 
     return {
       title: this.title,

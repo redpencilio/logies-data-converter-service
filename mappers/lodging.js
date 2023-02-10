@@ -28,28 +28,29 @@ import { mapTranslation } from './translation';
 // - partnerlabel_fod
 
 export default function mapLodgings(records, translations) {
-  const store = graph();
+  const publicG = graph();
+  const privateG = graph();
 
   records.filter((record) => !record.deleted).forEach((record) => {
     const recordId = `${record['business_product_id']}`;
 
     const { uuid: lodgingUuid, uri: lodgingUri } = uriGenerator.touristAttraction(recordId);
 
-    store.add(sym(lodgingUri), RDF('type'), SCHEMA('TouristAttraction'));
-    store.add(sym(lodgingUri), RDF('type'), LOGIES('Logies'));
-    store.add(sym(lodgingUri), MU('uuid'), lit(lodgingUuid));
+    publicG.add(sym(lodgingUri), RDF('type'), SCHEMA('TouristAttraction'));
+    publicG.add(sym(lodgingUri), RDF('type'), LOGIES('Logies'));
+    publicG.add(sym(lodgingUri), MU('uuid'), lit(lodgingUuid));
 
     if (record['name']) {
-      store.add(sym(lodgingUri), SCHEMA('name'), lit(record['name'], 'nl'));
+      publicG.add(sym(lodgingUri), SCHEMA('name'), lit(record['name'], 'nl'));
     }
     if (record['name'] != record['name_or_number']) {
-      store.add(sym(lodgingUri), SCHEMA('alternativeName'), lit(record['name_or_number'], 'nl'));
+      publicG.add(sym(lodgingUri), SCHEMA('alternativeName'), lit(record['name_or_number'], 'nl'));
     }
 
     if (record['information_group']) {
       const type = informationGroupsMap[record['information_group']];
       if (type) {
-        store.add(sym(lodgingUri), RDF('type'), sym(type));
+        publicG.add(sym(lodgingUri), RDF('type'), sym(type));
       } else {
         console.error(`Cannot map information group value '${record['information_group']}' for record ${recordId}`);
       }
@@ -58,7 +59,7 @@ export default function mapLodgings(records, translations) {
     if (record['sub_type']) {
       const type = productCategoriesMap[record['sub_type']];
       if (type) {
-        store.add(sym(lodgingUri), SCHEMA('keywords'), sym(type));
+        publicG.add(sym(lodgingUri), SCHEMA('keywords'), sym(type));
       } else {
         console.error(`Cannot map subtype value '${record['sub_type']}' for record ${recordId}`);
       }
@@ -67,187 +68,187 @@ export default function mapLodgings(records, translations) {
     if (record['location_type']) {
       const type = locationTypesMap[record['location_type']];
       if (type) {
-        store.add(sym(lodgingUri), SCHEMA('keywords'), sym(type));
+        publicG.add(sym(lodgingUri), SCHEMA('keywords'), sym(type));
       } else if (type === undefined) {
         console.error(`Cannot map location type value '${record['location_type']}' for record ${recordId}`);
       }
     }
 
     const tvlIdentifier = mapTvlIdentifier(recordId, record);
-    store.add(sym(lodgingUri), ADMS('identifier'), sym(tvlIdentifier.uri));
-    store.addAll(tvlIdentifier.statements);
+    publicG.add(sym(lodgingUri), ADMS('identifier'), sym(tvlIdentifier.uri));
+    publicG.addAll(tvlIdentifier.statements);
 
     const fodIdentifier = mapFodIdentifier(recordId, record);
     if (fodIdentifier) {
-      store.add(sym(lodgingUri), ADMS('identifier'), sym(fodIdentifier.uri));
-      store.addAll(fodIdentifier.statements);
+      publicG.add(sym(lodgingUri), ADMS('identifier'), sym(fodIdentifier.uri));
+      publicG.addAll(fodIdentifier.statements);
     }
 
     const tvaIdentifier = mapTvaIdentifier(recordId, record);
     if (tvaIdentifier) {
-      store.add(sym(lodgingUri), ADMS('identifier'), sym(tvaIdentifier.uri));
-      store.addAll(tvaIdentifier.statements);
+      publicG.add(sym(lodgingUri), ADMS('identifier'), sym(tvaIdentifier.uri));
+      publicG.addAll(tvaIdentifier.statements);
     }
 
     try {
       const modified = new Date(record['changed_time']);
-      store.add(sym(lodgingUri), DCT('modified'), litDateTime(modified));
+      publicG.add(sym(lodgingUri), DCT('modified'), litDateTime(modified));
     } catch (_) {
       // Invalid or no changed_time
     }
 
     const registrations = mapRegistrations(recordId, record);
     registrations.forEach((registration) => {
-      store.add(sym(lodgingUri), LOGIES('heeftRegistratie'), sym(registration.uri));
-      store.addAll(registration.statements);
+      publicG.add(sym(lodgingUri), LOGIES('heeftRegistratie'), sym(registration.uri));
+      publicG.addAll(registration.statements);
     });
 
     const parentProducts = mapAlternateExploitations(recordId, record);
     parentProducts.forEach((parent) => {
-      store.add(sym(parent.uri), LOGIES('heeftAlternatieveUitbating'), sym(lodgingUri));
+      publicG.add(sym(parent.uri), LOGIES('heeftAlternatieveUitbating'), sym(lodgingUri));
     });
 
     const address = mapAddress(recordId, record);
     if (address) {
-      store.add(sym(lodgingUri), LOGIES('onthaalAdres'), sym(address.uri));
-      store.addAll(address.statements);
+      publicG.add(sym(lodgingUri), LOGIES('onthaalAdres'), sym(address.uri));
+      publicG.addAll(address.statements);
     }
 
     const location = mapLocation(recordId, record);
     if (location) {
-      store.add(sym(lodgingUri), LOGIES('onthaalLocatie'), sym(location.uri));
-      store.addAll(location.statements);
+      publicG.add(sym(lodgingUri), LOGIES('onthaalLocatie'), sym(location.uri));
+      publicG.addAll(location.statements);
     }
 
     const touristicRegion = mapTouristicRegion(recordId, record);
     if (touristicRegion) {
-      store.add(sym(lodgingUri), LOGIES('behoortTotToeristischeRegio'), sym(touristicRegion.uri));
+      publicG.add(sym(lodgingUri), LOGIES('behoortTotToeristischeRegio'), sym(touristicRegion.uri));
     }
 
     const statsRegion = mapStatisticalRegion(recordId, record);
     if (statsRegion) {
-      store.add(sym(lodgingUri), TVL('belongsToStatisticalRegion'), sym(statsRegion.uri));
+      publicG.add(sym(lodgingUri), TVL('belongsToStatisticalRegion'), sym(statsRegion.uri));
     }
 
     const contactPoints = mapContactPoints(recordId, record);
     contactPoints.forEach((contactPoint) => {
-      store.add(sym(lodgingUri), SCHEMA('contactPoint'), sym(contactPoint.uri));
-      store.addAll(contactPoint.statements);
+      publicG.add(sym(lodgingUri), SCHEMA('contactPoint'), sym(contactPoint.uri));
+      publicG.addAll(contactPoint.statements);
     });
 
     const tvaContactPoint = mapTvaContact(recordId, record);
     if (tvaContactPoint) {
-      store.add(sym(lodgingUri), SCHEMA('contactPoint'), sym(tvaContactPoint.uri));
-      store.addAll(tvaContactPoint.statements);
+      publicG.add(sym(lodgingUri), SCHEMA('contactPoint'), sym(tvaContactPoint.uri));
+      publicG.addAll(tvaContactPoint.statements);
     }
 
     const tvaOrganisation = mapTvaOrganisation(recordId, record);
     if (tvaOrganisation) {
-      store.add(sym(lodgingUri), SCHEMA('contactPoint'), sym(tvaOrganisation.uri));
-      store.addAll(tvaOrganisation.statements);
+      publicG.add(sym(lodgingUri), SCHEMA('contactPoint'), sym(tvaOrganisation.uri));
+      publicG.addAll(tvaOrganisation.statements);
     }
 
     const productOwner = mapProductOwner(recordId, record);
     if (productOwner) {
-      store.add(sym(productOwner.uri), SCHEMA('owns'), sym(lodgingUri));
-      store.addAll(productOwner.statements);
+      publicG.add(sym(productOwner.uri), SCHEMA('owns'), sym(lodgingUri));
+      publicG.addAll(productOwner.statements);
     }
 
     // TODO add product owner via product_owner_*_fod fields to private graph
-    // Post process by removing from private graph if available in public graph
+    // Post process by removing from private graph if available in publicG graph
 
     const offeringAgent = mapOfferingAgent(recordId, record);
     if (offeringAgent) {
-      store.add(sym(lodgingUri), SCHEMA('offeredBy'), sym(offeringAgent.uri));
-      store.addAll(offeringAgent.statements);
+      publicG.add(sym(lodgingUri), SCHEMA('offeredBy'), sym(offeringAgent.uri));
+      publicG.addAll(offeringAgent.statements);
     }
 
     // TODO add agent via agent_*_fod fields to private graph
-    // Post process by removing from private graph if available in public graph
+    // Post process by removing from private graph if available in publicG graph
 
     const mediaObjects = mapMediaObjects(recordId, record);
     mediaObjects.forEach((mediaObject) => {
-      store.add(sym(lodgingUri), LOGIES('heeftMedia'), sym(mediaObject.uri));
-      store.addAll(mediaObject.statements);
+      publicG.add(sym(lodgingUri), LOGIES('heeftMedia'), sym(mediaObject.uri));
+      publicG.addAll(mediaObject.statements);
     });
 
     const mainMediaObjects = mapMainMediaObjects(recordId, record);
     mainMediaObjects.forEach((mediaObject) => {
-      store.add(sym(lodgingUri), SCHEMA('image'), sym(mediaObject.uri));
-      store.addAll(mediaObject.statements);
+      publicG.add(sym(lodgingUri), SCHEMA('image'), sym(mediaObject.uri));
+      publicG.addAll(mediaObject.statements);
     });
 
     const accessibilityLabel = mapAccessibilityLabel(recordId, record);
     if (accessibilityLabel) {
-      store.add(sym(lodgingUri), LOGIES('heeftKwaliteitslabel'), sym(accessibilityLabel.uri));
-      store.addAll(accessibilityLabel.statements);
+      publicG.add(sym(lodgingUri), LOGIES('heeftKwaliteitslabel'), sym(accessibilityLabel.uri));
+      publicG.addAll(accessibilityLabel.statements);
     }
 
     const greenLabel = mapGreenLabel(recordId, record);
     if (greenLabel) {
-      store.add(sym(lodgingUri), LOGIES('heeftKwaliteitslabel'), sym(greenLabel.uri));
-      store.addAll(greenLabel.statements);
+      publicG.add(sym(lodgingUri), LOGIES('heeftKwaliteitslabel'), sym(greenLabel.uri));
+      publicG.addAll(greenLabel.statements);
     }
 
     const camperLabel = mapCamperLabel(recordId, record);
     if (camperLabel) {
-      store.add(sym(lodgingUri), LOGIES('heeftKwaliteitslabel'), sym(camperLabel.uri));
-      store.addAll(camperLabel.statements);
+      publicG.add(sym(lodgingUri), LOGIES('heeftKwaliteitslabel'), sym(camperLabel.uri));
+      publicG.addAll(camperLabel.statements);
     }
 
     const fireSafetyCertificate = mapFireSafetyCertificate(recordId, record);
     if (fireSafetyCertificate) {
-      store.add(sym(fireSafetyCertificate.uri), DCT('subject'), sym(lodgingUri));
-      store.addAll(fireSafetyCertificate.statements);
+      publicG.add(sym(fireSafetyCertificate.uri), DCT('subject'), sym(lodgingUri));
+      publicG.addAll(fireSafetyCertificate.statements);
     }
 
     if (record['fire_safety_advice']) {
-      store.add(sym(lodgingUri), TVL('receivedFireSafetyAdvice'), lit('true', null, XSD('boolean')));
+      publicG.add(sym(lodgingUri), TVL('receivedFireSafetyAdvice'), lit('true', null, XSD('boolean')));
     }
 
     const accessibilityInformation = mapAccessibilityInformation(recordId, record);
     if (accessibilityInformation) {
-      store.add(sym(accessibilityInformation.uri), DCT('subject'), sym(lodgingUri));
-      store.addAll(accessibilityInformation.statements);
+      publicG.add(sym(accessibilityInformation.uri), DCT('subject'), sym(lodgingUri));
+      publicG.addAll(accessibilityInformation.statements);
     }
 
     const ratings = mapRatings(recordId, record);
     ratings.forEach((rating) => {
-      store.add(sym(lodgingUri), SCHEMA('starRating'), sym(rating.uri));
-      store.addAll(rating.statements);
+      publicG.add(sym(lodgingUri), SCHEMA('starRating'), sym(rating.uri));
+      publicG.addAll(rating.statements);
     });
 
     if (record['number_of_units']) {
-      store.add(sym(lodgingUri), LOGIES('aantalVerhuureenheden'), lit(record['number_of_units'], undefined, XSD('integer')));
+      publicG.add(sym(lodgingUri), LOGIES('aantalVerhuureenheden'), lit(record['number_of_units'], undefined, XSD('integer')));
     }
 
     ['maximum_capacity', 'tva_capacity']
       .map((field) => record[field])
       .filter((value) => value)
       .forEach((value) => {
-      store.add(sym(lodgingUri), LOGIES('aantalSlaapplaatsen'), lit(value, undefined, XSD('integer')));
+      publicG.add(sym(lodgingUri), LOGIES('aantalSlaapplaatsen'), lit(value, undefined, XSD('integer')));
       });
 
     const capacities = mapCapacities(recordId, record);
     capacities.forEach((capacity) => {
-      store.add(sym(lodgingUri), LOGIES('capaciteit'), sym(capacity.uri));
-      store.addAll(capacity.statements);
+      publicG.add(sym(lodgingUri), LOGIES('capaciteit'), sym(capacity.uri));
+      publicG.addAll(capacity.statements);
     });
 
     const propertyValues = mapPropertyValues(recordId, record);
     propertyValues.forEach((propertyValue) => {
-      store.add(sym(lodgingUri), SCHEMA('additionalProperty'), sym(propertyValue.uri));
-      store.addAll(propertyValue.statements);
+      publicG.add(sym(lodgingUri), SCHEMA('additionalProperty'), sym(propertyValue.uri));
+      publicG.addAll(propertyValue.statements);
     });
 
 
     for (const translation of translations) {
       const translationRecord = translation.records.find((record) => record['business_product_id'] == recordId);
       if (translationRecord) {
-        mapTranslation(translation.lang, store, recordId, translationRecord, lodgingUri);
+        mapTranslation(translation.lang, publicG, recordId, translationRecord, lodgingUri);
       }
     }
   });
 
-  return store.toNT();
+  return [publicG, privateG];
 }
