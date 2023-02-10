@@ -26,9 +26,6 @@ import { mapTranslation } from './tourist-attraction';
 
 // TODO Fields missing in mapping
 // - partnerlabel_fod
-// - fire_safety_advice
-
-// - FOD_TYPE => provide mapping between codelist from TVL and from FOD ?
 
 export default function mapLodgings(records, translations) {
   const store = graph();
@@ -202,6 +199,10 @@ export default function mapLodgings(records, translations) {
     if (fireSafetyCertificate) {
       store.add(sym(fireSafetyCertificate.uri), DCT('subject'), sym(lodgingUri));
       store.addAll(fireSafetyCertificate.statements);
+    }
+
+    if (record['fire_safety_advice']) {
+      store.add(sym(lodgingUri), TVL('receivedFireSafetyAdvice'), lit('true', null, XSD('boolean')));
     }
 
     const accessibilityInformation = mapAccessibilityInformation(recordId, record);
