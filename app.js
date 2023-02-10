@@ -29,14 +29,13 @@ const convert = async function() {
   try {
     // await loadSources(tasks);
 
+    const results = [];
     console.log('Start mapping');
-    const results = await Promise.all(
-      tasks.map(async function(task) {
-        const result = await task.execute();
-        console.log(`Finished mapping ${result.title}`);
-        return result;
-      })
-    );
+    for (const task of tasks) {
+      const result = await task.execute();
+      console.log(`Finished mapping ${result.title} (${result.count} records)`);
+      results.push(result);
+    }
 
     console.log('\nMapping summary:');
     results.forEach((result) => {
