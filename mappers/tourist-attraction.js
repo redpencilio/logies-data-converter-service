@@ -1,4 +1,4 @@
-import { sym, lit, graph, Namespace } from 'rdflib';
+import { sym, lit, graph } from 'rdflib';
 import uriGenerator from '../helpers/uri-helpers';
 import { litDateTime } from '../helpers';
 import { informationGroupsMap, productTypesMap, productCategoriesMap, locationTypesMap } from './codelists';
@@ -8,37 +8,8 @@ import { mapTvlIdentifier } from './identifier';
 import { mapContactPoints } from './contact-info';
 import { mapMediaObjects, mapMainMediaObjects } from './media-object';
 import { mapAccessibilityLabel, mapGreenLabel, mapCamperLabel } from './quality-label';
-import { mapProductDescriptions, mapAccessibilityDescription } from './description';
 import { mapAccessibilityInformation } from './accessibility';
-
-export function mapTranslation(lang, store, recordId, record, attractionUri) {
-  const descriptions = mapProductDescriptions(recordId, record, lang);
-  descriptions.forEach((description) => {
-    store.add(sym(attractionUri), LOGIES('heeftBeschrijving'), sym(description.uri));
-    store.addAll(description.statements);
-  });
-
-  const description = mapAccessibilityDescription(recordId, record, lang);
-  if (description) {
-    store.add(sym(attractionUri), SCHEMA('accessibilitySummary'), sym(description.uri));
-    store.addAll(description.statements);
-  }
-
-  const accessibilityInformation = mapAccessibilityInformation(recordId, record, lang);
-  if (accessibilityInformation) {
-    store.add(sym(accessibilityInformation.uri), DCT('subject'), sym(attractionUri));
-    store.addAll(accessibilityInformation.statements);
-  }
-
-  const closingHours = [
-    record['closing_period'],
-    record['next_year_closing_period']
-  ].filter((t) => t && t.trim());
-  if (closingHours.length) {
-    const value = closingHours.join('\n');
-    store.add(sym(attractionUri), SCHEMA('openingHours'), lit(value, lang));
-  }
-}
+import { mapTranslation } from './translation';
 
 export default function mapTouristAttractions(records, translations) {
   const store = graph();

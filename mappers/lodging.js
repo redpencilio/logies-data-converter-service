@@ -13,7 +13,7 @@ import { mapCapacities, mapPropertyValues } from './capacity';
 import { mapAccessibilityLabel, mapGreenLabel, mapCamperLabel, mapFireSafetyCertificate } from './quality-label';
 import { mapAccessibilityInformation } from './accessibility';
 import { mapMediaObjects, mapMainMediaObjects } from './media-object';
-import { mapTranslation } from './tourist-attraction';
+import { mapTranslation } from './translation';
 
 // Deprecated fields
 // - legacy_tdb_subcategory_id
