@@ -16,7 +16,7 @@ const BATCH_SIZE = parseInt(process.env.BATCH_SIZE || '1000');
 const NB_OF_QUERY_RETRIES = 6;
 const RETRY_TIMEOUT_MS = parseInt(process.env.RETRY_TIMEOUT_MS || '1000');
 const LOG_DIRECT_QUERIES = isTruthy(process.env.LOG_DIRECT_QUERIES);
-
+const RECORDS_CHUNK_SIZE = 1000;
 
 // SQL
 const SQL_USER = process.env.SQL_USER;
@@ -46,6 +46,7 @@ export {
   NB_OF_QUERY_RETRIES,
   RETRY_TIMEOUT_MS,
   LOG_DIRECT_QUERIES,
+  RECORDS_CHUNK_SIZE,
   SQL_USER,
   SQL_PASSWORD,
   SQL_SERVER,

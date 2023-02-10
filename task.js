@@ -1,6 +1,7 @@
 import fs from 'fs-extra';
+import chunk from 'lodash.chunk';
 import tasks from './config/tasks';
-import { INPUT_DIRECTORY, OUTPUT_DIRECTORY } from './config/env';
+import { INPUT_DIRECTORY, OUTPUT_DIRECTORY, RECORDS_CHUNK_SIZE } from './config/env';
 
 class Translation {
   constructor(lang, title, query) {
@@ -68,6 +69,12 @@ class Task {
 
   async execute() {
     console.log(`Executing task: ${this.title}`);
+
+    // Cleanup possible dirty state from previous run
+    await fs.remove(this.publicOutputFile);
+    await fs.remove(this.privateOutputFile);
+
+    // Parse input files
     const input = await fs.readFile(this.inputFile, 'utf8');
     const records = JSON.parse(input);
     const translations = await Promise.all(
@@ -77,10 +84,20 @@ class Task {
         return { lang: translation.lang, records: translationRecords };
       })
     );
-    const [publicGraph, privateGraph] = this.mapper(records, translations);
 
-    await fs.outputFile(this.publicOutputFile, publicGraph.toNT());
-    await fs.outputFile(this.privateOutputFile, privateGraph.toNT());
+    // Map records in batches
+    const batches = chunk(records, RECORDS_CHUNK_SIZE);
+    console.log(`Split task into ${batches.length} chunks of ${RECORDS_CHUNK_SIZE} records`);
+    let i = 0;
+    for (const batch of batches) {
+      i++;
+      const [publicGraph, privateGraph] = this.mapper(batch, translations);
+
+      await fs.appendFile(this.publicOutputFile, publicGraph.toNT());
+      await fs.appendFile(this.privateOutputFile, privateGraph.toNT());
+
+      console.log(`Mapped ${i * RECORDS_CHUNK_SIZE}/${records.length} records`);
+    }
 
     return {
       title: this.title,
