@@ -43,7 +43,7 @@ const convert = async function() {
     });
 
     console.log('\nPublishing generated data');
-    // await publish(tasks);
+    await publish(tasks);
   } catch(e) {
     console.error('Something went wrong during the conversion');
     console.error(e.message || e);

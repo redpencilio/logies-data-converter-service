@@ -28,7 +28,7 @@ async function publish(tasks) {
     await concat(taskOutputs, graphs[scope].file);
 
     // Insert mapped data in tmp graph
-    graphs[scope]['source'] = `http://mu.semte.ch/graphs/tmp/${tmpGraphId}-${scope}`;
+    graphs[scope]['source'] = `http://mu.semte.ch/graphs/tmp/${tmpGraphId}/${scope}`;
     await insertTriplesFromTtl(graphs[scope].file, graphs[scope].source);
 
     // Remove tmp task output files

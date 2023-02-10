@@ -96,7 +96,7 @@ class Task {
       await fs.appendFile(this.publicOutputFile, publicGraph.toNT());
       await fs.appendFile(this.privateOutputFile, privateGraph.toNT());
 
-      console.log(`Mapped ${i * RECORDS_CHUNK_SIZE}/${records.length} records`);
+      console.log(`Mapped ${Math.min(i * RECORDS_CHUNK_SIZE, records.length)}/${records.length} records`);
     }
 
     return {

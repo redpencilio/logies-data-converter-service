@@ -33,7 +33,7 @@ async function copyGraph(source, target) {
         SELECT ?s ?p ?o WHERE {
           GRAPH <${source}> { ?s ?p ?o . }
           FILTER NOT EXISTS {
-            GRAPH <${target}> { ?s ?p ?o }
+            GRAPH <${target}> { ?s ?p ?o . }
           }
         } LIMIT ${limit}
       }`);
@@ -73,7 +73,7 @@ async function removeDiff(source, target) {
         SELECT ?s ?p ?o WHERE {
           GRAPH <${target}> { ?s ?p ?o . }
           FILTER NOT EXISTS {
-            GRAPH <${source}> { ?s ?p ?o }
+            GRAPH <${source}> { ?s ?p ?o . }
           }
         } LIMIT ${limit}
       }`);
@@ -89,7 +89,7 @@ async function removeDuplicates(source, target) {
     SELECT (COUNT(*) as ?count) WHERE {
       GRAPH <${source}> { ?s ?p ?o . }
       GRAPH <${target}> { ?s ?p ?o . }
-      FILTER  (<${source}> != <${target}>)
+      FILTER (<${source}> != <${target}>)
     }`);
 
   const count = parseInt(queryResult.results.bindings[0].count.value);
@@ -112,7 +112,7 @@ async function removeDuplicates(source, target) {
         SELECT (COUNT(*) as ?count) WHERE {
           GRAPH <${source}> { ?s ?p ?o . }
           GRAPH <${target}> { ?s ?p ?o . }
-          FILTER  (<${source}> != <${target}>)
+          FILTER (<${source}> != <${target}>)
         } LIMIT ${limit}
       }`);
     currentBatch++;
