@@ -28,6 +28,7 @@ async function insertTriplesFromTtl(ttlFile, graph) {
 }
 
 async function insertStatements(statements, graph) {
+  console.log(`Inserting ${statements.length} triples in graph <${graph}>`);
   for (let i = 0; i < statements.length; i += BATCH_SIZE) {
     console.log(`Inserting statements in batch: ${i}-${i + BATCH_SIZE}`);
     const batch = statements.slice(i, i + BATCH_SIZE).join('\n');

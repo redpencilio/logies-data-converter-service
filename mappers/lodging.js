@@ -136,36 +136,6 @@ export default function mapLodgings(records, translations) {
       publicG.addAll(contactPoint.statements);
     });
 
-    const tvaContactPoint = mapTvaContact(recordId, record);
-    if (tvaContactPoint) {
-      publicG.add(sym(lodgingUri), SCHEMA('contactPoint'), sym(tvaContactPoint.uri));
-      publicG.addAll(tvaContactPoint.statements);
-    }
-
-    const tvaOrganisation = mapTvaOrganisation(recordId, record);
-    if (tvaOrganisation) {
-      publicG.add(sym(lodgingUri), SCHEMA('contactPoint'), sym(tvaOrganisation.uri));
-      publicG.addAll(tvaOrganisation.statements);
-    }
-
-    const productOwner = mapProductOwner(recordId, record);
-    if (productOwner) {
-      publicG.add(sym(productOwner.uri), SCHEMA('owns'), sym(lodgingUri));
-      publicG.addAll(productOwner.statements);
-    }
-
-    // TODO add product owner via product_owner_*_fod fields to private graph
-    // Post process by removing from private graph if available in publicG graph
-
-    const offeringAgent = mapOfferingAgent(recordId, record);
-    if (offeringAgent) {
-      publicG.add(sym(lodgingUri), SCHEMA('offeredBy'), sym(offeringAgent.uri));
-      publicG.addAll(offeringAgent.statements);
-    }
-
-    // TODO add agent via agent_*_fod fields to private graph
-    // Post process by removing from private graph if available in publicG graph
-
     const mediaObjects = mapMediaObjects(recordId, record);
     mediaObjects.forEach((mediaObject) => {
       publicG.add(sym(lodgingUri), LOGIES('heeftMedia'), sym(mediaObject.uri));
@@ -241,6 +211,34 @@ export default function mapLodgings(records, translations) {
       publicG.addAll(propertyValue.statements);
     });
 
+    const tvaContactPoint = mapTvaContact(recordId, record);
+    if (tvaContactPoint) {
+      privateG.add(sym(lodgingUri), SCHEMA('contactPoint'), sym(tvaContactPoint.uri));
+      privateG.addAll(tvaContactPoint.statements);
+    }
+
+    const tvaOrganisation = mapTvaOrganisation(recordId, record);
+    if (tvaOrganisation) {
+      privateG.add(sym(lodgingUri), SCHEMA('contactPoint'), sym(tvaOrganisation.uri));
+      privateG.addAll(tvaOrganisation.statements);
+    }
+
+    const productOwner = mapProductOwner(recordId, record);
+    if (productOwner) {
+      publicG.add(sym(productOwner.uri), SCHEMA('owns'), sym(lodgingUri));
+      publicG.addAll(productOwner.statements);
+    }
+
+    // TODO add product owner via product_owner_*_fod fields to private graph
+
+    const offeringAgent = mapOfferingAgent(recordId, record);
+    if (offeringAgent) {
+      publicG.add(sym(lodgingUri), SCHEMA('offeredBy'), sym(offeringAgent.uri));
+      publicG.addAll(offeringAgent.statements);
+    }
+
+    // TODO add agent via agent_*_fod fields to private graph
+    // Post process by removing from private graph if available in publicG graph
 
     for (const translation of translations) {
       const translationRecord = translation.records.find((record) => record['business_product_id'] == recordId);

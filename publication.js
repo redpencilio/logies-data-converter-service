@@ -12,10 +12,10 @@ async function publish(tasks) {
   const publicationFileId = uuid();
   const tmpGraphId = uuid();
   const graphs = {
-    public: {
-      target: MAPPED_PUBLIC_GRAPH
-    },
     private: {
+      target: MAPPED_PRIVATE_GRAPH
+    },
+    public: {
       target: MAPPED_PUBLIC_GRAPH
     }
   };
@@ -47,6 +47,7 @@ async function publish(tasks) {
     await copyGraph(graphs[scope].source, graphs[scope].target);
 
     // Remove tmp graph
+    console.log(`Cleanup tmp graph ${graphs[scope].source}`);
     await updateTriplestore(`DROP SILENT GRAPH <${graphs[scope].source}>`);
   }
 
