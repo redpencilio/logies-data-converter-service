@@ -10,6 +10,8 @@ const INPUT_DIRECTORY = process.env.INPUT_DIRECTORY || '/input';
 const OUTPUT_DIRECTORY = process.env.OUTPUT_DIRECTORY || '/output';
 const PUBLICATION_DIRECTORY = process.env.PUBLICATION_DIRECTORY || '/share';
 
+const RUN_ON_STARTUP = isTruthy(process.env.RUN_ON_STARTUP);
+
 // SPARQL
 const DIRECT_SPARQL_ENDPOINT = process.env.DIRECT_SPARQL_ENDPOINT || 'http://triplestore:8890/sparql';
 const BATCH_SIZE = parseInt(process.env.BATCH_SIZE || '1000');
@@ -38,6 +40,7 @@ export {
   HOST_DOMAIN,
   DCAT_CATALOG,
   DCAT_DATASET_TYPE,
+  RUN_ON_STARTUP,
   INPUT_DIRECTORY,
   OUTPUT_DIRECTORY,
   PUBLICATION_DIRECTORY,
