@@ -119,8 +119,50 @@ async function removeDuplicates(source, target) {
   }
 }
 
+async function removeGraph(graph) {
+  const count = await countTriples(graph);
+  if (count > 0) {
+    console.log(`Deleting 0/${count} triples`);
+    let offset = 0;
+    const deleteStatement = `
+      DELETE {
+        GRAPH <${graph}> {
+          ?subject ?predicate ?object .
+        }
+      }
+      WHERE {
+        GRAPH <${graph}> {
+          SELECT ?subject ?predicate ?object
+            WHERE { ?subject ?predicate ?object }
+            LIMIT ${BATCH_SIZE}
+        }
+      }
+    `;
+
+    while (offset < count) {
+      console.log(`Deleting triples in batch: ${offset}-${offset + BATCH_SIZE}`);
+      await update(deleteStatement);
+      offset = offset + BATCH_SIZE;
+    }
+  }
+}
+
+async function countTriples(graph) {
+  const queryResult = await query(`
+        SELECT (COUNT(*) as ?count)
+        WHERE {
+          GRAPH <${graph}> {
+            ?s ?p ?o .
+          }
+        }
+      `);
+
+  return parseInt(queryResult.results.bindings[0].count.value);
+}
+
 export {
   copyGraph,
   removeDiff,
-  removeDuplicates
+  removeDuplicates,
+  removeGraph
 }

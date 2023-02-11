@@ -5,8 +5,7 @@ import fs from 'fs-extra';
 import { DCAT_CATALOG, DCAT_DATASET_TYPE, PUBLIC_GRAPH, MAPPED_PUBLIC_GRAPH, MAPPED_PRIVATE_GRAPH, HOST_DOMAIN, OUTPUT_DIRECTORY, PUBLICATION_DIRECTORY } from './config/env';
 import uriGenerator from './helpers/uri-helpers';
 import { insertTriplesFromTtl } from './helpers/ttl-helpers';
-import { copyGraph, removeDiff, removeDuplicates } from './helpers/graph-helpers';
-import { updateTriplestore } from './helpers/triplestore';
+import { copyGraph, removeDiff, removeDuplicates, removeGraph } from './helpers/graph-helpers';
 
 async function publish(tasks) {
   const publicationFileId = uuid();
@@ -48,7 +47,7 @@ async function publish(tasks) {
 
     // Remove tmp graph
     console.log(`Cleanup tmp graph ${graphs[scope].source}`);
-    await updateTriplestore(`DROP SILENT GRAPH <${graphs[scope].source}>`);
+    await removeGraph(graphs[scope].source);
   }
 
   // Publish public data as dataset
