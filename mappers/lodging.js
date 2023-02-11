@@ -223,22 +223,33 @@ export default function mapLodgings(records, translations) {
       privateG.addAll(tvaOrganisation.statements);
     }
 
-    const productOwner = mapProductOwner(recordId, record);
-    if (productOwner) {
-      publicG.add(sym(productOwner.uri), SCHEMA('owns'), sym(lodgingUri));
-      publicG.addAll(productOwner.statements);
+    if (record['product_owner_share_with_partners']) {
+      const productOwner = mapProductOwner(recordId, record);
+      if (productOwner) {
+        publicG.add(sym(productOwner.uri), SCHEMA('owns'), sym(lodgingUri));
+        publicG.addAll(productOwner.statements);
+      }
     }
 
-    // TODO add product owner via product_owner_*_fod fields to private graph
-
-    const offeringAgent = mapOfferingAgent(recordId, record);
-    if (offeringAgent) {
-      publicG.add(sym(lodgingUri), SCHEMA('offeredBy'), sym(offeringAgent.uri));
-      publicG.addAll(offeringAgent.statements);
+    const productOwnerFod = mapProductOwner(recordId, record, '_fod');
+    if (productOwnerFod) {
+      privateG.add(sym(productOwnerFod.uri), SCHEMA('owns'), sym(lodgingUri));
+      privateG.addAll(productOwnerFod.statements);
     }
 
-    // TODO add agent via agent_*_fod fields to private graph
-    // Post process by removing from private graph if available in publicG graph
+    if (record['agent_share_with_partners']) {
+      const offeringAgent = mapOfferingAgent(recordId, record);
+      if (offeringAgent) {
+        publicG.add(sym(lodgingUri), SCHEMA('offeredBy'), sym(offeringAgent.uri));
+        publicG.addAll(offeringAgent.statements);
+      }
+    }
+
+    const offeringAgentFod = mapOfferingAgent(recordId, record, '_fod');
+    if (offeringAgentFod) {
+      privateG.add(sym(lodgingUri), SCHEMA('offeredBy'), sym(offeringAgentFod.uri));
+      privateG.addAll(offeringAgentFod.statements);
+    }
 
     for (const translation of translations) {
       const translationRecord = translation.records.find((record) => record['business_product_id'] == recordId);

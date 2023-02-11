@@ -4,8 +4,8 @@ import { hasAnyProp, hasEveryProp } from '../helpers';
 import { ADRES, GEOSPARQL, LOCN, MU, RDF, SCHEMA, WGS } from './prefixes';
 import { touristicRegionMap } from './codelists';
 
-function mapAddress(recordId, record, field_prefix = '') {
-  if (hasAnyProp(record, ['street', 'house_number', 'box_number', 'postal_code', 'city_name', 'main_city_name'].map((k) => `${field_prefix}${k}`))) {
+function mapAddress(recordId, record, field_prefix = '', field_postfix = '') {
+  if (hasAnyProp(record, ['street', 'house_number', 'box_number', 'postal_code', 'city_name', 'main_city_name'].map((k) => `${field_prefix}${k}${field_postfix}`))) {
     const type = field_prefix == '' ? null : field_prefix;
     const { addressUuid, addressUri } = uriGenerator.address(recordId, type);
 
@@ -16,28 +16,28 @@ function mapAddress(recordId, record, field_prefix = '') {
       new Statement(sym(addressUri), ADRES('land'), lit('Belgium', 'en')),
     ];
 
-    if (record[`${field_prefix}street`]) {
-      statements.push(new Statement(sym(addressUri), LOCN('thoroughfare'), lit(record[`${field_prefix}street`])));
+    if (record[`${field_prefix}street${field_postfix}`]) {
+      statements.push(new Statement(sym(addressUri), LOCN('thoroughfare'), lit(record[`${field_prefix}street${field_postfix}`])));
     }
 
-    if (record[`${field_prefix}house_number`]) {
-      statements.push(new Statement(sym(addressUri), ADRES('Adresvoorstelling.huisnummer'), lit(record[`${field_prefix}house_number`])));
+    if (record[`${field_prefix}house_number${field_postfix}`]) {
+      statements.push(new Statement(sym(addressUri), ADRES('Adresvoorstelling.huisnummer'), lit(record[`${field_prefix}house_number${field_postfix}`])));
     }
 
-    if (record[`${field_prefix}box_number`]) {
-      statements.push(new Statement(sym(addressUri), ADRES('Adresvoorstelling.busnummer'), lit(record[`${field_prefix}box_number`])));
+    if (record[`${field_prefix}box_number${field_postfix}`]) {
+      statements.push(new Statement(sym(addressUri), ADRES('Adresvoorstelling.busnummer'), lit(record[`${field_prefix}box_number${field_postfix}`])));
     }
 
-    if (record[`${field_prefix}postal_code`]) {
-      statements.push(new Statement(sym(addressUri), LOCN('postCode'), lit(record[`${field_prefix}postal_code`])));
+    if (record[`${field_prefix}postal_code${field_postfix}`]) {
+      statements.push(new Statement(sym(addressUri), LOCN('postCode'), lit(record[`${field_prefix}postal_code${field_postfix}`])));
     }
 
-    if (record[`${field_prefix}city_name`] && record[`${field_prefix}city_name`] != record[`${field_prefix}main_city_name`]) {
-      statements.push(new Statement(sym(addressUri), ADRES('gemeentenaam'), lit(record[`${field_prefix}city_name`], 'nl')));
+    if (record[`${field_prefix}city_name${field_postfix}`] && record[`${field_prefix}city_name${field_postfix}`] != record[`${field_prefix}main_city_name${field_postfix}`]) {
+      statements.push(new Statement(sym(addressUri), ADRES('gemeentenaam'), lit(record[`${field_prefix}city_name${field_postfix}`], 'nl')));
     }
 
-    if (record[`${field_prefix}main_city_name`]) {
-      statements.push(new Statement(sym(addressUri), ADRES('gemeentenaam'), lit(record[`${field_prefix}main_city_name`], 'nl')));
+    if (record[`${field_prefix}main_city_name${field_postfix}`]) {
+      statements.push(new Statement(sym(addressUri), ADRES('gemeentenaam'), lit(record[`${field_prefix}main_city_name${field_postfix}`], 'nl')));
     }
 
     return { uri: addressUri, statements };
