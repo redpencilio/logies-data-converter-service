@@ -5,7 +5,7 @@ import request from 'request';
 import loadSources from './data-sources';
 import publish from './publication';
 import { loadTasksFromConfig } from './task';
-import { RUN_ON_STARTUP } from './config/env';
+import { RUN_ON_STARTUP, LOAD_EXTERNAL_SQL_SOURCES } from './config/env';
 
 const tasks = loadTasksFromConfig();
 
@@ -28,7 +28,9 @@ app.use(errorHandler);
 
 const convert = async function() {
   try {
-    await loadSources(tasks);
+    if (LOAD_EXTERNAL_SQL_SOURCES) {
+      await loadSources(tasks);
+    }
 
     const results = [];
     console.log('Start mapping');
