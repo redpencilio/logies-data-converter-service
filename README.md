@@ -1,29 +1,67 @@
 # logies-data-conversion-service
-Microservice to transform the Logies data of Toerisme Vlaanderen to the semantic Logies model as described by the [Logies Basis application profile](https://data.vlaanderen.be/doc/applicatieprofiel/logies-basis/) and load it in a triple store. It also publishes a data dump.
+Microservice to transform the touristic data of Toerisme Vlaanderen to the semantic Logies model as described by the [Logies Basis application profile](https://data.vlaanderen.be/doc/applicatieprofiel/logies-basis/) and load it in a triple store. It also publishes a DCAT dataset.
 
-## Installation
+## Getting started
+### Add the service to your stack
 To add the service to your stack, add the following snippet to `docker-compose.yml`:
 
 ```
 services:
   import:
-    image: redpencilio/logies-data-conversion-service
+    image: redpencil/logies-data-converter-service:1.0.0-alpha.1
     volumes:
       - ./data/input:/input
-      - ./data/files:/output
+      - ./data/output:/output
+      - ./data/files:/share
 ```
 
-## Configuration
-### Input files
-The input CSV files are downloaded from the Toerisme Vlaanderen Open Data Portal. The conversion tasks are configured in `/app/config/tasks`. Each tasks has the following properties:
-* title: a human readable title of the task used for logging
-* inputFile: path in the container to store the downloaded input file
-* url: URL to download the input file from
-* outputFile: path in the container to store the intermediate resulting TTL file
+`/input` contains the input data for the mapping.
+
+`/output` contains intermediate files generated during the mapping. They will be removed at the end of the process.
+
+`/share` contains the TTL files that are published as DCAT dataset. The volume mounted here must be the same volume as mounted in the [file-service](https://github.com/mu-semtech/file-service) if files must be downloadable by the end user.
+
+## Reference
+### Configuration
+#### Tasks
+The conversion tasks are configured in `./app/config/tasks.js`. 
+
+* enabled: boolean flag whether task is enabled
+* title: title of the task used to construct file names
+* query: SQL query to fetch the input data
 * mapper: function to use for mapping
-### Output files
-The resulting file is written in `/ouput`. The volume mounted here must be the same volume as mounted in the [file-service](https://github.com/mu-semtech/file-service) if files must be downloadable by the end user.
-### Environment variables
+* translations (optional): additional translations to be mapped. The translations object has the following properties:
+  * query: function generating the SQL query to fetch the translatinos data. The funtion gets the language as parameter.
+  * languages: array of languages to map
+
+#### Environment variables
 The following environment variables can be configured:
 * `CRON_PATTERN` (default: `0 0 2 * * *`): [cron pattern](https://www.npmjs.com/package/cron#available-cron-patterns) defining when the data conversion is triggered
-* `OUTPUT_DIRECTORY` (default: `/output`): output directory to store the final TTL file
+
+* `SQL_USER` : username for the SQL database
+* `SQL_PASSWORD` : password for the SQL database 
+* `SQL_SERVER` (default `sqldb`) : hostname of the SQL server
+* `SQL_DATABASE` : name of the SQL database
+* `SQL_PORT` (default 1143): port to connect to the SQL database
+* `SQL_BATCH_SIZE` (default 10000) : page size to fetch data from SQL database
+
+* `MAPPED_PUBLIC_GRAPH` (default http://mu.semte.ch/graphs/mapped/public) : graph to write public mapped data to
+* `MAPPED_PRIVATE_GRAPH` (default http://mu.semte.ch/graphs/mapped/private) : graph to write private mapped data to
+* `PUBLIC_GRAPH` (default http://mu.semte.ch/graphs/public) : graph containing public static data
+* `HOST_DOMAIN` (default https://linked.toerismevlaanderen.be) : host domain used as base to generate resource URIs
+
+* `DCAT_CATALOG` (default http://linked.toerismevlaanderen.be/id/catalogs/c62b30ce-7486-4199-a177-def7e1772a53) : URI of the Toerisme Vlaanderen DCAT catalog
+* `DCAT_DATASET_TYPE` (default http://linked.toerismevlaanderen.be/id/dataset-types/ca82a1e3-8a7c-438e-ba37-cf36063ba060) : URI of the tourist attractions dataset type 
+
+* `INPUT_DIRECTORY` (default `/input`) : directory to write input files with SQL data to
+* `OUTPUT_DIRECTORY` (default `/output`) : directory to write intermediate files to. They will be removed once the mapping has been finished.
+* `PUBLICATION_DIRECTORY` (default `/share`) : directy to write dataset TTL files to
+
+* `RUN_ON_STARTUP` (default `false`) : whether conversion must be trigered on startup
+* `LOAD_EXTERNAL_SQL_SOURCES` (default `true`) : whether input data must be fetched from SQL database
+
+* `BATCH_SIZE` (default 1000) : batch size to use in update SPARQL queries
+* `RETRY_TIMEOUT_MS` (default 1000) : number of milliseconds between to SPARQL query retries
+* `RECORDS_CHUNK_SIZE` (default 1000) : number of records to map in 1 batch. Intermediate results are written to a TTL file.
+
+

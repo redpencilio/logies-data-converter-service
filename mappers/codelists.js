@@ -184,7 +184,7 @@ const productCategoriesMap = {
   SCIENCE : 'http://linked.toerismevlaanderen.be/id/concepts/185304ba-f42f-4f61-bf76-1b4d1b4a374e',
   SHIPPING : 'http://linked.toerismevlaanderen.be/id/concepts/4d1e866b-4b27-4623-86b0-6af27600578e',
   TEXTILES_AND_LACE : 'http://linked.toerismevlaanderen.be/id/concepts/38d700a0-2d2b-4177-9ce9-b741ddb510b2',
-  THEMATIC : 'http://linked.toerismevlaanderen.be/id/concepts/fd1c3cdd-69e4-46b0-9cb1-a83d2b9303d4'	
+  THEMATIC : 'http://linked.toerismevlaanderen.be/id/concepts/fd1c3cdd-69e4-46b0-9cb1-a83d2b9303d4'
 };
 
 const productTypesMap = {
