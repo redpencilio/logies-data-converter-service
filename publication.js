@@ -51,7 +51,7 @@ async function publish(tasks) {
   }
 
   // Publish public data as dataset
-  const publicationFile = `${OUTPUT_DIRECTORY}/${publicationFileId}.ttl`;
+  const publicationFile = `${PUBLICATION_DIRECTORY}/${publicationFileId}.ttl`;
   await fs.move(graphs.public.file, publicationFile);
   await publishDataset(publicationFileId);
 
