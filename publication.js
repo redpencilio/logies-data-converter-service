@@ -1,4 +1,4 @@
-import { uuid, sparqlEscapeUri, sparqlEscapeDateTime } from 'mu';
+import { uuid, sparqlEscapeUri, sparqlEscapeDateTime, sparqlEscapeInt } from 'mu';
 import { querySudo as query, updateSudo as update } from '@lblod/mu-auth-sudo';
 import concat from 'concat';
 import fs from 'fs-extra';
@@ -130,6 +130,9 @@ async function publishDataset(physicalFileUuid) {
     console.log(`No previous dataset version found to unpublish`);
   }
 
+  const fileStats = fs.statSync(`/share/${physicalFileUuid}.ttl`);
+  const size = fileStats.size;
+
   // Insert new dataset with a TTL distribution
   await update(`
     PREFIX mu: <http://mu.semte.ch/vocabularies/core/>
@@ -156,6 +159,7 @@ async function publishDataset(physicalFileUuid) {
           nfo:fileName 'toeristische-attracties.ttl' ;
           dct:format "application/x-turtle" ;
           dbpedia:fileExtension "ttl" ;
+          nfo:fileSize ${sparqlEscapeInt(size)} ;
           dcat:downloadURL <${HOST_DOMAIN}/files/${fileUuid}/download> ;
           dct:created ${sparqlEscapeDateTime(now)} ;
           dct:modified ${sparqlEscapeDateTime(now)} ;
@@ -166,6 +170,7 @@ async function publishDataset(physicalFileUuid) {
           nfo:fileName "${physicalFileUuid}.ttl" ;
           dct:format "application/x-turtle" ;
           dbpedia:fileExtension "ttl" ;
+          nfo:fileSize ${sparqlEscapeInt(size)} ;
           dct:created ${sparqlEscapeDateTime(now)} ;
           dct:modified ${sparqlEscapeDateTime(now)} .
       }
