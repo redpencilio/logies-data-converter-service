@@ -44,18 +44,16 @@ async function insertStatements(statements, graph) {
 
 function toTripleStatement(triple) {
   const escape = function (node) {
-    const { termType, value, datatype, "xml:lang": lang } = node;
+    const { termType, value, datatype, language } = node;
     if (termType == "NamedNode") {
       return sparqlEscapeUri(value);
     } else if (termType == "Literal") {
       // We ignore xsd:string datatypes because Virtuoso doesn't treat those as default datatype
       // Eg. SELECT * WHERE { ?s mu:uuid "4983948" } will not return any value if the uuid is a typed literal
-      // Since the n3 npm library used by the producer explicitely adds xsd:string on non-typed literals
-      // we ignore the xsd:string on ingest
-      if (datatype && datatype.value && datatype.value != 'http://www.w3.org/2001/XMLSchema#string')
+      if (language)
+        return `${sparqlEscapeString(value)}@${language}`;
+      else if (datatype && datatype.value && datatype.value != 'http://www.w3.org/2001/XMLSchema#string')
         return `${sparqlEscapeString(value)}^^${sparqlEscapeUri(datatype.value)}`;
-      else if (lang)
-        return `${sparqlEscapeString(value)}@${lang}`;
       else
         return `${sparqlEscapeString(value)}`;
     } else
