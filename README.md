@@ -63,5 +63,5 @@ The following environment variables can be configured:
 * `BATCH_SIZE` (default 1000) : batch size to use in update SPARQL queries
 * `RETRY_TIMEOUT_MS` (default 1000) : number of milliseconds between to SPARQL query retries
 * `RECORDS_CHUNK_SIZE` (default 1000) : number of records to map in 1 batch. Intermediate results are written to a TTL file.
-
+* `DIRECT_SPARQL_ENDPOINT` (default `http://triplestore:8890/sparql`): endpoint to execute SPARQL queries directly on Virtuoso instead of via mu-authorization. Typically used for data operations on tmp graphs.
 

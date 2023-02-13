@@ -1,10 +1,14 @@
-import { querySudo as query, updateSudo as update } from '@lblod/mu-auth-sudo';
+import { querySudo, updateSudo } from '@lblod/mu-auth-sudo';
+import { queryTriplestore, updateTriplestore } from './triplestore';
 import { BATCH_SIZE } from '../config/env';
 
 /*
  * Copy all triples from source graph that don't exist in target graph yet
 */
-async function copyGraph(source, target) {
+async function copyGraph(source, target, useDirect = false) {
+  const query = useDirect ? queryTriplestore : querySudo;
+  const update = useDirect ? updateTriplestore : updateSudo;
+
   const queryResult = await query(`
     SELECT (COUNT(*) as ?count) WHERE {
       GRAPH <${source}> { ?s ?p ?o . }
@@ -44,7 +48,10 @@ async function copyGraph(source, target) {
 /*
  * Removes all triples from target graph that don't exist in source graph
 */
-async function removeDiff(source, target) {
+async function removeDiff(source, target, useDirect = false) {
+  const query = useDirect ? queryTriplestore : querySudo;
+  const update = useDirect ? updateTriplestore : updateSudo;
+
   const queryResult = await query(`
     SELECT (COUNT(*) as ?count) WHERE {
       GRAPH <${target}> { ?s ?p ?o . }
@@ -84,7 +91,10 @@ async function removeDiff(source, target) {
 /*
  * Removes all triples from target graph that are also in source graph
 */
-async function removeDuplicates(source, target) {
+async function removeDuplicates(source, target, useDirect = false) {
+  const query = useDirect ? queryTriplestore : querySudo;
+  const update = useDirect ? updateTriplestore : updateSudo;
+
   const queryResult = await query(`
     SELECT (COUNT(*) as ?count) WHERE {
       GRAPH <${source}> { ?s ?p ?o . }
@@ -119,8 +129,11 @@ async function removeDuplicates(source, target) {
   }
 }
 
-async function removeGraph(graph) {
-  const count = await countTriples(graph);
+async function removeGraph(graph, useDirect = false) {
+  const query = useDirect ? queryTriplestore : querySudo;
+  const update = useDirect ? updateTriplestore : updateSudo;
+
+  const count = await countTriples(graph, useDirect);
   if (count > 0) {
     console.log(`Deleting 0/${count} triples`);
     let offset = 0;
@@ -147,7 +160,9 @@ async function removeGraph(graph) {
   }
 }
 
-async function countTriples(graph) {
+async function countTriples(graph, useDirect = false) {
+  const query = useDirect ? queryTriplestore : querySudo;
+
   const queryResult = await query(`
         SELECT (COUNT(*) as ?count)
         WHERE {

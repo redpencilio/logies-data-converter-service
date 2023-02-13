@@ -35,7 +35,7 @@ async function publish(tasks) {
   }
 
   // Remove all triples from private that are also public
-  await removeDuplicates(graphs.public.source, graphs.private.source);
+  await removeDuplicates(graphs.public.source, graphs.private.source, true);
 
   for (const scope of Object.keys(graphs)) {
     // Cleanup already published data
@@ -47,7 +47,7 @@ async function publish(tasks) {
 
     // Remove tmp graph
     console.log(`Cleanup tmp graph ${graphs[scope].source}`);
-    await removeGraph(graphs[scope].source);
+    await removeGraph(graphs[scope].source, true);
   }
 
   // Publish public data as dataset
