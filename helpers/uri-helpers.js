@@ -90,7 +90,7 @@ const config = {
   },
   description: {
     baseUri: 'http://linked.toerismevlaanderen.be/id/descriptions/',
-    uuid(id) { return `b3ec99e8-11c0-4d2e-b7be-99173b603da4-${id}`; }
+    uuid(id, label) { return sha256(`b3ec99e8-11c0-4d2e-b7be-99173b603da4-${id}-${label}`); }
   },
   accessibilityInformation: {
     baseUri: 'http://linked.toerismevlaanderen.be/id/accessibility-information/',
