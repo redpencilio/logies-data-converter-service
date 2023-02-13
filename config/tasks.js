@@ -28,7 +28,7 @@ FROM od_accommodation_accessibility_translations('${lang}', '${lang}') as p
 ORDER BY p.product_id
 `;
       },
-      languages: ['nl']
+      languages: ['nl', 'en']
     },
     mapper: mapLodgings
   },
@@ -48,7 +48,7 @@ FROM od_activity_accessibility_translations('${lang}', '${lang}') as p
 ORDER BY p.product_id
   `;
       },
-      languages: ['nl']
+      languages: ['nl', 'en']
     },
     mapper: mapTouristAttractions
   },
@@ -68,7 +68,7 @@ FROM od_poi_accessibility_translations('${lang}', '${lang}') as p
 ORDER BY p.product_id
 `;
 },
-      languages: ['nl']
+      languages: ['nl', 'en']
     },
     mapper: mapTouristAttractions
   },
@@ -88,7 +88,7 @@ FROM od_service_accessibility_translations('${lang}', '${lang}') as p
 ORDER BY p.product_id
 `;
       },
-      languages: ['nl']
+      languages: ['nl', 'en']
     },
     mapper: mapTouristAttractions
   }
