@@ -2,7 +2,7 @@ import { sym, lit, Statement } from 'rdflib';
 import uriGenerator from '../helpers/uri-helpers';
 import { hasAnyProp, hasEveryProp } from '../helpers';
 import { ADRES, GEOSPARQL, LOCN, MU, RDF, SCHEMA, WGS } from './prefixes';
-import { touristicRegionMap } from './codelists';
+import { touristicRegionMap, provinces } from './codelists';
 
 function mapAddress(recordId, record, field_prefix = '', field_postfix = '') {
   if (hasAnyProp(record, ['street', 'house_number', 'box_number', 'postal_code', 'city_name', 'main_city_name'].map((k) => `${field_prefix}${k}${field_postfix}`))) {
@@ -38,6 +38,16 @@ function mapAddress(recordId, record, field_prefix = '', field_postfix = '') {
 
     if (record[`${field_prefix}main_city_name${field_postfix}`]) {
       statements.push(new Statement(sym(addressUri), ADRES('gemeentenaam'), lit(record[`${field_prefix}main_city_name${field_postfix}`], 'nl')));
+    }
+
+    if (record[`${field_prefix}province${field_postfix}`]) {
+      const field = `${field_prefix}province${field_postfix}`;
+      const province = provinces[record[field]];
+      if (province) {
+        statements.push(new Statement(sym(addressUri), LOCN('adminUnitL2'), lit(province, 'nl')));
+      } else {
+        console.error(`Cannot map ${field} value '${record[field]}' for record ${recordId}`);
+      }
     }
 
     return { uri: addressUri, statements };

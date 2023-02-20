@@ -333,6 +333,14 @@ const honorificPrefixes = {
   MR_AND_MRS: 'Mevrouw en meneer',
 };
 
+const provinces = {
+  FlemishBrabant: 'Vlaams-Brabant',
+  EastFlanders: 'Oost-Vlaanderen', // or scheldeland, leiestreek
+  WestFlanders: 'West-Vlaanderen', // or leiestreek
+  Antwerp: 'Antwerpen', // scheldeland,
+  Limburg: 'Limburg'
+};
+
 export {
   tvlOrganizationUri,
   goodplanetOrganizationUri,
