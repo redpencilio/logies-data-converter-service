@@ -78,18 +78,6 @@ export default function mapLodgings(records, translations) {
     publicG.add(sym(lodgingUri), ADMS('identifier'), sym(tvlIdentifier.uri));
     publicG.addAll(tvlIdentifier.statements);
 
-    const fodIdentifier = mapFodIdentifier(recordId, record);
-    if (fodIdentifier) {
-      publicG.add(sym(lodgingUri), ADMS('identifier'), sym(fodIdentifier.uri));
-      publicG.addAll(fodIdentifier.statements);
-    }
-
-    const tvaIdentifier = mapTvaIdentifier(recordId, record);
-    if (tvaIdentifier) {
-      publicG.add(sym(lodgingUri), ADMS('identifier'), sym(tvaIdentifier.uri));
-      publicG.addAll(tvaIdentifier.statements);
-    }
-
     try {
       const modified = new Date(record['changed_time']);
       publicG.add(sym(lodgingUri), DCT('modified'), litDateTime(modified));
@@ -211,6 +199,12 @@ export default function mapLodgings(records, translations) {
       publicG.addAll(propertyValue.statements);
     });
 
+    const tvaIdentifier = mapTvaIdentifier(recordId, record);
+    if (tvaIdentifier) {
+      publicG.add(sym(lodgingUri), ADMS('identifier'), sym(tvaIdentifier.uri));
+      publicG.addAll(tvaIdentifier.statements);
+    }
+
     const tvaContactPoint = mapTvaContact(recordId, record);
     if (tvaContactPoint) {
       privateG.add(sym(lodgingUri), SCHEMA('contactPoint'), sym(tvaContactPoint.uri));
@@ -235,6 +229,12 @@ export default function mapLodgings(records, translations) {
     if (productOwnerFod) {
       privateG.add(sym(productOwnerFod.uri), SCHEMA('owns'), sym(lodgingUri));
       privateG.addAll(productOwnerFod.statements);
+    }
+
+    const fodIdentifier = mapFodIdentifier(recordId, record);
+    if (fodIdentifier) {
+      privateG.add(sym(lodgingUri), ADMS('identifier'), sym(fodIdentifier.uri));
+      privateG.addAll(fodIdentifier.statements);
     }
 
     if (record['agent_share_with_partners']) {
