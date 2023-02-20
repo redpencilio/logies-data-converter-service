@@ -355,5 +355,6 @@ export {
   nonStandardizedUnitMap,
   comfortClasses,
   accessibilityLabels,
-  honorificPrefixes
+  honorificPrefixes,
+  provinces
 }
