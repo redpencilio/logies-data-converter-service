@@ -4,7 +4,7 @@ import { litDateTime } from '../helpers';
 import { accessibilityLabels, tvlOrganizationUri, goodplanetOrganizationUri } from './codelists';
 import { LOGIES, MU, RDF, SCHEMA, SKOS } from './prefixes';
 
-function mapAccessibilityLabel(recordId, record) {
+function mapAccessibilityLabel(recordId, record, errorLogger) {
   if (record['accessibility_label']) {
     const { uuid, uri } = uriGenerator.qualityLabel(recordId, 'accessibility');
     const accessibility = accessibilityLabels[record['accessibility_label']];
@@ -19,13 +19,13 @@ function mapAccessibilityLabel(recordId, record) {
 
       return { uri, statements };
     } else if (!Object.keys(accessibilityLabels).includes(record['accessibility_label'])) {
-      console.error(`Cannot map accessibility label value '${record['accessibility_label']}' for record ${recordId}`);
+      errorLogger(`Cannot map accessibility label value '${record['accessibility_label']}' for record ${recordId}`);
     }
   }
   return null;
 }
 
-function mapGreenLabel(recordId, record) {
+function mapGreenLabel(recordId, record, errorLogger) {
   if (record['green_key_labeled']) {
     const { uuid, uri } = uriGenerator.qualityLabel(recordId, 'green-label');
 
@@ -43,7 +43,7 @@ function mapGreenLabel(recordId, record) {
   }
 }
 
-function mapCamperLabel(recordId, record) {
+function mapCamperLabel(recordId, record, errorLogger) {
   if (record['camper_label']) {
     const { uuid, uri } = uriGenerator.qualityLabel(recordId, 'camper-label');
 
@@ -61,7 +61,7 @@ function mapCamperLabel(recordId, record) {
   }
 }
 
-function mapFireSafetyCertificate(recordId, record) {
+function mapFireSafetyCertificate(recordId, record, errorLogger) {
   if (record['fire_safety_certificate_expiration_date']) {
     const { uuid, uri } = uriGenerator.permit(recordId, 'fire-safety-certificate');
     const date = new Date(Date.parse(record['fire_safety_certificate_expiration_date']));

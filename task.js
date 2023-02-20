@@ -28,7 +28,17 @@ class Task {
     this.mapper = mapper || function() { return ''; };
     this.translations = [];
   }
+  static async logError(title,error){
+    var today = new Date();
+    var date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
+    var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
+    var dateTime = date+' '+time;
+    const otfl = `${OUTPUT_DIRECTORY}/errors.txt`;
+    //adding time at the beginig of the error and \n at the end?
+    let er = dateTime+ ', Task title: ' + title + ': ' + error +'\n';
+    await fs.appendFile(otfl,er);
 
+  }
   static parse(json) {
     const { title, query, mapper, translations } = json;
     const task = new Task(title, query, mapper);
@@ -91,7 +101,7 @@ class Task {
     let i = 0;
     for (const batch of batches) {
       i++;
-      const [publicGraph, privateGraph] = this.mapper(batch, translations);
+      const [publicGraph, privateGraph] = this.mapper(batch, translations,er => Task.logError(this.title,er));
 
       await fs.appendFile(this.publicOutputFile, publicGraph.toNT());
       await fs.appendFile(this.privateOutputFile, privateGraph.toNT());
