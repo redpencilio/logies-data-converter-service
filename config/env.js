@@ -13,6 +13,8 @@ const PUBLICATION_DIRECTORY = process.env.PUBLICATION_DIRECTORY || '/share';
 const RUN_ON_STARTUP = isTruthy(process.env.RUN_ON_STARTUP);
 const LOAD_EXTERNAL_SQL_SOURCES = isTruthy(process.env.LOAD_EXTERNAL_SQL_SOURCES);
 
+const CACHE_CLEAR_PATH = process.env.CACHE_CLEAR_PATH || 'http://cache/.mu/clear-keys';
+
 // SPARQL
 const DIRECT_SPARQL_ENDPOINT = process.env.DIRECT_SPARQL_ENDPOINT || 'http://triplestore:8890/sparql';
 const BATCH_SIZE = parseInt(process.env.BATCH_SIZE || '1000');
@@ -43,6 +45,7 @@ export {
   DCAT_DATASET_TYPE,
   RUN_ON_STARTUP,
   LOAD_EXTERNAL_SQL_SOURCES,
+  CACHE_CLEAR_PATH,
   INPUT_DIRECTORY,
   OUTPUT_DIRECTORY,
   PUBLICATION_DIRECTORY,

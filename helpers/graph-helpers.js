@@ -28,6 +28,7 @@ async function copyGraph(source, target, useDirect = false) {
     // Note: no OFFSET needed in the subquery. Pagination is inherent since
     // the WHERE clause doesn't match any longer for triples that are copied
     // in the previous batch.
+    console.log(`Inserting batch ${currentBatch}/${totalBatches}`);
     await update(`
       INSERT {
         GRAPH <${target}> {
@@ -71,6 +72,7 @@ async function removeDiff(source, target, useDirect = false) {
     // Note: no OFFSET needed in the subquery. Pagination is inherent since
     // the WHERE clause doesn't match any longer for triples that are removed
     // in the previous batch.
+    console.log(`Removing batch ${currentBatch}/${totalBatches}`);
     await update(`
       DELETE {
         GRAPH <${target}> {
