@@ -3,7 +3,7 @@ import uriGenerator from '../helpers/uri-helpers';
 import { tvlOrganizationUri, comfortClasses } from './codelists';
 import { MU, RDF, SCHEMA } from './prefixes';
 
-function mapRatings(recordId, record) {
+function mapRatings(recordId, record, errorLogger) {
   return ['comfort_class', 'tva_acknowledgement']
     .filter((field) => record[field])
     .map((field) => {
@@ -24,7 +24,7 @@ function mapRatings(recordId, record) {
         ];
         return { uri, statements };
       } else if (!Object.keys(comfortClasses).includes(value)) {
-        console.error(`Cannot map ${field} value '${value}' for record ${recordId}`);
+        errorLogger(`Cannot map ${field} value '${value}' for record ${recordId}`);
       }
       return null;
     }).filter((rating) => rating);

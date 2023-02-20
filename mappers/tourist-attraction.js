@@ -11,7 +11,7 @@ import { mapAccessibilityLabel, mapGreenLabel, mapCamperLabel } from './quality-
 import { mapAccessibilityInformation } from './accessibility';
 import { mapTranslation } from './translation';
 
-export default function mapTouristAttractions(records, translations) {
+export default function mapTouristAttractions(records, translations, errorLogger) {
   const publicG = graph();
   const privateG = graph();
 
@@ -32,7 +32,7 @@ export default function mapTouristAttractions(records, translations) {
       if (type) {
         publicG.add(sym(attractionUri), RDF('type'), sym(type));
       } else {
-        console.error(`Cannot map information group value '${record['information_group']}' for record ${recordId}`);
+        errorLogger(`Cannot map information group value '${record['information_group']}' for record ${recordId}`);
       }
     }
 
@@ -41,7 +41,7 @@ export default function mapTouristAttractions(records, translations) {
       if (type) {
         publicG.add(sym(attractionUri), DCT('type'), sym(type));
       } else {
-        console.error(`Cannot map discriminator value '${record['discriminator']}' for record ${recordId}`);
+        errorLogger(`Cannot map discriminator value '${record['discriminator']}' for record ${recordId}`);
       }
     }
 
@@ -50,7 +50,7 @@ export default function mapTouristAttractions(records, translations) {
       if (type) {
         publicG.add(sym(attractionUri), SCHEMA('keywords'), sym(type));
       } else {
-        console.error(`Cannot map subtype value '${record['sub_type']}' for record ${recordId}`);
+        errorLogger(`Cannot map subtype value '${record['sub_type']}' for record ${recordId}`);
       }
     }
 
@@ -59,7 +59,7 @@ export default function mapTouristAttractions(records, translations) {
       if (type) {
         publicG.add(sym(attractionUri), SCHEMA('keywords'), sym(type));
       } else if (type === undefined) {
-        console.error(`Cannot map location type value '${record['location_type']}' for record ${recordId}`);
+        errorLogger(`Cannot map location type value '${record['location_type']}' for record ${recordId}`);
       }
     }
 
@@ -74,19 +74,19 @@ export default function mapTouristAttractions(records, translations) {
       // Invalid or no changed_time
     }
 
-    const address = mapAddress(recordId, record);
+    const address = mapAddress(recordId, record,errorLogger);
     if (address) {
       publicG.add(sym(attractionUri), LOCN('address'), sym(address.uri));
       publicG.addAll(address.statements);
     }
 
-    const location = mapLocation(recordId, record);
+    const location = mapLocation(recordId, record,errorLogger);
     if (location) {
       publicG.add(sym(attractionUri), LOCN('geometry'), sym(location.uri));
       publicG.addAll(location.statements);
     }
 
-    const touristicRegion = mapTouristicRegion(recordId, record);
+    const touristicRegion = mapTouristicRegion(recordId, record,errorLogger);
     if (touristicRegion) {
       publicG.add(sym(attractionUri), LOGIES('behoortTotToeristischeRegio'), sym(touristicRegion.uri));
     }
@@ -96,37 +96,37 @@ export default function mapTouristAttractions(records, translations) {
       publicG.add(sym(attractionUri), TVL('belongsToStatisticalRegion'), sym(statsRegion.uri));
     }
 
-    const contactPoints = mapContactPoints(recordId, record);
+    const contactPoints = mapContactPoints(recordId, record,errorLogger);
     contactPoints.forEach((contactPoint) => {
       publicG.add(sym(attractionUri), SCHEMA('contactPoint'), sym(contactPoint.uri));
       publicG.addAll(contactPoint.statements);
     });
 
-    const mediaObjects = mapMediaObjects(recordId, record);
+    const mediaObjects = mapMediaObjects(recordId, record, errorLogger);
     mediaObjects.forEach((mediaObject) => {
       publicG.add(sym(attractionUri), LOGIES('heeftMedia'), sym(mediaObject.uri));
       publicG.addAll(mediaObject.statements);
     });
 
-    const mainMediaObjects = mapMainMediaObjects(recordId, record);
+    const mainMediaObjects = mapMainMediaObjects(recordId, record, errorLogger);
     mainMediaObjects.forEach((mediaObject) => {
       publicG.add(sym(attractionUri), SCHEMA('image'), sym(mediaObject.uri));
       publicG.addAll(mediaObject.statements);
     });
 
-    const accessibilityLabel = mapAccessibilityLabel(recordId, record);
+    const accessibilityLabel = mapAccessibilityLabel(recordId, record, errorLogger);
     if (accessibilityLabel) {
       publicG.add(sym(attractionUri), LOGIES('heeftKwaliteitslabel'), sym(accessibilityLabel.uri));
       publicG.addAll(accessibilityLabel.statements);
     }
 
-    const greenLabel = mapGreenLabel(recordId, record);
+    const greenLabel = mapGreenLabel(recordId, record, errorLogger);
     if (greenLabel) {
       publicG.add(sym(attractionUri), LOGIES('heeftKwaliteitslabel'), sym(greenLabel.uri));
       publicG.addAll(greenLabel.statements);
     }
 
-    const camperLabel = mapCamperLabel(recordId, record);
+    const camperLabel = mapCamperLabel(recordId, record, errorLogger);
     if (camperLabel) {
       publicG.add(sym(attractionUri), LOGIES('heeftKwaliteitslabel'), sym(camperLabel.uri));
       publicG.addAll(camperLabel.statements);

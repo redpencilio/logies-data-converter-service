@@ -4,7 +4,7 @@ import { hasAnyProp, hasEveryProp } from '../helpers';
 import { ADRES, GEOSPARQL, LOCN, MU, RDF, SCHEMA, WGS } from './prefixes';
 import { touristicRegionMap } from './codelists';
 
-function mapAddress(recordId, record, field_prefix = '', field_postfix = '') {
+function mapAddress(recordId, record, errorLogger, field_prefix = '', field_postfix = '') {
   if (hasAnyProp(record, ['street', 'house_number', 'box_number', 'postal_code', 'city_name', 'main_city_name'].map((k) => `${field_prefix}${k}${field_postfix}`))) {
     const type = field_prefix == '' ? null : field_prefix;
     const { addressUuid, addressUri } = uriGenerator.address(recordId, type);
@@ -46,7 +46,7 @@ function mapAddress(recordId, record, field_prefix = '', field_postfix = '') {
   }
 }
 
-function mapLocation(recordId, record) {
+function mapLocation(recordId, record,errorLogger) {
   let statements = [];
 
   const { uuid: pointUuid, uri: pointUri } = uriGenerator.geometry(recordId);
@@ -83,13 +83,13 @@ function mapLocation(recordId, record) {
   }
 }
 
-function mapTouristicRegion(recordId, record, field = 'promotional_region') {
+function mapTouristicRegion(recordId, record,errorLogger, field = 'promotional_region') {
   if (record[field]) {
     const regionUri = touristicRegionMap[record[field]];
     if (regionUri) {
       return { uri: regionUri };
     } else {
-      console.error(`Cannot map ${field} value '${record[field]}' for record ${recordId}`);
+      errorLogger(`Cannot map ${field} value '${record[field]}' for record ${recordId}`);
     }
   }
   return null;

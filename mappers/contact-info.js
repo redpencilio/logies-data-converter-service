@@ -5,7 +5,7 @@ import { honorificPrefixes } from './codelists';
 import { ADMS, FOAF, LOCN, MU, ORG, RDF, SCHEMA, SKOS, VCARD } from './prefixes';
 import { mapAddress } from './address';
 
-function mapContactPoints(recordId, record) {
+function mapContactPoints(recordId, record, errorLogger) {
   const channels = {
     'phone1': { predicate: SCHEMA('telephone') },
     'phone2': { predicate: SCHEMA('telephone') },
@@ -40,7 +40,7 @@ function mapContactPoints(recordId, record) {
         }
         contactPoints.push({ uri, statements });
       } else {
-        console.error(`Cannot map invalid ${channel} URL '${value}' for record ${recordId}`);
+        errorLogger(`Cannot map invalid ${channel} URL '${value}' for record ${recordId}`);
       }
     }
   };
@@ -48,7 +48,7 @@ function mapContactPoints(recordId, record) {
   return contactPoints;
 }
 
-function mapProductOwner(recordId, record, postfix = '') {
+function mapProductOwner(recordId, record, errorLogger, postfix = '') {
   const orgId = record[`product_owner_contact_id${postfix}`];
   const { uuid, uri } = uriGenerator.organisation(orgId);
 
@@ -92,7 +92,7 @@ function mapProductOwner(recordId, record, postfix = '') {
     if (title) {
       contactStatements.push(new Statement(sym(contactPointUri), VCARD('honorific-prefix'), lit(title, 'nl')));
     } else {
-      console.error(`Cannot map product owner title value '${record[`product_owner_title${postfix}`]}' for record ${recordId}`);
+      errorLogger(`Cannot map product owner title value '${record[`product_owner_title${postfix}`]}' for record ${recordId}`);
     }
   }
   [
@@ -126,7 +126,7 @@ function mapProductOwner(recordId, record, postfix = '') {
   return { uri, statements };
 }
 
-function mapOfferingAgent(recordId, record, postfix = '') {
+function mapOfferingAgent(recordId, record, errorLogger, postfix = '') {
   const orgId = record[`agent_contact_id${postfix}`];
   const { uuid, uri } = uriGenerator.organisation(orgId);
 
@@ -170,7 +170,7 @@ function mapOfferingAgent(recordId, record, postfix = '') {
     if (title) {
       contactStatements.push(new Statement(sym(contactPointUri), VCARD('honorific-prefix'), lit(title, 'nl')));
     } else {
-      console.error(`Cannot map agent title value '${record[`agent_title${postfix}`]}' for record ${recordId}`);
+      errorLogger(`Cannot map agent title value '${record[`agent_title${postfix}`]}' for record ${recordId}`);
     }
   }
   [
