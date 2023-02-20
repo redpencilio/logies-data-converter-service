@@ -237,6 +237,10 @@ export default function mapLodgings(records, translations) {
       privateG.addAll(fodIdentifier.statements);
     }
 
+    if (record['partnerlabel_fod']) {
+      privateG.add(sym(lodgingUri), DCT('identifier'), lit(record['partnerlabel_fod']));
+    }
+
     if (record['agent_share_with_partners']) {
       const offeringAgent = mapOfferingAgent(recordId, record);
       if (offeringAgent) {
