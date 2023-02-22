@@ -29,13 +29,8 @@ class Task {
     this.translations = [];
   }
   static async logError(title,error){
-    var today = new Date();
-    var date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
-    var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
-    var dateTime = date+' '+time;
-    const otfl = `${OUTPUT_DIRECTORY}/errors.txt`;
-    //adding time at the beginig of the error and \n at the end?
-    let er = dateTime+ ', Task title: ' + title + ': ' + error +'\n';
+    const otfl = `${OUTPUT_DIRECTORY}/${title}-errors.txt`;
+    let er = error +'\n';
     await fs.appendFile(otfl,er);
 
   }
