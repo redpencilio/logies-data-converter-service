@@ -1,7 +1,6 @@
 import { CronJob } from 'cron';
 import { app, errorHandler } from 'mu';
 import fs from 'fs-extra';
-//import request from 'request';
 import loadSources from './data-sources';
 import publish from './publication';
 import { loadTasksFromConfig } from './task';
@@ -15,7 +14,6 @@ const cronFrequency = process.env.CRON_PATTERN || '0 0 2 * * *';
 new CronJob(cronFrequency, function() {
   console.log(`Data conversion triggered by cron job at ${new Date().toISOString()}`);
   fetch('http://localhost/conversion-tasks', {method: 'POST', body: null});
-  //request.post('http://localhost/conversion-tasks');
 }, null, true);
 
 app.post('/conversion-tasks', function(req, res, next) {
@@ -51,7 +49,7 @@ const convert = async function() {
 
     console.log(`\nFinished data mapping`);
   } catch(e) {
-    console.error('Something went wrong during the conversion.....');
+    console.error('Something went wrong during the conversion');
     console.error(e.message || e);
     console.trace(e);
   }
