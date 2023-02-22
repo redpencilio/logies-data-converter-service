@@ -28,8 +28,9 @@ class Task {
     this.mapper = mapper || function() { return ''; };
     this.translations = [];
   }
-  static async logError(title,error){
-    const otfl = `${OUTPUT_DIRECTORY}/${title}-errors.txt`;
+  
+  async logError(error){
+    const otfl = `${OUTPUT_DIRECTORY}/${this.title}-errors.txt`;
     let er = error +'\n';
     await fs.appendFile(otfl,er);
 
@@ -96,7 +97,7 @@ class Task {
     let i = 0;
     for (const batch of batches) {
       i++;
-      const [publicGraph, privateGraph] = this.mapper(batch, translations,er => Task.logError(this.title,er));
+      const [publicGraph, privateGraph] = this.mapper(batch, translations,er => this.logError(er));
 
       await fs.appendFile(this.publicOutputFile, publicGraph.toNT());
       await fs.appendFile(this.privateOutputFile, privateGraph.toNT());
