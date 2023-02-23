@@ -20,7 +20,7 @@ function mapMediaObjects(recordId, record, errorLogger, field = 'imagesurl') {
           ];
           mediaObjects.push({ uri, statements });
         } else {
-          errorLogger(`Cannot map invalid image URL '${value}' for record ${recordId}`);
+          errorLogger('invalid image URL', value, recordId);
         }
       }
     });

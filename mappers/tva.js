@@ -29,7 +29,7 @@ function mapTvaContact(recordId, record, errorLogger) {
     if (title) {
       statements.push(new Statement(sym(uri), VCARD('honorific-prefix'), lit(title, 'nl')));
     } else {
-      errorLogger(`Cannot map TVA contact title value '${record['tva_contact_title']}' for record ${recordId}`);
+      errorLogger('TVA contact title', record['tva_contact_title'], recordId);
     }
   }
   [

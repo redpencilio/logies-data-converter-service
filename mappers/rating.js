@@ -24,7 +24,7 @@ function mapRatings(recordId, record, errorLogger) {
         ];
         return { uri, statements };
       } else if (!Object.keys(comfortClasses).includes(value)) {
-        errorLogger(`Cannot map ${field} value '${value}' for record ${recordId}`);
+        errorLogger(field, value, recordId);
       }
       return null;
     }).filter((rating) => rating);

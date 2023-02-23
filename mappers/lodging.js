@@ -52,7 +52,7 @@ export default function mapLodgings(records, translations, errorLogger) {
       if (type) {
         publicG.add(sym(lodgingUri), RDF('type'), sym(type));
       } else {
-        errorLogger(`Cannot map information group value '${record['information_group']}' for record ${recordId}`);
+        errorLogger('information group', record['information_group'], recordId);
       }
     }
 
@@ -61,7 +61,7 @@ export default function mapLodgings(records, translations, errorLogger) {
       if (type) {
         publicG.add(sym(lodgingUri), SCHEMA('keywords'), sym(type));
       } else {
-        errorLogger(`Cannot map subtype value '${record['sub_type']}' for record ${recordId}`);
+        errorLogger('subtype', record['sub_type'], recordId);
       }
     }
 
@@ -70,7 +70,7 @@ export default function mapLodgings(records, translations, errorLogger) {
       if (type) {
         publicG.add(sym(lodgingUri), SCHEMA('keywords'), sym(type));
       } else if (type === undefined) {
-        errorLogger(`Cannot map location type value '${record['location_type']}' for record ${recordId}`);
+        errorLogger('location type', record['location_type'], recordId);
       }
     }
 

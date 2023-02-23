@@ -166,7 +166,7 @@ function mapAlternateExploitations(recordId, record, errorLogger) {
         return { uri };
       });
     } else {
-      errorLogger(`Cannot map product_type 'PROMO' without parent_product_ids for record ${recordId}`);
+      errorLogger('product_type', 'PROMO without parent_product_ids', recordId);
     }
   }
 

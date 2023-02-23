@@ -99,7 +99,7 @@ function mapTouristicRegion(recordId, record,errorLogger, field = 'promotional_r
     if (regionUri) {
       return { uri: regionUri };
     } else {
-      errorLogger(`Cannot map ${field} value '${record[field]}' for record ${recordId}`);
+      errorLogger(field, record[field], recordId);
     }
   }
   return null;

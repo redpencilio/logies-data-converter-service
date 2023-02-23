@@ -32,7 +32,7 @@ export default function mapTouristAttractions(records, translations, errorLogger
       if (type) {
         publicG.add(sym(attractionUri), RDF('type'), sym(type));
       } else {
-        errorLogger(`Cannot map information group value '${record['information_group']}' for record ${recordId}`);
+        errorLogger('information group', record['information_group'], recordId);
       }
     }
 
@@ -41,7 +41,7 @@ export default function mapTouristAttractions(records, translations, errorLogger
       if (type) {
         publicG.add(sym(attractionUri), DCT('type'), sym(type));
       } else {
-        errorLogger(`Cannot map discriminator value '${record['discriminator']}' for record ${recordId}`);
+        errorLogger('discriminator', record['discriminator'], recordId);
       }
     }
 
@@ -50,7 +50,7 @@ export default function mapTouristAttractions(records, translations, errorLogger
       if (type) {
         publicG.add(sym(attractionUri), SCHEMA('keywords'), sym(type));
       } else {
-        errorLogger(`Cannot map subtype value '${record['sub_type']}' for record ${recordId}`);
+        errorLogger('subtype', record['sub_type'], recordId);
       }
     }
 
@@ -59,7 +59,7 @@ export default function mapTouristAttractions(records, translations, errorLogger
       if (type) {
         publicG.add(sym(attractionUri), SCHEMA('keywords'), sym(type));
       } else if (type === undefined) {
-        errorLogger(`Cannot map location type value '${record['location_type']}' for record ${recordId}`);
+        errorLogger('location_type', record['location_type'], recordId);
       }
     }
 

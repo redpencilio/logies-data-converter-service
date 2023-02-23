@@ -40,7 +40,7 @@ function mapContactPoints(recordId, record, errorLogger) {
         }
         contactPoints.push({ uri, statements });
       } else {
-        errorLogger(`Cannot map invalid ${channel} URL '${value}' for record ${recordId}`);
+        errorLogger(channel, value, recordId);
       }
     }
   };
@@ -92,7 +92,7 @@ function mapProductOwner(recordId, record, errorLogger, postfix = '') {
     if (title) {
       contactStatements.push(new Statement(sym(contactPointUri), VCARD('honorific-prefix'), lit(title, 'nl')));
     } else {
-      errorLogger(`Cannot map product owner title value '${record[`product_owner_title${postfix}`]}' for record ${recordId}`);
+      errorLogger('product owner title', record[`product_owner_title${postfix}`], recordId);
     }
   }
   [
@@ -170,7 +170,7 @@ function mapOfferingAgent(recordId, record, errorLogger, postfix = '') {
     if (title) {
       contactStatements.push(new Statement(sym(contactPointUri), VCARD('honorific-prefix'), lit(title, 'nl')));
     } else {
-      errorLogger(`Cannot map agent title value '${record[`agent_title${postfix}`]}' for record ${recordId}`);
+      errorLogger('agent title' , record[`agent_title${postfix}`], recordId);
     }
   }
   [
