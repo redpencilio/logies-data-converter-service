@@ -26,6 +26,7 @@ class Task {
     this.title = title;
     this.query = query;
     this.mapper = mapper || function() { return ''; };
+    this.scopes = [];
     this.translations = [];
   }
 
@@ -49,12 +50,8 @@ class Task {
     return `${INPUT_DIRECTORY}/${this.title}.json`;
   }
 
-  get publicOutputFile() {
-    return `${OUTPUT_DIRECTORY}/${this.title}-public.ttl`;
-  }
-
-  get privateOutputFile() {
-    return `${OUTPUT_DIRECTORY}/${this.title}-private.ttl`;
+  outputFile(scope) {
+    return `${OUTPUT_DIRECTORY}/${this.title}-${scope}.ttl`;
   }
 
   async load(queryEngine) {
@@ -69,10 +66,6 @@ class Task {
 
   async execute() {
     console.log(`Executing task: ${this.title}`);
-
-    // Cleanup possible dirty state from previous run
-    await fs.remove(this.publicOutputFile);
-    await fs.remove(this.privateOutputFile);
 
     // Parse input files
     const input = await fs.readFile(this.inputFile, 'utf8');
@@ -91,10 +84,16 @@ class Task {
     let i = 0;
     for (const batch of batches) {
       i++;
-      const [publicGraph, privateGraph] = this.mapper(batch, translations);
-
-      await fs.appendFile(this.publicOutputFile, publicGraph.toNT());
-      await fs.appendFile(this.privateOutputFile, privateGraph.toNT());
+      const graphs = this.mapper(batch, translations);
+      this.scopes = Object.keys(graphs);
+      for (const scope of this.scopes) {
+        const graph = graphs[scope];
+        const outputFile = this.outputFile(scope);
+        if (i == 0) { // Cleanup possible dirty state from previous run
+          await fs.remove(outputFile);
+        }
+        await fs.appendFile(outputFile, graph.toNT());
+      }
 
       console.log(`Mapped ${Math.min(i * RECORDS_CHUNK_SIZE, records.length)}/${records.length} records`);
     }

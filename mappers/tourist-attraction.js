@@ -13,7 +13,6 @@ import { mapTranslation } from './translation';
 
 export default function mapTouristAttractions(records, translations) {
   const publicG = graph();
-  const privateG = graph();
 
   records.filter((record) => !record.deleted).forEach((record) => {
     const recordId = `${record['business_product_id']}`;
@@ -150,5 +149,5 @@ export default function mapTouristAttractions(records, translations) {
     }
   });
 
-  return [publicG, privateG];
+  return { public: publicG };
 }

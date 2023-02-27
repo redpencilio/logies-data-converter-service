@@ -3,7 +3,7 @@ import { querySudo as query, updateSudo as update } from '@lblod/mu-auth-sudo';
 import concat from 'concat';
 import fs from 'fs-extra';
 import request from 'request';
-import { DCAT_CATALOG, DCAT_DATASET_TYPE, PUBLIC_GRAPH, MAPPED_PUBLIC_GRAPH, MAPPED_PRIVATE_GRAPH, HOST_DOMAIN, OUTPUT_DIRECTORY, PUBLICATION_DIRECTORY, CACHE_CLEAR_PATH } from './config/env';
+import { DCAT_CATALOG, DCAT_DATASET_TYPE, PUBLIC_GRAPH, MAPPED_PUBLIC_GRAPH, MAPPED_PRIVATE_GRAPH_BASE, PRIVATE_GROUPS, HOST_DOMAIN, OUTPUT_DIRECTORY, PUBLICATION_DIRECTORY, CACHE_CLEAR_PATH } from './config/env';
 import uriGenerator from './helpers/uri-helpers';
 import { insertTriplesFromTtl } from './helpers/ttl-helpers';
 import { copyGraph, removeDiff, removeDuplicates, removeGraph } from './helpers/graph-helpers';
@@ -11,32 +11,40 @@ import { copyGraph, removeDiff, removeDuplicates, removeGraph } from './helpers/
 async function publish(tasks) {
   const publicationFileId = uuid();
   const tmpGraphId = uuid();
+
   const graphs = {
-    private: {
-      target: MAPPED_PRIVATE_GRAPH
-    },
     public: {
       target: MAPPED_PUBLIC_GRAPH
     }
   };
 
+  for (const group of PRIVATE_GROUPS) {
+    graphs[`private-${group}`] = {
+      target: `${MAPPED_PRIVATE_GRAPH_BASE}${group}`
+    };
+  }
+
   for (const scope of Object.keys(graphs)) {
     graphs[scope].file = `${OUTPUT_DIRECTORY}/${publicationFileId}-${scope}.ttl`;
 
     // Concatenating output of all tasks in 1 file
-    const taskOutputs = tasks.map((task) => task[`${scope}OutputFile`]);
+    const taskOutputs = tasks
+          .filter((task) => task.scopes.includes(scope))
+          .map((task) => task.outputFile(scope));
     await concat(taskOutputs, graphs[scope].file);
 
     // Insert mapped data in tmp graph
-    graphs[scope]['source'] = `http://mu.semte.ch/graphs/tmp/${tmpGraphId}/${scope}`;
+    graphs[scope].source = `http://mu.semte.ch/graphs/tmp/${tmpGraphId}/${scope}`;
     await insertTriplesFromTtl(graphs[scope].file, graphs[scope].source);
 
     // Remove tmp task output files
     Promise.all(taskOutputs.map(file => fs.remove(file)));
   }
 
-  // Remove all triples from private that are also public
-  await removeDuplicates(graphs.public.source, graphs.private.source, true);
+  for (const group of PRIVATE_GROUPS) {
+    // Remove all triples from a private graph that are also public
+    await removeDuplicates(graphs.public.source, graphs[`private-${group}`].source, true);
+  }
 
   for (const scope of Object.keys(graphs)) {
     // Cleanup already published data
@@ -46,24 +54,26 @@ async function publish(tasks) {
     // Publish new data
     await copyGraph(graphs[scope].source, graphs[scope].target, true);
 
-    // TODO for now sending clear-key request to mu-cache manually
-    // This should be handled via delta's once copyGraph works with mu-authorization
-    // instead of directly on the triplestore
-    console.log(`Send request to clear resources in mu-cache`);
-    await clearCache();
-
     // Remove tmp graph
     console.log(`Cleanup tmp graph ${graphs[scope].source}`);
     await removeGraph(graphs[scope].source, true);
   }
+
+  // TODO for now sending clear-key request to mu-cache manually
+  // This should be handled via delta's once copyGraph works with mu-authorization
+  // instead of directly on the triplestore
+  console.log(`Send request to clear resources in mu-cache`);
+  await clearCache();
 
   // Publish public data as dataset
   const publicationFile = `${PUBLICATION_DIRECTORY}/${publicationFileId}.ttl`;
   await fs.move(graphs.public.file, publicationFile);
   await publishDataset(publicationFileId);
 
-  // Remove concatenated private file
-  await fs.remove(graphs.private.file);
+  for (const group of PRIVATE_GROUPS) {
+    // Remove concatenated private file
+    await fs.remove(graphs[`private-${group}`].file);
+  }
 }
 
 async function publishDataset(physicalFileUuid) {
