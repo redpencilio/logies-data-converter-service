@@ -1,9 +1,9 @@
 {
   "name": "logies-data-converter-service",
-  "version": "1.0.0-alpha.3",
+  "version": "1.0.0-alpha.5",
   "description": "Microservice to transform the Logies data of Toerisme Vlaanderen to the semantic Logies model as described by the Logies Basis application profile",
   "dependencies": {
-    "@lblod/mu-auth-sudo": "^1.0.0-beta.4",
+    "@lblod/mu-auth-sudo": "^0.6.1",
     "concat": "^1.0.3",
     "cron": "^1.6.0",
     "fs-extra": "^7.0.1",

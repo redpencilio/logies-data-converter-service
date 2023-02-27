@@ -16,7 +16,7 @@ ORDER BY business_product_id
     enabled: true,
     title: 'accommodation_accessibility',
     query: `
-SELECT business_product_id, source_id, discriminator, information_group, product_type, parent_product_ids, changed_time, deleted, name_or_number, street, house_number, box_number, city_name, postal_code, main_city_name, promotional_region, statistical_region, x, y, lat, long, phone1, flickr, facebook, email, instagram, fax, twitter, phone2, phone3, website, location_type, green_key_labeled, accessibility_label, camper_label, link_to_accessibility_website, extra_care, food_allergy, allergies, visually_impaired, hearing_impaired, motor_impaired, comfort_class, status, tva_acknowledgement, last_status_change_date, notification_date, acknowledgement_date, number_of_camper_stands, number_of_camping_spots, number_of_short_term_camping_spots, number_of_touristic_camping_spots, number_of_long_term_camping_spots, number_of_hikers_huts, number_of_residence_units, number_of_residence_units_for_rental, number_of_units, maximum_capacity, file_number, tva_type, tva_capacity, tva_acknowledgement_date, tva_principal_acknowledgement_date, tva_revoke_date, tva_suspension_date, tva_suspension_removal_date, imagesurl, imagesurlmain, product_owner_company_identification, sub_type
+SELECT business_product_id, source_id, discriminator, information_group, product_type, parent_product_ids, changed_time, deleted, name_or_number, street, house_number, box_number, city_name, postal_code, main_city_name, province, promotional_region, statistical_region, x, y, lat, long, phone1, flickr, facebook, email, instagram, fax, twitter, phone2, phone3, website, location_type, green_key_labeled, accessibility_label, camper_label, link_to_accessibility_website, extra_care, food_allergy, allergies, visually_impaired, hearing_impaired, motor_impaired, comfort_class, status, tva_acknowledgement, last_status_change_date, notification_date, acknowledgement_date, number_of_camper_stands, number_of_camping_spots, number_of_short_term_camping_spots, number_of_touristic_camping_spots, number_of_long_term_camping_spots, number_of_hikers_huts, number_of_residence_units, number_of_residence_units_for_rental, number_of_units, maximum_capacity, file_number, tva_type, tva_capacity, tva_acknowledgement_date, tva_principal_acknowledgement_date, tva_revoke_date, tva_suspension_date, tva_suspension_removal_date, imagesurl, imagesurlmain, product_owner_company_identification, sub_type
 FROM od_accommodation_accessibility
 ORDER BY business_product_id
 `,
@@ -36,7 +36,7 @@ ORDER BY p.product_id
     enabled: true,
     title: 'activity_accessibility',
     query: `
-SELECT business_product_id, source_id, discriminator, information_group, changed_time, deleted, name, street, house_number, box_number, city_name, main_city_name, postal_code, promotional_region, statistical_region, x, y, lat, long, phone1, flickr, facebook, email, instagram, fax, twitter, phone2, phone3, website, sub_type, green_key_labeled, accessibility_label, link_to_accessibility_website, food_allergy, allergies, deaf, auditive, mental, motor, blind, visual, autism, imagesurl, imagesurlmain, product_owner_company_identification
+SELECT business_product_id, source_id, discriminator, information_group, changed_time, deleted, name, street, house_number, box_number, city_name, main_city_name, province, postal_code, promotional_region, statistical_region, x, y, lat, long, phone1, flickr, facebook, email, instagram, fax, twitter, phone2, phone3, website, sub_type, green_key_labeled, accessibility_label, link_to_accessibility_website, food_allergy, allergies, deaf, auditive, mental, motor, blind, visual, autism, imagesurl, imagesurlmain, product_owner_company_identification
 FROM od_activity_accessibility
 ORDER BY business_product_id
 `,
@@ -56,7 +56,7 @@ ORDER BY p.product_id
     enabled: true,
     title: 'poi_accessibility',
     query: `
-SELECT business_product_id, source_id, discriminator, information_group, changed_time, deleted, name, street, house_number, box_number, city_name, main_city_name, postal_code, promotional_region, statistical_region, x, y, lat, long, phone1, flickr, facebook, email, instagram, fax, twitter, phone2, phone3, website, sub_type, green_key_labeled, accessibility_label, link_to_accessibility_website, food_allergy, allergies, deaf, auditive, mental, motor, blind, visual, autism, imagesurl, imagesurlmain, product_owner_company_identification
+SELECT business_product_id, source_id, discriminator, information_group, changed_time, deleted, name, street, house_number, box_number, city_name, main_city_name, province, postal_code, promotional_region, statistical_region, x, y, lat, long, phone1, flickr, facebook, email, instagram, fax, twitter, phone2, phone3, website, sub_type, green_key_labeled, accessibility_label, link_to_accessibility_website, food_allergy, allergies, deaf, auditive, mental, motor, blind, visual, autism, imagesurl, imagesurlmain, product_owner_company_identification
 FROM od_poi_accessibility
 ORDER BY business_product_id
 `,
@@ -76,7 +76,7 @@ ORDER BY p.product_id
     enabled: true,
     title: 'service_accessibility',
     query: `
-SELECT business_product_id, source_id, discriminator, information_group, changed_time, deleted, street, house_number, box_number, city_name, postal_code, main_city_name, promotional_region, statistical_region, x, y, lat, long, phone1, flickr, facebook, email, instagram, fax, twitter, phone2, phone3, website, location_type, sub_type, green_key_labeled, accessibility_label, camper_label, link_to_accessibility_website, food_allergy, allergies, deaf, auditive, mental, motor, blind, visual, autism, imagesurl, imagesurlmain, product_owner_company_identification
+SELECT business_product_id, source_id, discriminator, information_group, changed_time, deleted, street, house_number, box_number, city_name, postal_code, main_city_name, province, promotional_region, statistical_region, x, y, lat, long, phone1, flickr, facebook, email, instagram, fax, twitter, phone2, phone3, website, location_type, sub_type, green_key_labeled, accessibility_label, camper_label, link_to_accessibility_website, food_allergy, allergies, deaf, auditive, mental, motor, blind, visual, autism, imagesurl, imagesurlmain, product_owner_company_identification
 FROM od_service_accessibility
 ORDER BY business_product_id
 `,

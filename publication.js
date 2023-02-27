@@ -2,7 +2,8 @@ import { uuid, sparqlEscapeUri, sparqlEscapeDateTime, sparqlEscapeInt } from 'mu
 import { querySudo as query, updateSudo as update } from '@lblod/mu-auth-sudo';
 import concat from 'concat';
 import fs from 'fs-extra';
-import { DCAT_CATALOG, DCAT_DATASET_TYPE, PUBLIC_GRAPH, MAPPED_PUBLIC_GRAPH, MAPPED_PRIVATE_GRAPH, HOST_DOMAIN, OUTPUT_DIRECTORY, PUBLICATION_DIRECTORY } from './config/env';
+import request from 'request';
+import { DCAT_CATALOG, DCAT_DATASET_TYPE, PUBLIC_GRAPH, MAPPED_PUBLIC_GRAPH, MAPPED_PRIVATE_GRAPH, HOST_DOMAIN, OUTPUT_DIRECTORY, PUBLICATION_DIRECTORY, CACHE_CLEAR_PATH } from './config/env';
 import uriGenerator from './helpers/uri-helpers';
 import { insertTriplesFromTtl } from './helpers/ttl-helpers';
 import { copyGraph, removeDiff, removeDuplicates, removeGraph } from './helpers/graph-helpers';
@@ -43,7 +44,13 @@ async function publish(tasks) {
     await removeDiff(graphs[scope].source, graphs[scope].target);
 
     // Publish new data
-    await copyGraph(graphs[scope].source, graphs[scope].target);
+    await copyGraph(graphs[scope].source, graphs[scope].target, true);
+
+    // TODO for now sending clear-key request to mu-cache manually
+    // This should be handled via delta's once copyGraph works with mu-authorization
+    // instead of directly on the triplestore
+    console.log(`Send request to clear resources in mu-cache`);
+    await clearCache();
 
     // Remove tmp graph
     console.log(`Cleanup tmp graph ${graphs[scope].source}`);
@@ -176,5 +183,18 @@ async function publishDataset(physicalFileUuid) {
       }
     }`);
 };
+
+async function clearCache() {
+  request.post({
+    url: CACHE_CLEAR_PATH,
+    method: 'POST',
+    headers: {
+      accept: '*/*',
+      'clear-keys': JSON.stringify([
+        { 'ld-resource': 'http://schema.org/TouristAttraction' }
+      ])
+    }
+  });
+}
 
 export default publish;
