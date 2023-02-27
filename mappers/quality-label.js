@@ -19,7 +19,7 @@ function mapAccessibilityLabel(recordId, record, errorLogger) {
 
       return { uri, statements };
     } else if (!Object.keys(accessibilityLabels).includes(record['accessibility_label'])) {
-      errorLogger('accessibility label', record['accessibility_label'], recordId);
+      errorLogger('accessibility_label', record['accessibility_label'], recordId);
     }
   }
   return null;

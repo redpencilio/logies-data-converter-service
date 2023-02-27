@@ -32,7 +32,7 @@ export default function mapTouristAttractions(records, translations, errorLogger
       if (type) {
         publicG.add(sym(attractionUri), RDF('type'), sym(type));
       } else {
-        errorLogger('information group', record['information_group'], recordId);
+        errorLogger('information_group', record['information_group'], recordId);
       }
     }
 
@@ -50,7 +50,7 @@ export default function mapTouristAttractions(records, translations, errorLogger
       if (type) {
         publicG.add(sym(attractionUri), SCHEMA('keywords'), sym(type));
       } else {
-        errorLogger('subtype', record['sub_type'], recordId);
+        errorLogger('sub_type', record['sub_type'], recordId);
       }
     }
 

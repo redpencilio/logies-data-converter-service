@@ -30,9 +30,9 @@ class Task {
   }
   
   async logError(fieldName, fieldValue, recordId){
-    const otfl = `${OUTPUT_DIRECTORY}/${this.title}-errors.txt`;
+    const outputFile  = `${OUTPUT_DIRECTORY}/${this.title}-errors.txt`;
     let er = `Cannot map ${fieldName} value '${fieldValue}' for record ${recordId}` +'\n';
-    await fs.appendFile(otfl,er);
+    await fs.appendFile(outputFile, er);
   }
   
   static parse(json) {
@@ -97,7 +97,7 @@ class Task {
     let i = 0;
     for (const batch of batches) {
       i++;
-      const [publicGraph, privateGraph] = this.mapper(batch, translations,(fn,fv,ri) => this.logError(fn,fv,ri));
+      const [publicGraph, privateGraph] = this.mapper(batch, translations,(fn,fv,ri) => this.logError(fn, fv, ri));
 
       await fs.appendFile(this.publicOutputFile, publicGraph.toNT());
       await fs.appendFile(this.privateOutputFile, privateGraph.toNT());
