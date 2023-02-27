@@ -28,7 +28,13 @@ class Task {
     this.mapper = mapper || function() { return ''; };
     this.translations = [];
   }
-
+  
+  async logError(fieldName, fieldValue, recordId){
+    const outputFile = `${OUTPUT_DIRECTORY}/${this.title}-errors.txt`;
+    let er = `Cannot map ${fieldName} value '${fieldValue}' for record ${recordId}` +'\n';
+    await fs.appendFile(outputFile, er);
+  }
+  
   static parse(json) {
     const { title, query, mapper, translations } = json;
     const task = new Task(title, query, mapper);
@@ -91,7 +97,7 @@ class Task {
     let i = 0;
     for (const batch of batches) {
       i++;
-      const [publicGraph, privateGraph] = this.mapper(batch, translations);
+      const [publicGraph, privateGraph] = this.mapper(batch, translations, (fn,fv,ri) => this.logError(fn, fv, ri));
 
       await fs.appendFile(this.publicOutputFile, publicGraph.toNT());
       await fs.appendFile(this.privateOutputFile, privateGraph.toNT());
