@@ -185,8 +185,8 @@ async function publishDataset(physicalFileUuid) {
 };
 
 async function clearCache() {
-  fetch(CACHE_CLEAR_PATH, 
-    {method:'post', 
+  fetch(CACHE_CLEAR_PATH, {
+    method:'post', 
     headers: {
       accept: '*/*',
       'clear-keys': JSON.stringify([
