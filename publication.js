@@ -1,6 +1,5 @@
 import { uuid, sparqlEscapeUri, sparqlEscapeDateTime, sparqlEscapeInt } from 'mu';
 import { querySudo as query, updateSudo as update } from '@lblod/mu-auth-sudo';
-import concat from 'concat';
 import fs from 'fs-extra';
 import request from 'request';
 import { DCAT_CATALOG, DCAT_DATASET_TYPE, PUBLIC_GRAPH, MAPPED_PUBLIC_GRAPH, MAPPED_PRIVATE_GRAPH_BASE, PRIVATE_GROUPS, HOST_DOMAIN, OUTPUT_DIRECTORY, PUBLICATION_DIRECTORY, CACHE_CLEAR_PATH } from './config/env';
@@ -31,7 +30,10 @@ async function publish(tasks) {
     const taskOutputs = tasks
           .filter((task) => task.scopes.includes(scope))
           .map((task) => task.outputFile(scope));
-    await concat(taskOutputs, graphs[scope].file);
+    for (const taskOutput of taskOutputs) {
+      const output = await fs.readFile(taskOutput, 'utf8');
+      await fs.appendFile(graphs[scope].file, output, 'utf8');
+    }
 
     // Insert mapped data in tmp graph
     graphs[scope].source = `http://mu.semte.ch/graphs/tmp/${tmpGraphId}/${scope}`;
