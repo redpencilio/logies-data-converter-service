@@ -3,7 +3,7 @@ import uriGenerator from '../helpers/uri-helpers';
 import { isValidURL } from '../helpers';
 import { MU, RDF, SCHEMA } from './prefixes';
 
-function mapMediaObjects(recordId, record, field = 'imagesurl') {
+function mapMediaObjects(recordId, record, errorLogger, field = 'imagesurl') {
   const mediaObjects = [];
 
   if (record[field]) {
@@ -20,7 +20,7 @@ function mapMediaObjects(recordId, record, field = 'imagesurl') {
           ];
           mediaObjects.push({ uri, statements });
         } else {
-          console.error(`Cannot map invalid image URL '${value}' for record ${recordId}`);
+          errorLogger('invalid image URL', value, recordId);
         }
       }
     });
@@ -29,7 +29,7 @@ function mapMediaObjects(recordId, record, field = 'imagesurl') {
   return mediaObjects;
 }
 
-function mapMainMediaObjects(recordId, record) {
+function mapMainMediaObjects(recordId, record ,errorLogger) {
   return mapMediaObjects(recordId, record, 'imagesurlmain');
 }
 

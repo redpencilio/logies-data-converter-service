@@ -5,7 +5,7 @@ import { honorificPrefixes } from './codelists';
 import { ADMS, FOAF, LOCN, MU, ORG, RDF, SCHEMA, SKOS, VCARD } from './prefixes';
 import { mapAddress } from './address';
 
-function mapTvaContact(recordId, record) {
+function mapTvaContact(recordId, record, errorLogger) {
   const contactId = record['tva_contact_contact_id'];
   const { uuid, uri } = uriGenerator.contactPoint(contactId, 'tva');
 
@@ -29,7 +29,7 @@ function mapTvaContact(recordId, record) {
     if (title) {
       statements.push(new Statement(sym(uri), VCARD('honorific-prefix'), lit(title, 'nl')));
     } else {
-      console.error(`Cannot map TVA contact title value '${record['tva_contact_title']}' for record ${recordId}`);
+      errorLogger('tva_contact_title', record['tva_contact_title'], recordId);
     }
   }
   [
@@ -44,7 +44,7 @@ function mapTvaContact(recordId, record) {
     }
   });
 
-  const address = mapAddress(contactId, record, 'tva_contact_');
+  const address = mapAddress(contactId, record, errorLogger, 'tva_contact_');
   if (address) {
     statements = [
       new Statement(sym(uri), LOCN('address'), sym(address.uri)),
@@ -103,7 +103,7 @@ function mapTvaOrganisation(recordId, record) {
     }
   });
 
-  const address = mapAddress(orgId, record, 'tva_organization_');
+  const address = mapAddress(orgId, record, errorLogger, 'tva_organization_');
   if (address) {
     contactStatements = [
       new Statement(sym(contactPointUri), LOCN('address'), sym(address.uri)),
