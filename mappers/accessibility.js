@@ -41,7 +41,7 @@ const properties = [
   { key: 'motor_desc', predicate: TVL('informationForMotoricalHandicap') },
   { key: 'motor_impaired', predicate: TVL('informationForMotoricalHandicap') },
   { key: 'visual_desc', predicate: TVL('informationForVisualHandicap') },
-  { key: 'entrance', predicate: TVL('infromationAboutEntrances') },
+  { key: 'entrance', predicate: TVL('informationAboutEntrances') },
   { key: 'extra_care_description', predicate: TVL('informationAboutExtraCare') },
   { key: 'allergies', predicate: TVL('supportForAllergies'), datatype: XSD('boolean') },
   { key: 'auditive', predicate: TVL('supportForAuditiveHandicap'), datatype: XSD('boolean') },

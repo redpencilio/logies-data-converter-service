@@ -102,12 +102,14 @@ export default function mapLodgings(records, translations) {
 
     const address = mapAddress(recordId, record);
     if (address) {
+      publicG.add(sym(lodgingUri), LOCN('address'), sym(address.uri));
       publicG.add(sym(lodgingUri), LOGIES('onthaalAdres'), sym(address.uri));
       publicG.addAll(address.statements);
     }
 
     const location = mapLocation(recordId, record);
     if (location) {
+      publicG.add(sym(lodgingUri), LOCN('location'), sym(address.uri));
       publicG.add(sym(lodgingUri), LOGIES('onthaalLocatie'), sym(location.uri));
       publicG.addAll(location.statements);
     }

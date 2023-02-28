@@ -64,6 +64,7 @@ function mapProductOwner(recordId, record, postfix = '') {
   if (record[`product_owner_company_identification${postfix}`]) {
     const { uuid: orgIdUuid, uri: orgIdUri } = uriGenerator.organisationIdentifier(orgId);
     statements = [
+      new Statement(sym(uri), ADMS('identifier'), sym(orgIdUri)),
       new Statement(sym(orgIdUri), RDF('type'), ADMS('Identifier')),
       new Statement(sym(orgIdUri), MU('uuid'), lit(orgIdUuid)),
       new Statement(sym(orgIdUri), SKOS('notation'), lit(record[`product_owner_company_identification${postfix}`])),
@@ -116,6 +117,7 @@ function mapProductOwner(recordId, record, postfix = '') {
   }
 
   if (contactStatements.length) {
+    contactStatements.push(new Statement(sym(uri), SCHEMA('contactPoint'), sym(contactPointUri)));
     contactStatements.push(new Statement(sym(contactPointUri), RDF('type'), SCHEMA('ContactPoint')));
     contactStatements.push(new Statement(sym(contactPointUri), MU('uuid'), lit(contactPointUuid)));
     statements = [
@@ -142,6 +144,7 @@ function mapOfferingAgent(recordId, record, postfix = '') {
   if (record[`agent_company_identification${postfix}`]) {
     const { uuid: orgIdUuid, uri: orgIdUri } = uriGenerator.organisationIdentifier(orgId);
     statements = [
+      new Statement(sym(uri), ADMS('identifier'), sym(orgIdUri)),
       new Statement(sym(orgIdUri), RDF('type'), ADMS('Identifier')),
       new Statement(sym(orgIdUri), MU('uuid'), lit(orgIdUuid)),
       new Statement(sym(orgIdUri), SKOS('notation'), lit(record[`agent_company_identification${postfix}`])),
@@ -194,6 +197,7 @@ function mapOfferingAgent(recordId, record, postfix = '') {
   }
 
   if (contactStatements.length) {
+    contactStatements.push(new Statement(sym(uri), SCHEMA('contactPoint'), sym(contactPointUri)));
     contactStatements.push(new Statement(sym(contactPointUri), RDF('type'), SCHEMA('ContactPoint')));
     contactStatements.push(new Statement(sym(contactPointUri), MU('uuid'), lit(contactPointUuid)));
     statements = [
