@@ -73,7 +73,7 @@ export default function mapTouristAttractions(records, translations, errorLogger
       // Invalid or no changed_time
     }
 
-    const address = mapAddress(recordId, record,errorLogger);
+    const address = mapAddress(recordId, record, errorLogger);
     if (address) {
       publicG.add(sym(attractionUri), LOCN('address'), sym(address.uri));
       publicG.addAll(address.statements);

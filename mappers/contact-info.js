@@ -108,7 +108,7 @@ function mapProductOwner(recordId, record, errorLogger, postfix = '') {
     }
   });
 
-  const address = mapAddress(orgId, record, 'product_owner_', postfix);
+  const address = mapAddress(orgId, record, errorLogger, 'product_owner_', postfix);
   if (address) {
     contactStatements = [
       new Statement(sym(contactPointUri), LOCN('address'), sym(address.uri)),
@@ -188,7 +188,7 @@ function mapOfferingAgent(recordId, record, errorLogger, postfix = '') {
     }
   });
 
-  const address = mapAddress(orgId, record, 'agent_', postfix);
+  const address = mapAddress(orgId, record, errorLogger, 'agent_', postfix);
   if (address) {
     contactStatements = [
       new Statement(sym(contactPointUri), LOCN('address'), sym(address.uri)),

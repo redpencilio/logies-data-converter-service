@@ -46,7 +46,7 @@ function mapAddress(recordId, record, errorLogger, field_prefix = '', field_post
       if (province) {
         statements.push(new Statement(sym(addressUri), LOCN('adminUnitL2'), lit(province, 'nl')));
       } else {
-        console.error(`Cannot map ${field} value '${record[field]}' for record ${recordId}`);
+        errorLogger(field, record[field], recordId);
       }
     }
 
@@ -56,7 +56,7 @@ function mapAddress(recordId, record, errorLogger, field_prefix = '', field_post
   }
 }
 
-function mapLocation(recordId, record,errorLogger) {
+function mapLocation(recordId, record, errorLogger) {
   let statements = [];
 
   const { uuid: pointUuid, uri: pointUri } = uriGenerator.geometry(recordId);
