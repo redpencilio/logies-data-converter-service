@@ -354,6 +354,8 @@ const graphScopes = function(province, region) {
     scopes.push('private-province-west-flanders');
   } else if (province == 'EastFlanders' || ['scheldeland', 'leiestreek'].includes(region)) {
     scopes.push('private-province-east-flanders');
+  } else {
+    // console.error(`No graphs found for province ${province} and region ${region}`);
   }
 
   return scopes;
