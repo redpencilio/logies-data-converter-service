@@ -66,7 +66,7 @@ function mapTvaContact(recordId, record, errorLogger) {
   }
 }
 
-function mapTvaOrganisation(recordId, record) {
+function mapTvaOrganisation(recordId, record, errorLogger) {
   const orgId = record['tva_organization_contact_id'];
   const { uuid, uri } = uriGenerator.organisation(orgId);
 

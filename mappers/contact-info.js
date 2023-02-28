@@ -82,7 +82,7 @@ function mapProductOwner(recordId, record, errorLogger, postfix = '') {
     { property: `product_owner_website${postfix}`, predicate: FOAF('page') },
   ].forEach((prop) => {
     if (record[prop.property]) {
-      const url = normalizeUrl(record[prop.property], prop.property);
+      const url = normalizeUrl(record[prop.property].trim(), prop.property);
       if (isValidURL(url)) {
         contactStatements.push(new Statement(sym(contactPointUri), prop.predicate, sym(url)));
       }
@@ -162,7 +162,7 @@ function mapOfferingAgent(recordId, record, errorLogger, postfix = '') {
     { property: `agent_website${postfix}`, predicate: FOAF('page') },
   ].forEach((prop) => {
     if (record[prop.property]) {
-      const url = normalizeUrl(record[prop.property], prop.property);
+      const url = normalizeUrl(record[prop.property].trim(), prop.property);
       if (isValidURL(url)) {
         contactStatements.push(new Statement(sym(contactPointUri), prop.predicate, sym(url)));
       }
