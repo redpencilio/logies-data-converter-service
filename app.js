@@ -1,11 +1,11 @@
 import { CronJob } from 'cron';
 import { app, errorHandler } from 'mu';
 import fs from 'fs-extra';
-import request from 'request';
 import loadSources from './data-sources';
 import publish from './publication';
 import { loadTasksFromConfig } from './task';
 import { RUN_ON_STARTUP, LOAD_EXTERNAL_SQL_SOURCES } from './config/env';
+import fetch from 'node-fetch';
 
 const tasks = loadTasksFromConfig();
 
@@ -13,7 +13,7 @@ const tasks = loadTasksFromConfig();
 const cronFrequency = process.env.CRON_PATTERN || '0 0 2 * * *';
 new CronJob(cronFrequency, function() {
   console.log(`Data conversion triggered by cron job at ${new Date().toISOString()}`);
-  request.post('http://localhost/conversion-tasks');
+  fetch('http://localhost/conversion-tasks', {method: 'POST', body: null});
 }, null, true);
 
 app.post('/conversion-tasks', function(req, res, next) {
@@ -25,7 +25,6 @@ app.use(errorHandler);
 
 
 // Helpers
-
 const convert = async function() {
   try {
     if (LOAD_EXTERNAL_SQL_SOURCES) {

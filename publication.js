@@ -1,8 +1,8 @@
 import { uuid, sparqlEscapeUri, sparqlEscapeDateTime, sparqlEscapeInt } from 'mu';
 import { querySudo as query, updateSudo as update } from '@lblod/mu-auth-sudo';
 import fs from 'fs-extra';
-import request from 'request';
-import { DCAT_CATALOG, DCAT_DATASET_TYPE, PUBLIC_GRAPH, MAPPED_PUBLIC_GRAPH, MAPPED_PRIVATE_GRAPH_BASE, PRIVATE_GROUPS, HOST_DOMAIN, OUTPUT_DIRECTORY, PUBLICATION_DIRECTORY, CACHE_CLEAR_PATH } from './config/env';
+import fetch from 'node-fetch';
+import { DCAT_CATALOG, DCAT_DATASET_TYPE, PUBLIC_GRAPH, MAPPED_PUBLIC_GRAPH, MAPPED_PRIVATE_GRAPH_BASE, HOST_DOMAIN, OUTPUT_DIRECTORY, PUBLICATION_DIRECTORY, CACHE_CLEAR_PATH, PRIVATE_GROUPS } from './config/env';
 import uriGenerator from './helpers/uri-helpers';
 import { insertTriplesFromTtl } from './helpers/ttl-helpers';
 import { copyGraph, removeDiff, removeDuplicates, removeGraph } from './helpers/graph-helpers';
@@ -197,9 +197,8 @@ async function publishDataset(physicalFileUuid) {
 };
 
 async function clearCache() {
-  request.post({
-    url: CACHE_CLEAR_PATH,
-    method: 'POST',
+  fetch(CACHE_CLEAR_PATH, {
+    method: 'post',
     headers: {
       accept: '*/*',
       'clear-keys': JSON.stringify([
