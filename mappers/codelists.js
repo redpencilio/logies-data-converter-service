@@ -341,6 +341,26 @@ const provinces = {
   Limburg: 'Limburg'
 };
 
+const graphScopes = function(province, region) {
+  const scopes = [];
+
+  if (province == 'FlemishBrabant') {
+    scopes.push('private-province-flemish-brabant');
+  } else if (province == 'Limburg') {
+    scopes.push('private-province-limburg');
+  } else if (province == 'Antwerp' || region == 'scheldeland') {
+    scopes.push('private-province-antwerp');
+  } else if (province == 'WestFlanders' || region == 'leiestreek') {
+    scopes.push('private-province-west-flanders');
+  } else if (province == 'EastFlanders' || ['scheldeland', 'leiestreek'].includes(region)) {
+    scopes.push('private-province-east-flanders');
+  } else {
+    // console.error(`No graphs found for province ${province} and region ${region}`);
+  }
+
+  return scopes;
+};
+
 export {
   tvlOrganizationUri,
   goodplanetOrganizationUri,
@@ -356,5 +376,6 @@ export {
   comfortClasses,
   accessibilityLabels,
   honorificPrefixes,
-  provinces
+  provinces,
+  graphScopes,
 }

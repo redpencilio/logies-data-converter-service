@@ -4,7 +4,7 @@ import { litDateTime } from '../helpers';
 import { tvlOrganizationUri, registrationStatusMap, registrationTypeMap, registrationCategoryMap } from './codelists';
 import { ADMS, DCT, LOGIES, MU, PROV, RDF, SKOS, TVL } from './prefixes';
 
-function mapRegistrations(recordId, record) {
+function mapRegistrations(recordId, record, errorLogger) {
   const registrations = [];
 
   const isLogiesDecreet = ['ACKNOWLEDGED', 'LICENSED', 'NOTIFIED', 'STOPPED', 'LICENSE_REVOKED'].includes(record['status']);
@@ -156,7 +156,7 @@ function mapTVADecreeRegistration(recordId, record) {
   return { uri, statements };
 }
 
-function mapAlternateExploitations(recordId, record) {
+function mapAlternateExploitations(recordId, record, errorLogger) {
   if (record['product_type'] == 'PROMO') {
     const parents = (record['parent_product_ids'] || '').split(',');
 
@@ -166,7 +166,7 @@ function mapAlternateExploitations(recordId, record) {
         return { uri };
       });
     } else {
-      console.error(`Cannot map product_type 'PROMO' without parent_product_ids for record ${recordId}`);
+      errorLogger('product_type', 'PROMO without parent_product_ids', recordId);
     }
   }
 

@@ -1,5 +1,6 @@
 const MAPPED_PUBLIC_GRAPH = 'http://mu.semte.ch/graphs/mapped/public';
-const MAPPED_PRIVATE_GRAPH = 'http://mu.semte.ch/graphs/mapped/private';
+const MAPPED_PRIVATE_GRAPH_BASE = 'http://mu.semte.ch/graphs/mapped/private/';
+const PRIVATE_GROUPS = ['fod-economy', 'tva', 'province-flemish-brabant', 'province-east-flanders', 'province-west-flanders', 'province-antwerp', 'province-limburg'];
 const PUBLIC_GRAPH = 'http://mu.semte.ch/graphs/public';
 const HOST_DOMAIN = 'https://linked.toerismevlaanderen.be';
 
@@ -38,9 +39,10 @@ function isTruthy(value) {
 
 export {
   MAPPED_PUBLIC_GRAPH,
-  MAPPED_PRIVATE_GRAPH,
+  MAPPED_PRIVATE_GRAPH_BASE,
   PUBLIC_GRAPH,
   HOST_DOMAIN,
+  PRIVATE_GROUPS,
   DCAT_CATALOG,
   DCAT_DATASET_TYPE,
   RUN_ON_STARTUP,
