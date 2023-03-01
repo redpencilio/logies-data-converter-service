@@ -109,7 +109,7 @@ export default function mapLodgings(records, translations, errorLogger) {
 
     const location = mapLocation(recordId, record, errorLogger);
     if (location) {
-      publicG.add(sym(lodgingUri), LOCN('location'), sym(address.uri));
+      publicG.add(sym(lodgingUri), LOCN('location'), sym(location.uri));
       publicG.add(sym(lodgingUri), LOGIES('onthaalLocatie'), sym(location.uri));
       publicG.addAll(location.statements);
     }
