@@ -1,6 +1,7 @@
 import sha256 from 'js-sha256';
 import { uuid, sparqlEscapeUri, sparqlEscapeString } from 'mu';
 import { querySudo as query, updateSudo as update } from '@lblod/mu-auth-sudo';
+import queue from 'queue';
 import { BATCH_SIZE } from '../config/env';
 
 const URI_MAPPING_GRAPH = process.env.URI_MAPPING_GRAPH || 'http://mu.semte.ch/graphs/uri-mapping';
@@ -8,6 +9,12 @@ const URI_MAPPING_GRAPH = process.env.URI_MAPPING_GRAPH || 'http://mu.semte.ch/g
 class UriGenerator {
   constructor() {
     this.uriMap = {};
+    this.queue = queue({
+      concurrency: 1,
+      autostart: true,
+      results: [],
+    });
+    this.queue.start();
   }
 
   async init() {
@@ -27,6 +34,8 @@ class UriGenerator {
         };
       };
     }
+
+    console.log(`URI generator has been initialized`);
   }
 
   lookup(id, cfg) {
@@ -35,7 +44,7 @@ class UriGenerator {
       const muId = uuid();
       const uri = `${cfg.baseUri}${muId}`;
       this.uriMap[id] = { uri, uuid };
-      this.save(id, muId, uri);
+      this.queue.push(() => this.save(id, muId, uri));
       return { uri, uuid: muId };
     } else {
       return result;
@@ -52,7 +61,7 @@ class UriGenerator {
     `);
 
     const count = parseInt(countResult.results.bindings[0].count.value);
-    console.log(`Found ${count} mapping triples in graph <${URI_MAPPING_GRAPH}>. Going to load in memory.`);
+    console.log(`Found ${count} mapping triples in graph <${URI_MAPPING_GRAPH}>. Going to load them in memory.`);
     const limit = BATCH_SIZE;
     const totalBatches = Math.ceil(count / limit);
 
