@@ -43,7 +43,7 @@ class UriGenerator {
     if (!result) {
       const muId = uuid();
       const uri = `${cfg.baseUri}${muId}`;
-      this.uriMap[id] = { uri, uuid };
+      this.uriMap[id] = { uri, uuid: muId };
       this.queue.push(() => this.save(id, muId, uri));
       return { uri, uuid: muId };
     } else {
@@ -72,16 +72,17 @@ class UriGenerator {
       SELECT ?s ?tvlId ?muId WHERE {
         SELECT ?s ?tvlId ?muId WHERE {
           GRAPH ${sparqlEscapeUri(URI_MAPPING_GRAPH)} {
-            ?s ext:hasUuid ?muUid ; ext:hasTvlId ?tvlId .
+            ?s ext:hasUuid ?muId ; ext:hasTvlId ?tvlId .
           }
         } LIMIT ${limit} OFFSET ${currentBatch * limit}
       }`);
       currentBatch++;
 
       for (let binding of result.results.bindings) {
-        const uri = binding['s'];
-        const tvlId = binding['tvlId'];
-        this.uriMap[tvlId] = { uri, uuid: binding['muId'] };
+        const uri = binding['s'].value;
+        const tvlId = binding['tvlId'].value;
+        const muId = binding['muId'].value;
+        this.uriMap[tvlId] = { uri, uuid: muId };
       }
     }
   }
