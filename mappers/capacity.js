@@ -34,6 +34,31 @@ function mapCapacities(recordId, record) {
   return capacities;
 }
 
+function mapPropertyValues(recordId, record) {
+  const propertyValues = [];
+  [
+    'tva_capacity_description'
+  ].forEach((field) => {
+    if (record[field]) {
+      const value = `${record[field]}`;
+
+      const unit = nonStandardizedUnitMap[field];
+      const { uuid, uri } = uriGenerator.quantitativeValue(recordId, unit);
+
+      const statements = [
+        new Statement(sym(uri), RDF('type'), SCHEMA('PropertyValue')),
+        new Statement(sym(uri), MU('uuid'), lit(uuid)),
+        new Statement(sym(uri), SCHEMA('value'), lit(value)),
+        new Statement(sym(uri), SCHEMA('unitText'), lit(unit, 'nl')),
+      ];
+
+      propertyValues.push({ uri, statements });
+    }
+  });
+  return propertyValues;
+}
+
 export {
-  mapCapacities
+  mapCapacities,
+  mapPropertyValues
 }

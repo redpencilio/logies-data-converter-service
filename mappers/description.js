@@ -18,7 +18,7 @@ function mapAccessibilityDescription(recordId, record, lang) {
 
 function mapProductDescription(recordId, record, lang, field) {
   if (record[field]) {
-    const { uuid, uri } = uriGenerator.description(recordId);
+    const { uuid, uri } = uriGenerator.description(recordId, field);
     const statements = [
       new Statement(sym(uri), RDF('type'), LOGIES('Beschrijving')),
       new Statement(sym(uri), MU('uuid'), lit(uuid)),

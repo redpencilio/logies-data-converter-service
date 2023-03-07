@@ -1,12 +1,13 @@
 import { CronJob } from 'cron';
 import { app, errorHandler } from 'mu';
 import fs from 'fs-extra';
-import request from 'request';
 import loadSources from './data-sources';
 import publish from './publication';
 import { loadTasksFromConfig } from './task';
 import { waitForDatabase } from './helpers/database-helpers';
 import uriGenerator from './helpers/uri-helpers';
+import { RUN_ON_STARTUP, LOAD_EXTERNAL_SQL_SOURCES } from './config/env';
+import fetch from 'node-fetch';
 
 const tasks = loadTasksFromConfig();
 waitForDatabase(() => {
@@ -15,35 +16,36 @@ waitForDatabase(() => {
     const cronFrequency = process.env.CRON_PATTERN || '0 0 2 * * *';
     new CronJob(cronFrequency, function() {
       console.log(`Data conversion triggered by cron job at ${new Date().toISOString()}`);
-      request.post('http://localhost/conversion-tasks');
+      fetch('http://localhost/conversion-tasks', {method: 'POST', body: null});
     }, null, true);
 
     app.post('/conversion-tasks', function(req, res, next) {
       convert(); // don't await the conversion
       return res.status(202).send();
     });
-
-    app.use(errorHandler);
-
-    // Run conversion on startup
-    convert(uriGenerator);
   });
+
+  app.use(errorHandler);
+
+  if (RUN_ON_STARTUP) {
+    convert(uriGenerator);
+  }
 });
 
 // Helpers
-
-const convert = async function() {
+async function convert() {
   try {
-    await loadSources(tasks);
+    if (LOAD_EXTERNAL_SQL_SOURCES) {
+      await loadSources(tasks);
+    }
 
+    const results = [];
     console.log('Start mapping');
-    const results = await Promise.all(
-      tasks.map(async function(task) {
-        const result = await task.execute();
-        console.log(`Finished mapping ${result.title}`);
-        return result;
-      })
-    );
+    for (const task of tasks) {
+      const result = await task.execute();
+      console.log(`Finished mapping ${result.title} (${result.count} records)`);
+      results.push(result);
+    }
 
     console.log('\nMapping summary:');
     results.forEach((result) => {
@@ -52,6 +54,8 @@ const convert = async function() {
 
     console.log('\nPublishing generated data');
     await publish(tasks);
+
+    console.log(`\nFinished data mapping`);
   } catch(e) {
     console.error('Something went wrong during the conversion');
     console.error(e.message || e);

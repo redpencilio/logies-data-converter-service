@@ -4,7 +4,7 @@ import { litDateTime } from '../helpers';
 import { tvlOrganizationUri, registrationStatusMap, registrationTypeMap, registrationCategoryMap } from './codelists';
 import { ADMS, DCT, LOGIES, MU, PROV, RDF, SKOS, TVL } from './prefixes';
 
-function mapRegistrations(recordId, record) {
+function mapRegistrations(recordId, record, errorLogger) {
   const registrations = [];
 
   const isLogiesDecreet = ['ACKNOWLEDGED', 'LICENSED', 'NOTIFIED', 'STOPPED', 'LICENSE_REVOKED'].includes(record['status']);
@@ -140,9 +140,9 @@ function mapTVADecreeRegistration(recordId, record) {
     ];
   }
 
-  if (record['tva_revoke_date'] || record['tva_suspendion_date']) {
+  if (record['tva_revoke_date'] || record['tva_suspension_date']) {
     const { invalidationUri, invalidationUuid } = uriGenerator.invalidation(recordId, decree);
-    let date = record['tva_revoke_date'] || record['tva_suspendion_date']; // Revocation date has preference over suspendion date wrt invalidation date
+    let date = record['tva_revoke_date'] || record['tva_suspension_date']; // Revocation date has preference over suspendion date wrt invalidation date
     date = Array.isArray(date) ? new Date(date[0]) : new Date(date);
     statements = [
       new Statement(sym(uri), PROV('qualifiedInvalidation'), sym(invalidationUri)),
@@ -156,7 +156,7 @@ function mapTVADecreeRegistration(recordId, record) {
   return { uri, statements };
 }
 
-function mapAlternateExploitations(recordId, record) {
+function mapAlternateExploitations(recordId, record, errorLogger) {
   if (record['product_type'] == 'PROMO') {
     const parents = (record['parent_product_ids'] || '').split(',');
 
@@ -166,7 +166,7 @@ function mapAlternateExploitations(recordId, record) {
         return { uri };
       });
     } else {
-      console.error(`Cannot map product_type 'PROMO' without parent_product_ids for record ${recordId}`);
+      errorLogger('product_type', 'PROMO without parent_product_ids', recordId);
     }
   }
 

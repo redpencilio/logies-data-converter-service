@@ -119,6 +119,14 @@ const config = {
     baseUri: 'http://linked.toerismevlaanderen.be/id/identifiers/',
     tvlId(id) { return `778d140d-e0c4-4dc5-a9e5-972e417d1c01-${id}`; }
   },
+  tvaIdentifier: {
+    baseUri: 'http://linked.toerismevlaanderen.be/id/identifiers/',
+    tvlId(id) { return `4bd10a46-3a75-4a27-b6fb-49daa951687d-${id}`; }
+  },
+  fodIdentifier: {
+    baseUri: 'http://linked.toerismevlaanderen.be/id/identifiers/',
+    tvlId(id) { return `4d96366f-5477-4b36-8258-8d40f4851bf9-${id}`; }
+  },
   organisationIdentifier: {
     baseUri: 'http://linked.toerismevlaanderen.be/id/identifiers/',
     tvlId(id) { return `68ce3d98-3ed0-49e5-bfe3-578ad027167e-${id}`; }
@@ -137,11 +145,19 @@ const config = {
   },
   address: {
     baseUri: 'http://linked.toerismevlaanderen.be/id/addresses/',
-    tvlId(id) { return `9ebd0cea-10b2-4a86-acd0-93fd479da055-${id}`; }
+    tvlId(id, type) {
+      return type
+        ? sha256(`9ebd0cea-10b2-4a86-acd0-93fd479da055-${id}-${type})`)
+        : `9ebd0cea-10b2-4a86-acd0-93fd479da055-${id}`;
+    }
   },
   quantitativeValue: {
     baseUri: 'http://linked.toerismevlaanderen.be/id/quantitative-values/',
     tvlId(id, unit) { return sha256(`9e085686-01af-48c8-850b-e26cd663f699-${id}-${unit}`);}
+  },
+  propertyValue: {
+    baseUri: 'http://linked.toerismevlaanderen.be/id/property-values/',
+    tvlId(id, unit) { return sha256(`94a1e7f5-328b-4e9b-a844-8561609a03f7-${id}-${unit}`);}
   },
   rating: {
     baseUri: 'http://linked.toerismevlaanderen.be/id/ratings/',
@@ -150,6 +166,10 @@ const config = {
   qualityLabel: {
     baseUri: 'http://linked.toerismevlaanderen.be/id/quality-labels/',
     tvlId(id, label) { return sha256(`a1691130-2b9a-4677-9e1b-74c3c0320709-${id}-${label}`); }
+  },
+  permit: {
+    baseUri: 'http://linked.toerismevlaanderen.be/id/permits/',
+    tvlId(id, label) { return sha256(`4117607d-f107-4c07-b0d1-4eb58f2505fd-${id}-${label}`); }
   },
   contactPoint: {
     baseUri: 'http://linked.toerismevlaanderen.be/id/contact-points/',
@@ -161,7 +181,7 @@ const config = {
   },
   description: {
     baseUri: 'http://linked.toerismevlaanderen.be/id/descriptions/',
-    tvlId(id) { return `b3ec99e8-11c0-4d2e-b7be-99173b603da4-${id}`; }
+    tvlId(id, label) { return sha256(`b3ec99e8-11c0-4d2e-b7be-99173b603da4-${id}-${label}`); }
   },
   accessibilityInformation: {
     baseUri: 'http://linked.toerismevlaanderen.be/id/accessibility-information/',
