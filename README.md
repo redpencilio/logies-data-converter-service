@@ -8,7 +8,7 @@ To add the service to your stack, add the following snippet to `docker-compose.y
 ```
 services:
   import:
-    image: redpencil/logies-data-converter-service:1.0.0-alpha.1
+    image: redpencil/logies-data-converter-service:1.0.0-beta.4
     volumes:
       - ./data/input:/input
       - ./data/output:/output
@@ -46,7 +46,7 @@ The following environment variables can be configured:
 * `SQL_BATCH_SIZE` (default 10000) : page size to fetch data from SQL database
 
 * `MAPPED_PUBLIC_GRAPH` (default http://mu.semte.ch/graphs/mapped/public) : graph to write public mapped data to
-* `MAPPED_PRIVATE_GRAPH` (default http://mu.semte.ch/graphs/mapped/private) : graph to write private mapped data to
+* `MAPPED_PRIVATE_GRAPH_BASE` (default http://mu.semte.ch/graphs/mapped/private/) : base URI of the graphs to write private mapped data to
 * `PUBLIC_GRAPH` (default http://mu.semte.ch/graphs/public) : graph containing public static data
 * `HOST_DOMAIN` (default https://linked.toerismevlaanderen.be) : host domain used as base to generate resource URIs
 
