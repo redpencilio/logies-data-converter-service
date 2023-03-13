@@ -114,7 +114,7 @@ function mapTVADecreeRegistration(recordId, record) {
     if (category) {
       statements.push(new Statement(sym(uri), TVL('category'), sym(category)));
     }
-    const status = registrationStatusMap[record['status']];
+    const status = registrationStatusMap[record['tva_acknowledgement']];
     if (status) {
       statements.push(new Statement(sym(uri), LOGIES('registratieStatus'), sym(status)));
     }
