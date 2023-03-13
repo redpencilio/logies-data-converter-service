@@ -89,13 +89,13 @@ export default function mapLodgings(records, translations, errorLogger) {
       // Invalid or no changed_time
     }
 
-    const registrations = mapRegistrations(recordId, record,errorLogger);
+    const registrations = mapRegistrations(recordId, record, errorLogger);
     registrations.forEach((registration) => {
       publicG.add(sym(lodgingUri), LOGIES('heeftRegistratie'), sym(registration.uri));
       publicG.addAll(registration.statements);
     });
 
-    const parentProducts = mapAlternateExploitations(recordId, record,errorLogger);
+    const parentProducts = mapAlternateExploitations(recordId, record, errorLogger);
     parentProducts.forEach((parent) => {
       publicG.add(sym(parent.uri), LOGIES('heeftAlternatieveUitbating'), sym(lodgingUri));
     });

@@ -162,7 +162,7 @@ function mapAlternateExploitations(recordId, record, errorLogger) {
 
     if (parents.length) {
       return parents.map((id) => {
-        const { uri } = uriGenerator.lodging(id);
+        const { uri } = uriGenerator.touristAttraction(id);
         return { uri };
       });
     } else {
