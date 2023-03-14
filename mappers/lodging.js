@@ -175,11 +175,6 @@ export default function mapLodgings(records, translations, errorLogger) {
 
     /* Private data FOD */
     const fodScope = 'private-fod-economy';
-    const capacities = mapCapacities(recordId, record);
-    capacities.forEach((capacity) => {
-      graphs[fodScope].add(sym(lodgingUri), LOGIES('capaciteit'), sym(capacity.uri));
-      graphs[fodScope].addAll(capacity.statements);
-    });
 
     const productOwnerFod = mapProductOwner(recordId, record, '_fod');
     if (productOwnerFod) {
@@ -245,8 +240,10 @@ export default function mapLodgings(records, translations, errorLogger) {
       graphs[tvaScope].add(sym(lodgingUri), LOGIES('aantalSlaapplaatsen'), lit(record['tva_capacity'], undefined, XSD('integer')));
     }
 
-    /* Private data FOD and TVA (CJT) */
-    for (const scope of [fodScope, tvaScope]) {
+    /* Private data FOD, TVA (CJT) and provinces */
+    const provinceGraphs = graphScopes(record['province'], record['statistical_region']);
+
+    for (const scope of [fodScope, tvaScope, ...provinceGraphs]) {
       if (record['number_of_units']) {
         graphs[scope].add(sym(lodgingUri), LOGIES('aantalVerhuureenheden'), lit(record['number_of_units'], undefined, XSD('integer')));
       }
@@ -256,10 +253,16 @@ export default function mapLodgings(records, translations, errorLogger) {
       }
     }
 
+    /* Private data FOD and provinces */
+    const capacities = mapCapacities(recordId, record);
+    for (const scope of [fodScope, ...provinceGraphs]) {
+      capacities.forEach((capacity) => {
+        graphs[scope].add(sym(lodgingUri), LOGIES('capaciteit'), sym(capacity.uri));
+        graphs[scope].addAll(capacity.statements);
+      });
+    }
 
     /* Private data provinces */
-    const provinceGraphs = graphScopes(record['province'], record['statistical_region']);
-
     if (record['product_owner_share_with_partners']) {
       const productOwner = mapProductOwner(recordId, record);
       if (productOwner) {
