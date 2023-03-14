@@ -68,25 +68,35 @@ function mapTvaContact(recordId, record, errorLogger) {
 
 function mapTvaOrganisation(recordId, record, errorLogger) {
   const orgId = record['tva_organization_contact_id'];
-  const { uuid, uri } = uriGenerator.organisation(orgId);
+  const { uuid: orgUuid, uri: orgUri } = uriGenerator.organisation(orgId);
+  const { uuid, uri } = uriGenerator.contactPoint(orgId, 'organisation');
 
-  let statements = [];
+  let orgStatements = [];
 
   if (record['tva_organization_company_name']) {
-    statements.push(new Statement(sym(uri), SKOS('prefLabel'), lit(record['tva_organization_company_name'], 'nl')));
+    orgStatements.push(new Statement(sym(orgUri), SKOS('prefLabel'), lit(record['tva_organization_company_name'], 'nl')));
   }
 
   if (record['tva_organization_company_identification']) {
     const { uuid: orgIdUuid, uri: orgIdUri } = uriGenerator.organisationIdentifier(orgId);
-    statements = [
+    orgStatements = [
+      new Statement(sym(orgUri), ADMS('identifier'), sym(orgIdUri)),
       new Statement(sym(orgIdUri), RDF('type'), ADMS('Identifier')),
       new Statement(sym(orgIdUri), MU('uuid'), lit(orgIdUuid)),
       new Statement(sym(orgIdUri), SKOS('notation'), lit(record['tva_organization_company_identification'])),
-      ...statements,
+      ...orgStatements,
     ];
   }
 
-  const { contactPointUuid, contactPointUri } = uriGenerator.contactPoint(orgId, 'organisation');
+  if (orgStatements.length) {
+    orgStatements = [
+      new Statement(sym(orgUri), SCHEMA('contactPoint'), sym(uri)),
+      new Statement(sym(orgUri), RDF('type'), ORG('Organisation')),
+      new Statement(sym(orgUri), MU('uuid'), lit(orgUuid)),
+      ...orgStatements,
+    ];
+  }
+
   let contactStatements = [];
   [
     { property: 'tva_organization_phone1', predicate: SCHEMA('telephone') },
@@ -98,7 +108,7 @@ function mapTvaOrganisation(recordId, record, errorLogger) {
     if (record[prop.property]) {
       const url = normalizeUrl(record[prop.property], prop.property);
       if (isValidURL(url)) {
-        contactStatements.push(new Statement(sym(contactPointUri), prop.predicate, sym(url)));
+        contactStatements.push(new Statement(sym(uri), prop.predicate, sym(url)));
       }
     }
   });
@@ -106,29 +116,19 @@ function mapTvaOrganisation(recordId, record, errorLogger) {
   const address = mapAddress(orgId, record, errorLogger, 'tva_organization_');
   if (address) {
     contactStatements = [
-      new Statement(sym(contactPointUri), LOCN('address'), sym(address.uri)),
+      new Statement(sym(uri), LOCN('address'), sym(address.uri)),
       ...address.statements,
     ];
   }
 
-  if (contactStatements.length) {
-    contactStatements.push(new Statement(sym(contactPointUri), RDF('type'), SCHEMA('ContactPoint')));
-    contactStatements.push(new Statement(sym(contactPointUri), MU('uuid'), lit(contactPointUuid)));
-    contactStatements.push(new Statement(sym(contactPointUri), SCHEMA('contactType'), lit('TVA Organisatie'))),
-
-    statements = [
-      ...statements,
-      ...contactStatements,
-    ];
-  }
-
+  const statements = [
+    ...contactStatements,
+    ...orgStatements,
+  ];
   if (statements.length) {
-    statements = [
-      new Statement(sym(uri), RDF('type'), ORG('Organisation')),
-      new Statement(sym(uri), MU('uuid'), lit(uuid)),
-      ...statements,
-    ];
-
+    statements.push(new Statement(sym(uri), RDF('type'), SCHEMA('ContactPoint')));
+    statements.push(new Statement(sym(uri), MU('uuid'), lit(uuid)));
+    statements.push(new Statement(sym(uri), SCHEMA('contactType'), lit('TVA Organisatie')));
     return { uri, statements };
   } else {
     return null;
