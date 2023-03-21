@@ -159,7 +159,7 @@ async function publishDataset(physicalFileUuid) {
     PREFIX dct: <http://purl.org/dc/terms/>
     PREFIX nie: <http://www.semanticdesktop.org/ontologies/2007/01/19/nie#>
     PREFIX nfo: <http://www.semanticdesktop.org/ontologies/2007/03/22/nfo#>
-    PREFIX dbpedia: <http://dbpedia.org/resource/>
+    PREFIX dbpedia: <http://dbpedia.org/ontology/>
     PREFIX dcat: <http://www.w3.org/ns/dcat#>
 
     INSERT DATA {
