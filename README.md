@@ -8,7 +8,7 @@ To add the service to your stack, add the following snippet to `docker-compose.y
 ```
 services:
   import:
-    image: redpencil/logies-data-converter-service:1.0.0-beta.4
+    image: redpencil/logies-data-converter-service:1.0.0-beta.6
     volumes:
       - ./data/input:/input
       - ./data/output:/output
