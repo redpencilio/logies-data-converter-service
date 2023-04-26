@@ -31,7 +31,7 @@ function normalizeUrl(url, channel) {
   if (channel?.includes('phone') || channel == 'fax') {
     return `tel:${url.replace(/\s/g, '')}`;
   } else if (channel?.includes('email')) {
-    return `mailto:${url}`;
+    return `mailto:${url.replace(/\s/g, '')}`;
   } else if (channel == 'facebook' && !isSocialMediaUrl(url, 'facebook')) {
     return `http://www.facebook.com/${url}`;
   } else if (channel == 'flickr' && !isSocialMediaUrl(url, 'flickr')) {
