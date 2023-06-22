@@ -166,7 +166,7 @@ async function publishDataset(physicalFileUuid) {
       GRAPH <${PUBLIC_GRAPH}> {
         <${datasetUri}> a dcat:Dataset ;
           mu:uuid "${datasetUuid}" ;
-          dct:title "Toeristische attracties en logies" ;
+          dct:title "Basisregister Vlaams Logiesaanbod" ;
           dct:description "Informatie over toeristische attracties en logies in Vlaanderen" ;
           dct:type ${sparqlEscapeUri(DCAT_DATASET_TYPE)} ;
           dct:created ${sparqlEscapeDateTime(now)} ;
