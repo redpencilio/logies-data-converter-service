@@ -61,12 +61,13 @@ class UriGenerator {
     `);
 
     const count = parseInt(countResult.results.bindings[0].count.value);
-    console.log(`Found ${count} mapping triples in graph <${URI_MAPPING_GRAPH}>. Going to load them in memory.`);
+    console.log(`Found ${count} URI mapping triples in graph <${URI_MAPPING_GRAPH}>. Going to load them in memory.`);
     const limit = BATCH_SIZE;
     const totalBatches = Math.ceil(count / limit);
 
     let currentBatch = 0;
     while (currentBatch < totalBatches) {
+      console.log(`Loading batch ${currentBatch + 1}/${totalBatches} of URI mapping triples in memory.`);
       const result = await query(`
       PREFIX ext: <http://mu.semte.ch/vocabularies/ext/>
       SELECT ?s ?tvlId ?muId WHERE {
