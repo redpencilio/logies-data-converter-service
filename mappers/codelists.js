@@ -4,6 +4,7 @@ const goodplanetOrganizationUri = 'http://linked.toerismevlaanderen.be/id/regist
 const registrationStatusMap = {
   // Logiesdecreet
   ACKNOWLEDGED: 'http://linked.toerismevlaanderen.be/id/concepts/bb9d1b1b-05ea-4a98-bb54-87084c38da4e',
+  ACKNOWLEDGED_TVA: 'http://linked.toerismevlaanderen.be/id/concepts/f9305a29-0508-4e24-8615-f83bd4bf84a7', // temporary status while TVA decree is deprecated. Will be merged into AKNOWLEDGED over time
   LICENSED: 'http://linked.toerismevlaanderen.be/id/concepts/96dbd436-b59b-4e6e-b080-26a83456dc4e',
   NOTIFIED: 'http://linked.toerismevlaanderen.be/id/concepts/ed624155-305e-4da3-83a0-e4c586ca7b81',
   STOPPED: 'http://linked.toerismevlaanderen.be/id/concepts/1ab08286-bc53-4a09-958d-e29b4acd76bf',
@@ -226,6 +227,7 @@ const nonStandardizedUnitMap = {
   number_of_long_term_camping_spots: 'aantal campingplaatsen voor lange termijn',
   number_of_residence_units_for_rental: 'aantal wooneenheden te huur',
   number_of_hikers_huts: 'aantal wandelaarshutten',
+  tva_capacity: 'TVA capaciteit',
   tva_capacity_description: 'TVA capaciteit'
 };
 

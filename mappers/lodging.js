@@ -8,7 +8,7 @@ import { mapTvlIdentifier, mapFodIdentifier, mapTvaIdentifier } from './identifi
 import { mapAlternateExploitations, mapRegistrations } from './registration';
 import { mapAddress, mapLocation, mapTouristicRegion, mapStatisticalRegion } from './address';
 import { mapContactPoints, mapProductOwner, mapOfferingAgent } from './contact-info';
-import { mapTvaContact, mapTvaOrganisation } from './tva';
+import { mapTvaCapacities, mapTvaContact, mapTvaOrganisation } from './tva';
 import { mapRatings } from './rating';
 import { mapCapacities, mapPropertyValues } from './capacity';
 import { mapAccessibilityLabel, mapGreenLabel, mapCamperLabel, mapFireSafetyCertificate } from './quality-label';
@@ -236,9 +236,12 @@ export default function mapLodgings(records, translations, errorLogger) {
       graphs[tvaScope].addAll(tvaOrganisation.statements);
     }
 
-    if (record['tva_capacity']) {
-      graphs[tvaScope].add(sym(lodgingUri), LOGIES('aantalSlaapplaatsen'), lit(record['tva_capacity'], undefined, XSD('integer')));
-    }
+    const tvaCapacities = mapTvaCapacities(recordId, record);
+    tvaCapacities.forEach((capacity) => {
+      graphs[tvaScope].add(sym(lodgingUri), LOGIES('capaciteit'), sym(capacity.uri));
+      graphs[tvaScope].addAll(capacity.statements);
+    });
+
 
     /* Private data FOD, TVA (CJT) and provinces */
     const provinceGraphs = graphScopes(record['province'], record['statistical_region']);

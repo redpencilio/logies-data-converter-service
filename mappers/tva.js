@@ -1,9 +1,33 @@
 import { sym, lit, Statement } from 'rdflib';
 import uriGenerator from '../helpers/uri-helpers';
 import { isValidURL, normalizeUrl } from '../helpers';
-import { honorificPrefixes } from './codelists';
+import { nonStandardizedUnitMap, honorificPrefixes } from './codelists';
 import { ADMS, FOAF, LOCN, MU, ORG, RDF, SCHEMA, SKOS, VCARD } from './prefixes';
 import { mapAddress } from './address';
+
+function mapTvaCapacities(recordId, record) {
+  const capacities = [];
+  [
+    'tva_capacity'
+  ].forEach((field) => {
+    if (record[field]) {
+      const value = `${record[field]}`;
+
+      const unit = nonStandardizedUnitMap[field];
+      const { uuid, uri } = uriGenerator.quantitativeValue(recordId, unit);
+
+      const statements = [
+        new Statement(sym(uri), RDF('type'), SCHEMA('QuantitativeValue')),
+        new Statement(sym(uri), MU('uuid'), lit(uuid)),
+        new Statement(sym(uri), SCHEMA('value'), lit(value)),
+        new Statement(sym(uri), SCHEMA('unitText'), lit(unit, 'nl')),
+      ];
+
+      capacities.push({ uri, statements });
+    }
+  });
+  return capacities;
+}
 
 function mapTvaContact(recordId, record, errorLogger) {
   const contactId = record['tva_contact_contact_id'];
@@ -136,6 +160,7 @@ function mapTvaOrganisation(recordId, record, errorLogger) {
 }
 
 export {
+  mapTvaCapacities,
   mapTvaContact,
   mapTvaOrganisation
 }
