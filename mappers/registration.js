@@ -62,6 +62,9 @@ function mapLodgingDecreeRegistration(recordId, record) {
     } else if (status == 'ACKNOWLEDGED') {
       // acknowledged/erkend according to logiesdecreet
       date = record['acknowledgement_date'];
+    } else if (status == 'ACKNOWLEDGED_TVA') {
+      // acknowledged/erkend according to deprecated TVA decreet
+      date = record['tva_acknowledgement_date'];
     }
 
     if (date) {
