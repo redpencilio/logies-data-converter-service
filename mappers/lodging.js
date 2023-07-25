@@ -130,6 +130,20 @@ export default function mapLodgings(records, translations, errorLogger) {
       publicG.addAll(contactPoint.statements);
     });
 
+    if (record['number_of_units']) {
+      publicG.add(sym(lodgingUri), LOGIES('aantalVerhuureenheden'), lit(record['number_of_units'], undefined, XSD('integer')));
+    }
+
+    if (record['maximum_capacity']) {
+      publicG.add(sym(lodgingUri), LOGIES('aantalSlaapplaatsen'), lit(record['maximum_capacity'], undefined, XSD('integer')));
+    }
+
+    const capacities = mapCapacities(recordId, record);
+    capacities.forEach((capacity) => {
+      publicG.add(sym(lodgingUri), LOGIES('capaciteit'), sym(capacity.uri));
+      publicG.addAll(capacity.statements);
+    });
+
     const mediaObjects = mapMediaObjects(recordId, record, errorLogger);
     mediaObjects.forEach((mediaObject) => {
       publicG.add(sym(lodgingUri), LOGIES('heeftMedia'), sym(mediaObject.uri));
@@ -242,30 +256,9 @@ export default function mapLodgings(records, translations, errorLogger) {
       graphs[tvaScope].addAll(capacity.statements);
     });
 
-
-    /* Private data FOD, TVA (CJT) and provinces */
+    /* Private data provinces */
     const provinceGraphs = graphScopes(record['province'], record['statistical_region']);
 
-    for (const scope of [fodScope, tvaScope, ...provinceGraphs]) {
-      if (record['number_of_units']) {
-        graphs[scope].add(sym(lodgingUri), LOGIES('aantalVerhuureenheden'), lit(record['number_of_units'], undefined, XSD('integer')));
-      }
-
-      if (record['maximum_capacity']) {
-        graphs[scope].add(sym(lodgingUri), LOGIES('aantalSlaapplaatsen'), lit(record['maximum_capacity'], undefined, XSD('integer')));
-      }
-    }
-
-    /* Private data FOD and provinces */
-    const capacities = mapCapacities(recordId, record);
-    for (const scope of [fodScope, ...provinceGraphs]) {
-      capacities.forEach((capacity) => {
-        graphs[scope].add(sym(lodgingUri), LOGIES('capaciteit'), sym(capacity.uri));
-        graphs[scope].addAll(capacity.statements);
-      });
-    }
-
-    /* Private data provinces */
     if (record['product_owner_share_with_partners']) {
       const productOwner = mapProductOwner(recordId, record);
       if (productOwner) {
