@@ -227,6 +227,8 @@ const nonStandardizedUnitMap = {
   number_of_long_term_camping_spots: 'aantal campingplaatsen voor lange termijn',
   number_of_residence_units_for_rental: 'aantal wooneenheden te huur',
   number_of_hikers_huts: 'aantal wandelaarshutten',
+  normal_capacity: 'normale capaciteit',
+  tent_capacity: 'aantal plaatsen voor tenten',
   tva_capacity: 'TVA capaciteit',
   tva_capacity_description: 'TVA capaciteit'
 };

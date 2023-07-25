@@ -13,7 +13,9 @@ function mapCapacities(recordId, record) {
     'number_of_residence_units',
     'number_of_long_term_camping_spots',
     'number_of_residence_units_for_rental',
-    'number_of_hikers_huts'
+    'number_of_hikers_huts',
+    'normal_capacity',
+    'tent_capacity',
   ].forEach((field) => {
     if (record[field]) {
       const value = `${record[field]}`;
