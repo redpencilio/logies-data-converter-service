@@ -47,9 +47,10 @@ function mapLodgingDecreeRegistration(recordId, record) {
   }
 
   if (record['status']) {
-    const status = registrationStatusMap[record['status']];
-    if (status) {
-      statements.push(new Statement(sym(uri), LOGIES('registratieStatus'), sym(status)));
+    const status = record['status'];
+    const statusUri = registrationStatusMap[status];
+    if (statusUri) {
+      statements.push(new Statement(sym(uri), LOGIES('registratieStatus'), sym(statusUri)));
     }
 
     let date = null;
