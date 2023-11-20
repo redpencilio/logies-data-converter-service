@@ -2,7 +2,7 @@ import sha256 from 'js-sha256';
 import { uuid, sparqlEscapeUri, sparqlEscapeString } from 'mu';
 import { querySudo as query, updateSudo as update } from '@lblod/mu-auth-sudo';
 import queue from 'queue';
-import { BATCH_SIZE } from '../config/env';
+import { BATCH_SIZE, GENERATE_STABLE_URIS } from '../config/env';
 
 const URI_MAPPING_GRAPH = process.env.URI_MAPPING_GRAPH || 'http://mu.semte.ch/graphs/uri-mapping';
 
@@ -18,7 +18,6 @@ class UriGenerator {
   }
 
   async init() {
-    console.log('Fetch URI mappings from triplestore');
     await this.loadInMemory();
 
     for (const type in config) {
@@ -52,6 +51,7 @@ class UriGenerator {
   }
 
   async loadInMemory() {
+    console.log('Fetch URI mappings from triplestore');
     const countResult = await query(`
       SELECT (COUNT(DISTINCT ?s) as ?count) WHERE {
         GRAPH ${sparqlEscapeUri(URI_MAPPING_GRAPH)} {
@@ -99,6 +99,13 @@ class UriGenerator {
       }
     `);
   }
+}
+
+/* URI generator that doesn't guarantee stable URIs between 2 runs.
+ Mappings between record ids and URIs are not persisted in the triplestore */
+class StatelessUriGenerator extends UriGenerator {
+  loadInMemory() { }
+  save() { }
 }
 
 const config = {
@@ -208,5 +215,5 @@ const config = {
   }
 };
 
-const singleton = new UriGenerator();
+const singleton = GENERATE_STABLE_URIS ? new UriGenerator() : new StatelessUriGenerator();
 export default singleton;

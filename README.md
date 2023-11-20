@@ -59,6 +59,7 @@ The following environment variables can be configured:
 
 * `RUN_ON_STARTUP` (default `false`) : whether conversion must be trigered on startup
 * `LOAD_EXTERNAL_SQL_SOURCES` (default `true`) : whether input data must be fetched from SQL database. Can be disabled during development when input files are already provided in `INPUT_DIRECTORY`.
+* `GENERATE_STABLE_URIS` (default `true`) : whether URIs must be stable between multiple runs. Disabling speeds up service startup during development. Needs to be enabled on production.
 
 * `BATCH_SIZE` (default 1000) : batch size to use in update SPARQL queries
 * `RETRY_TIMEOUT_MS` (default 1000) : number of milliseconds between to SPARQL query retries
@@ -89,3 +90,5 @@ For each Linked Data resource a URI and random uuid gets generated. To ensure st
 ```
 
 On startup of the service, the mappings are loaded in memory to improve lookup performance during the conversion process.
+
+To disable the generation of stable URIs set the `GENERATE_STABLE_URIS` environment variable to `false`. This is typically useful to speed up service start up during development. The flag *MUST* be enabled on production.

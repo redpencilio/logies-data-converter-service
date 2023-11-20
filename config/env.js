@@ -13,6 +13,7 @@ const PUBLICATION_DIRECTORY = process.env.PUBLICATION_DIRECTORY || '/share';
 
 const RUN_ON_STARTUP = isTruthy(process.env.RUN_ON_STARTUP);
 const LOAD_EXTERNAL_SQL_SOURCES = isTruthy(process.env.LOAD_EXTERNAL_SQL_SOURCES);
+const GENERATE_STABLE_URIS = isTruthy(process.env.GENERATE_STABLE_URIS);
 
 const CACHE_CLEAR_PATH = process.env.CACHE_CLEAR_PATH || 'http://cache/.mu/clear-keys';
 
@@ -47,6 +48,7 @@ export {
   DCAT_DATASET_TYPE,
   RUN_ON_STARTUP,
   LOAD_EXTERNAL_SQL_SOURCES,
+  GENERATE_STABLE_URIS,
   CACHE_CLEAR_PATH,
   INPUT_DIRECTORY,
   OUTPUT_DIRECTORY,
