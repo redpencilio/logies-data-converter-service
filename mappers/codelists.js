@@ -233,34 +233,22 @@ const nonStandardizedUnitMap = {
   tva_capacity_description: 'TVA capaciteit'
 };
 
-const comfortRatingBasicLuxe = {
-  worstRating: 'BASIC',
-  bestRating: 'LUXURY'
-};
-
 const comfortRatingStars = {
   worstRating: 'ONE_STAR',
   bestRating: 'FIVE_STARS_SUPERIOR'
 };
 
 const comfortRatingYouthAccomodations = {
-  worstRating: 'A',
-  bestRating: 'C'
+  worstRating: 'BASIC',
+  bestRating: 'STANDARD'
+};
+
+const comfortRatingYouthAccomodationsOldDecree = {
+  worstRating: 'OLD_A',
+  bestRating: 'OLD_C'
 };
 
 const comfortClasses = {
-  BASIC: {
-    label: 'Basic',
-    scale: comfortRatingBasicLuxe
-  },
-  COMFORT: {
-    label: 'Comfort',
-    scale: comfortRatingBasicLuxe
-  },
-  LUXURY: {
-    label: 'Luxe',
-    scale: comfortRatingBasicLuxe
-  },
   ONE_STAR: {
     label: '1 *',
     scale: comfortRatingStars
@@ -301,25 +289,40 @@ const comfortClasses = {
     label: '5 * sup',
     scale: comfortRatingStars
   },
-  A: {
+  BASIC: {
+    label: 'Basic',
+    scale: comfortRatingYouthAccomodations
+  },
+  COMFORT: {
+    label: 'Comfort',
+    scale: comfortRatingYouthAccomodations
+  },
+  STANDARD: {
+    label: 'Standard',
+    scale: comfortRatingYouthAccomodations
+  },
+  OLD_A: {
     label: 'A',
-    scale: comfortRatingYouthAccomodations
+    scale: comfortRatingYouthAccomodationsOldDecree
   },
-  B: {
+  OLD_B: {
     label: 'B',
-    scale: comfortRatingYouthAccomodations
+    scale: comfortRatingYouthAccomodationsOldDecree
   },
-  C: {
+  OLD_C: {
     label: 'C',
-    scale: comfortRatingYouthAccomodations
+    scale: comfortRatingYouthAccomodationsOldDecree
   },
-  // TVA decree status without rating
+  // TVA decree statuses without rating
   NOT_ACKNOWLEDGED: null,
   HOSTEL: null,
   TVA: null,
   REVOKED: null,
   ACKNOWLEDGED_BY_PRINCIPLE: null,
-  SUSPENDED: null
+  SUSPENDED: null,
+  A: null,
+  B: null,
+  C: null,
 };
 
 const accessibilityLabels = {
