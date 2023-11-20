@@ -70,10 +70,7 @@ class Task {
     console.log(`Finished loading records of ${this.title}`);
   }
 
-  async execute() {
-    console.log(`Executing task: ${this.title}`);
-
-    // Parse input files
+  async parseInputFile() {
     const input = await fs.readFile(this.inputFile, 'utf8');
     const records = JSON.parse(input);
     const translations = await Promise.all(
@@ -84,10 +81,20 @@ class Task {
       })
     );
 
+    return { records, translations };
+  }
+
+  async execute() {
+    console.log(`Executing task: ${this.title}`);
+
+    // Parse input files
+    const { records, translations } = await this.parseInputFile();
+
     // Map records in batches
     const graphCounts = {};
     const batches = chunk(records, RECORDS_CHUNK_SIZE);
     console.log(`Split task into ${batches.length} chunks of ${RECORDS_CHUNK_SIZE} records`);
+
     let i = 0;
     for (const batch of batches) {
       i++;
@@ -125,6 +132,42 @@ class Task {
   }
 }
 
+class RecordTask {
+  constructor(parent, recordId) {
+    this.parentTask = parent;
+    this.recordId = recordId;
+  }
+
+  outputFile(scope, id) {
+    return `${OUTPUT_DIRECTORY}/${this.parentTask.title}-${scope}-${id}.ttl`;
+  }
+
+  async execute() {
+    // Parse input files
+    const { records, translations } = await this.parentTask.parseInputFile();
+
+    const record = records.find((record) => record['business_product_id'] == this.recordId);
+    if (record) {
+      console.log(`Executing task: ${this.parentTask.title} for record with ID '${this.recordId}'`);
+      const outputFiles = [];
+      const graphs = this.parentTask.mapper([record], translations, (fn,fv,ri) => this.parentTask.logError(fn, fv, ri));
+      const scopes = Object.keys(graphs);
+      for (const scope of scopes) {
+        const graph = graphs[scope];
+        const outputFile = this.outputFile(scope, this.recordId);
+        await fs.remove(outputFile); // Cleanup possible dirty state from previous run
+        await fs.appendFile(outputFile, graph.toNT(), 'utf8');
+        outputFiles.push(outputFile);
+      }
+
+      console.log('Output is written to:');
+      outputFiles.forEach((file) => console.log(`- ${file}`));
+    } else {
+      console.log(`Cannot find record with ID '${this.recordId}' in ${this.parentTask.title}`);
+    }
+  }
+}
+
 function loadTasksFromConfig() {
   return tasks
     .filter((task) => task.enabled)
@@ -132,5 +175,6 @@ function loadTasksFromConfig() {
 }
 
 export {
-  loadTasksFromConfig
+  loadTasksFromConfig,
+  RecordTask
 }
