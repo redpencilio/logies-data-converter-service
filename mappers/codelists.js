@@ -20,17 +20,14 @@ const registrationStatusMap = {
   // - NOTIFICATION_APPLICATION_IN_PROGRESS
   // - NOT_ACKNOWLEDGED
 
-  // TVA decreet
-  A: 'http://linked.toerismevlaanderen.be/id/concepts/37fd4d81-846b-448d-92d1-4dc1232540fd',
-  B: 'http://linked.toerismevlaanderen.be/id/concepts/37fd4d81-846b-448d-92d1-4dc1232540fd',
-  C: 'http://linked.toerismevlaanderen.be/id/concepts/37fd4d81-846b-448d-92d1-4dc1232540fd',
+  // TVA decreet (deprecated)
+  OLD_A: 'http://linked.toerismevlaanderen.be/id/concepts/37fd4d81-846b-448d-92d1-4dc1232540fd',
+  OLD_B: 'http://linked.toerismevlaanderen.be/id/concepts/37fd4d81-846b-448d-92d1-4dc1232540fd',
+  OLD_C: 'http://linked.toerismevlaanderen.be/id/concepts/37fd4d81-846b-448d-92d1-4dc1232540fd',
   TVA: 'http://linked.toerismevlaanderen.be/id/concepts/37fd4d81-846b-448d-92d1-4dc1232540fd',
   HOSTEL: 'http://linked.toerismevlaanderen.be/id/concepts/37fd4d81-846b-448d-92d1-4dc1232540fd',
   REVOKED: 'http://linked.toerismevlaanderen.be/id/concepts/5a164cce-0c3c-469d-8910-707a456e0933',
   SUSPENDED: 'http://linked.toerismevlaanderen.be/id/concepts/4f269330-bc00-41e9-8928-1a454f38e760'
-  // Other values:
-  // - ACKNOWLEDGED_BY_PRINCIPLE
-  // - NOT_ACKNOWLEDGED
 };
 
 const registrationCategoryMap = {
@@ -313,7 +310,7 @@ const comfortClasses = {
     label: 'C',
     scale: comfortRatingYouthAccomodationsOldDecree
   },
-  // TVA decree statuses without rating
+  // TVA decree statuses without rating (deprecated values)
   NOT_ACKNOWLEDGED: null,
   HOSTEL: null,
   TVA: null,

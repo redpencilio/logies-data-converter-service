@@ -4,7 +4,7 @@ import { tvlOrganizationUri, comfortClasses } from './codelists';
 import { MU, RDF, SCHEMA } from './prefixes';
 
 function mapRatings(recordId, record, errorLogger) {
-  return ['comfort_class', 'tva_acknowledgement']
+  return ['comfort_class']
     .filter((field) => record[field])
     .map((field) => {
       const value = record[field];
