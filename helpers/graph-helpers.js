@@ -130,7 +130,7 @@ async function removeDuplicates(source, target, useDirect = false) {
           ?s ?p ?o .
         }
       } WHERE {
-        SELECT (COUNT(*) as ?count) WHERE {
+        SELECT ?s ?p ?o WHERE {
           GRAPH <${source}> { ?s ?p ?o . }
           GRAPH <${target}> { ?s ?p ?o . }
           FILTER (<${source}> != <${target}>)
