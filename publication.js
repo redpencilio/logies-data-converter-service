@@ -49,7 +49,7 @@ async function publish(tasks) {
   }
 
   for (const scope of Object.keys(graphs)) {
-    // Cleanup already published data
+    // Cleanup previously published data
     // Remove all triples from target graph that aren't part of the mapping output anymore
     await removeDiff(graphs[scope].source, graphs[scope].target);
 

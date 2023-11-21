@@ -18,18 +18,19 @@ async function copyGraph(source, target, useDirect = false) {
     }`);
 
   const count = parseInt(queryResult.results.bindings[0].count.value);
-  console.log(`${count} triples in graph <${source}> not found in target graph <${target}>. Going to copy these triples.`);
-  const limit = BATCH_SIZE;
-  const totalBatches = Math.ceil(count / limit);
-  console.log(`Copying ${count} triples in batches of ${BATCH_SIZE}`);
+  if (count) {
+    console.log(`${count} triples in graph <${source}> not found in target graph <${target}>. Going to copy these triples.`);
+    const limit = BATCH_SIZE;
+    const totalBatches = Math.ceil(count / limit);
+    console.log(`Copying ${count} triples in batches of ${BATCH_SIZE}`);
 
-  let currentBatch = 0;
-  while (currentBatch < totalBatches) {
-    // Note: no OFFSET needed in the subquery. Pagination is inherent since
-    // the WHERE clause doesn't match any longer for triples that are copied
-    // in the previous batch.
-    console.log(`Inserting batch ${currentBatch}/${totalBatches}`);
-    await update(`
+    let currentBatch = 0;
+    while (currentBatch < totalBatches) {
+      // Note: no OFFSET needed in the subquery. Pagination is inherent since
+      // the WHERE clause doesn't match any longer for triples that are copied
+      // in the previous batch.
+      console.log(`Inserting batch ${currentBatch}/${totalBatches}`);
+      await update(`
       INSERT {
         GRAPH <${target}> {
           ?s ?p ?o .
@@ -42,7 +43,10 @@ async function copyGraph(source, target, useDirect = false) {
           }
         } LIMIT ${limit}
       }`);
-    currentBatch++;
+      currentBatch++;
+    }
+  } else {
+    console.log(`No triples to copy from graph <${source}> to target graph <${target}> that aren't there yet.`);
   }
 }
 
@@ -62,18 +66,19 @@ async function removeDiff(source, target, useDirect = false) {
     }`);
 
   const count = parseInt(queryResult.results.bindings[0].count.value);
-  console.log(`${count} triples in graph <${target}> not found in source graph <${source}>. Going to remove these triples.`);
-  const limit = BATCH_SIZE;
-  const totalBatches = Math.ceil(count / limit);
-  console.log(`Removing ${count} triples in batches of ${BATCH_SIZE}`);
+  if (count) {
+    console.log(`${count} triples in graph <${target}> not found in source graph <${source}>. Going to remove these triples.`);
+    const limit = BATCH_SIZE;
+    const totalBatches = Math.ceil(count / limit);
+    console.log(`Removing ${count} triples in batches of ${BATCH_SIZE}`);
 
-  let currentBatch = 0;
-  while (currentBatch < totalBatches) {
-    // Note: no OFFSET needed in the subquery. Pagination is inherent since
-    // the WHERE clause doesn't match any longer for triples that are removed
-    // in the previous batch.
-    console.log(`Removing batch ${currentBatch}/${totalBatches}`);
-    await update(`
+    let currentBatch = 0;
+    while (currentBatch < totalBatches) {
+      // Note: no OFFSET needed in the subquery. Pagination is inherent since
+      // the WHERE clause doesn't match any longer for triples that are removed
+      // in the previous batch.
+      console.log(`Removing batch ${currentBatch}/${totalBatches}`);
+      await update(`
       DELETE {
         GRAPH <${target}> {
           ?s ?p ?o .
@@ -86,7 +91,10 @@ async function removeDiff(source, target, useDirect = false) {
           }
         } LIMIT ${limit}
       }`);
-    currentBatch++;
+      currentBatch++;
+    }
+  } else {
+    console.log(`No triples found in <${target}> that aren't there in source graph <${source}>. Nothing to remove from target graph.`);
   }
 }
 
@@ -105,17 +113,18 @@ async function removeDuplicates(source, target, useDirect = false) {
     }`);
 
   const count = parseInt(queryResult.results.bindings[0].count.value);
-  console.log(`${count} triples in graph <${target}> also found in source graph <${source}>. Going to remove these triples.`);
-  const limit = BATCH_SIZE;
-  const totalBatches = Math.ceil(count / limit);
-  console.log(`Removing ${count} triples in batches of ${BATCH_SIZE}`);
+  if (count) {
+    console.log(`${count} triples in graph <${target}> also found in source graph <${source}>. Going to remove these triples.`);
+    const limit = BATCH_SIZE;
+    const totalBatches = Math.ceil(count / limit);
+    console.log(`Removing ${count} triples in batches of ${BATCH_SIZE}`);
 
-  let currentBatch = 0;
-  while (currentBatch < totalBatches) {
-    // Note: no OFFSET needed in the subquery. Pagination is inherent since
-    // the WHERE clause doesn't match any longer for triples that are removed
-    // in the previous batch.
-    await update(`
+    let currentBatch = 0;
+    while (currentBatch < totalBatches) {
+      // Note: no OFFSET needed in the subquery. Pagination is inherent since
+      // the WHERE clause doesn't match any longer for triples that are removed
+      // in the previous batch.
+      await update(`
       DELETE {
         GRAPH <${target}> {
           ?s ?p ?o .
@@ -127,7 +136,10 @@ async function removeDuplicates(source, target, useDirect = false) {
           FILTER (<${source}> != <${target}>)
         } LIMIT ${limit}
       }`);
-    currentBatch++;
+      currentBatch++;
+    }
+  } else {
+    console.log(`No duplicates found in both target <${target}> and source <${source}> graph. Nothing to remove.`);
   }
 }
 
