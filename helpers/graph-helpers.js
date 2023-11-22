@@ -67,7 +67,7 @@ async function removeDiff(source, target, useDirect = false) {
 
   const count = parseInt(queryResult.results.bindings[0].count.value);
   if (count) {
-    console.log(`${count} triples in graph <${target}> not found in source graph <${source}>. Going to remove these triples.`);
+    console.log(`${count} triples found in graph <${target}> that do not reside in source graph <${source}>. Going to remove these triples.`);
     const limit = BATCH_SIZE;
     const totalBatches = Math.ceil(count / limit);
     console.log(`Removing ${count} triples in batches of ${BATCH_SIZE}`);
