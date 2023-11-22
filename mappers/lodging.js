@@ -11,7 +11,7 @@ import { mapContactPoints, mapProductOwner, mapOfferingAgent } from './contact-i
 import { mapTvaCapacities, mapTvaContact, mapTvaOrganisation } from './tva';
 import { mapRatings } from './rating';
 import { mapCapacities, mapPropertyValues } from './capacity';
-import { mapAccessibilityLabel, mapGreenLabel, mapCamperLabel, mapFireSafetyCertificate } from './quality-label';
+import { mapAccessibilityLabel, mapGreenLabel, mapCamperLabel, mapIconicCyclingRouteLabel, mapFireSafetyCertificate } from './quality-label';
 import { mapAccessibilityInformation } from './accessibility';
 import { mapMediaObjects, mapMainMediaObjects } from './media-object';
 import { mapTranslation } from './translation';
@@ -156,23 +156,18 @@ export default function mapLodgings(records, translations, errorLogger) {
       publicG.addAll(mediaObject.statements);
     });
 
-    const accessibilityLabel = mapAccessibilityLabel(recordId, record, errorLogger);
-    if (accessibilityLabel) {
-      publicG.add(sym(lodgingUri), LOGIES('heeftKwaliteitslabel'), sym(accessibilityLabel.uri));
-      publicG.addAll(accessibilityLabel.statements);
-    }
-
-    const greenLabel = mapGreenLabel(recordId, record, errorLogger);
-    if (greenLabel) {
-      publicG.add(sym(lodgingUri), LOGIES('heeftKwaliteitslabel'), sym(greenLabel.uri));
-      publicG.addAll(greenLabel.statements);
-    }
-
-    const camperLabel = mapCamperLabel(recordId, record, errorLogger);
-    if (camperLabel) {
-      publicG.add(sym(lodgingUri), LOGIES('heeftKwaliteitslabel'), sym(camperLabel.uri));
-      publicG.addAll(camperLabel.statements);
-    }
+    [
+      mapAccessibilityLabel,
+      mapGreenLabel,
+      mapCamperLabel,
+      mapIconicCyclingRouteLabel
+    ].forEach((qualityLabelGen) => {
+      const qualityLabel = qualityLabelGen(recordId, record, errorLogger);
+      if (qualityLabel) {
+        publicG.add(sym(lodgingUri), LOGIES('heeftKwaliteitslabel'), sym(qualityLabel.uri));
+        publicG.addAll(qualityLabel.statements);
+      }
+    });
 
     const accessibilityInformation = mapAccessibilityInformation(recordId, record);
     if (accessibilityInformation) {

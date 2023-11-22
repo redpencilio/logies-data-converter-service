@@ -61,6 +61,24 @@ function mapCamperLabel(recordId, record, errorLogger) {
   }
 }
 
+function mapIconicCyclingRouteLabel(recordId, record, errorLogger) {
+  if (record['iconic_cycling_routes']) {
+    const { uuid, uri } = uriGenerator.qualityLabel(recordId, 'iconic-cycling-routes');
+
+    const statements = [
+      new Statement(sym(uri), RDF('type'), LOGIES('Kwaliteitslabel')),
+      new Statement(sym(uri), MU('uuid'), lit(uuid)),
+      new Statement(sym(uri), SKOS('prefLabel'), lit('Opgenomen in icoonfietsroutes', 'nl')),
+      new Statement(sym(uri), SKOS('prefLabel'), lit('Part of iconic cycling route', 'en')),
+      new Statement(sym(uri), SCHEMA('author'), sym(tvlOrganizationUri)),
+    ];
+
+    return { uri, statements };
+  } else {
+    return null;
+  }
+}
+
 function mapFireSafetyCertificate(recordId, record, errorLogger) {
   if (record['fire_safety_certificate_expiration_date']) {
     const { uuid, uri } = uriGenerator.permit(recordId, 'fire-safety-certificate');
@@ -83,5 +101,6 @@ export {
   mapAccessibilityLabel,
   mapGreenLabel,
   mapCamperLabel,
+  mapIconicCyclingRouteLabel,
   mapFireSafetyCertificate
 }
