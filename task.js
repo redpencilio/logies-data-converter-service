@@ -106,7 +106,8 @@ class Task {
         if (i == 1) { // First iteration, cleanup possible dirty state from previous run
           await fs.remove(outputFile);
         }
-        await fs.appendFile(outputFile, graph.toNT(), 'utf8');
+        const ttl = graph.statements.map((t) => t.toNT()).join('\n');
+        await fs.appendFile(outputFile, ttl, 'utf8');
 
         if (!graphCounts[scope]) {
           graphCounts[scope] = 0;
@@ -156,7 +157,8 @@ class RecordTask {
         const graph = graphs[scope];
         const outputFile = this.outputFile(scope, this.recordId);
         await fs.remove(outputFile); // Cleanup possible dirty state from previous run
-        await fs.appendFile(outputFile, graph.toNT(), 'utf8');
+        const ttl = graph.statements.map((t) => t.toNT()).join('\n');
+        await fs.appendFile(outputFile, ttl, 'utf8');
         outputFiles.push(outputFile);
       }
 
