@@ -89,7 +89,8 @@ class UriGenerator {
   }
 
   async save(id, muId, uri) {
-    await update(`
+    try {
+      await update(`
       PREFIX ext: <http://mu.semte.ch/vocabularies/ext/>
       INSERT DATA {
         GRAPH ${sparqlEscapeUri(URI_MAPPING_GRAPH)} {
@@ -98,6 +99,10 @@ class UriGenerator {
         }
       }
     `);
+    } catch (ex) {
+      console.log(`Failed to insert id mapping. Adding task to the queue again.`);
+      this.queue.push(() => this.save(id, muId, uri));
+    }
   }
 }
 
