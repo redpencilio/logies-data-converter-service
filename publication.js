@@ -51,9 +51,7 @@ async function publish(tasks) {
   for (const scope of Object.keys(graphs)) {
     // Cleanup previously published data
     // Remove all triples from target graph that aren't part of the mapping output anymore
-    // TODO Should be changed to use mu-auth instead of the triplestore directly. Since
-    //   we're updating already published data, other parties may be interested in the changes
-    await removeDiff(graphs[scope].source, graphs[scope].target, true);
+    await removeDiff(graphs[scope].source, graphs[scope].target);
 
     // Publish new data
     await copyGraph(graphs[scope].source, graphs[scope].target, true);
