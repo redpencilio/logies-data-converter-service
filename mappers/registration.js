@@ -74,7 +74,7 @@ function mapLodgingDecreeRegistration(recordId, record) {
       statements = [
         new Statement(sym(uri), PROV('qualifiedGeneration'), sym(generationUri)),
         new Statement(sym(generationUri), RDF('type'), PROV('Generation')),
-        new Statement(sym(generationUri), MU('uuid'), lit(uuid)),
+        new Statement(sym(generationUri), MU('uuid'), lit(generationUuid)),
         new Statement(sym(generationUri), PROV('atTime'), litDateTime(date)),
         ...statements
       ];
