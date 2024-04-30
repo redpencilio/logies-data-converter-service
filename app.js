@@ -1,11 +1,12 @@
 import { CronJob } from 'cron';
-import { app, errorHandler } from 'mu';
+import { app, errorHandler, uuid } from 'mu';
 import fs from 'fs-extra';
 import loadSources from './data-sources';
 import publish from './publication';
 import { loadTasksFromConfig, RecordTask } from './task';
 import { waitForDatabase } from './helpers/database-helpers';
 import uriGenerator from './helpers/uri-helpers';
+import { insertTriplesFromTtl } from './helpers/ttl-helpers';
 import { RUN_ON_STARTUP, LOAD_EXTERNAL_SQL_SOURCES } from './config/env';
 import fetch from 'node-fetch';
 
@@ -41,7 +42,12 @@ waitForDatabase(async () => {
 
     if (task) {
       const recordTask = new RecordTask(task, recordId);
-      await recordTask.execute();
+      const outputFiles = await recordTask.execute();
+      const tmpGraph = `http://mu.semte.ch/graphs/tmp/${uuid()}`;
+      for (const outputFile of outputFiles) {
+        console.log(`Inserting content from ${outputFile} in ${tmpGraph}`);
+        await insertTriplesFromTtl(outputFile, tmpGraph);
+      }
       return res.status(204).send();
     } else {
       const error = new Error(`No task found with title '${title}'`);

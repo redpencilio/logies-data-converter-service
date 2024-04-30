@@ -164,8 +164,10 @@ class RecordTask {
 
       console.log('Output is written to:');
       outputFiles.forEach((file) => console.log(`- ${file}`));
+      return outputFiles;
     } else {
       console.log(`Cannot find record with ID '${this.recordId}' in ${this.parentTask.title}`);
+      return [];
     }
   }
 }
