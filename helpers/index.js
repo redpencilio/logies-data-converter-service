@@ -1,6 +1,9 @@
 import { lit } from 'rdflib';
 import { XSD } from '../mappers/prefixes';
 
+// Copied from https://github.com/rdfjs/N3.js/blob/main/src/N3Lexer.js#L16
+const illegalIriChars = /[\x00-\x20<>\\"\{\}\|\^\`]/;
+
 function hasAnyProp(record, properties) {
   return properties.find((prop) => record[prop] != null) != null;
 }
@@ -16,7 +19,7 @@ function litDateTime(date) {
 function isValidURL(value) {
   try {
     const url = new URL(value);
-    return true;
+    return illegalIriChars.test(value) ? false: true;
   } catch (e) {
     return false;
   }
