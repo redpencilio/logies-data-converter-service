@@ -1,4 +1,4 @@
-FROM semtech/mu-javascript-template:1.7.0
+FROM semtech/mu-javascript-template:1.8.0
 LABEL maintainer=info@redpencil.io
 
 ENV LOAD_EXTERNAL_SQL_SOURCES "true"
