@@ -1,14 +1,14 @@
-import fs from 'fs-extra';
 import { Parser } from 'n3';
+import { createReadStream } from 'node:fs';
 import { sparqlEscapeString, sparqlEscapeUri } from 'mu';
 import { BATCH_SIZE } from '../config/env';
 import { updateTriplestore } from './triplestore';
 
-async function parseTtl(file) {
+async function parseTtl(stream) {
   return (new Promise((resolve, reject) => {
     const parser = new Parser();
     const triples = [];
-    parser.parse(file, (error, triple) => {
+    parser.parse(stream, (error, triple) => {
       if (error) {
         reject(error);
       } else if (triple) {
@@ -21,8 +21,9 @@ async function parseTtl(file) {
 }
 
 async function insertTriplesFromTtl(ttlFile, graph) {
-  const ttl = await fs.readFile(ttlFile, 'utf8');
-  const triples = await parseTtl(ttl);
+  const ttlStream = createReadStream(ttlFile, { flag: 'r', encoding: 'utf8' });
+  const triples = await parseTtl(ttlStream);
+  ttlStream.close();
   const statements = triples.map(triple => toTripleStatement(triple));
   await insertStatements(statements, graph);
 }

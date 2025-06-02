@@ -1,11 +1,38 @@
 import { uuid, sparqlEscapeUri, sparqlEscapeDateTime, sparqlEscapeInt } from 'mu';
 import { querySudo as query, updateSudo as update } from '@lblod/mu-auth-sudo';
+import { createReadStream, createWriteStream } from 'node:fs';
+import { pipeline } from 'node:stream/promises';
 import fs from 'fs-extra';
 import fetch from 'node-fetch';
-import { DCAT_CATALOG, DCAT_DATASET_TYPE, PUBLIC_GRAPH, MAPPED_PUBLIC_GRAPH, MAPPED_PRIVATE_GRAPH_BASE, HOST_DOMAIN, OUTPUT_DIRECTORY, PUBLICATION_DIRECTORY, CACHE_CLEAR_PATH, PRIVATE_GROUPS } from './config/env';
+import { DCAT_DATASET_TYPE, PUBLIC_GRAPH, MAPPED_PUBLIC_GRAPH, MAPPED_PRIVATE_GRAPH_BASE, HOST_DOMAIN, OUTPUT_DIRECTORY, PUBLICATION_DIRECTORY, CACHE_CLEAR_PATH, PRIVATE_GROUPS } from './config/env';
 import uriGenerator from './helpers/uri-helpers';
 import { insertTriplesFromTtl } from './helpers/ttl-helpers';
 import { copyGraph, removeDiff, removeDuplicates, removeGraph } from './helpers/graph-helpers';
+
+async function mergeFiles(inputFiles, outputFile) {
+  const streams = inputFiles.map((file) => {
+    const stream = createReadStream(file, { flag: 'r', encoding: 'utf8' });
+    stream.on('end', () => {
+      console.log(`Finished reading stream ${stream.path} (${stream.bytesRead} bytes)`);
+    });
+    stream.on('error', (err) => {
+      console.log(`Read stream ${stream.path} error:`, err);
+    });
+
+    return stream;
+  });
+
+  for (const stream of streams) {
+    const writer = createWriteStream(outputFile, { flags: 'a' });
+    writer.on('finish', () => {
+      console.log(`Append to ${writer.path} (${writer.bytesWritten} bytes)`);
+    });
+    writer.on('error', (error) => { throw error; });
+    await pipeline(stream, writer);
+  }
+
+  console.log(`Merged all input files to ${outputFile}`);
+}
 
 async function publish(tasks) {
   const publicationFileId = uuid();
@@ -28,12 +55,9 @@ async function publish(tasks) {
 
     // Concatenating output of all tasks in 1 file
     const taskOutputs = tasks
-          .filter((task) => task.scopes.includes(scope))
-          .map((task) => task.outputFile(scope));
-    for (const taskOutput of taskOutputs) {
-      const output = await fs.readFile(taskOutput, 'utf8');
-      await fs.appendFile(graphs[scope].file, output, 'utf8');
-    }
+      .filter((task) => task.scopes.includes(scope))
+      .map((task) => task.outputFile(scope));
+    await mergeFiles(taskOutputs, graphs[scope].file);
 
     // Insert mapped data in tmp graph
     graphs[scope].source = `http://mu.semte.ch/graphs/tmp/${tmpGraphId}/${scope}`;

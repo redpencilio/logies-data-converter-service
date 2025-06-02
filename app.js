@@ -1,6 +1,5 @@
 import { CronJob } from 'cron';
 import { app, errorHandler, uuid } from 'mu';
-import fs from 'fs-extra';
 import loadSources from './data-sources';
 import publish from './publication';
 import { loadTasksFromConfig, RecordTask } from './task';
