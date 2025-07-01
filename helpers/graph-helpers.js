@@ -6,10 +6,10 @@ import { BATCH_SIZE } from '../config/env';
  * Copy all triples from source graph that don't exist in target graph yet
 */
 async function copyGraph(source, target, useDirect = false) {
-  const query = useDirect ? queryTriplestore : querySudo;
-  const update = useDirect ? updateTriplestore : updateSudo;
-
-  const queryResult = await query(`
+  if (useDirect) {
+    await updateTriplestore(`ADD GRAPH <${source}> TO GRAPH <${target}>`);
+  } else {
+    const queryResult = await querySudo(`
     SELECT (COUNT(*) as ?count) WHERE {
       GRAPH <${source}> { ?s ?p ?o . }
       FILTER NOT EXISTS {
@@ -17,20 +17,20 @@ async function copyGraph(source, target, useDirect = false) {
       }
     }`);
 
-  const count = parseInt(queryResult.results.bindings[0].count.value);
-  if (count) {
-    console.log(`${count} triples in graph <${source}> not found in target graph <${target}>. Going to copy these triples.`);
-    const limit = BATCH_SIZE;
-    const totalBatches = Math.ceil(count / limit);
-    console.log(`Copying ${count} triples in batches of ${BATCH_SIZE}`);
+    const count = parseInt(queryResult.results.bindings[0].count.value);
+    if (count) {
+      console.log(`${count} triples in graph <${source}> not found in target graph <${target}>. Going to copy these triples.`);
+      const limit = BATCH_SIZE;
+      const totalBatches = Math.ceil(count / limit);
+      console.log(`Copying ${count} triples in batches of ${BATCH_SIZE}`);
 
-    let currentBatch = 0;
-    while (currentBatch < totalBatches) {
-      // Note: no OFFSET needed in the subquery. Pagination is inherent since
-      // the WHERE clause doesn't match any longer for triples that are copied
-      // in the previous batch.
-      console.log(`Inserting batch ${currentBatch}/${totalBatches}`);
-      await update(`
+      let currentBatch = 0;
+      while (currentBatch < totalBatches) {
+        // Note: no OFFSET needed in the subquery. Pagination is inherent since
+        // the WHERE clause doesn't match any longer for triples that are copied
+        // in the previous batch.
+        console.log(`Inserting batch ${currentBatch}/${totalBatches}`);
+        await updateSudo(`
       INSERT {
         GRAPH <${target}> {
           ?s ?p ?o .
@@ -43,10 +43,11 @@ async function copyGraph(source, target, useDirect = false) {
           }
         } LIMIT ${limit}
       }`);
-      currentBatch++;
+        currentBatch++;
+      }
+    } else {
+      console.log(`No triples to copy from graph <${source}> to target graph <${target}> that aren't there yet.`);
     }
-  } else {
-    console.log(`No triples to copy from graph <${source}> to target graph <${target}> that aren't there yet.`);
   }
 }
 
@@ -144,14 +145,14 @@ async function removeDuplicates(source, target, useDirect = false) {
 }
 
 async function removeGraph(graph, useDirect = false) {
-  const query = useDirect ? queryTriplestore : querySudo;
-  const update = useDirect ? updateTriplestore : updateSudo;
-
-  const count = await countTriples(graph, useDirect);
-  if (count > 0) {
-    console.log(`Deleting 0/${count} triples`);
-    let offset = 0;
-    const deleteStatement = `
+  if (useDirect) {
+    await updateTriplestore(`DROP SILENT GRAPH <${graph}>`);
+  } else {
+    const count = await countTriples(graph, useDirect);
+    if (count > 0) {
+      console.log(`Deleting 0/${count} triples`);
+      let offset = 0;
+      const deleteStatement = `
       DELETE {
         GRAPH <${graph}> {
           ?subject ?predicate ?object .
@@ -166,10 +167,11 @@ async function removeGraph(graph, useDirect = false) {
       }
     `;
 
-    while (offset < count) {
-      console.log(`Deleting triples in batch: ${offset}-${offset + BATCH_SIZE}`);
-      await update(deleteStatement);
-      offset = offset + BATCH_SIZE;
+      while (offset < count) {
+        console.log(`Deleting triples in batch: ${offset}-${offset + BATCH_SIZE}`);
+        await updateSudo(deleteStatement);
+        offset = offset + BATCH_SIZE;
+      }
     }
   }
 }

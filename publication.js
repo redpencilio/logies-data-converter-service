@@ -75,9 +75,11 @@ async function publish(tasks) {
   for (const scope of Object.keys(graphs)) {
     // Cleanup previously published data
     // Remove all triples from target graph that aren't part of the mapping output anymore
+    console.log(`Cleanup previously published data for ${scope}`);
     await removeDiff(graphs[scope].source, graphs[scope].target);
 
     // Publish new data
+    console.log(`Publish new data for ${scope}`);
     await copyGraph(graphs[scope].source, graphs[scope].target, true);
 
     // Remove tmp graph
