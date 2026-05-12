@@ -113,6 +113,7 @@ function mapProductOwner(recordId, record, errorLogger, postfix = '') {
     const address = mapAddress(orgId, record, errorLogger, 'product_owner_', postfix);
     if (address) {
       contactStatements = [
+        ...contactStatements,
         new Statement(sym(contactPointUri), LOCN('address'), sym(address.uri)),
         ...address.statements,
       ];
@@ -198,6 +199,7 @@ function mapOfferingAgent(recordId, record, errorLogger, postfix = '') {
     const address = mapAddress(orgId, record, errorLogger, 'agent_', postfix);
     if (address) {
       contactStatements = [
+        ...contactStatements,
         new Statement(sym(contactPointUri), LOCN('address'), sym(address.uri)),
         ...address.statements,
       ];
