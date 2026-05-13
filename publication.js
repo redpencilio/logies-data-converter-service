@@ -175,10 +175,12 @@ async function publishDataset(physicalFileUuid) {
     console.log(`No previous dataset version found to unpublish`);
   }
 
-  const fileStats = fs.statSync(`/share/${physicalFileUuid}.ttl`);
+  const filePath = `/share/${physicalFileUuid}.ttl`
+  const fileStats = fs.statSync(filePath);
   const size = fileStats.size;
 
   // Insert new dataset with a TTL distribution
+  console.log(`Publishing new dataset <${datasetUri}> for file ${filePath}`);
   await update(`
     PREFIX mu: <http://mu.semte.ch/vocabularies/core/>
     PREFIX ext: <http://mu.semte.ch/vocabularies/ext/>
