@@ -1,4 +1,4 @@
-import { querySudo as query } from '@lblod/mu-auth-sudo';
+import { query } from 'mu';
 const pingDbInterval = process.env.PING_DB_INTERVAL || 2;
 
 const isDatabaseUp = async function() {
@@ -35,7 +35,7 @@ const sendDummyQuery = async function() {
         }
       }
       LIMIT 1
-    `);
+    `, { sudo: true });
   } catch (e) {
     throw new Error(e.toString());
   }
