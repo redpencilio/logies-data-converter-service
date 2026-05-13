@@ -1,5 +1,4 @@
-import { uuid, sparqlEscapeUri, sparqlEscapeDateTime, sparqlEscapeInt } from 'mu';
-import { querySudo as query, updateSudo as update } from '@lblod/mu-auth-sudo';
+import { uuid, query, update, sparqlEscapeUri, sparqlEscapeDateTime, sparqlEscapeInt } from 'mu';
 import { createReadStream, createWriteStream } from 'node:fs';
 import { pipeline } from 'node:stream/promises';
 import fs from 'fs-extra';
@@ -126,7 +125,7 @@ async function publishDataset(physicalFileUuid) {
         ?physicalFile nie:dataSource ?distribution .
       }
     } LIMIT 1
-  `);
+  `, { sudo: true });
 
   if (result.results.bindings.length) {
     const binding = result.results.bindings[0];
@@ -141,7 +140,7 @@ async function publishDataset(physicalFileUuid) {
           <${datasetUri}> prov:wasRevisionOf <${previousDataset}> .
         }
       }
-    `);
+    `, { sudo: true });
     await update(`
       PREFIX dcat: <http://www.w3.org/ns/dcat#>
       PREFIX dct:  <http://purl.org/dc/terms/>
@@ -167,7 +166,7 @@ async function publishDataset(physicalFileUuid) {
             nie:dataSource ?distribution ;
             ?p ?o .
         }
-      }`);
+      }`, { sudo: true });
 
     const distributionFile = binding['physicalFile'].value.replace('share://', '/share/');
     await fs.remove(distributionFile);
@@ -221,7 +220,7 @@ async function publishDataset(physicalFileUuid) {
           dct:created ${sparqlEscapeDateTime(now)} ;
           dct:modified ${sparqlEscapeDateTime(now)} .
       }
-    }`);
+    }`, { sudo: true });
 };
 
 async function clearCache() {

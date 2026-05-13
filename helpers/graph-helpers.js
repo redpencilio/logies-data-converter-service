@@ -1,4 +1,4 @@
-import { querySudo, updateSudo } from '@lblod/mu-auth-sudo';
+import { query as queryAuth, update as updateAuth } from 'mu';
 import { queryTriplestore, updateTriplestore } from './triplestore';
 import { BATCH_SIZE } from '../config/env';
 
@@ -9,13 +9,13 @@ async function copyGraph(source, target, useDirect = false) {
   if (useDirect) {
     await updateTriplestore(`ADD GRAPH <${source}> TO GRAPH <${target}>`);
   } else {
-    const queryResult = await querySudo(`
+    const queryResult = await queryAuth(`
     SELECT (COUNT(*) as ?count) WHERE {
       GRAPH <${source}> { ?s ?p ?o . }
       FILTER NOT EXISTS {
         GRAPH <${target}> { ?s ?p ?o . }
       }
-    }`);
+    }`, { sudo: true });
 
     const count = parseInt(queryResult.results.bindings[0].count.value);
     if (count) {
@@ -30,7 +30,7 @@ async function copyGraph(source, target, useDirect = false) {
         // the WHERE clause doesn't match any longer for triples that are copied
         // in the previous batch.
         console.log(`Inserting batch ${currentBatch}/${totalBatches}`);
-        await updateSudo(`
+        await updateAuth(`
       INSERT {
         GRAPH <${target}> {
           ?s ?p ?o .
@@ -42,7 +42,7 @@ async function copyGraph(source, target, useDirect = false) {
             GRAPH <${target}> { ?s ?p ?o . }
           }
         } LIMIT ${limit}
-      }`);
+      }`, { sudo: true });
         currentBatch++;
       }
     } else {
@@ -55,8 +55,8 @@ async function copyGraph(source, target, useDirect = false) {
  * Removes all triples from target graph that don't exist in source graph
 */
 async function removeDiff(source, target, useDirect = false) {
-  const query = useDirect ? queryTriplestore : querySudo;
-  const update = useDirect ? updateTriplestore : updateSudo;
+  const query = useDirect ? queryTriplestore : queryAuth;
+  const update = useDirect ? updateTriplestore : updateAuth;
 
   const queryResult = await query(`
     SELECT (COUNT(*) as ?count) WHERE {
@@ -64,7 +64,7 @@ async function removeDiff(source, target, useDirect = false) {
       FILTER NOT EXISTS {
         GRAPH <${source}> { ?s ?p ?o . }
       }
-    }`);
+    }`, { sudo: true });
 
   const count = parseInt(queryResult.results.bindings[0].count.value);
   if (count) {
@@ -91,7 +91,7 @@ async function removeDiff(source, target, useDirect = false) {
             GRAPH <${source}> { ?s ?p ?o . }
           }
         } LIMIT ${limit}
-      }`);
+      }`, { sudo: true });
       currentBatch++;
     }
   } else {
@@ -103,15 +103,15 @@ async function removeDiff(source, target, useDirect = false) {
  * Removes all triples from target graph that are also in source graph
 */
 async function removeDuplicates(source, target, useDirect = false) {
-  const query = useDirect ? queryTriplestore : querySudo;
-  const update = useDirect ? updateTriplestore : updateSudo;
+  const query = useDirect ? queryTriplestore : queryAuth;
+  const update = useDirect ? updateTriplestore : updateAuth;
 
   const queryResult = await query(`
     SELECT (COUNT(*) as ?count) WHERE {
       GRAPH <${source}> { ?s ?p ?o . }
       GRAPH <${target}> { ?s ?p ?o . }
       FILTER (<${source}> != <${target}>)
-    }`);
+    }`, { sudo: true });
 
   const count = parseInt(queryResult.results.bindings[0].count.value);
   if (count) {
@@ -136,7 +136,7 @@ async function removeDuplicates(source, target, useDirect = false) {
           GRAPH <${target}> { ?s ?p ?o . }
           FILTER (<${source}> != <${target}>)
         } LIMIT ${limit}
-      }`);
+      }`, { sudo: true });
       currentBatch++;
     }
   } else {
@@ -169,7 +169,7 @@ async function removeGraph(graph, useDirect = false) {
 
       while (offset < count) {
         console.log(`Deleting triples in batch: ${offset}-${offset + BATCH_SIZE}`);
-        await updateSudo(deleteStatement);
+        await updateAuth(deleteStatement, { sudo: true });
         offset = offset + BATCH_SIZE;
       }
     }
@@ -177,7 +177,7 @@ async function removeGraph(graph, useDirect = false) {
 }
 
 async function countTriples(graph, useDirect = false) {
-  const query = useDirect ? queryTriplestore : querySudo;
+  const query = useDirect ? queryTriplestore : queryAuth;
 
   const queryResult = await query(`
         SELECT (COUNT(*) as ?count)
@@ -186,7 +186,7 @@ async function countTriples(graph, useDirect = false) {
             ?s ?p ?o .
           }
         }
-      `);
+      `, { sudo: true });
 
   return parseInt(queryResult.results.bindings[0].count.value);
 }

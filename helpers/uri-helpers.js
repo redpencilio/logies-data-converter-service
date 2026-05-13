@@ -1,6 +1,5 @@
 import sha256 from 'js-sha256';
-import { uuid, sparqlEscapeUri, sparqlEscapeString } from 'mu';
-import { querySudo as query, updateSudo as update } from '@lblod/mu-auth-sudo';
+import { query, update, uuid, sparqlEscapeUri, sparqlEscapeString } from 'mu';
 import queue from 'queue';
 import { BATCH_SIZE, GENERATE_STABLE_URIS } from '../config/env';
 
@@ -58,7 +57,7 @@ class UriGenerator {
           ?s ?p ?o .
         }
       }
-    `);
+    `, { sudo: true });
 
     const count = parseInt(countResult.results.bindings[0].count.value);
     console.log(`Found ${count} URI mapping triples in graph <${URI_MAPPING_GRAPH}>. Going to load them in memory.`);
@@ -76,7 +75,7 @@ class UriGenerator {
             ?s ext:hasUuid ?muId ; ext:hasTvlId ?tvlId .
           }
         } LIMIT ${limit} OFFSET ${currentBatch * limit}
-      }`);
+      }`, { sudo: true });
       currentBatch++;
 
       for (let binding of result.results.bindings) {
@@ -98,7 +97,7 @@ class UriGenerator {
               ext:hasTvlId ${sparqlEscapeString(id)} .
         }
       }
-    `);
+    `, { sudo: true });
     } catch (ex) {
       console.log(`Failed to insert id mapping. Adding task to the queue again.`);
       this.queue.push(() => this.save(id, muId, uri));
