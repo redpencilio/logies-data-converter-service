@@ -30,6 +30,16 @@ export default function mapTouristAttractions(records, translations, errorLogger
       publicG.add(sym(attractionUri), SCHEMA('name'), lit(record['name'], 'nl'));
     }
 
+    const touristicRegion = mapTouristicRegion(recordId, record, errorLogger);
+    if (touristicRegion) {
+      publicG.add(sym(attractionUri), LOGIES('behoortTotToeristischeRegio'), sym(touristicRegion.uri));
+    }
+
+    const statsRegion = mapStatisticalRegion(recordId, record);
+    if (statsRegion) {
+      publicG.add(sym(attractionUri), TVL('belongsToStatisticalRegion'), sym(statsRegion.uri));
+    }
+
     let deleted;
     try {
       const modified = new Date(record['changed_time']);
@@ -89,16 +99,6 @@ export default function mapTouristAttractions(records, translations, errorLogger
       if (location) {
         publicG.add(sym(attractionUri), LOCN('geometry'), sym(location.uri));
         publicG.addAll(location.statements);
-      }
-
-      const touristicRegion = mapTouristicRegion(recordId, record, errorLogger);
-      if (touristicRegion) {
-        publicG.add(sym(attractionUri), LOGIES('behoortTotToeristischeRegio'), sym(touristicRegion.uri));
-      }
-
-      const statsRegion = mapStatisticalRegion(recordId, record);
-      if (statsRegion) {
-        publicG.add(sym(attractionUri), TVL('belongsToStatisticalRegion'), sym(statsRegion.uri));
       }
 
       const contactPoints = mapContactPoints(recordId, record, errorLogger);

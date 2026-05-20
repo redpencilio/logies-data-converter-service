@@ -55,6 +55,22 @@ export default function mapLodgings(records, translations, errorLogger) {
       publicG.add(sym(lodgingUri), SCHEMA('alternativeName'), lit(record['name_or_number'], 'nl'));
     }
 
+    const registrations = mapRegistrations(recordId, record, errorLogger);
+    registrations.forEach((registration) => {
+      publicG.add(sym(lodgingUri), LOGIES('heeftRegistratie'), sym(registration.uri));
+      publicG.addAll(registration.statements);
+    });
+
+    const touristicRegion = mapTouristicRegion(recordId, record, errorLogger);
+    if (touristicRegion) {
+      publicG.add(sym(lodgingUri), LOGIES('behoortTotToeristischeRegio'), sym(touristicRegion.uri));
+    }
+
+    const statsRegion = mapStatisticalRegion(recordId, record);
+    if (statsRegion) {
+      publicG.add(sym(lodgingUri), TVL('belongsToStatisticalRegion'), sym(statsRegion.uri));
+    }
+
     let deleted;
     try {
       const modified = new Date(record['changed_time']);
@@ -95,12 +111,6 @@ export default function mapLodgings(records, translations, errorLogger) {
         }
       }
 
-      const registrations = mapRegistrations(recordId, record, errorLogger);
-      registrations.forEach((registration) => {
-        publicG.add(sym(lodgingUri), LOGIES('heeftRegistratie'), sym(registration.uri));
-        publicG.addAll(registration.statements);
-      });
-
       const parentProducts = mapAlternateExploitations(recordId, record, errorLogger);
       parentProducts.forEach((parent) => {
         publicG.add(sym(parent.uri), LOGIES('heeftAlternatieveUitbating'), sym(lodgingUri));
@@ -118,16 +128,6 @@ export default function mapLodgings(records, translations, errorLogger) {
         publicG.add(sym(lodgingUri), LOCN('location'), sym(location.uri));
         publicG.add(sym(lodgingUri), LOGIES('onthaalLocatie'), sym(location.uri));
         publicG.addAll(location.statements);
-      }
-
-      const touristicRegion = mapTouristicRegion(recordId, record, errorLogger);
-      if (touristicRegion) {
-        publicG.add(sym(lodgingUri), LOGIES('behoortTotToeristischeRegio'), sym(touristicRegion.uri));
-      }
-
-      const statsRegion = mapStatisticalRegion(recordId, record);
-      if (statsRegion) {
-        publicG.add(sym(lodgingUri), TVL('belongsToStatisticalRegion'), sym(statsRegion.uri));
       }
 
       const contactPoints = mapContactPoints(recordId, record, errorLogger);
