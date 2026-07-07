@@ -1,7 +1,7 @@
 import { sym, lit, Statement } from 'rdflib';
 import uriGenerator from '../helpers/uri-helpers';
 import { hasAnyProp, hasEveryProp } from '../helpers';
-import { ADRES, GEOSPARQL, LOCN, MU, RDF, SCHEMA, WGS } from './prefixes';
+import { ADRES, GEOSPARQL, LOCN, MU, RDF, WGS } from './prefixes';
 import { touristicRegionMap, provinces } from './codelists';
 
 function mapAddress(recordId, record, errorLogger, field_prefix = '', field_postfix = '') {
@@ -36,9 +36,9 @@ function mapAddress(recordId, record, errorLogger, field_prefix = '', field_post
       statements.push(new Statement(sym(addressUri), ADRES('gemeentenaam'), lit(record[`${field_prefix}city_name${field_postfix}`], 'nl')));
     }
 
-    // if (record[`${field_prefix}main_city_name${field_postfix}`]) {
-    //   statements.push(new Statement(sym(addressUri), ADRES('gemeentenaam'), lit(record[`${field_prefix}main_city_name${field_postfix}`], 'nl')));
-    // }
+    if (record[`${field_prefix}main_city_name${field_postfix}`]) {
+      statements.push(new Statement(sym(addressUri), LOCN('postName'), lit(record[`${field_prefix}main_city_name${field_postfix}`], 'nl')));
+    }
 
     if (record[`${field_prefix}province${field_postfix}`]) {
       const field = `${field_prefix}province${field_postfix}`;
