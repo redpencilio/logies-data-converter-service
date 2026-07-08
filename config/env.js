@@ -1,11 +1,11 @@
-const MAPPED_PUBLIC_GRAPH = 'http://mu.semte.ch/graphs/mapped/public';
-const MAPPED_PRIVATE_GRAPH_BASE = 'http://mu.semte.ch/graphs/mapped/private/';
+const MAPPED_PUBLIC_GRAPH = process.env.MAPPED_PUBLIC_GRAPH || 'http://mu.semte.ch/graphs/mapped/public';
+const MAPPED_PRIVATE_GRAPH_BASE = process.env.MAPPED_PRIVATE_GRAPH_BASE || 'http://mu.semte.ch/graphs/mapped/private/';
 const PRIVATE_GROUPS = ['fod-economy', 'tva', 'province-flemish-brabant', 'province-east-flanders', 'province-west-flanders', 'province-antwerp', 'province-limburg'];
-const PUBLIC_GRAPH = 'http://mu.semte.ch/graphs/public';
-const HOST_DOMAIN = 'https://linked.toerismevlaanderen.be';
+const PUBLIC_GRAPH = process.env.PUBLIC_GRAPH || 'http://mu.semte.ch/graphs/public';
+const HOST_DOMAIN = process.env.HOST_DOMAIN || 'https://linked.toerismevlaanderen.be';
 
-const DCAT_CATALOG = 'http://linked.toerismevlaanderen.be/id/catalogs/c62b30ce-7486-4199-a177-def7e1772a53';
-const DCAT_DATASET_TYPE = 'http://linked.toerismevlaanderen.be/id/dataset-types/ca82a1e3-8a7c-438e-ba37-cf36063ba060';
+const DCAT_CATALOG = process.env.DCAT_CATALOG || 'http://linked.toerismevlaanderen.be/id/catalogs/c62b30ce-7486-4199-a177-def7e1772a53';
+const DCAT_DATASET_TYPE = process.env.DCAT_DATASET_TYPE || 'http://linked.toerismevlaanderen.be/id/dataset-types/ca82a1e3-8a7c-438e-ba37-cf36063ba060';
 
 const INPUT_DIRECTORY = process.env.INPUT_DIRECTORY || '/input';
 const OUTPUT_DIRECTORY = process.env.OUTPUT_DIRECTORY || '/output';
