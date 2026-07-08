@@ -1,7 +1,7 @@
 {
   "name": "logies-data-converter-service",
   "type": "module",
-  "version": "1.7.0",
+  "version": "1.7.1",
   "description": "Microservice to transform the Logies data of Toerisme Vlaanderen to the semantic Logies model as described by the Logies Basis application profile",
   "dependencies": {
     "cron": "^1.6.0",
